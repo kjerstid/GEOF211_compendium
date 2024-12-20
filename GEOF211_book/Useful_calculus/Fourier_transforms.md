@@ -194,9 +194,8 @@ plt.show()
 
 ```
 
-# Here is my script Kjersti! 
+# Bonus example code for visualisation of the Fourier components! 
 
-I will write a description, but you are welcome to change it or move it to another place in the book (or make any changes to make it fit into the book)!
 
 The figure below shows three major parts of the Fourier series:
 1) The Fourier components corresponding to how much an individual wave of a given wave number contributes to the signal
