@@ -159,7 +159,7 @@ plt.title("Fourier Transform of superposition wave")
 
 ```
 
-# Gibbs phenomenon
+## Gibbs phenomenon
 In practice, we typically cannot include an infinite number of terms in the Fourier series to represent a signal. using a limited number of components works fine for continuous signals, but will produce errors (overshoots and undershoots) near discontinuities and areas wih strong gradients. This is called the Gibbs phenomenon.
 
 ```{code-cell} ipython3
