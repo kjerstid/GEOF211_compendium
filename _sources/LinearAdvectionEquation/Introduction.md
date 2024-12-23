@@ -1,4 +1,4 @@
-(linearadvection:intro)=
+(linearadvection:Introduction)=
 # The linear advection equation
 
 The linear advection equation is a first order partial differential equation that represents, in a simple form, the process of advection in the atmosphere and ocean. The equation

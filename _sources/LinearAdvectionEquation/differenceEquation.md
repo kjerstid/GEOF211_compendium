@@ -1,3 +1,4 @@
+(LinearAdvectionEquation:differenceEquation)=
 # The difference equation
 
 We are going to solve equation {eq}`eq:Advection` numerically on discretized time and space. The discretizations are:

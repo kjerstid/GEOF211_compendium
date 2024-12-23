@@ -1,9 +1,10 @@
+(LinearAdvectionEquation:analyticSolution)=
 # The exact equation
 
 The analytic (exact) solution of {eq}`eq:Advection` can be obtained by the method of the separation of variables. We shall assume an initial condition in the form of a simple wave:
 
 ```{margin} Euler's formula
-Euler's formula 
+Euler's formula: 
 
 $$
 e^{i\theta}=\cos \theta + i\sin \theta.
