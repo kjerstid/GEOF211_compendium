@@ -57,8 +57,6 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'Useful_calculus/Euler_Formula';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -430,57 +428,50 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="the-euler-formula">
+  <section id="the-euler-formula">
 <span id="useful-calculus-euler-formula"></span><h1><span class="section-number">1.5. </span>The Euler formula<a class="headerlink" href="#the-euler-formula" title="Link to this heading">#</a></h1>
 <section id="eulers-identity">
 <h2><span class="section-number">1.5.1. </span>Eulers identity<a class="headerlink" href="#eulers-identity" title="Link to this heading">#</a></h2>
-<div class="math notranslate nohighlight" id="equation-eq-euler-identity">
-<span class="eqno">(1.21)<a class="headerlink" href="#equation-eq-euler-identity" title="Link to this equation">#</a></span>\[
+<p>$$
 e^{i\pi}+1=0
-\]</div>
+$$ (eq:Euler_identity)</p>
 </section>
 <section id="eulers-formula">
 <h2><span class="section-number">1.5.2. </span>Eulers formula<a class="headerlink" href="#eulers-formula" title="Link to this heading">#</a></h2>
-<div class="math notranslate nohighlight" id="equation-eq-euler">
-<span class="eqno">(1.22)<a class="headerlink" href="#equation-eq-euler" title="Link to this equation">#</a></span>\[
+<p>$$
 e^{ix}=\cos x+i\sin x
-\]</div>
+$$ (eq:Euler)</p>
 </section>
 <section id="cosine-exponential-form">
 <h2><span class="section-number">1.5.3. </span>Cosine exponential form<a class="headerlink" href="#cosine-exponential-form" title="Link to this heading">#</a></h2>
-<div class="math notranslate nohighlight" id="equation-eq-euler-cos">
-<span class="eqno">(1.23)<a class="headerlink" href="#equation-eq-euler-cos" title="Link to this equation">#</a></span>\[
+<p>$$
 \frac{e^{ix}+e^{-ix}}{2}=\cos x
-\]</div>
+$$ (eq:Euler_cos)</p>
 </section>
 <section id="sine-exponential-form">
 <h2><span class="section-number">1.5.4. </span>Sine exponential form<a class="headerlink" href="#sine-exponential-form" title="Link to this heading">#</a></h2>
-<div class="math notranslate nohighlight" id="equation-eq-euler-sin">
-<span class="eqno">(1.24)<a class="headerlink" href="#equation-eq-euler-sin" title="Link to this equation">#</a></span>\[
+<p>$$
 \frac{e^{ix}-e^{-ix}}{2i}=\sin x
-\]</div>
+$$ (eq:Euler_sin)</p>
 </section>
 <section id="tangent-exponential-form">
 <h2><span class="section-number">1.5.5. </span>Tangent exponential form<a class="headerlink" href="#tangent-exponential-form" title="Link to this heading">#</a></h2>
-<div class="math notranslate nohighlight" id="equation-eq-euler-tan">
-<span class="eqno">(1.25)<a class="headerlink" href="#equation-eq-euler-tan" title="Link to this equation">#</a></span>\[
+<p>$$
 \frac{e^{ix}-e^{-ix}}{i(e^{ix}+e^{-1x})}=\tan x
-\]</div>
+$$ (eq:Euler_tan)</p>
 </section>
 <section id="complex-exponential">
 <h2><span class="section-number">1.5.6. </span>Complex exponential<a class="headerlink" href="#complex-exponential" title="Link to this heading">#</a></h2>
-<div class="math notranslate nohighlight" id="equation-eq-euler-complex-exp">
-<span class="eqno">(1.26)<a class="headerlink" href="#equation-eq-euler-complex-exp" title="Link to this equation">#</a></span>\[
+<p>$$
 e^{x+iy}=e^x(\cos y+i\sin y)
-\]</div>
+$$ (eq:Euler_complex_exp)</p>
 </section>
 <section id="de-moivre-s-theorem">
 <h2><span class="section-number">1.5.7. </span>de Moivre’s theorem<a class="headerlink" href="#de-moivre-s-theorem" title="Link to this heading">#</a></h2>
-<div class="math notranslate nohighlight" id="equation-eq-euler-sine-add">
-<span class="eqno">(1.27)<a class="headerlink" href="#equation-eq-euler-sine-add" title="Link to this equation">#</a></span>\[
+<p>$$
 (\cos x+i\sin x)^n=\cos nx+i\sin nx
-\]</div>
-<p>You can read more about this in <span id="id1">Adams and Essex [<a class="reference internal" href="Fourier_transforms.html#id3" title="Robert A Adams and Christopher Essex. Calculus: a complete course. Pearson, 2018.">AE18</a>]</span>.</p>
+$$ (eq:Euler_sine_add)</p>
+<p>You can read more about this in <span id="id1">Adams and Essex [<a class="reference internal" href="../markdown.html#id3" title="Robert A Adams and Christopher Essex. Calculus: a complete course. Pearson, 2018.">AE18</a>]</span>.</p>
 </section>
 </section>
 

@@ -57,8 +57,6 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'Useful_calculus/Trigonometry';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -187,7 +185,8 @@
 
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">1.3. Trigonometry</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Complex_numbers.html">1.4. Complex numbers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Fourier_transforms.html">1.5. Fourier transforms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Euler_Formula.html">1.5. The Euler formula</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Fourier_transforms.html">1.6. Fourier transforms</a></li>
 
 </ul>
 </details></li>
@@ -202,6 +201,18 @@
 <li class="toctree-l2"><a class="reference internal" href="../FiniteDifferences/estimatesTruncationError.html">3.3. Estimates of the truncation error</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../FiniteDifferences/fdFormulasFirstDerivative.html">3.4. Finite difference formulas for the 1st derivative</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../FiniteDifferences/evaluatingTruncationError.html">3.5. Evaluating the truncation error</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../LinearAdvectionEquation/Introduction.html">4. The linear advection equation</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../LinearAdvectionEquation/analyticSolution.html">4.1. The exact equation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../LinearAdvectionEquation/differenceEquation.html">4.2. The difference equation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../LinearAdvectionEquation/differenceSolution.html">4.3. Solution of the difference equation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../LinearAdvectionEquation/Analysis.html">4.4. Analysis of the solution of the difference equation</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../NumericalStability/Introduction.html">5. Stability of numerical schemes</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../NumericalStability/consistencyConvergenceStability.html">5.1. Consistency, convergence and stability</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../NumericalStability/vonNeumannStability.html">5.2. Von Neumann Stability Analysis</a></li>
 </ul>
 </details></li>
 </ul>
@@ -425,126 +436,111 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="trigonometry">
+  <section id="trigonometry">
 <span id="useful-calculus-trigonometry"></span><h1><span class="section-number">1.3. </span>Trigonometry<a class="headerlink" href="#trigonometry" title="Link to this heading">#</a></h1>
 <section id="pythagorean-indentity">
 <h2><span class="section-number">1.3.1. </span>Pythagorean indentity:<a class="headerlink" href="#pythagorean-indentity" title="Link to this heading">#</a></h2>
-<div class="math notranslate nohighlight" id="equation-eq-trig-pythagoras">
-<span class="eqno">(1.5)<a class="headerlink" href="#equation-eq-trig-pythagoras" title="Link to this equation">#</a></span>\[
+<p>$$
 \sin^2 x+\cos^2 x=1
-\]</div>
+$$ (eq:Trig_pythagoras)</p>
 </section>
 <section id="sine-and-cosine-additive-identities">
 <h2><span class="section-number">1.3.2. </span>Sine and cosine additive identities<a class="headerlink" href="#sine-and-cosine-additive-identities" title="Link to this heading">#</a></h2>
-<div class="math notranslate nohighlight" id="equation-eq-trig-sine-add">
-<span class="eqno">(1.6)<a class="headerlink" href="#equation-eq-trig-sine-add" title="Link to this equation">#</a></span>\[
+<p>$$
 \sin(x+y)=\sin x\cos y+\cos x\sin y
-\]</div>
-<div class="math notranslate nohighlight" id="equation-eq-trig-cos-add">
-<span class="eqno">(1.7)<a class="headerlink" href="#equation-eq-trig-cos-add" title="Link to this equation">#</a></span>\[
+$$ (eq:Trig_sine_add)</p>
+<p>$$
 \cos(x+y)=\cos x\cos y-\sin x\sin y
-\]</div>
+$$ (eq:Trig_cos_add)</p>
 </section>
 <section id="double-angle-formulas">
 <h2><span class="section-number">1.3.3. </span>Double angle formulas:<a class="headerlink" href="#double-angle-formulas" title="Link to this heading">#</a></h2>
-<div class="math notranslate nohighlight" id="equation-eq-trig-sine-double">
-<span class="eqno">(1.8)<a class="headerlink" href="#equation-eq-trig-sine-double" title="Link to this equation">#</a></span>\[
+<p>$$
 \sin(2x)=2\sin x\cos x
-\]</div>
-<div class="math notranslate nohighlight" id="equation-eq-trig-cosine-double">
-<span class="eqno">(1.9)<a class="headerlink" href="#equation-eq-trig-cosine-double" title="Link to this equation">#</a></span>\[
+$$ (eq:Trig_sine_double)</p>
+<p>$$
 \cos(2x)=\cos^2 x-\sin^2 x=2cos^2 x-1=1-2\sin^2x
-\]</div>
+$$ (eq:Trig_cosine_double)</p>
 </section>
 <section id="half-angle-formulas">
 <h2><span class="section-number">1.3.4. </span>Half angle formulas:<a class="headerlink" href="#half-angle-formulas" title="Link to this heading">#</a></h2>
-<div class="math notranslate nohighlight" id="equation-eq-trig-sine-half">
-<span class="eqno">(1.10)<a class="headerlink" href="#equation-eq-trig-sine-half" title="Link to this equation">#</a></span>\[
+<p>$$
 \sin(\frac{x}{2})=\pm \sqrt{\frac{1-\cos x}{2}}
-\]</div>
-<div class="math notranslate nohighlight" id="equation-eq-trig-cosine-half">
-<span class="eqno">(1.11)<a class="headerlink" href="#equation-eq-trig-cosine-half" title="Link to this equation">#</a></span>\[
+$$ (eq:Trig_sine_half)</p>
+<p>$$
 \cos(\frac{x}{2})=\pm \sqrt{\frac{1+\cos x}{2}}
-\]</div>
+$$ (eq:Trig_cosine_half)</p>
 </section>
 <section id="complex-numbers">
 <h2><span class="section-number">1.3.5. </span>Complex numbers<a class="headerlink" href="#complex-numbers" title="Link to this heading">#</a></h2>
-<p>The imaginary unit, <span class="math notranslate nohighlight">\(i\)</span> is defined as:
-$<span class="math notranslate nohighlight">\(
+<p>The imaginary unit, $i$ is defined as:
+$$
 i=\sqrt{-1}
-\)</span>$ (eq:Complex_i)</p>
+$$ (eq:Complex_i)</p>
 <p>A complex number is and expression of the form:</p>
-<div class="math notranslate nohighlight" id="equation-eq-complex-def">
-<span class="eqno">(1.12)<a class="headerlink" href="#equation-eq-complex-def" title="Link to this equation">#</a></span>\[
+<p>$$
 z=x+iy
-\]</div>
+$$ (eq:Complex_def)</p>
 <p>The distance from origo, the the point (x,y) in the complex plane is called the modulus and is defined as:
-$<span class="math notranslate nohighlight">\(
+$$
 |z|=\sqrt{x^2+y^2}
-\)</span>$ (eq:Complex_modulus)</p>
+$$ (eq:Complex_modulus)</p>
 <p>The norm of a complex  number (equivalent of the vector length in the complex plane) is:
-$<span class="math notranslate nohighlight">\(
+$$
 |z|^2=x^2+y^2
-\)</span>$ (eq:Complex_norm_squared)</p>
-<p>The modulus of a product of two complex numbers <span class="math notranslate nohighlight">\(z\)</span> and <span class="math notranslate nohighlight">\(w\)</span> is:
-$<span class="math notranslate nohighlight">\(
+$$ (eq:Complex_norm_squared)</p>
+<p>The modulus of a product of two complex numbers $z$ and $w$ is:
+$$
 |zw|=|z||w|
-\)</span>$ (eq:Complex_modulus_product)</p>
+$$ (eq:Complex_modulus_product)</p>
 <p>The modulus of the sum of two complex numbers, also called “The triangle inequality” is defined:
-$<span class="math notranslate nohighlight">\(
+$$
 |z+w|&lt;|z|+|w|
-\)</span>$ (eq:Complex_triangle_identity)</p>
+$$ (eq:Complex_triangle_identity)</p>
 </section>
 <section id="the-euler-formula-and-modifications">
 <h2><span class="section-number">1.3.6. </span>The Euler formula and modifications<a class="headerlink" href="#the-euler-formula-and-modifications" title="Link to this heading">#</a></h2>
 <section id="eulers-identity">
 <h3><span class="section-number">1.3.6.1. </span>Eulers identity<a class="headerlink" href="#eulers-identity" title="Link to this heading">#</a></h3>
-<div class="math notranslate nohighlight" id="equation-eq-euler-identity">
-<span class="eqno">(1.13)<a class="headerlink" href="#equation-eq-euler-identity" title="Link to this equation">#</a></span>\[
+<p>$$
 e^{i\pi}+1=0
-\]</div>
+$$ (eq:Euler_identity)</p>
 </section>
 <section id="eulers-formula">
 <h3><span class="section-number">1.3.6.2. </span>Eulers formula<a class="headerlink" href="#eulers-formula" title="Link to this heading">#</a></h3>
-<div class="math notranslate nohighlight" id="equation-eq-euler">
-<span class="eqno">(1.14)<a class="headerlink" href="#equation-eq-euler" title="Link to this equation">#</a></span>\[
+<p>$$
 e^{ix}=\cos x+i\sin x
-\]</div>
+$$ (eq:Euler)</p>
 </section>
 <section id="cosine-exponential-form">
 <h3><span class="section-number">1.3.6.3. </span>Cosine exponential form<a class="headerlink" href="#cosine-exponential-form" title="Link to this heading">#</a></h3>
-<div class="math notranslate nohighlight" id="equation-eq-euler-cos">
-<span class="eqno">(1.15)<a class="headerlink" href="#equation-eq-euler-cos" title="Link to this equation">#</a></span>\[
+<p>$$
 \frac{e^{ix}+e^{-ix}}{2}=\cos x
-\]</div>
+$$ (eq:Euler_cos)</p>
 </section>
 <section id="sine-exponential-form">
 <h3><span class="section-number">1.3.6.4. </span>Sine exponential form<a class="headerlink" href="#sine-exponential-form" title="Link to this heading">#</a></h3>
-<div class="math notranslate nohighlight" id="equation-eq-euler-sin">
-<span class="eqno">(1.16)<a class="headerlink" href="#equation-eq-euler-sin" title="Link to this equation">#</a></span>\[
+<p>$$
 \frac{e^{ix}-e^{-ix}}{2i}=\sin x
-\]</div>
+$$ (eq:Euler_sin)</p>
 </section>
 <section id="tangent-exponential-form">
 <h3><span class="section-number">1.3.6.5. </span>Tangent exponential form<a class="headerlink" href="#tangent-exponential-form" title="Link to this heading">#</a></h3>
-<div class="math notranslate nohighlight" id="equation-eq-euler-tan">
-<span class="eqno">(1.17)<a class="headerlink" href="#equation-eq-euler-tan" title="Link to this equation">#</a></span>\[
+<p>$$
 \frac{e^{ix}-e^{-ix}}{i(e^{ix}+e^{-1x})}=\tan x
-\]</div>
+$$ (eq:Euler_tan)</p>
 </section>
 <section id="complex-exponential">
 <h3><span class="section-number">1.3.6.6. </span>Complex exponential<a class="headerlink" href="#complex-exponential" title="Link to this heading">#</a></h3>
-<div class="math notranslate nohighlight" id="equation-eq-euler-complex-exp">
-<span class="eqno">(1.18)<a class="headerlink" href="#equation-eq-euler-complex-exp" title="Link to this equation">#</a></span>\[
+<p>$$
 e^{x+iy}=e^x(\cos y+i\sin y)
-\]</div>
+$$ (eq:Euler_complex_exp)</p>
 </section>
 <section id="de-moivre-s-theorem">
 <h3><span class="section-number">1.3.6.7. </span>de Moivre’s theorem<a class="headerlink" href="#de-moivre-s-theorem" title="Link to this heading">#</a></h3>
-<div class="math notranslate nohighlight" id="equation-eq-euler-sine-add">
-<span class="eqno">(1.19)<a class="headerlink" href="#equation-eq-euler-sine-add" title="Link to this equation">#</a></span>\[
+<p>$$
 (\cos x+i\sin x)^n=\cos nx+i\sin nx
-\]</div>
+$$ (eq:Euler_sine_add)</p>
 <p>You can read more about trigonometry in <span id="id1">Adams and Essex [<a class="reference internal" href="../markdown.html#id3" title="Robert A Adams and Christopher Essex. Calculus: a complete course. Pearson, 2018.">AE18</a>]</span>, chapter P.6.</p>
 </section>
 </section>

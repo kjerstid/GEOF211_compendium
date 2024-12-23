@@ -57,8 +57,7 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'FiniteDifferences/fdFormulasFirstDerivative';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -187,7 +186,8 @@
 
 <li class="toctree-l2"><a class="reference internal" href="../Useful_calculus/Trigonometry.html">1.3. Trigonometry</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Useful_calculus/Complex_numbers.html">1.4. Complex numbers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Useful_calculus/Fourier_transforms.html">1.5. Fourier transforms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Useful_calculus/Euler_Formula.html">1.5. The Euler formula</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Useful_calculus/Fourier_transforms.html">1.6. Fourier transforms</a></li>
 
 </ul>
 </details></li>
@@ -209,6 +209,11 @@
 <li class="toctree-l2"><a class="reference internal" href="../LinearAdvectionEquation/differenceEquation.html">4.2. The difference equation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../LinearAdvectionEquation/differenceSolution.html">4.3. Solution of the difference equation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../LinearAdvectionEquation/Analysis.html">4.4. Analysis of the solution of the difference equation</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../NumericalStability/Introduction.html">5. Stability of numerical schemes</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../NumericalStability/consistencyConvergenceStability.html">5.1. Consistency, convergence and stability</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../NumericalStability/vonNeumannStability.html">5.2. Von Neumann Stability Analysis</a></li>
 </ul>
 </details></li>
 </ul>
@@ -424,147 +429,133 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="finite-difference-formulas-for-the-1st-derivative">
+  <section id="finite-difference-formulas-for-the-1st-derivative">
 <span id="finite-differences-formulas-1stderivative"></span><h1><span class="section-number">3.4. </span>Finite difference formulas for the 1st derivative<a class="headerlink" href="#finite-difference-formulas-for-the-1st-derivative" title="Link to this heading">#</a></h1>
 <section id="first-order-formulas">
 <span id="finite-differences-formulas-1stderivative-1storder"></span><h2><span class="section-number">3.4.1. </span>First order formulas<a class="headerlink" href="#first-order-formulas" title="Link to this heading">#</a></h2>
 <p>Finite difference formulas are just finite difference approximations, disregarding the truncation error.
 We can use Taylor series expansions to obtain several lower order finite difference formulas.</p>
-<p>We typically start from equation <a class="reference internal" href="truncationErrors.html#equation-eq-taylorseries-v1">(3.4)</a>, repeated here:</p>
-<div class="math notranslate nohighlight">
-\[
-u(t)=u^n+\frac{u'(t^n)}{1!}(t-t^n)+\frac{u''(t^n)}{2!}(t-t^n)^2+\sum_{p=3}^{\infty}\frac{u^{(p)}(t^n)}{p!}(t-t^n)^p
-\]</div>
+<p>We typically start from equation <code class="xref eq docutils literal notranslate"><span class="pre">eq:taylorSeries_v1</span></code>, repeated here:</p>
+<p>$$
+u(t)=u^n+\frac{u’(t^n)}{1!}(t-t^n)+\frac{u’’(t^n)}{2!}(t-t^n)^2+\sum_{p=3}^{\infty}\frac{u^{(p)}(t^n)}{p!}(t-t^n)^p
+$$</p>
 <section id="forwardward-difference-formula">
 <h3><span class="section-number">3.4.1.1. </span>Forwardward difference formula<a class="headerlink" href="#forwardward-difference-formula" title="Link to this heading">#</a></h3>
-<p>From <a class="reference internal" href="truncationErrors.html#equation-eq-fdexpansion">(3.6)</a>, we have</p>
-<div class="math notranslate nohighlight" id="equation-eq-formulaforward">
-<span class="eqno">(3.12)<a class="headerlink" href="#equation-eq-formulaforward" title="Link to this equation">#</a></span>\[
+<p>From <code class="xref eq docutils literal notranslate"><span class="pre">eq:fdExpansion</span></code>, we have</p>
+<p>$$
 \frac{du}{dt}=\frac{u^{n+1}-u^n}{\Delta t}+O(\Delta t).
-\]</div>
-<p>Formula <a class="reference internal" href="#equation-eq-formulaforward">(3.12)</a> is called a <em>forward</em> difference formula because it uses the <span class="math notranslate nohighlight">\(u^n\)</span> and the <span class="math notranslate nohighlight">\(u^{n+1}\)</span> values, and it is a first order formula because the truncation error is of <span class="math notranslate nohighlight">\(O(\Delta t)\)</span>. The leading term of the truncation error is usually written with the formula to indicate its order of approximation.</p>
+$$ (eq:formulaForward)</p>
+<p>Formula <code class="xref eq docutils literal notranslate"><span class="pre">eq:formulaForward</span></code> is called a <em>forward</em> difference formula because it uses the $u^n$ and the $u^{n+1}$ values, and it is a first order formula because the truncation error is of $O(\Delta t)$. The leading term of the truncation error is usually written with the formula to indicate its order of approximation.</p>
 </section>
 <section id="backward-difference-formula">
 <h3><span class="section-number">3.4.1.2. </span>Backward difference formula<a class="headerlink" href="#backward-difference-formula" title="Link to this heading">#</a></h3>
-<p>To achieve a backward Taylor series, we let <span class="math notranslate nohighlight">\(t=t^{n-1}\)</span> and insert into <a class="reference internal" href="truncationErrors.html#equation-eq-taylorseries-v1">(3.4)</a>:</p>
-<div class="math notranslate nohighlight" id="equation-eq-backward-taylorseries-a">
-<span class="eqno">(3.13)<a class="headerlink" href="#equation-eq-backward-taylorseries-a" title="Link to this equation">#</a></span>\[
-u^{n-1}=u^n+(t^{n-1}-t^{n})\frac{du}{dt}|_{t^n}+\frac{(t^{n-1}-t^{n})}{2!}\frac{d^2u}{dt^2}|_{t^n}+\sum_{p=3}^{\infty}\frac{(t^{n-1}-t^{n})^p}{p!}\frac{d^{(p)}u}{dt^p}|_{t^n}
-\]</div>
-<p>We note that <span class="math notranslate nohighlight">\(t^{n-1}-t^{n}=-\Delta t\)</span> and replace these terms:</p>
-<div class="math notranslate nohighlight" id="equation-eq-backward-taylorseries-b">
-<span class="eqno">(3.14)<a class="headerlink" href="#equation-eq-backward-taylorseries-b" title="Link to this equation">#</a></span>\[
-u^{n-1}=u^n+(-\Delta t)\frac{du}{dt}|_{t^n}+\frac{(-\Delta t)^2}{2!}\frac{d^2u}{dt^2}|_{t^n}+\sum_{p=3}^{\infty}\frac{(-\Delta t)^p}{p!}\frac{d^{(p)}u}{dt^p}|_{t^n}
-\]</div>
-<p>We can now adjust the signs from <span class="math notranslate nohighlight">\(\Delta t\)</span> to get:</p>
-<div class="math notranslate nohighlight" id="equation-eq-backward-taylorseries-c">
-<span class="eqno">(3.15)<a class="headerlink" href="#equation-eq-backward-taylorseries-c" title="Link to this equation">#</a></span>\[
-u^{n-1}=u^n-\Delta t\frac{du}{dt}|_{t^n}+\frac{(\Delta t)^2}{2!}\frac{d^2u}{dt^2}|_{t^n}+\sum_{p=3}^{\infty}\frac{(-\Delta t)^p}{p!}\frac{d^{(p)}u}{dt^p}|_{t^n}
-\]</div>
-<p>We finally rearrange the terms to isolate <span class="math notranslate nohighlight">\(\frac{du}{dt}\)</span> and obtain the <em>backward</em> difference formula for the 1st derivative:</p>
-<div class="math notranslate nohighlight" id="equation-eq-formulabackward">
-<span class="eqno">(3.16)<a class="headerlink" href="#equation-eq-formulabackward" title="Link to this equation">#</a></span>\[
+<p>To achieve a backward Taylor series, we let $t=t^{n-1}$ and insert into <code class="xref eq docutils literal notranslate"><span class="pre">eq:taylorSeries_v1</span></code>:</p>
+<p>$$
+u^{n-1}=u^n+(t^{n-1}-t^{n})\frac{du}{dt}|<em>{t^n}+\frac{(t^{n-1}-t^{n})}{2!}\frac{d^2u}{dt^2}|</em>{t^n}+\sum_{p=3}^{\infty}\frac{(t^{n-1}-t^{n})^p}{p!}\frac{d^{(p)}u}{dt^p}|_{t^n}
+$$ (eq:backward_taylorSeries_a)</p>
+<p>We note that $t^{n-1}-t^{n}=-\Delta t$ and replace these terms:</p>
+<p>$$
+u^{n-1}=u^n+(-\Delta t)\frac{du}{dt}|<em>{t^n}+\frac{(-\Delta t)^2}{2!}\frac{d^2u}{dt^2}|</em>{t^n}+\sum_{p=3}^{\infty}\frac{(-\Delta t)^p}{p!}\frac{d^{(p)}u}{dt^p}|_{t^n}
+$$ (eq:backward_taylorSeries_b)</p>
+<p>We can now adjust the signs from $\Delta t$ to get:</p>
+<p>$$
+u^{n-1}=u^n-\Delta t\frac{du}{dt}|<em>{t^n}+\frac{(\Delta t)^2}{2!}\frac{d^2u}{dt^2}|</em>{t^n}+\sum_{p=3}^{\infty}\frac{(-\Delta t)^p}{p!}\frac{d^{(p)}u}{dt^p}|_{t^n}
+$$ (eq:backward_taylorSeries_c)</p>
+<p>We finally rearrange the terms to isolate $\frac{du}{dt}$ and obtain the <em>backward</em> difference formula for the 1st derivative:</p>
+<p>$$
 \frac{du}{dt}=\frac{u^{n}-u^{n-1}}{\Delta t} + O\left( \Delta t\right),
-\]</div>
-<p>which uses the <span class="math notranslate nohighlight">\(u^{n-1}\)</span> and the <span class="math notranslate nohighlight">\(u^{n}\)</span> values and is also a first order approximation.</p>
+$$ (eq:formulaBackward)</p>
+<p>which uses the $u^{n-1}$ and the $u^{n}$ values and is also a first order approximation.</p>
 </section>
 <section id="centered-difference-formula">
 <h3><span class="section-number">3.4.1.3. </span>Centered difference formula<a class="headerlink" href="#centered-difference-formula" title="Link to this heading">#</a></h3>
-<p>We can combine the forward and backward difference formulas to achieve a centered formula. we can, for example sum the forward (eq. <a class="reference internal" href="#equation-eq-formulaforward">(3.12)</a>) and backward (eq. <a class="reference internal" href="#equation-eq-formulabackward">(3.16)</a>) Taylor expansions and dividing by 2, to obtain the simplest centered difference formula:</p>
-<div class="math notranslate nohighlight" id="equation-eq-formulacentred">
-<span class="eqno">(3.17)<a class="headerlink" href="#equation-eq-formulacentred" title="Link to this equation">#</a></span>\[
+<p>We can combine the forward and backward difference formulas to achieve a centered formula. we can, for example sum the forward (eq. <code class="xref eq docutils literal notranslate"><span class="pre">eq:formulaForward</span></code>) and backward (eq. <code class="xref eq docutils literal notranslate"><span class="pre">eq:formulaBackward</span></code>) Taylor expansions and dividing by 2, to obtain the simplest centered difference formula:</p>
+<p>$$
 \frac{du}{dt}=\frac{u^{n+1}-u^{n-1}}{2\Delta t} + O\left( \Delta t^2\right),
-\]</div>
-<p>Since the backward and forward Taylor expansions have opposite signs for every second term, these terms cancel out. We, therefore, cancel out the first error term, and now have a second order approximation, with a truncation error proportional to <span class="math notranslate nohighlight">\(\Delta t^2\)</span>.</p>
+$$ (eq:formulaCentred)</p>
+<p>Since the backward and forward Taylor expansions have opposite signs for every second term, these terms cancel out. We, therefore, cancel out the first error term, and now have a second order approximation, with a truncation error proportional to $\Delta t^2$.</p>
 </section>
 </section>
 <section id="higher-order-formulas">
 <span id="finite-differences-formulas-1stderivative-higherorder"></span><h2><span class="section-number">3.4.2. </span>Higher order formulas<a class="headerlink" href="#higher-order-formulas" title="Link to this heading">#</a></h2>
-<p>The 1st and 2nd order formulas <a class="reference internal" href="#equation-eq-formulaforward">(3.12)</a>, <a class="reference internal" href="#equation-eq-formulabackward">(3.16)</a>, <a class="reference internal" href="#equation-eq-formulacentred">(3.17)</a> were obtained by manipulation of the Taylor series expansions of <span class="math notranslate nohighlight">\(u(t)\)</span> but for higher order approximations, this soon becomes unpractical. However, there is a more expedite method to find higher order formulas.</p>
-<p>As the 2nd order formula needed more information about <span class="math notranslate nohighlight">\(u\)</span> than the 1st order formulas, i.e. it needed more data points, we expect that higher order formulas will require even more data points. Let us consider the values of <span class="math notranslate nohighlight">\(u\)</span> at <span class="math notranslate nohighlight">\(n-2\)</span>, <span class="math notranslate nohighlight">\(n-1\)</span>, <span class="math notranslate nohighlight">\(n\)</span>, <span class="math notranslate nohighlight">\(n+1\)</span>, <span class="math notranslate nohighlight">\(n+2\)</span>, and form an expression for the time derivative using the function values at these time steps:</p>
-<div class="math notranslate nohighlight">
-\[
-\left.\frac{du}{dt}\right|_{t^n} \approx a_{-2}u^{n-2}+a_{-1}u^{n-1}+a_{0}u^{n}+a_{1}u^{n+1}+a_{2}u^{n+2}, 
-\]</div>
-<p>where the <span class="math notranslate nohighlight">\(a_j\)</span>’s are coefficients to be determined.</p>
-<p>We start by expanding <span class="math notranslate nohighlight">\(u^{j}, \quad j=n-2,\dotsc,n+2\)</span> as Taylor series of <span class="math notranslate nohighlight">\(u^n\)</span>, up to the fifth order term:</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-\begin{align}
+<p>The 1st and 2nd order formulas <code class="xref eq docutils literal notranslate"><span class="pre">eq:formulaForward</span></code>, <code class="xref eq docutils literal notranslate"><span class="pre">eq:formulaBackward</span></code>, <code class="xref eq docutils literal notranslate"><span class="pre">eq:formulaCentred</span></code> were obtained by manipulation of the Taylor series expansions of $u(t)$ but for higher order approximations, this soon becomes unpractical. However, there is a more expedite method to find higher order formulas.</p>
+<p>As the 2nd order formula needed more information about $u$ than the 1st order formulas, i.e. it needed more data points, we expect that higher order formulas will require even more data points. Let us consider the values of $u$ at $n-2$, $n-1$, $n$, $n+1$, $n+2$, and form an expression for the time derivative using the function values at these time steps:</p>
+<p>$$
+\left.\frac{du}{dt}\right|<em>{t^n} \approx a</em>{-2}u^{n-2}+a_{-1}u^{n-1}+a_{0}u^{n}+a_{1}u^{n+1}+a_{2}u^{n+2},
+$$</p>
+<p>where the $a_j$’s are coefficients to be determined.</p>
+<p>We start by expanding $u^{j}, \quad j=n-2,\dotsc,n+2$ as Taylor series of $u^n$, up to the fifth order term:</p>
+<p>$$</p>
+<div class="amsmath math notranslate nohighlight" id="equation-014beea4-e402-49d2-af3d-59c63bd63cbc">
+<span class="eqno">(3.1)<a class="headerlink" href="#equation-014beea4-e402-49d2-af3d-59c63bd63cbc" title="Permalink to this equation">#</a></span>\[\begin{align}
 u^{n-2} &amp;= u^n - 2\Delta t\frac{du}{dt}+4\frac{\Delta t^2}{2}\frac{d^2u}{dt^2}-8\frac{\Delta t^3}{6}\frac{d^3u}{dt^3}+16\frac{\Delta t^4}{24}\frac{d^4u}{dt^4}-32\frac{\Delta t^5}{120}\frac{d^5u}{dt^5} + O(\Delta t^6)\\
 u^{n-1} &amp;= u^n - \Delta t\frac{du}{dt}+\frac{\Delta t^2}{2}\frac{d^2u}{dt^2}-\frac{\Delta t^3}{6}\frac{d^3u}{dt^3}+\frac{\Delta t^4}{24}\frac{d^4u}{dt^4}-\frac{\Delta t^5}{120}\frac{d^5u}{dt^5} + O(\Delta t^6)\\
 u^{n} &amp;= u^n \\
 u^{n+1} &amp;= u^n + \Delta t\frac{du}{dt}+\frac{\Delta t^2}{2}\frac{d^2u}{dt^2}+\frac{\Delta t^3}{6}\frac{d^3u}{dt^3}+\frac{\Delta t^4}{24}\frac{d^4u}{dt^4}+\frac{\Delta t^5}{120}\frac{d^5u}{dt^5} + O(\Delta t^6)\\
 u^{n+2} &amp;= u^n + 2\Delta t\frac{du}{dt}+4\frac{\Delta t^2}{2}\frac{d^2u}{dt^2}+8\frac{\Delta t^3}{6}\frac{d^3u}{dt^3}+16\frac{\Delta t^4}{24}\frac{d^4u}{dt^4}+32\frac{\Delta t^5}{120}\frac{d^5u}{dt^5} + O(\Delta t^6).
-\end{align}
-\end{split}\]</div>
+\end{align}\]</div>
+<p>$$</p>
 <p>We now multiply the Taylor series expansions with the corresponding coefficient and group the terms per order of the derivative:</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-\begin{align}
+<p>$$</p>
+<div class="amsmath math notranslate nohighlight" id="equation-33e7b13d-bb3d-43c0-89ee-6f8b882c651b">
+<span class="eqno">(3.2)<a class="headerlink" href="#equation-33e7b13d-bb3d-43c0-89ee-6f8b882c651b" title="Permalink to this equation">#</a></span>\[\begin{align}
 \left.\frac{du}{dt}\right|_{t^n} = &amp;(a_{-2}+a_{-1}+a_{0}+a_{1}+a_{2})u^{n} + \\ 
    &amp;(-2a_{-2}-a_{-1}+a_{1}+2a_{2})\Delta t\frac{du}{dt} + \\
    &amp;(4a_{-2}+a_{-1}+a_{1}+4a_{2})\frac{\Delta t^2}{2}\frac{d^2u}{dt^2} + \\
    &amp;(-8a_{-2}-a_{-1}+a_{1}+8a_{2})\frac{\Delta t^3}{6}\frac{d^3u}{dt^3} + \\
    &amp;(16a_{-2}+a_{-1}+a_{1}+16a_{2})\frac{\Delta t^4}{24}\frac{d^4u}{dt^4} + \\
    &amp;(-32a_{-2}-a_{-1}+a_{1}+32a_{2})\frac{\Delta t^5}{120}\frac{d^5u}{dt^5} + O(\Delta t^6).
-\end{align}
-\end{split}\]</div>
-<p>In order for <span class="math notranslate nohighlight">\(\frac{du}{dt}\mid_{t^n}\)</span> to converge to <span class="math notranslate nohighlight">\(du/dt\)</span> when <span class="math notranslate nohighlight">\(\Delta t \to 0\)</span>, we must have:</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-\begin{align}
+\end{align}\]</div>
+<p>$$</p>
+<p>In order for $\frac{du}{dt}\mid_{t^n}$ to converge to $du/dt$ when $\Delta t \to 0$, we must have:</p>
+<p>$$</p>
+<div class="amsmath math notranslate nohighlight" id="equation-0e8b5179-a7e4-4139-9509-759f0241ce6d">
+<span class="eqno">(3.3)<a class="headerlink" href="#equation-0e8b5179-a7e4-4139-9509-759f0241ce6d" title="Permalink to this equation">#</a></span>\[\begin{align}
 \mathrm{c1:}&amp; \quad a_{-2}+a_{-1}+a_{0}+a_{1}+a_{2} = 0 \\
 \mathrm{c2:}&amp; \quad (-2a_{-2}-a_{-1}+a_{1}+2a_{2})\Delta t = 1,
-\end{align}
-\end{split}\]</div>
+\end{align}\]</div>
+<p>$$</p>
 <p>which provides two necessary conditions, there remaining three parameters to choose in order to have the highest accuracy. This implies cancelling the next three truncation errors:</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-\begin{align}
+<p>$$</p>
+<div class="amsmath math notranslate nohighlight" id="equation-e1433e40-524f-4faf-a1b2-e671f83559e6">
+<span class="eqno">(3.4)<a class="headerlink" href="#equation-e1433e40-524f-4faf-a1b2-e671f83559e6" title="Permalink to this equation">#</a></span>\[\begin{align}
 \mathrm{c3:}&amp; \quad 4a_{-2}+a_{-1}+a_{1}+4a_{2} = 0 \\
 \mathrm{c4:}&amp; \quad -8a_{-2}-a_{-1}+a_{1}+8a_{2} = 0 \\
 \mathrm{c5:}&amp; \quad 16a_{-2}+a_{-1}+a_{1}+16a_{2} = 0.
-\end{align}
-\end{split}\]</div>
+\end{align}\]</div>
+<p>$$</p>
 <p>Conditions c1 to c5 provide five equations for five unknowns whose solution is:</p>
-<div class="math notranslate nohighlight" id="equation-eq-coefficients">
-<span class="eqno">(3.18)<a class="headerlink" href="#equation-eq-coefficients" title="Link to this equation">#</a></span>\[
+<p>$$
 a_{-2}=\frac{1}{12\Delta t}, \quad a_{-1}=-\frac{8}{12\Delta t}, \quad a_{0}=0, \quad a_{1}=\frac{8}{12\Delta t}, \quad a_{2}=-\frac{1}{12\Delta t}.
-\]</div>
+$$ (eq:coefficients)</p>
 <p>Our higher order approximation for the first derivative is therefore</p>
-<div class="math notranslate nohighlight" id="equation-eq-higherorderdudt">
-<span class="eqno">(3.19)<a class="headerlink" href="#equation-eq-higherorderdudt" title="Link to this equation">#</a></span>\[
-\left.\frac{du}{dt}\right|_{t^n} \approx \frac{u^{n-2}-8u^{n-1}+8u^{n+1}-u^{n+2}}{12\Delta t}. 
-\]</div>
+<p>$$
+\left.\frac{du}{dt}\right|_{t^n} \approx \frac{u^{n-2}-8u^{n-1}+8u^{n+1}-u^{n+2}}{12\Delta t}.
+$$ (eq:higherOrderDuDt)</p>
 <p>The leading term of the truncation error is</p>
-<div class="math notranslate nohighlight">
-\[
+<p>$$
 (-32a_{-2}-a_{-1}+a_{1}+32a_{2})\frac{\Delta t^5}{120}\frac{d^5u}{dt^5},
-\]</div>
-<p>which, after substituting the values of the coefficients <a class="reference internal" href="#equation-eq-coefficients">(3.18)</a>, is</p>
-<div class="math notranslate nohighlight">
-\[
+$$</p>
+<p>which, after substituting the values of the coefficients <code class="xref eq docutils literal notranslate"><span class="pre">eq:coefficients</span></code>, is</p>
+<p>$$
 -\frac{\Delta t^4}{30}\frac{d^5u}{dt^5}.
-\]</div>
-<p>Our approximation <a class="reference internal" href="#equation-eq-higherorderdudt">(3.19)</a> is, therefore, a 4th order approximation to the first derivative.</p>
-<p>The method can be generalized to obtain the <span class="math notranslate nohighlight">\(p^{th}\)</span> order approximation of the derivative using the functions values <span class="math notranslate nohighlight">\(u^{n-m},\dotsc,u^{n+m}\)</span>:</p>
-<div class="math notranslate nohighlight" id="equation-eq-generalapproximationdudt">
-<span class="eqno">(3.20)<a class="headerlink" href="#equation-eq-generalapproximationdudt" title="Link to this equation">#</a></span>\[
-\left.\frac{du}{dt}\right|_{t^n} \approx a_{-m}u^{n-m}+\dotsb+a_{0}u^{n}+\dotsb+a_{m}u^{n+m}, 
-\]</div>
-<p>To build the system of equations whose solution provides the unknown coefficients <span class="math notranslate nohighlight">\(a_{n-m},\dotsc,a_{n+m}\)</span>, we use the Taylor series expansion for each term <span class="math notranslate nohighlight">\(u^{n+q}, \quad q=-m,\dotsc,m\)</span>:</p>
-<div class="math notranslate nohighlight">
-\[
+$$</p>
+<p>Our approximation <code class="xref eq docutils literal notranslate"><span class="pre">eq:higherOrderDuDt</span></code> is, therefore, a 4th order approximation to the first derivative.</p>
+<p>The method can be generalized to obtain the $p^{th}$ order approximation of the derivative using the functions values $u^{n-m},\dotsc,u^{n+m}$:</p>
+<p>$$
+\left.\frac{du}{dt}\right|<em>{t^n} \approx a</em>{-m}u^{n-m}+\dotsb+a_{0}u^{n}+\dotsb+a_{m}u^{n+m},
+$$ (eq:generalApproximationDuDt)</p>
+<p>To build the system of equations whose solution provides the unknown coefficients $a_{n-m},\dotsc,a_{n+m}$, we use the Taylor series expansion for each term $u^{n+q}, \quad q=-m,\dotsc,m$:</p>
+<p>$$
 u^{n+q} = u^n + q\Delta t\frac{du}{dt}+q^2\frac{\Delta t^2}{2}\frac{d^2u}{dt^2}+\dotsb+q^p\frac{\Delta t^p}{p!}\frac{d^pu}{dt^p}+O(\Delta t^{p+1})
-\]</div>
-<p>in <a class="reference internal" href="#equation-eq-generalapproximationdudt">(3.20)</a> and group the terms according to the order of the derivative in which they appear. Then, we require that:</p>
+$$</p>
+<p>in <code class="xref eq docutils literal notranslate"><span class="pre">eq:generalApproximationDuDt</span></code> and group the terms according to the order of the derivative in which they appear. Then, we require that:</p>
 <ol class="arabic simple">
-<li><p>The sum of coefficients <span class="math notranslate nohighlight">\(a_q\)</span> multiplying a derivative of order <span class="math notranslate nohighlight">\(k&lt;p\)</span> be zero;</p></li>
-<li><p>The sum of coefficients <span class="math notranslate nohighlight">\(a_q\)</span> multiplying the derivative of order <span class="math notranslate nohighlight">\(p\)</span> be one.</p></li>
+<li><p>The sum of coefficients $a_q$ multiplying a derivative of order $k&lt;p$ be zero;</p></li>
+<li><p>The sum of coefficients $a_q$ multiplying the derivative of order $p$ be one.</p></li>
 </ol>
-<p>We thus obtain a system of <span class="math notranslate nohighlight">\(p+1\)</span> equations for the <span class="math notranslate nohighlight">\(2m+1\)</span> coefficients <span class="math notranslate nohighlight">\(a_q\)</span>. Requirements 1 and 2 can only be satisfied if there are <span class="math notranslate nohighlight">\(2m+1&gt;p+1\)</span> points, i.e., we must have <span class="math notranslate nohighlight">\(2m&gt;p\)</span>.</p>
-<p>If there are more points than needed, we used them to cancel the next few terms in the truncation error. We can use <span class="math notranslate nohighlight">\(2m+1\)</span> points to cancel up to order <span class="math notranslate nohighlight">\(2m-p+1\)</span>.</p>
+<p>We thus obtain a system of $p+1$ equations for the $2m+1$ coefficients $a_q$. Requirements 1 and 2 can only be satisfied if there are $2m+1&gt;p+1$ points, i.e., we must have $2m&gt;p$.</p>
+<p>If there are more points than needed, we used them to cancel the next few terms in the truncation error. We can use $2m+1$ points to cancel up to order $2m-p+1$.</p>
 </section>
 </section>
 

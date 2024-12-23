@@ -57,8 +57,6 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'NumericalStability/vonNeumannStability';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -427,7 +425,7 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="von-neumann-stability-analysis">
+  <section id="von-neumann-stability-analysis">
 <h1><span class="section-number">5.2. </span>Von Neumann Stability Analysis<a class="headerlink" href="#von-neumann-stability-analysis" title="Link to this heading">#</a></h1>
 <p>The von Neumann stability analysis method is simple to apply but it cannot handle boundary conditions.</p>
 <p>It consists of replacing the spatial variation by a single Fourier component. The method is sufficient for linear equations with constant coefficients.</p>
@@ -437,77 +435,64 @@ document.write(`
 <section id="the-linear-advection-equation">
 <h3><span class="section-number">5.2.1.1. </span>The linear advection equation<a class="headerlink" href="#the-linear-advection-equation" title="Link to this heading">#</a></h3>
 <p>The FTCS scheme for the linear advection equation is given by:</p>
-<div class="math notranslate nohighlight" id="equation-eqftcsadvection">
-<span class="eqno">(5.1)<a class="headerlink" href="#equation-eqftcsadvection" title="Link to this equation">#</a></span>\[
+<p>$$
 u_m^{n+1} = u_m^{n} - c\frac{\Delta t}{2\Delta x}(u_{m+1}^n-u_{m-1}^n)
-\]</div>
+$$ (eqFtcsAdvection)</p>
 <p>To apply the Von Neumann stability analysis method we assume a solution of the form:</p>
-<div class="math notranslate nohighlight" id="equation-eq-vonneumansolution">
-<span class="eqno">(5.2)<a class="headerlink" href="#equation-eq-vonneumansolution" title="Link to this equation">#</a></span>\[
-u_m^n=B^n e^{ikm\Delta x}. 
-\]</div>
-<p>Substituing in <a class="reference internal" href="#equation-eqftcsadvection">(5.1)</a>, we get</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-B^{n+1} e^{ikm\Delta x} &amp;= B^{n} e^{ikm\Delta x} - c\frac{\Delta t}{2\Delta x}(B^{n} e^{ik(m+1)\Delta x}-B^{n} e^{ik(m-1)\Delta x}) \\
+<p>$$
+u_m^n=B^n e^{ikm\Delta x}.
+$$ (eq:vonNeumanSolution)</p>
+<p>Substituing in <code class="xref eq docutils literal notranslate"><span class="pre">eqFtcsAdvection</span></code>, we get</p>
+<p>$$
+B^{n+1} e^{ikm\Delta x} &amp;= B^{n} e^{ikm\Delta x} - c\frac{\Delta t}{2\Delta x}(B^{n} e^{ik(m+1)\Delta x}-B^{n} e^{ik(m-1)\Delta x}) \
 B^{n+1} e^{ikm\Delta x} &amp;= B^{n} e^{ikm\Delta x}\left[1 - c\frac{\Delta t}{2\Delta x}(e^{ik\Delta x}-e^{-ik\Delta x})\right].
-\end{split}\]</div>
-<p>Eliminating the common factor <span class="math notranslate nohighlight">\(e^{ikm\Delta x}\)</span> and defining the amplification factor as <span class="math notranslate nohighlight">\(|B^{n+1}/B^n|\)</span>, we can write:</p>
-<div class="math notranslate nohighlight">
-\[
+$$</p>
+<p>Eliminating the common factor $e^{ikm\Delta x}$ and defining the amplification factor as $|B^{n+1}/B^n|$, we can write:</p>
+<p>$$
 \frac{B^{n+1}}{B^n}=1-c\frac{\Delta t}{\Delta x}i\sin k\Delta x
-\]</div>
-<p>For the scheme to be stable, we require that the amplification factor be <span class="math notranslate nohighlight">\(\leq 1\)</span>:</p>
-<div class="math notranslate nohighlight">
-\[
+$$</p>
+<p>For the scheme to be stable, we require that the amplification factor be $\leq 1$:</p>
+<p>$$
 \left|\frac{B^{n+1}}{B^n}\right|=\left|1-c\frac{\Delta t}{\Delta x}i\sin k\Delta x\right|\leq 1,
-\]</div>
+$$</p>
 <p>which is impossible to fulfill, because</p>
-<div class="math notranslate nohighlight">
-\[
+<p>$$
 \left|\frac{B^{n+1}}{B^n}\right|=\sqrt{1+\left(c\frac{\Delta t}{\Delta x}\right)\sin^2 k\Delta x} \ge 1, \quad \text{for all } k.
-\]</div>
+$$</p>
 <p>Therefore, the FTCS scheme applied to the linear advection equation is always unstable, i.e., it is <em>unconditionally unstable</em>.</p>
 </section>
 <section id="the-diffusion-equation">
 <h3><span class="section-number">5.2.1.2. </span>The diffusion equation<a class="headerlink" href="#the-diffusion-equation" title="Link to this heading">#</a></h3>
 <p>The one-dimensional diffusion equation is</p>
-<div class="math notranslate nohighlight" id="equation-eq-diffusion">
-<span class="eqno">(5.3)<a class="headerlink" href="#equation-eq-diffusion" title="Link to this equation">#</a></span>\[
+<p>$$
 \frac{\partial u}{\partial t} = D \frac{\partial^2 u}{\partial x^2},
-\]</div>
-<p>where <span class="math notranslate nohighlight">\(D\)</span> is the diffusivity.</p>
-<p>The FTCS scheme applied to <a class="reference internal" href="#equation-eq-diffusion">(5.3)</a> is:</p>
-<div class="math notranslate nohighlight" id="equation-eq-ftcsdiffusion">
-<span class="eqno">(5.4)<a class="headerlink" href="#equation-eq-ftcsdiffusion" title="Link to this equation">#</a></span>\[
+$$ (eq:diffusion)</p>
+<p>where $D$ is the diffusivity.</p>
+<p>The FTCS scheme applied to <code class="xref eq docutils literal notranslate"><span class="pre">eq:diffusion</span></code> is:</p>
+<p>$$
 u_m^{n+1} = u_m^{n} + D\frac{\Delta t}{\Delta x^2}(u_{m+1}^n-2u_{m}^n+u_{m-1}^n)
-\]</div>
-<p>Substituting a solution like <a class="reference internal" href="#equation-eq-vonneumansolution">(5.2)</a> in <a class="reference internal" href="#equation-eq-ftcsdiffusion">(5.4)</a>, we have</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-B^{n+1}e^{ikm\Delta x}=B^ne^{ikm\Delta x}+ D\frac{\Delta t}{\Delta x^2}(B^{n} e^{ik(m+1)\Delta x}\\
-    -2B^{n} e^{ikm\Delta x}+(B^{n} e^{ik(m-1)\Delta x})
-\end{split}\]</div>
+$$ (eq:FtcsDiffusion)</p>
+<p>Substituting a solution like <code class="xref eq docutils literal notranslate"><span class="pre">eq:vonNeumanSolution</span></code> in <code class="xref eq docutils literal notranslate"><span class="pre">eq:FtcsDiffusion</span></code>, we have</p>
+<p>$$
+B^{n+1}e^{ikm\Delta x}=B^ne^{ikm\Delta x}+ D\frac{\Delta t}{\Delta x^2}(B^{n} e^{ik(m+1)\Delta x}\
+-2B^{n} e^{ikm\Delta x}+(B^{n} e^{ik(m-1)\Delta x})
+$$</p>
 <p>which, after some manipulation, allows to obtain the following expression for the amplification factor:</p>
-<div class="math notranslate nohighlight">
-\[
+<p>$$
 \frac{B^{n+1}}{B^n} = 1-2\tau+2\tau\cos k\Delta x = 1-4\tau \sin^2 \frac{k \Delta x}{2}, \quad \tau=D\frac{\Delta t}{\Delta x^2}.
-\]</div>
+$$</p>
 <p>The Von Neumann stability condition is:</p>
-<div class="math notranslate nohighlight" id="equation-eq-vonneumannconditiondifffusion">
-<span class="eqno">(5.5)<a class="headerlink" href="#equation-eq-vonneumannconditiondifffusion" title="Link to this equation">#</a></span>\[
+<p>$$
 \left|\frac{B^{n+1}}{B^n}\right|\leq 1 \Leftrightarrow \left|1-4\tau \sin^2 \frac{k \Delta x}{2}\right| \leq 1, \quad \text{for all } k.
-\]</div>
-<p>For <span class="math notranslate nohighlight">\(\tau &gt; 0\)</span>, the worst case occurs when <span class="math notranslate nohighlight">\(\sin^2 \frac{k \Delta x}{2}=1\)</span>, which leads to</p>
-<div class="math notranslate nohighlight">
-\[
-\tau \leq \frac{1}{2}. 
-\]</div>
-<p>Therefore, the FTCS scheme apllied to the linear diffusion equation <a class="reference internal" href="#equation-eq-diffusion">(5.3)</a> is <em>conditionally stable</em>, with the stability condition</p>
-<div class="math notranslate nohighlight" id="equation-eq-cfllimitdifffusion">
-<span class="eqno">(5.6)<a class="headerlink" href="#equation-eq-cfllimitdifffusion" title="Link to this equation">#</a></span>\[
+$$ (eq:vonNeumannConditionDifffusion)</p>
+<p>For $\tau &gt; 0$, the worst case occurs when $\sin^2 \frac{k \Delta x}{2}=1$, which leads to</p>
+<p>$$
+\tau \leq \frac{1}{2}.
+$$</p>
+<p>Therefore, the FTCS scheme apllied to the linear diffusion equation <code class="xref eq docutils literal notranslate"><span class="pre">eq:diffusion</span></code> is <em>conditionally stable</em>, with the stability condition</p>
+<p>$$
 D\frac{\Delta t}{\Delta x^2} \leq \frac{1}{2}.
-\]</div>
+$$ (eq:cflLimitDifffusion)</p>
 </section>
 </section>
 </section>
