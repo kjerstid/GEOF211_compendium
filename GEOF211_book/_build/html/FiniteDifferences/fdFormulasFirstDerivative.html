@@ -399,7 +399,12 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#first-order-formulas">3.4.1. First order formulas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#first-order-formulas">3.4.1. First order formulas</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#forwardward-difference-formula">3.4.1.1. Forwardward difference formula</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#backward-difference-formula">3.4.1.2. Backward difference formula</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#centered-difference-formula">3.4.1.3. Centered difference formula</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#higher-order-formulas">3.4.2. Higher order formulas</a></li>
 </ul>
             </nav>
@@ -416,6 +421,8 @@ document.write(`
 <span id="finite-differences-formulas-1stderivative"></span><h1><span class="section-number">3.4. </span>Finite difference formulas for the 1st derivative<a class="headerlink" href="#finite-difference-formulas-for-the-1st-derivative" title="Link to this heading">#</a></h1>
 <section id="first-order-formulas">
 <span id="finite-differences-formulas-1stderivative-1storder"></span><h2><span class="section-number">3.4.1. </span>First order formulas<a class="headerlink" href="#first-order-formulas" title="Link to this heading">#</a></h2>
+<section id="forwardward-difference-formula">
+<h3><span class="section-number">3.4.1.1. </span>Forwardward difference formula<a class="headerlink" href="#forwardward-difference-formula" title="Link to this heading">#</a></h3>
 <p>Finite difference formulas are just finite difference approximations, disregarding the truncation error, e.g., from <a class="reference internal" href="truncationErrors.html#equation-eq-fdexpansion">(3.6)</a>, we have</p>
 <div class="math notranslate nohighlight" id="equation-eq-formulaforward">
 <span class="eqno">(3.12)<a class="headerlink" href="#equation-eq-formulaforward" title="Link to this equation">#</a></span>\[
@@ -428,6 +435,9 @@ document.write(`
 \[
 u(t)=u^n+\frac{u'(t^n)}{1!}(t-t^n)+\frac{u''(t^n)}{2!}(t-t^n)^2+\sum_{p=3}^{\infty}\frac{u^{(p)}(t^n)}{p!}(t-t^n)^p
 \]</div>
+</section>
+<section id="backward-difference-formula">
+<h3><span class="section-number">3.4.1.2. </span>Backward difference formula<a class="headerlink" href="#backward-difference-formula" title="Link to this heading">#</a></h3>
 <p>To achieve a backward Taylor series, we let <span class="math notranslate nohighlight">\(t=t^{n-1}\)</span> and insert into <a class="reference internal" href="truncationErrors.html#equation-eq-taylorseries-v1">(3.4)</a>:</p>
 <div class="math notranslate nohighlight" id="equation-eq-backward-taylorseries-a">
 <span class="eqno">(3.13)<a class="headerlink" href="#equation-eq-backward-taylorseries-a" title="Link to this equation">#</a></span>\[
@@ -449,12 +459,16 @@ u^{n-1}=u^n-\Delta t\frac{du}{dt}|_{t^n}+\frac{(\Delta t)^2}{2!}\frac{d^2u}{dt^2
 \frac{du}{dt}=\frac{u^{n}-u^{n-1}}{\Delta t} + O\left( \Delta t\right),
 \]</div>
 <p>which uses the <span class="math notranslate nohighlight">\(u^{n-1}\)</span> and the <span class="math notranslate nohighlight">\(u^{n}\)</span> values and is also a first order approximation.</p>
-<p>By summing the forward (eq. <a class="reference internal" href="#equation-eq-formulaforward">(3.12)</a>) and backward (eq. <a class="reference internal" href="#equation-eq-formulabackward">(3.16)</a>) Taylor expansions and dividing by 2, we obtain</p>
+</section>
+<section id="centered-difference-formula">
+<h3><span class="section-number">3.4.1.3. </span>Centered difference formula<a class="headerlink" href="#centered-difference-formula" title="Link to this heading">#</a></h3>
+<p>We can combine the forward and backward difference formulas to achieve a centered formula. we can, for example sum the forward (eq. <a class="reference internal" href="#equation-eq-formulaforward">(3.12)</a>) and backward (eq. <a class="reference internal" href="#equation-eq-formulabackward">(3.16)</a>) Taylor expansions and dividing by 2, to obtain the simplest centered difference formula:</p>
 <div class="math notranslate nohighlight" id="equation-eq-formulacentred">
 <span class="eqno">(3.17)<a class="headerlink" href="#equation-eq-formulacentred" title="Link to this equation">#</a></span>\[
 \frac{du}{dt}=\frac{u^{n+1}-u^{n-1}}{2\Delta t} + O\left( \Delta t^2\right),
 \]</div>
-<p>which is called the <em>centred</em> difference formula. Since the backward and forward Taylor expansions have opposite signs for every second term, these terms cancel out. We, therefore, cancel out the first error term, and now have a second order approximation, with a truncation error proportional to <span class="math notranslate nohighlight">\(\Delta t^2\)</span>.</p>
+<p>Since the backward and forward Taylor expansions have opposite signs for every second term, these terms cancel out. We, therefore, cancel out the first error term, and now have a second order approximation, with a truncation error proportional to <span class="math notranslate nohighlight">\(\Delta t^2\)</span>.</p>
+</section>
 </section>
 <section id="higher-order-formulas">
 <span id="finite-differences-formulas-1stderivative-higherorder"></span><h2><span class="section-number">3.4.2. </span>Higher order formulas<a class="headerlink" href="#higher-order-formulas" title="Link to this heading">#</a></h2>
@@ -610,7 +624,12 @@ u^{n+q} = u^n + q\Delta t\frac{du}{dt}+q^2\frac{\Delta t^2}{2}\frac{d^2u}{dt^2}+
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#first-order-formulas">3.4.1. First order formulas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#first-order-formulas">3.4.1. First order formulas</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#forwardward-difference-formula">3.4.1.1. Forwardward difference formula</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#backward-difference-formula">3.4.1.2. Backward difference formula</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#centered-difference-formula">3.4.1.3. Centered difference formula</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#higher-order-formulas">3.4.2. Higher order formulas</a></li>
 </ul>
   </nav></div>

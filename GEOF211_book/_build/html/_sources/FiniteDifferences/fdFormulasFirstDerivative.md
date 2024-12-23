@@ -3,7 +3,7 @@
 
 (finite-differences:formulas-1stderivative-1storder)=
 ## First order formulas
-
+### Forwardward difference formula
 Finite difference formulas are just finite difference approximations, disregarding the truncation error, e.g., from {eq}`eq:fdExpansion`, we have
 
 $$
@@ -20,6 +20,7 @@ $$
 u(t)=u^n+\frac{u'(t^n)}{1!}(t-t^n)+\frac{u''(t^n)}{2!}(t-t^n)^2+\sum_{p=3}^{\infty}\frac{u^{(p)}(t^n)}{p!}(t-t^n)^p
 $$
 
+### Backward difference formula
 To achieve a backward Taylor series, we let $t=t^{n-1}$ and insert into {eq}`eq:taylorSeries_v1`:
 
 $$
@@ -50,13 +51,14 @@ $$ (eq:formulaBackward)
  
 which uses the $u^{n-1}$ and the $u^{n}$ values and is also a first order approximation.
 
-By summing the forward (eq. {eq}`eq:formulaForward`) and backward (eq. {eq}`eq:formulaBackward`) Taylor expansions and dividing by 2, we obtain 
+### Centered difference formula
+We can combine the forward and backward difference formulas to achieve a centered formula. we can, for example sum the forward (eq. {eq}`eq:formulaForward`) and backward (eq. {eq}`eq:formulaBackward`) Taylor expansions and dividing by 2, to obtain the simplest centered difference formula:
 
 $$
 \frac{du}{dt}=\frac{u^{n+1}-u^{n-1}}{2\Delta t} + O\left( \Delta t^2\right),
 $$ (eq:formulaCentred)
 
-which is called the *centred* difference formula. Since the backward and forward Taylor expansions have opposite signs for every second term, these terms cancel out. We, therefore, cancel out the first error term, and now have a second order approximation, with a truncation error proportional to $\Delta t^2$. 
+Since the backward and forward Taylor expansions have opposite signs for every second term, these terms cancel out. We, therefore, cancel out the first error term, and now have a second order approximation, with a truncation error proportional to $\Delta t^2$. 
 
 (finite-differences:formulas-1stderivative-higherorder)=
 ## Higher order formulas
