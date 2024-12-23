@@ -7,7 +7,7 @@ $$
 \frac{du}{dt} = \lim_{\Delta t \to 0} \frac{u(t+\Delta t)-u(t)}{\Delta t}.
 $$ (eq:exactDerivative)
 
-We can obtain an algebraic approximation to $du/dt$ simply by relaxing the requirement that $\Delta t \to 0$, retaining a finite $\Delta t$:
+We can obtain an algebraic approximation to $du/dt$ simply by relaxing the requirement that $\Delta t \to 0$, which means that we allow $\Delta t$ to be a finite, small non-zero number:
 
 $$
 \frac{du}{dt} \approx \frac{u(t+\Delta t)-u(t)}{\Delta t}.
