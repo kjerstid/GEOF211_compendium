@@ -57,7 +57,8 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'LinearAdvectionEquation/analyticSolution';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -413,44 +414,46 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="the-exact-equation">
+  <section class="tex2jax_ignore mathjax_ignore" id="the-exact-equation">
 <span id="linearadvectionequation-analyticsolution"></span><h1><span class="section-number">4.1. </span>The exact equation<a class="headerlink" href="#the-exact-equation" title="Link to this heading">#</a></h1>
-<p>The analytic (exact) solution of <code class="xref eq docutils literal notranslate"><span class="pre">eq:Advection</span></code> can be obtained by the method of the separation of variables. We shall assume an initial condition in the form of a simple wave:</p>
+<p>The analytic (exact) solution of <a class="reference internal" href="Introduction.html#equation-eq-advection">(4.1)</a> can be obtained by the method of the separation of variables. We shall assume an initial condition in the form of a simple wave:</p>
 <aside class="margin sidebar">
 <p class="sidebar-title">Euler’s formula</p>
 <p>Euler’s formula:</p>
-<p>$$
+<div class="math notranslate nohighlight">
+\[
 e^{i\theta}=\cos \theta + i\sin \theta
-$$</p>
+\]</div>
 <p>is widely used to represent simple oscillatory behaviour.</p>
 </aside>
-<p>$$
-u(x,0)=A e^{i k x},
-$$ (eq:initialCond)</p>
-<p>where $k = 2\pi/\lambda$ is the wave number ($\lambda$ is the wavelength).</p>
-<p>Let the solution to <code class="xref eq docutils literal notranslate"><span class="pre">eq:Advection</span></code> with initial condition <code class="xref eq docutils literal notranslate"><span class="pre">eq:initialCond</span></code> be given by</p>
-<p>$$
-u(x,t)=G(t)H(x).
-$$ (eq:sepVar)</p>
-<p>Substituting in <code class="xref eq docutils literal notranslate"><span class="pre">eq:Advection</span></code>, we have</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a0ec8315-5bca-4072-8e11-e7ddcd838392">
-<span class="eqno">(4.1)<a class="headerlink" href="#equation-a0ec8315-5bca-4072-8e11-e7ddcd838392" title="Permalink to this equation">#</a></span>\[\begin{align} 
-   \frac{\partial }{\partial t} (G(t)H(x))=&amp; -c \frac{\partial }{\partial x} (G(t)H(x)) \\
-   H(x)\frac{\partial G(t)}{\partial t} =&amp; -c G(t) \frac{\partial H(x)}{\partial x} \\
-   \frac{1}{G(t)} \frac{\partial G(t)}{\partial t} =&amp; -c \frac{1}{H(x)} \frac{\partial H(x)}{\partial x}, 
-\end{align}\]</div>
-<p>that to be valid for all $(x,t)$ must be equal to a constant $-\alpha$. Integration yields</p>
-<div class="amsmath math notranslate nohighlight" id="equation-71192481-89cc-4c8c-a2e7-16190a71e6eb">
-<span class="eqno">(4.2)<a class="headerlink" href="#equation-71192481-89cc-4c8c-a2e7-16190a71e6eb" title="Permalink to this equation">#</a></span>\[\begin{align} 
-      \frac{1}{G(t)} \frac{\partial G(t)}{\partial t} =&amp; -\alpha \Leftrightarrow G(t)=A_1e^{-\alpha t} \\
-      -c \frac{1}{H(x)} \frac{\partial H(x)}{\partial x}=&amp; -\alpha \Leftrightarrow H(x)=A_2e^{\alpha x/c},
-\end{align}\]</div>
-<p>and we find $u(x,t)=G(t)H(x)=A_1A_2e^{-\alpha t}e^{\alpha x/c}$.</p>
-<p>At $t=0$ we have $u(x,0)=A_1A_2e^{\alpha x/c}$, so we know that $A=A_1A_2$ and $ik = \alpha/c$ and so $\alpha=ikc$. Finally, we can write:</p>
-<p>$$
-u(x,t)=Ae^{-ikct}e^{ikcx/c}=Ae^{ik(x-ct)},
-$$ (eq:anaSolution)</p>
-<p>which is the solution of <code class="xref eq docutils literal notranslate"><span class="pre">eq:Advection</span></code> given the initial condition <code class="xref eq docutils literal notranslate"><span class="pre">eq:initialCond</span></code>. This solution represents the initial condition moving along the positive $x$-direction with translation velocity $c$.</p>
+<div class="math notranslate nohighlight" id="equation-eq-initialcond">
+<span class="eqno">(4.2)<a class="headerlink" href="#equation-eq-initialcond" title="Link to this equation">#</a></span>\[
+	u(x,0)=A e^{i k x},
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(k = 2\pi/\lambda\)</span> is the wave number (<span class="math notranslate nohighlight">\(\lambda\)</span> is the wavelength).</p>
+<p>Let the solution to <a class="reference internal" href="Introduction.html#equation-eq-advection">(4.1)</a> with initial condition <a class="reference internal" href="#equation-eq-initialcond">(4.2)</a> be given by</p>
+<div class="math notranslate nohighlight" id="equation-eq-sepvar">
+<span class="eqno">(4.3)<a class="headerlink" href="#equation-eq-sepvar" title="Link to this equation">#</a></span>\[
+	u(x,t)=G(t)H(x).
+\]</div>
+<p>Substituting in <a class="reference internal" href="Introduction.html#equation-eq-advection">(4.1)</a>, we have</p>
+<p>\begin{align}
+\frac{\partial }{\partial t} (G(t)H(x))=&amp; -c \frac{\partial }{\partial x} (G(t)H(x)) \
+H(x)\frac{\partial G(t)}{\partial t} =&amp; -c G(t) \frac{\partial H(x)}{\partial x} \
+\frac{1}{G(t)} \frac{\partial G(t)}{\partial t} =&amp; -c \frac{1}{H(x)} \frac{\partial H(x)}{\partial x},
+\end{align}</p>
+<p>that to be valid for all <span class="math notranslate nohighlight">\((x,t)\)</span> must be equal to a constant <span class="math notranslate nohighlight">\(-\alpha\)</span>. Integration yields</p>
+<p>\begin{align}
+\frac{1}{G(t)} \frac{\partial G(t)}{\partial t} =&amp; -\alpha \Leftrightarrow G(t)=A_1e^{-\alpha t} \
+-c \frac{1}{H(x)} \frac{\partial H(x)}{\partial x}=&amp; -\alpha \Leftrightarrow H(x)=A_2e^{\alpha x/c},
+\end{align}</p>
+<p>and we find <span class="math notranslate nohighlight">\(u(x,t)=G(t)H(x)=A_1A_2e^{-\alpha t}e^{\alpha x/c}\)</span>.</p>
+<p>At <span class="math notranslate nohighlight">\(t=0\)</span> we have <span class="math notranslate nohighlight">\(u(x,0)=A_1A_2e^{\alpha x/c}\)</span>, so we know that <span class="math notranslate nohighlight">\(A=A_1A_2\)</span> and <span class="math notranslate nohighlight">\(ik = \alpha/c\)</span> and so <span class="math notranslate nohighlight">\(\alpha=ikc\)</span>. Finally, we can write:</p>
+<div class="math notranslate nohighlight" id="equation-eq-anasolution">
+<span class="eqno">(4.4)<a class="headerlink" href="#equation-eq-anasolution" title="Link to this equation">#</a></span>\[
+	u(x,t)=Ae^{-ikct}e^{ikcx/c}=Ae^{ik(x-ct)},
+\]</div>
+<p>which is the solution of <a class="reference internal" href="Introduction.html#equation-eq-advection">(4.1)</a> given the initial condition <a class="reference internal" href="#equation-eq-initialcond">(4.2)</a>. This solution represents the initial condition moving along the positive <span class="math notranslate nohighlight">\(x\)</span>-direction with translation velocity <span class="math notranslate nohighlight">\(c\)</span>.</p>
 </section>
 
     <script type="text/x-thebe-config">
