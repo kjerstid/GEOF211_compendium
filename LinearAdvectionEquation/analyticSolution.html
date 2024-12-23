@@ -433,18 +433,18 @@ $$ (eq:initialCond)</p>
 u(x,t)=G(t)H(x).
 $$ (eq:sepVar)</p>
 <p>Substituting in <code class="xref eq docutils literal notranslate"><span class="pre">eq:Advection</span></code>, we have</p>
-<div class="amsmath math notranslate nohighlight">
-\[\begin{align*} 
+<div class="amsmath math notranslate nohighlight" id="equation-af089580-f88b-4c96-910f-edefe46a51a8">
+<span class="eqno">(4.1)<a class="headerlink" href="#equation-af089580-f88b-4c96-910f-edefe46a51a8" title="Permalink to this equation">#</a></span>\[\begin{align} 
    $\frac{\partial }{\partial t} (G(t)H(x))=$&amp; $-c \frac{\partial }{\partial x} (G(t)H(x))$ \\
    $H(x)\frac{\partial G(t)}{\partial t} =$&amp; $-c G(t) \frac{\partial H(x)}{\partial x}$ \\
    $\frac{1}{G(t)} \frac{\partial G(t)}{\partial t} =$&amp; $-c \frac{1}{H(x)} \frac{\partial H(x)}{\partial x}$, 
-\end{align*}\]</div>
+\end{align}\]</div>
 <p>that to be valid for all $(x,t)$ must be equal to a constant $-\alpha$. Integration yields</p>
-<div class="amsmath math notranslate nohighlight">
-\[\begin{align*} 
+<div class="amsmath math notranslate nohighlight" id="equation-ba35c86e-8954-4160-9f3f-014232509e0e">
+<span class="eqno">(4.2)<a class="headerlink" href="#equation-ba35c86e-8954-4160-9f3f-014232509e0e" title="Permalink to this equation">#</a></span>\[\begin{align} 
       $\frac{1}{G(t)} \frac{\partial G(t)}{\partial t} =$&amp; $-\alpha \Leftrightarrow G(t)=A_1e^{-\alpha t}$ \\
       $-c \frac{1}{H(x)} \frac{\partial H(x)}{\partial x}=$&amp; $-\alpha \Leftrightarrow H(x)=A_2e^{\alpha x/c}$,
-\end{align*}\]</div>
+\end{align}\]</div>
 <p>and we find $u(x,t)=G(t)H(x)=A_1A_2e^{-\alpha t}e^{\alpha x/c}$.</p>
 <p>At $t=0$ we have $u(x,0)=A_1A_2e^{\alpha x/c}$, so we know that $A=A_1A_2$ and $ik = \alpha/c$ and so $\alpha=ikc$. Finally, we can write:</p>
 <p>$$
