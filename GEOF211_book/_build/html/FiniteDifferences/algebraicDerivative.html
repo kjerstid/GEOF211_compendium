@@ -57,8 +57,6 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'FiniteDifferences/algebraicDerivative';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -187,7 +185,8 @@
 
 <li class="toctree-l2"><a class="reference internal" href="../Useful_calculus/Trigonometry.html">1.3. Trigonometry</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Useful_calculus/Complex_numbers.html">1.4. Complex numbers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Useful_calculus/Fourier_transforms.html">1.5. Fourier transforms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Useful_calculus/Euler_Formula.html">1.5. The Euler formula</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Useful_calculus/Fourier_transforms.html">1.6. Fourier transforms</a></li>
 
 </ul>
 </details></li>
@@ -202,6 +201,18 @@
 <li class="toctree-l2"><a class="reference internal" href="estimatesTruncationError.html">3.3. Estimates of the truncation error</a></li>
 <li class="toctree-l2"><a class="reference internal" href="fdFormulasFirstDerivative.html">3.4. Finite difference formulas for the 1st derivative</a></li>
 <li class="toctree-l2"><a class="reference internal" href="evaluatingTruncationError.html">3.5. Evaluating the truncation error</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../LinearAdvectionEquation/Introduction.html">4. The linear advection equation</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../LinearAdvectionEquation/analyticSolution.html">4.1. The exact equation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../LinearAdvectionEquation/differenceEquation.html">4.2. The difference equation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../LinearAdvectionEquation/differenceSolution.html">4.3. Solution of the difference equation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../LinearAdvectionEquation/Analysis.html">4.4. Analysis of the solution of the difference equation</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../NumericalStability/Introduction.html">5. Stability of numerical schemes</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../NumericalStability/consistencyConvergenceStability.html">5.1. Consistency, convergence and stability</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../NumericalStability/vonNeumannStability.html">5.2. Von Neumann Stability Analysis</a></li>
 </ul>
 </details></li>
 </ul>
@@ -401,25 +412,22 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="algebraic-approximation-of-the-first-derivative">
+  <section id="algebraic-approximation-of-the-first-derivative">
 <span id="finite-differences-algebraic-derivative"></span><h1><span class="section-number">3.1. </span>Algebraic approximation of the first derivative<a class="headerlink" href="#algebraic-approximation-of-the-first-derivative" title="Link to this heading">#</a></h1>
-<p>Let us consider a function <span class="math notranslate nohighlight">\(u(t)\)</span> that depends continously on <span class="math notranslate nohighlight">\(t\)</span>. The derivative of <span class="math notranslate nohighlight">\(u(t)\)</span> is:</p>
-<div class="math notranslate nohighlight" id="equation-eq-exactderivative">
-<span class="eqno">(3.1)<a class="headerlink" href="#equation-eq-exactderivative" title="Link to this equation">#</a></span>\[
+<p>Let us consider a function $u(t)$ that depends continously on $t$. The derivative of $u(t)$ is:</p>
+<p>$$
 \frac{du}{dt} = \lim_{\Delta t \to 0} \frac{u(t+\Delta t)-u(t)}{\Delta t}.
-\]</div>
-<p>We can obtain an algebraic approximation to <span class="math notranslate nohighlight">\(du/dt\)</span> simply by relaxing the requirement that <span class="math notranslate nohighlight">\(\Delta t \to 0\)</span>, which means that we allow <span class="math notranslate nohighlight">\(\Delta t\)</span> to be a finite, small non-zero number:</p>
-<div class="math notranslate nohighlight" id="equation-eq-approxderivative">
-<span class="eqno">(3.2)<a class="headerlink" href="#equation-eq-approxderivative" title="Link to this equation">#</a></span>\[
+$$ (eq:exactDerivative)</p>
+<p>We can obtain an algebraic approximation to $du/dt$ simply by relaxing the requirement that $\Delta t \to 0$, which means that we allow $\Delta t$ to be a finite, small non-zero number:</p>
+<p>$$
 \frac{du}{dt} \approx \frac{u(t+\Delta t)-u(t)}{\Delta t}.
-\]</div>
-<p>If instead of a continuous <span class="math notranslate nohighlight">\(t\)</span>, we use discrete values <span class="math notranslate nohighlight">\(t^n=n\Delta t\)</span>, we can write the algebraic approximation <a class="reference internal" href="#equation-eq-approxderivative">(3.2)</a> as:</p>
-<div class="math notranslate nohighlight" id="equation-eq-discretederivative">
-<span class="eqno">(3.3)<a class="headerlink" href="#equation-eq-discretederivative" title="Link to this equation">#</a></span>\[
+$$ (eq:approxDerivative)</p>
+<p>If instead of a continuous $t$, we use discrete values $t^n=n\Delta t$, we can write the algebraic approximation <code class="xref eq docutils literal notranslate"><span class="pre">eq:approxDerivative</span></code> as:</p>
+<p>$$
 \frac{du}{dt} \approx \frac{u^{n+1}-u^n}{\Delta t},
-\]</div>
-<p>where <span class="math notranslate nohighlight">\(u^{n+1}=u(t^{n+1})=u(t^n+\Delta t)\)</span> and <span class="math notranslate nohighlight">\(u^{n}=u(t^n)\)</span>.</p>
-<p>When dropping the requirement <span class="math notranslate nohighlight">\(\Delta t \to 0\)</span> to obtain the algebraic approximation, we are introducing errors in the calculation of <span class="math notranslate nohighlight">\(du/dt\)</span>. We must now find out how large can these errors be.</p>
+$$ (eq:discreteDerivative)</p>
+<p>where $u^{n+1}=u(t^{n+1})=u(t^n+\Delta t)$ and $u^{n}=u(t^n)$.</p>
+<p>When dropping the requirement $\Delta t \to 0$ to obtain the algebraic approximation, we are introducing errors in the calculation of $du/dt$. We must now find out how large can these errors be.</p>
 </section>
 
     <script type="text/x-thebe-config">

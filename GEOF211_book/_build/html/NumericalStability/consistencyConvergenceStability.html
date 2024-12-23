@@ -57,8 +57,6 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'NumericalStability/consistencyConvergenceStability';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -414,72 +412,67 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="consistency-convergence-and-stability">
+  <section id="consistency-convergence-and-stability">
 <h1><span class="section-number">5.1. </span>Consistency, convergence and stability<a class="headerlink" href="#consistency-convergence-and-stability" title="Link to this heading">#</a></h1>
 <p>First, let’s clarify the expression “converge to the solution of the exact equation”, by defining the error of the numerical approximation.</p>
-<div class="important admonition" id="definition-errorapproximation">
-<p class="admonition-title">Definition</p>
-<p>The error of the numerical approximation <span class="math notranslate nohighlight">\(u_m^n\)</span>, <span class="math notranslate nohighlight">\(\epsilon_m^n\)</span>, is</p>
-<div class="math notranslate nohighlight">
-\[
+<p id="definition-errorapproximation">:::{admonition} Definition
+:class: important
+The error of the numerical approximation $u_m^n$, $\epsilon_m^n$, is</p>
+<p>$$
 \epsilon_m^n = u_m^n - u(m\Delta x,n\Delta t),
-\]</div>
-<p>where <span class="math notranslate nohighlight">\(u_m^n\)</span> is the numerical solution and <span class="math notranslate nohighlight">\(u(m\Delta x,n\Delta t)\)</span> is the exact solution at <span class="math notranslate nohighlight">\((x_m,t^n)\)</span>.</p>
-</div>
+$$</p>
+<p>where $u_m^n$ is the numerical solution and $u(m\Delta x,n\Delta t)$ is the exact solution at $(x_m,t^n)$.
+:::</p>
 <p>We can now define more precisely the concepts of boundedness and convergence. Let us consider the following questions:</p>
 <ul class="simple">
-<li><p>What happens to <span class="math notranslate nohighlight">\(\epsilon_m^n\)</span> as <span class="math notranslate nohighlight">\(\Delta t, \Delta x \to 0\)</span> for fixed <span class="math notranslate nohighlight">\(n\Delta t\)</span>?</p></li>
-<li><p>What happens to <span class="math notranslate nohighlight">\(\epsilon_m^n\)</span> as <span class="math notranslate nohighlight">\(n\to\infty\)</span> for fixed <span class="math notranslate nohighlight">\(\Delta t\)</span> and <span class="math notranslate nohighlight">\(\Delta x\)</span>?</p></li>
+<li><p>What happens to $\epsilon_m^n$ as $\Delta t, \Delta x \to 0$ for fixed $n\Delta t$?</p></li>
+<li><p>What happens to $\epsilon_m^n$ as $n\to\infty$ for fixed $\Delta t$ and $\Delta x$?</p></li>
 </ul>
 <p>The first questions leads us to the concepts of <em>consistency</em> and <em>convergence</em>.</p>
-<div class="important admonition" id="definition-consistency">
-<p class="admonition-title">Definition</p>
-<p>A difference equation is consistent when it approaches the corresponding PDE as <span class="math notranslate nohighlight">\(\Delta t, \Delta x \to 0\)</span>.</p>
-</div>
+<p id="definition-consistency">:::{admonition} Definition
+:class: important
+A difference equation is consistent when it approaches the corresponding PDE as $\Delta t, \Delta x \to 0$.
+:::</p>
 <p>The truncation error of the leapfrog scheme applied to the linear advection equation is:</p>
-<div class="math notranslate nohighlight">
-\[
+<p>$$
 Tr = \frac{\Delta t^2}{3!}\frac{\partial^3 u}{\partial t^3} + c\frac{\Delta x^2}{3!}\frac{\partial^3 u}{\partial x^3} + \dots
-\]</div>
-<p>or <span class="math notranslate nohighlight">\(Tr = O(\Delta t^2)+O(\Delta x^2)\)</span>, which clearly converges to zero as <span class="math notranslate nohighlight">\(\Delta t, \Delta x \to 0\)</span>. Thus the leapfrog discretization of the linear advection equation is consistent.</p>
-<div class="admonition important" id="important-truncationerrorsconsistency">
-<p class="admonition-title">Important</p>
-<p>Numerical schemes with truncation errors with terms <span class="math notranslate nohighlight">\(O(\Delta t^p)\)</span> or <span class="math notranslate nohighlight">\(O(\Delta x^p)\)</span> are consistent if <span class="math notranslate nohighlight">\(p \ge 1\)</span>.</p>
-</div>
-<p>But this is not a guarantee that we will obtain meaningful results. We must also demand that, over an interval <span class="math notranslate nohighlight">\(n\Delta t\)</span>, <span class="math notranslate nohighlight">\(\epsilon_m^n \to 0\)</span> as <span class="math notranslate nohighlight">\(\Delta t, \Delta x \to 0\)</span>.</p>
-<div class="important admonition" id="definition-convergence">
-<p class="admonition-title">Definition</p>
-<p>A numerical solution is convergent if, for fixed <span class="math notranslate nohighlight">\(n\Delta t\)</span>, <span class="math notranslate nohighlight">\(\epsilon_m^n \to 0\)</span> as <span class="math notranslate nohighlight">\(\Delta t, \Delta x \to 0\)</span>.</p>
-<p>If a numerical scheme gives convergent solutions for any initial condition, the numerical scheme is said to be convergent.</p>
-</div>
-<p>The second question leads us to the concept of <em>numerical stability</em>. If <span class="math notranslate nohighlight">\(u(m\Delta x,n\Delta t)\)</span> is bounded, we can expect <span class="math notranslate nohighlight">\(\epsilon_m^n\)</span> to remain bounded if <span class="math notranslate nohighlight">\(u_m^n\)</span> remains bounded.</p>
+$$</p>
+<p>or $Tr = O(\Delta t^2)+O(\Delta x^2)$, which clearly converges to zero as $\Delta t, \Delta x \to 0$. Thus the leapfrog discretization of the linear advection equation is consistent.</p>
+<p id="important-truncationerrorsconsistency">:::{important}
+Numerical schemes with truncation errors with terms $O(\Delta t^p)$ or $O(\Delta x^p)$ are consistent if $p \ge 1$.
+:::</p>
+<p>But this is not a guarantee that we will obtain meaningful results. We must also demand that, over an interval $n\Delta t$, $\epsilon_m^n \to 0$ as $\Delta t, \Delta x \to 0$.</p>
+<p id="definition-convergence">:::{admonition} Definition
+:class: important
+A numerical solution is convergent if, for fixed $n\Delta t$, $\epsilon_m^n \to 0$ as $\Delta t, \Delta x \to 0$.</p>
+<p>If a numerical scheme gives convergent solutions for any initial condition, the numerical scheme is said to be convergent.
+:::</p>
+<p>The second question leads us to the concept of <em>numerical stability</em>. If $u(m\Delta x,n\Delta t)$ is bounded, we can expect $\epsilon_m^n$ to remain bounded if $u_m^n$ remains bounded.</p>
 <aside class="margin sidebar">
 <p class="sidebar-title">Boundedness</p>
-<p>A function <span class="math notranslate nohighlight">\(f\)</span> defined on a set <span class="math notranslate nohighlight">\(X\)</span> with real or complex values is called bounded if there exists a real number <span class="math notranslate nohighlight">\(M\)</span> such that</p>
-<div class="math notranslate nohighlight">
-\[
+<p>A function $f$ defined on a set $X$ with real or complex values is called bounded if there exists a real number $M$ such that</p>
+<p>$$
 |f(x)|\le M
-\]</div>
-<p>for all <span class="math notranslate nohighlight">\(x\)</span> in <span class="math notranslate nohighlight">\(X\)</span>.</p>
+$$</p>
+<p>for all $x$ in $X$.</p>
 </aside>
 <p>This leads us to the definition of stability of a numerical scheme:</p>
-<div class="important admonition" id="definition-stability">
-<p class="admonition-title">Definition</p>
-<p>A finite-difference scheme is <strong>stable</strong> if its solutions remain uniformly bounded functions of the initial condition, for all sufficiently small <span class="math notranslate nohighlight">\(\Delta t\)</span>.</p>
-</div>
+<p id="definition-stability">:::{admonition} Definition
+:class: important
+A finite-difference scheme is <strong>stable</strong> if its solutions remain uniformly bounded functions of the initial condition, for all sufficiently small $\Delta t$.
+:::</p>
 <aside class="margin sidebar">
 <p class="sidebar-title">Uniformly bounded functions</p>
 <p>A uniformly bounded family of functions is a family of bounded functions that can all be bounded by the same constant.</p>
 </aside>
-<div class="admonition important" id="important-stabilitypde">
-<p class="admonition-title">Important</p>
-<p>The concept of stability is not directly related to the underlying PDE.</p>
-</div>
+<p id="important-stabilitypde">:::{important}
+The concept of stability is not directly related to the underlying PDE.
+:::</p>
 <p>Convergence is not so easily demonstrated as it involves the exact equation, whose solution may not be known. Stability is easier to demonstrate as it involved the finite-difference scheme. Luckily, we can infer convergence from stability in certain cases using the Lax Equivalence Theorem.</p>
-<div class="important admonition" id="theorem-laxequivalence">
-<p class="admonition-title">Lax Equivalence Theorem</p>
-<p>Given a properly posed, linear initial value problem and a finite-difference approximation that satisfies the consistency condition, stability is the necessary and sufficient condition for convergence.</p>
-</div>
+<p id="theorem-laxequivalence">:::{admonition} Lax Equivalence Theorem
+:class: important
+Given a properly posed, linear initial value problem and a finite-difference approximation that satisfies the consistency condition, stability is the necessary and sufficient condition for convergence.
+:::</p>
 <p>Therefore, if we can show consistency and stability, the convergence of the finite-difference scheme is guaranteed by the Lax Equivalence Theorem.</p>
 </section>
 

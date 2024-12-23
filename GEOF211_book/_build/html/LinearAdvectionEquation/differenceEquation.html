@@ -57,8 +57,6 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'LinearAdvectionEquation/differenceEquation';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -414,32 +412,29 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="the-difference-equation">
+  <section id="the-difference-equation">
 <span id="linearadvectionequation-differenceequation"></span><h1><span class="section-number">4.2. </span>The difference equation<a class="headerlink" href="#the-difference-equation" title="Link to this heading">#</a></h1>
-<p>We are going to solve equation <a class="reference internal" href="Introduction.html#equation-eq-advection">(4.1)</a> numerically on discretized time and space. The discretizations are:</p>
-<div class="math notranslate nohighlight" id="equation-eq-discretization">
-<span class="eqno">(4.5)<a class="headerlink" href="#equation-eq-discretization" title="Link to this equation">#</a></span>\[\begin{split}
-	x_m &amp;= m\Delta x, m=0,1,2,...,M \\
-	t^n &amp;= n\Delta t, n=0,1,2,...,N,
-\end{split}\]</div>
-<p>where <span class="math notranslate nohighlight">\(\Delta t\)</span> is the time step and <span class="math notranslate nohighlight">\(\Delta x\)</span> is the grid resolution. The discrete time-space domain is commonly represented as the <em>t-x diagram</em> in <a class="reference internal" href="#txdiagram"><span class="std std-numref">Fig. 4.1</span></a>.</p>
+<p>We are going to solve equation <code class="xref eq docutils literal notranslate"><span class="pre">eq:Advection</span></code> numerically on discretized time and space. The discretizations are:</p>
+<p>$$
+x_m &amp;= m\Delta x, m=0,1,2,…,M \
+t^n &amp;= n\Delta t, n=0,1,2,…,N,
+$$ (eq:Discretization)</p>
+<p>where $\Delta t$ is the time step and $\Delta x$ is the grid resolution. The discrete time-space domain is commonly represented as the <em>t-x diagram</em> in <a class="reference internal" href="#txdiagram"><span class="std std-numref">Fig. 4.1</span></a>.</p>
 <figure class="align-default" id="txdiagram">
 <a class="reference internal image-reference" href="LinearAdvectionEquation/txDiagramCropped.png"><img alt="LinearAdvectionEquation/txDiagramCropped.png" src="LinearAdvectionEquation/txDiagramCropped.png" style="height: 600px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 4.1 </span><span class="caption-text">The discrete time-space domain represented as a t-x diagram. The numerical solution at time <span class="math notranslate nohighlight">\(t^n\)</span> and position <span class="math notranslate nohighlight">\(x_m\)</span> is <span class="math notranslate nohighlight">\(u_m^n\)</span> and is represented in the diagram in the position (<span class="math notranslate nohighlight">\(x_m\)</span>,<span class="math notranslate nohighlight">\(t^n\)</span>).</span><a class="headerlink" href="#txdiagram" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 4.1 </span><span class="caption-text">The discrete time-space domain represented as a t-x diagram. The numerical solution at time $t^n$ and position $x_m$ is $u_m^n$ and is represented in the diagram in the position ($x_m$,$t^n$).</span><a class="headerlink" href="#txdiagram" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
-<p>Using the 2nd order centered formula <a class="reference internal" href="../FiniteDifferences/fdFormulasFirstDerivative.html#equation-eq-formulacentred">(3.17)</a> to replace the exact derivatives in <a class="reference internal" href="Introduction.html#equation-eq-advection">(4.1)</a>, we get:</p>
-<div class="math notranslate nohighlight" id="equation-eq-diffequation">
-<span class="eqno">(4.6)<a class="headerlink" href="#equation-eq-diffequation" title="Link to this equation">#</a></span>\[
-	\frac{u_{m}^{n+1} - u_{m}^{n-1}}{2\Delta t } + c \frac{u_{m+1}^{n} - u_{m-1}^{n}}{2\Delta x} = 0.
-\]</div>
-<p>We call <a class="reference internal" href="#equation-eq-diffequation">(4.6)</a> the <em>difference equation</em> resulting from the discretization of <a class="reference internal" href="Introduction.html#equation-eq-advection">(4.1)</a> by the 2nd order centred formulas for the first derivative. Rearranging the terms of <a class="reference internal" href="#equation-eq-diffequation">(4.6)</a> we obtain a time marching scheme:</p>
-<div class="math notranslate nohighlight" id="equation-eq-leapfrog">
-<span class="eqno">(4.7)<a class="headerlink" href="#equation-eq-leapfrog" title="Link to this equation">#</a></span>\[
+<p>Using the 2nd order centered formula <code class="xref eq docutils literal notranslate"><span class="pre">eq:formulaCentred</span></code> to replace the exact derivatives in <code class="xref eq docutils literal notranslate"><span class="pre">eq:Advection</span></code>, we get:</p>
+<p>$$
+\frac{u_{m}^{n+1} - u_{m}^{n-1}}{2\Delta t } + c \frac{u_{m+1}^{n} - u_{m-1}^{n}}{2\Delta x} = 0.
+$$ (eq:diffEquation)</p>
+<p>We call <code class="xref eq docutils literal notranslate"><span class="pre">eq:diffEquation</span></code> the <em>difference equation</em> resulting from the discretization of <code class="xref eq docutils literal notranslate"><span class="pre">eq:Advection</span></code> by the 2nd order centred formulas for the first derivative. Rearranging the terms of <code class="xref eq docutils literal notranslate"><span class="pre">eq:diffEquation</span></code> we obtain a time marching scheme:</p>
+<p>$$
 u_{m}^{n+1} = u_{m}^{n-1} - c\frac{\Delta t}{\Delta x}(u_{m+1}^{n}-u_{m-1}^{n}),
-\]</div>
-<p>known as the <em>leapfrog</em> scheme, which is a three-level scheme, because it employs information at time levels <span class="math notranslate nohighlight">\(n-1\)</span>, <span class="math notranslate nohighlight">\(n\)</span> and <span class="math notranslate nohighlight">\(n+1\)</span>. Since the discretization of <a class="reference internal" href="Introduction.html#equation-eq-advection">(4.1)</a> was done with 2nd order formulas, the scheme <a class="reference internal" href="#equation-eq-leapfrog">(4.7)</a> is of 2nd order.</p>
+$$ (eq:Leapfrog)</p>
+<p>known as the <em>leapfrog</em> scheme, which is a three-level scheme, because it employs information at time levels $n-1$, $n$ and $n+1$. Since the discretization of <code class="xref eq docutils literal notranslate"><span class="pre">eq:Advection</span></code> was done with 2nd order formulas, the scheme <code class="xref eq docutils literal notranslate"><span class="pre">eq:Leapfrog</span></code> is of 2nd order.</p>
 </section>
 
     <script type="text/x-thebe-config">
