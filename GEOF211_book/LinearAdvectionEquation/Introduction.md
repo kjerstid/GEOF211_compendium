@@ -5,7 +5,7 @@ The linear advection equation is a first order partial differential equation tha
 
 $$
 \frac{\partial u}{\partial t} + a \frac{\partial u}{\partial x} = 0, c>0
-$$(eq:Advection)
+$$ (eq:Advection)
 
 models the transport of a signal $u(x,t)$ in 1-d space with velocity $a$, that may also be interpreted as a phase speed of a wave that propagates in the positive $x$-direction. Equation {eq}`eq:Advection` is similar to the first two terms of the momentum equations (e.g. {cite:t}`Cushman-RoisinBeckers2011`, p. 106), that represent the nonlinear advection of momentum by the motions of the fluid. 
 
