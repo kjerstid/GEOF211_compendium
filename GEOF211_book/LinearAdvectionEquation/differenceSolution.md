@@ -1,3 +1,4 @@
+(LinearAdvectionEquation:differenceSolution)=
 # Solution of the difference equation
 
 We shall solve {eq}`eq:diffEquation` analytically to illustrate some aspects of the numerical solution of {eq}`eq:Advection` by the leapfrog scheme {eq}`eq:Leapfrog`. Indeed, while it is equation {eq}`eq:Advection` that we ultimately want to solve, the time marching scheme will effectively solve {eq}`eq:diffEquation`. Thus, by studying the exact solution to {eq}`eq:diffEquation` and how close it is to {eq}`eq:anaSolution`, the exact solution of {eq}`eqAdvection`, we shall be able to say whether or not our time marching method is suitable to the task. 
