@@ -1,3 +1,4 @@
+(NumericalStability:vonNeumannStability)=
 # Von Neumann Stability Analysis
 
 The von Neumann stability analysis method is simple to apply but it cannot handle boundary conditions.

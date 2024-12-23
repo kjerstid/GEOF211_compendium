@@ -13,6 +13,7 @@ chapters:
   - file: Useful_calculus/Complex_numbers.md
   - file: Useful_calculus/Euler_Formula.md
   - file: Useful_calculus/Fourier_transforms.md
+  - file: Useful_calculus/Formal_dev_derivative.md
 - file: GFD/Introduction.md
   sections:
   - file: GFD/PrimitiveEquations.md
@@ -34,6 +35,9 @@ chapters:
 - file: NumericalStability/Introduction.md
   sections: 
   - file: NumericalStability/consistencyConvergenceStability.md
+  - file: NumericalStability/DomainDep.md
+  - file: NumericalStability/CFL.md
+  - file: NumericalStability/Total_variation.md
   - file: NumericalStability/vonNeumannStability.md
   
 #  - file: Advection/
