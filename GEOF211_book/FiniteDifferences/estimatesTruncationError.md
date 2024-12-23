@@ -13,7 +13,7 @@ name: figUTscales
 Time and space scales of signal $u(t)$.
 ```
 
-We observe that over time interval $T$ the signal shows a variation of size $U$. These characteristic values may be thought of as the time scale and the magnitude of the variation of $u$ over $T$, respectively. 
+We observe that over time interval $T$, the signal shows a variation of size $U$. These characteristic values may be thought of as the time scale and the magnitude of the variation of $u$ over $T$, respectively. 
 
 Since the derivative of $u(t)$ is the variation $\Delta u$ that occurs over time interval $\Delta t$, we can say that $U$ and $T$ are characteristic values of $\Delta u$ and $\Delta t$ and write
 
@@ -29,7 +29,7 @@ $$ (eq:orderDu2Dt2)
 
 For higher order derivatives, the reasoning is the same. 
 
-To estimate the magnitude of the truncation error, we can write that the size of the terms of {eq}`eq:truncationError` will be
+To estimate the magnitude of the truncation error, we can write that the size of the terms of {eq}`eq:truncationError`: 
 
 $$
 \Delta t \frac{U}{T^2}, \quad \Delta t^2 \frac{U}{T^3}, \quad \Delta t^3 \frac{U}{T^4}, \quad \text{etc.}

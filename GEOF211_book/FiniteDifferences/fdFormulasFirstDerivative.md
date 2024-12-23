@@ -12,13 +12,37 @@ $$ (eq:formulaForward)
 
 Formula {eq}`eq:formulaForward` is called a *forward* difference formula because it uses the $u^n$ and the $u^{n+1}$ values, and it is a first order formula because the truncation error is of $O(\Delta t)$. The leading term of the truncation error is usually written with the formula to indicate its order of approximation.
 
-We can use Taylor series expansions to obtain several lower order finite difference formulas. Using a backward Taylor series
+We can use Taylor series expansions to obtain several lower order finite difference formulas. 
+
+We typically start from equation {eq}`eq:taylorSeries_v1`, repeated here: 
 
 $$
-u(t-\Delta t)=u(t)-\Delta t\frac{du}{dt} + \frac{\Delta t^2}{2!}\frac{d^2u}{dt^2} - \frac{\Delta t^3}{3!}\frac{d^3u}{dt^3}+O(\Delta t^4),
-$$ (eq:backwardExpansion)
+u(t)=u^n+\frac{u'(t^n)}{1!}(t-t^n)+\frac{u''(t^n)}{2!}(t-t^n)^2+\sum_{p=3}^{\infty}\frac{u^{(p)}(t^n)}{p!}(t-t^n)^p
+$$
 
-and rearranging the terms, we obtain the *backward* difference formula for the 1st derivative:
+To achieve a backward Taylor series, we let $t=t^{n-1}$ and insert into {eq}`eq:taylorSeries_v1`:
+
+$$
+u^{n-1}=u^n+(t^{n-1}-t^{n})\frac{du}{dt}|_{t^n}+\frac{(t^{n-1}-t^{n})}{2!}\frac{d^2u}{dt^2}|_{t^n}+\sum_{p=3}^{\infty}\frac{(t^{n-1}-t^{n})^p}{p!}\frac{d^{(p)}u}{dt^p}|_{t^n}
+$$ (eq:backward_taylorSeries_a)
+
+We note that $t^{n-1}-t^{n}=-\Delta t$ and insert
+
+$$
+u^{n-1}=u^n+(-\Delta t)\frac{du}{dt}|_{t^n}+\frac{(-\Delta t)^2}{2!}\frac{d^2u}{dt^2}|_{t^n}+\sum_{p=3}^{\infty}\frac{(-\Delta t)^p}{p!}\frac{d^{(p)}u}{dt^p}|_{t^n}
+$$ (eq:backward_taylorSeries_b)
+
+We can now adjust the signs from $\Delta t$ to get
+
+$$
+u^{n-1}=u^n-\Delta t\frac{du}{dt}|_{t^n}+\frac{(\Delta t)^2}{2!}\frac{d^2u}{dt^2}|_{t^n}+\sum_{p=3}^{\infty}\frac{(-\Delta t)^p}{p!}\frac{d^{(p)}u}{dt^p}|_{t^n}
+$$ (eq:backward_taylorSeries_c)
+
+%$$
+%u(t-\Delta t)=u(t)-\Delta t\frac{du}{dt} + \frac{\Delta t^2}{2!}\frac{d^2u}{dt^2} - \frac{\Delta t^3}{3!}%\frac{d^3u}{dt^3}+O(\Delta t^4),
+%$$ (eq:backwardExpansion)
+
+We rearrange the terms to isolate $\frac{du}{dt}$ and obtain the *backward* difference formula for the 1st derivative:
 
 $$
 \frac{du}{dt}=\frac{u^{n}-u^{n-1}}{\Delta t} + O\left( \Delta t\right),
@@ -26,13 +50,13 @@ $$ (eq:formulaBackward)
  
 which uses the $u^{n-1}$ and the $u^{n}$ values and is also a first order approximation.
 
-By combining the forward and backward Taylor expansions, we obtain 
+By summing the forward (eq. {eq}`eq:formulaForward`) and backward (eq. {eq}`eq:formulaBackward`) Taylor expansions and dividing by 2, we obtain 
 
 $$
 \frac{du}{dt}=\frac{u^{n+1}-u^{n-1}}{2\Delta t} + O\left( \Delta t^2\right),
 $$ (eq:formulaCentred)
 
-which is called the *centred* difference formula and which is a second order approximation because its truncation error is proportional to $\Delta t^2$.
+which is called the *centred* difference formula. Since the backward and forward Taylor expansions have opposite signs for every second term, these terms cancel out. We, therefore, cancel out the first error term, and now have a second order approximation, with a truncation error proportional to $\Delta t^2$. 
 
 (finite-differences:formulas-1stderivative-higherorder)=
 ## Higher order formulas

@@ -1,7 +1,7 @@
 (finite-differences:truncation-error)=
 # Truncation Error
 
-The accuracy of the algebraic approximation to $du/dt$ {eq}`eq:discreteDerivative` can be determined with the help of the Taylor series expansion of $u(t)$ around the point $a=t^n$, where $t^n$ is reprecenting a chosen time ste. Note that $u^{n+1}=u(t^{n+1})=u(t^n+\Delta t)$ and $u^{n}=u(t^n)$.
+The accuracy of the algebraic approximation to $du/dt$ {eq}`eq:discreteDerivative` can be determined with the help of the Taylor series expansion of $u(t)$ around the point $a=t^n$. Here, $t^n$ is reprecenting a chosen time step. Note that $u^{n+1}=u(t^{n+1})=u(t^n+\Delta t)$ and $u^{n}=u(t^n)$.
 
 
 $$
@@ -10,7 +10,7 @@ $$ (eq:taylorSeries_v1)
 
 Note that $u'(t^n)$ can also be written $\frac{du}{dt}|_{t^n}$. You will find that some references omit displaying the $|_{t^n}$ in the derivative terms. We will include them here for completeness.
 
-Now, since we are interested in the time step coming after $t^n$ we write out the equation for $t=t^{n+1}$, and note that $(t^{n+1}-t^n)=\Delta t$:
+We are interested in the time step coming after $t^n$. We, therefore, write out the equation for $t=t^{n+1}$, and note that $(t^{n+1}-t^n)=\Delta t$:
 
 $$
 u^{n+1}=u^n+\Delta t\frac{du}{dt}|_{t^n}+\frac{\Delta t^2}{2!}\frac{d^2u}{dt^2}|_{t^n}+\sum_{p=3}^{\infty}\frac{\Delta t^p}{p!}\frac{d^{(p)}u}{dt^p}|_{t^n}
