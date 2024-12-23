@@ -8,11 +8,11 @@ $$
 
 is widely used to represent simple oscillatory behaviour. 
 ```
-The linear advection equation is given by:
+The linear advection equation (eq. {eq}`eq:Advection`) is given by:
 
 $$
 \frac{\partial u}{\partial t} + a \frac{\partial u}{\partial x} = 0, c>0
-$$ (eq:Advection)
+$$
 
 We will assume an initial condition in the form of a simple wave:
 
