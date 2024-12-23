@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>The exact equation &#8212; GEOF211 resource pages</title>
+    <title>4.1. The exact equation &#8212; GEOF211 resource pages</title>
   
   
   
@@ -62,6 +62,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'LinearAdvectionEquation/analyticSolution';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="4.2. The difference equation" href="differenceEquation.html" />
+    <link rel="prev" title="4. The linear advection equation" href="Introduction.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -124,8 +126,6 @@
       
       
       
-        
-      
       <div class="bd-sidebar-primary bd-sidebar">
         
 
@@ -181,12 +181,13 @@
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../Useful_calculus/Introduction.html">1. Useful calculus</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Useful_calculus/Taylor_Polynomials.html">1.1. Taylor series</a></li>
 
-<li class="toctree-l2"><a class="reference internal" href="../Useful_calculus/Complex_numbers.html">1.3. Useful identities for dealing with trigonometry and complex numbers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Useful_calculus/Fourier_transforms.html">1.4. Fourier transforms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Useful_calculus/Trigonometry.html">1.3. Trigonometry</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Useful_calculus/Complex_numbers.html">1.4. Complex numbers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Useful_calculus/Fourier_transforms.html">1.5. Fourier transforms</a></li>
 
 </ul>
 </details></li>
@@ -201,6 +202,13 @@
 <li class="toctree-l2"><a class="reference internal" href="../FiniteDifferences/estimatesTruncationError.html">3.3. Estimates of the truncation error</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../FiniteDifferences/fdFormulasFirstDerivative.html">3.4. Finite difference formulas for the 1st derivative</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../FiniteDifferences/evaluatingTruncationError.html">3.5. Evaluating the truncation error</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="Introduction.html">4. The linear advection equation</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">4.1. The exact equation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="differenceEquation.html">4.2. The difference equation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="differenceSolution.html">4.3. Solution of the difference equation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Analysis.html">4.4. Analysis of the solution of the difference equation</a></li>
 </ul>
 </details></li>
 </ul>
@@ -401,8 +409,8 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="the-exact-equation">
-<h1>The exact equation<a class="headerlink" href="#the-exact-equation" title="Link to this heading">#</a></h1>
-<p>The analytic (exact) solution of <a class="reference internal" href="Introduction.html#equation-eq-advection">()</a> can be obtained by the method of the separation of variables. We shall assume an initial condition in the form of a simple wave:</p>
+<h1><span class="section-number">4.1. </span>The exact equation<a class="headerlink" href="#the-exact-equation" title="Link to this heading">#</a></h1>
+<p>The analytic (exact) solution of <a class="reference internal" href="Introduction.html#equation-eq-advection">(4.1)</a> can be obtained by the method of the separation of variables. We shall assume an initial condition in the form of a simple wave:</p>
 <aside class="margin sidebar">
 <p class="sidebar-title">Euler’s formula</p>
 <p>Euler’s formula</p>
@@ -413,16 +421,16 @@ e^{i\theta}=\cos \theta + i\sin \theta.
 <p>is widely used to represent simple oscillatory behaviour.</p>
 </aside>
 <div class="math notranslate nohighlight" id="equation-eq-initialcond">
-<span class="eqno">()<a class="headerlink" href="#equation-eq-initialcond" title="Link to this equation">#</a></span>\[
+<span class="eqno">(4.2)<a class="headerlink" href="#equation-eq-initialcond" title="Link to this equation">#</a></span>\[
 	u(x,0)=A e^{i k x},
 \]</div>
 <p>where <span class="math notranslate nohighlight">\(k = 2\pi/\lambda\)</span> is the wave number (<span class="math notranslate nohighlight">\(\lambda\)</span> is the wavelength).</p>
-<p>Let the solution to <a class="reference internal" href="Introduction.html#equation-eq-advection">()</a> with initial condition <a class="reference internal" href="#equation-eq-initialcond">()</a> be given by</p>
+<p>Let the solution to <a class="reference internal" href="Introduction.html#equation-eq-advection">(4.1)</a> with initial condition <a class="reference internal" href="#equation-eq-initialcond">(4.2)</a> be given by</p>
 <div class="math notranslate nohighlight" id="equation-eq-sepvar">
-<span class="eqno">()<a class="headerlink" href="#equation-eq-sepvar" title="Link to this equation">#</a></span>\[
+<span class="eqno">(4.3)<a class="headerlink" href="#equation-eq-sepvar" title="Link to this equation">#</a></span>\[
 	u(x,t)=G(t)H(x).
 \]</div>
-<p>Substituting in <a class="reference internal" href="Introduction.html#equation-eq-advection">()</a>, we have</p>
+<p>Substituting in <a class="reference internal" href="Introduction.html#equation-eq-advection">(4.1)</a>, we have</p>
 <p>\begin{align*}
 \frac{\partial }{\partial t} (G(t)H(x))=&amp; -c \frac{\partial }{\partial x} (G(t)H(x)) \
 H(x) \frac{\partial G(t)}{\partial t} =&amp; -c G(t) \frac{\partial H(x)}{\partial x} \
@@ -436,10 +444,10 @@ H(x) \frac{\partial G(t)}{\partial t} =&amp; -c G(t) \frac{\partial H(x)}{\parti
 <p>and we find <span class="math notranslate nohighlight">\(u(x,t)=G(t)H(x)=A_1A_2e^{-\alpha t}e^{\alpha x/c}\)</span>.</p>
 <p>At <span class="math notranslate nohighlight">\(t=0\)</span> we have <span class="math notranslate nohighlight">\(u(x,0)=A_1A_2e^{\alpha x/c}\)</span>, so we know that <span class="math notranslate nohighlight">\(A=A_1A_2\)</span> and <span class="math notranslate nohighlight">\(ik = \alpha/c\)</span> and so <span class="math notranslate nohighlight">\(\alpha=ikc\)</span>. Finally, we can write:</p>
 <div class="math notranslate nohighlight" id="equation-eq-anasolution">
-<span class="eqno">()<a class="headerlink" href="#equation-eq-anasolution" title="Link to this equation">#</a></span>\[
+<span class="eqno">(4.4)<a class="headerlink" href="#equation-eq-anasolution" title="Link to this equation">#</a></span>\[
 	u(x,t)=Ae^{-ikct}e^{ikcx/c}=Ae^{ik(x-ct)},
 \]</div>
-<p>which is the solution of <a class="reference internal" href="Introduction.html#equation-eq-advection">()</a> given the initial condition <a class="reference internal" href="#equation-eq-initialcond">()</a>. This solution represents the initial condition moving along the positive <span class="math notranslate nohighlight">\(x\)</span>-direction with translation velocity <span class="math notranslate nohighlight">\(c\)</span>.</p>
+<p>which is the solution of <a class="reference internal" href="Introduction.html#equation-eq-advection">(4.1)</a> given the initial condition <a class="reference internal" href="#equation-eq-initialcond">(4.2)</a>. This solution represents the initial condition moving along the positive <span class="math notranslate nohighlight">\(x\)</span>-direction with translation velocity <span class="math notranslate nohighlight">\(c\)</span>.</p>
 </section>
 
     <script type="text/x-thebe-config">
@@ -472,6 +480,24 @@ H(x) \frac{\partial G(t)}{\partial t} =&amp; -c G(t) \frac{\partial H(x)}{\parti
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="Introduction.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">4. </span>The linear advection equation</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="differenceEquation.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">4.2. </span>The difference equation</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               

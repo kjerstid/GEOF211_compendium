@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Solution of the difference equation &#8212; GEOF211 resource pages</title>
+    <title>4.3. Solution of the difference equation &#8212; GEOF211 resource pages</title>
   
   
   
@@ -62,6 +62,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'LinearAdvectionEquation/differenceSolution';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="4.4. Analysis of the solution of the difference equation" href="Analysis.html" />
+    <link rel="prev" title="4.2. The difference equation" href="differenceEquation.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -124,8 +126,6 @@
       
       
       
-        
-      
       <div class="bd-sidebar-primary bd-sidebar">
         
 
@@ -181,12 +181,13 @@
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../Useful_calculus/Introduction.html">1. Useful calculus</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Useful_calculus/Taylor_Polynomials.html">1.1. Taylor series</a></li>
 
-<li class="toctree-l2"><a class="reference internal" href="../Useful_calculus/Complex_numbers.html">1.3. Useful identities for dealing with trigonometry and complex numbers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Useful_calculus/Fourier_transforms.html">1.4. Fourier transforms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Useful_calculus/Trigonometry.html">1.3. Trigonometry</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Useful_calculus/Complex_numbers.html">1.4. Complex numbers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Useful_calculus/Fourier_transforms.html">1.5. Fourier transforms</a></li>
 
 </ul>
 </details></li>
@@ -201,6 +202,13 @@
 <li class="toctree-l2"><a class="reference internal" href="../FiniteDifferences/estimatesTruncationError.html">3.3. Estimates of the truncation error</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../FiniteDifferences/fdFormulasFirstDerivative.html">3.4. Finite difference formulas for the 1st derivative</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../FiniteDifferences/evaluatingTruncationError.html">3.5. Evaluating the truncation error</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="Introduction.html">4. The linear advection equation</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="analyticSolution.html">4.1. The exact equation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="differenceEquation.html">4.2. The difference equation</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">4.3. Solution of the difference equation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Analysis.html">4.4. Analysis of the solution of the difference equation</a></li>
 </ul>
 </details></li>
 </ul>
@@ -398,8 +406,8 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#case-1-mu-leq-1">Case 1: <span class="math notranslate nohighlight">\(|\mu| \leq 1\)</span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#case-2-mu-gt-1">Case 2: <span class="math notranslate nohighlight">\(|\mu| \gt 1\)</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#case-1-mu-leq-1">4.3.1. Case 1: <span class="math notranslate nohighlight">\(|\mu| \leq 1\)</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#case-2-mu-gt-1">4.3.2. Case 2: <span class="math notranslate nohighlight">\(|\mu| \gt 1\)</span></a></li>
 </ul>
             </nav>
         </div>
@@ -412,14 +420,14 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="solution-of-the-difference-equation">
-<h1>Solution of the difference equation<a class="headerlink" href="#solution-of-the-difference-equation" title="Link to this heading">#</a></h1>
-<p>We shall solve <a class="reference internal" href="differenceEquation.html#equation-eq-diffequation">()</a> analytically to illustrate some aspects of the numerical solution of <a class="reference internal" href="Introduction.html#equation-eq-advection">()</a> by the leapfrog scheme <a class="reference internal" href="differenceEquation.html#equation-eq-leapfrog">()</a>. Indeed, while it is equation <a class="reference internal" href="Introduction.html#equation-eq-advection">()</a> that we ultimately want to solve, the time marching scheme will effectively solve <a class="reference internal" href="differenceEquation.html#equation-eq-diffequation">()</a>. Thus, by studying the exact solution to <a class="reference internal" href="differenceEquation.html#equation-eq-diffequation">()</a> and how close it is to <a class="reference internal" href="analyticSolution.html#equation-eq-anasolution">()</a>, the exact solution of <code class="xref eq docutils literal notranslate"><span class="pre">eqAdvection</span></code>, we shall be able to say whether or not our time marching method is suitable to the task.</p>
-<p>We assume an exponential solution to <a class="reference internal" href="differenceEquation.html#equation-eq-diffequation">()</a>:</p>
+<h1><span class="section-number">4.3. </span>Solution of the difference equation<a class="headerlink" href="#solution-of-the-difference-equation" title="Link to this heading">#</a></h1>
+<p>We shall solve <a class="reference internal" href="differenceEquation.html#equation-eq-diffequation">(4.6)</a> analytically to illustrate some aspects of the numerical solution of <a class="reference internal" href="Introduction.html#equation-eq-advection">(4.1)</a> by the leapfrog scheme <a class="reference internal" href="differenceEquation.html#equation-eq-leapfrog">(4.7)</a>. Indeed, while it is equation <a class="reference internal" href="Introduction.html#equation-eq-advection">(4.1)</a> that we ultimately want to solve, the time marching scheme will effectively solve <a class="reference internal" href="differenceEquation.html#equation-eq-diffequation">(4.6)</a>. Thus, by studying the exact solution to <a class="reference internal" href="differenceEquation.html#equation-eq-diffequation">(4.6)</a> and how close it is to <a class="reference internal" href="analyticSolution.html#equation-eq-anasolution">(4.4)</a>, the exact solution of <code class="xref eq docutils literal notranslate"><span class="pre">eqAdvection</span></code>, we shall be able to say whether or not our time marching method is suitable to the task.</p>
+<p>We assume an exponential solution to <a class="reference internal" href="differenceEquation.html#equation-eq-diffequation">(4.6)</a>:</p>
 <div class="math notranslate nohighlight" id="equation-eq-diffsolution">
-<span class="eqno">()<a class="headerlink" href="#equation-eq-diffsolution" title="Link to this equation">#</a></span>\[
+<span class="eqno">(4.8)<a class="headerlink" href="#equation-eq-diffsolution" title="Link to this equation">#</a></span>\[
 	u_{m}^{n} =B^{n\Delta t}e^{ik m\Delta x}, 
 \]</div>
-<p>where <span class="math notranslate nohighlight">\(B\)</span> can be complex. Substituting in <a class="reference internal" href="differenceEquation.html#equation-eq-diffequation">()</a>, we have:</p>
+<p>where <span class="math notranslate nohighlight">\(B\)</span> can be complex. Substituting in <a class="reference internal" href="differenceEquation.html#equation-eq-diffequation">(4.6)</a>, we have:</p>
 <p>\begin{align*}
 (B^{(n+1)\Delta t} - B^{(n-1)\Delta t})e^{i\mu m\Delta x} &amp;= -c\frac{\Delta t}{\Delta x} B^{n\Delta t}(e^{i\mu (m+1)\Delta x}-e^{i\mu (m-1)\Delta x}) \Leftrightarrow \
 (B^{\Delta t} - B^{-\Delta t})B^{n\Delta t} e^{i\mu m\Delta x} &amp;= -c\frac{\Delta t}{\Delta x} B^{n\Delta t}e^{i\mu m\Delta x}(e^{i\mu \Delta x}-e^{-i\mu \Delta x}) \Leftrightarrow \
@@ -440,12 +448,12 @@ B^{2\Delta t}  + &amp; 2i\mu B^{\Delta t} -1 =  0,
 \end{align*}</p>
 <p>with <span class="math notranslate nohighlight">\(\mu = c\frac{\Delta t}{\Delta x} \sin (k \Delta x)\)</span>. Solving for <span class="math notranslate nohighlight">\(B^{\Delta t}\)</span>, we obtain:</p>
 <div class="math notranslate nohighlight" id="equation-eqbroots">
-<span class="eqno">()<a class="headerlink" href="#equation-eqbroots" title="Link to this equation">#</a></span>\[
+<span class="eqno">(4.9)<a class="headerlink" href="#equation-eqbroots" title="Link to this equation">#</a></span>\[
 	B^{\Delta t}_\pm = -i\mu \pm \sqrt{1-\mu^2}
 \]</div>
 <p>The roots <span class="math notranslate nohighlight">\(B^{\Delta t}_\pm\)</span> will have different behaviours, depending on the magnitude of <span class="math notranslate nohighlight">\(|\mu|\)</span>.</p>
 <section id="case-1-mu-leq-1">
-<h2>Case 1: <span class="math notranslate nohighlight">\(|\mu| \leq 1\)</span><a class="headerlink" href="#case-1-mu-leq-1" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">4.3.1. </span>Case 1: <span class="math notranslate nohighlight">\(|\mu| \leq 1\)</span><a class="headerlink" href="#case-1-mu-leq-1" title="Link to this heading">#</a></h2>
 <p>For <span class="math notranslate nohighlight">\(|\mu| \leq 1\)</span> we obtain two complex roots that we can express in polar form.</p>
 <aside class="margin sidebar">
 <p class="sidebar-title">Polar form</p>
@@ -463,13 +471,13 @@ B^{\Delta t}_+ &amp;= \left[ (\sqrt{1-\mu^2})^2+(-\mu)^2\right]^{1/2}\exp (i\arc
 <p>\begin{equation}
 B^{\Delta t}_{-}= e^{i(\alpha+\pi)}.
 \end{equation}</p>
-<p>With the roots of <span class="math notranslate nohighlight">\(B^{\Delta t}\)</span>, we can return to <a class="reference internal" href="#equation-eq-diffsolution">()</a> and write:</p>
+<p>With the roots of <span class="math notranslate nohighlight">\(B^{\Delta t}\)</span>, we can return to <a class="reference internal" href="#equation-eq-diffsolution">(4.8)</a> and write:</p>
 <div class="math notranslate nohighlight" id="equation-eq-diffsolution2">
-<span class="eqno">()<a class="headerlink" href="#equation-eq-diffsolution2" title="Link to this equation">#</a></span>\[
+<span class="eqno">(4.10)<a class="headerlink" href="#equation-eq-diffsolution2" title="Link to this equation">#</a></span>\[
 	u_{m}^{n} =\left[ De^{-i\alpha n} + Ee^{-i(\alpha+\pi) n} \right]e^{i\mu m\Delta x} 
 \]</div>
 <p>as the sum of the solutions for each root of <span class="math notranslate nohighlight">\(B^{\Delta t}\)</span>, since <code class="xref eq docutils literal notranslate"><span class="pre">eqAdvection</span></code> is linear. The constants <span class="math notranslate nohighlight">\(D\)</span> and <span class="math notranslate nohighlight">\(E\)</span> are to be found through the initial condition.</p>
-<p>At the initial time, <span class="math notranslate nohighlight">\(n=0\)</span>, and <a class="reference internal" href="#equation-eq-diffsolution2">()</a> becomes</p>
+<p>At the initial time, <span class="math notranslate nohighlight">\(n=0\)</span>, and <a class="reference internal" href="#equation-eq-diffsolution2">(4.10)</a> becomes</p>
 <div class="math notranslate nohighlight">
 \[
 	u_{m}^{0} =\left( D + E \right) e^{i\mu m\Delta x},
@@ -480,16 +488,16 @@ u_{m}^{n} &amp;= \left[ De^{-i\alpha n} + Ee^{-i(\alpha+\pi) n} \right]e^{i\mu m
 &amp;= De^{i\mu (m\Delta x - \alpha n/ \mu)} + Ee^{-i\pi}e^{i\mu (m\Delta x + \alpha n/ \mu)} \
 &amp;= (A-E)e^{i\mu (m\Delta x - \alpha n/ \mu)} + (-1)^{n}Ee^{i\mu (m\Delta x + \alpha n/ \mu)}.
 \end{align}</p>
-<p>The solution of <a class="reference internal" href="differenceEquation.html#equation-eq-diffequation">()</a> can thus be seen to have two waves, whereas the solution to the exact equation <code class="xref eq docutils literal notranslate"><span class="pre">eqAdvection</span></code> had only one wave.</p>
+<p>The solution of <a class="reference internal" href="differenceEquation.html#equation-eq-diffequation">(4.6)</a> can thus be seen to have two waves, whereas the solution to the exact equation <code class="xref eq docutils literal notranslate"><span class="pre">eqAdvection</span></code> had only one wave.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The two waves arise from the two roots <span class="math notranslate nohighlight">\(B^{\Delta t}_\pm\)</span>. In general, a <span class="math notranslate nohighlight">\(p\)</span>-th order scheme will introduce additional wave solutions when it is applied to a <span class="math notranslate nohighlight">\((p-1)\)</span>-th order equation.</p>
 <p>An additional consequence of the use of a 2nd order scheme to solve a first order equation is that we need one additional initial condition.</p>
 </div>
-<p>By using the initial condition, we were able to find the value of <span class="math notranslate nohighlight">\(D\)</span>, but the value of <span class="math notranslate nohighlight">\(E\)</span> is still to be found. We can find <span class="math notranslate nohighlight">\(E\)</span> by marching the solution \label{eqn:diffEquationSolution2} to the first time step <span class="math notranslate nohighlight">\(n=1\)</span>. But we can’t use <a class="reference internal" href="differenceEquation.html#equation-eq-leapfrog">()</a>, because we don’t have the value of <span class="math notranslate nohighlight">\(u^{-1}_m\)</span>.</p>
+<p>By using the initial condition, we were able to find the value of <span class="math notranslate nohighlight">\(D\)</span>, but the value of <span class="math notranslate nohighlight">\(E\)</span> is still to be found. We can find <span class="math notranslate nohighlight">\(E\)</span> by marching the solution \label{eqn:diffEquationSolution2} to the first time step <span class="math notranslate nohighlight">\(n=1\)</span>. But we can’t use <a class="reference internal" href="differenceEquation.html#equation-eq-leapfrog">(4.7)</a>, because we don’t have the value of <span class="math notranslate nohighlight">\(u^{-1}_m\)</span>.</p>
 <p>Instead, we have to use a two-time level like the forward scheme (Euler), that approximates the time derivative by a first-order forward formula:</p>
 <div class="math notranslate nohighlight" id="equation-eq-eulerforward">
-<span class="eqno">()<a class="headerlink" href="#equation-eq-eulerforward" title="Link to this equation">#</a></span>\[
+<span class="eqno">(4.11)<a class="headerlink" href="#equation-eq-eulerforward" title="Link to this equation">#</a></span>\[
 	u_{m}^{n+1} = u_{m}^{n} - c\frac{\Delta t}{2\Delta x}(u_{m+1}^{n}-u_{m-1}^{n}).
 \]</div>
 <p>Using the initial condition <span class="math notranslate nohighlight">\(u_{m}^{0}=A e^{i \mu m\Delta x}\)</span>, we have:</p>
@@ -509,13 +517,13 @@ A \left[1 - i\sin \alpha \right] &amp;=  (A-E)e^{-i\alpha} - Ee^{i\alpha} \Leftr
 A - A\cos \alpha &amp;= -E (2\cos \alpha) \Leftrightarrow \
 E &amp;= \frac{A(\cos \alpha -1)}{2\cos \alpha}.
 \end{align*}</p>
-<p>We can now write the full solution of the difference equation <a class="reference internal" href="differenceEquation.html#equation-eq-diffequation">()</a> as:</p>
+<p>We can now write the full solution of the difference equation <a class="reference internal" href="differenceEquation.html#equation-eq-diffequation">(4.6)</a> as:</p>
 <div class="math notranslate nohighlight" id="equation-eq-solutiondiffequation">
-<span class="eqno">()<a class="headerlink" href="#equation-eq-solutiondiffequation" title="Link to this equation">#</a></span>\[
+<span class="eqno">(4.12)<a class="headerlink" href="#equation-eq-solutiondiffequation" title="Link to this equation">#</a></span>\[
 	u_{m}^{n} = A \frac{1+\cos \alpha}{2\cos \alpha}e^{i\mu (m\Delta x - \alpha n/ \mu)} + (-1)^{n+1}A \frac{1-\cos \alpha}{2\cos \alpha}e^{i\mu (m\Delta x + \alpha n/ \mu)}.
 \]</div>
 <p>This solution is composed of two wave forms of different amplitudes and that travel in opposite senses.</p>
-<p>When we compare with <a class="reference internal" href="analyticSolution.html#equation-eq-anasolution">()</a>, that we write below in a discrete version at <span class="math notranslate nohighlight">\((x_m,t^n)\)</span></p>
+<p>When we compare with <a class="reference internal" href="analyticSolution.html#equation-eq-anasolution">(4.4)</a>, that we write below in a discrete version at <span class="math notranslate nohighlight">\((x_m,t^n)\)</span></p>
 <div class="math notranslate nohighlight">
 \[
 	u(x_m,t^n)=Ae^{i\mu (m\Delta x-cn\Delta t)},
@@ -524,7 +532,7 @@ E &amp;= \frac{A(\cos \alpha -1)}{2\cos \alpha}.
 solution. This second waveform is clearly an artifact introduced by the discretization of <code class="xref eq docutils literal notranslate"><span class="pre">eqAdvection</span></code> and is a source of errors.</p>
 </section>
 <section id="case-2-mu-gt-1">
-<h2>Case 2: <span class="math notranslate nohighlight">\(|\mu| \gt 1\)</span><a class="headerlink" href="#case-2-mu-gt-1" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">4.3.2. </span>Case 2: <span class="math notranslate nohighlight">\(|\mu| \gt 1\)</span><a class="headerlink" href="#case-2-mu-gt-1" title="Link to this heading">#</a></h2>
 </section>
 </section>
 
@@ -558,6 +566,24 @@ solution. This second waveform is clearly an artifact introduced by the discreti
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="differenceEquation.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">4.2. </span>The difference equation</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Analysis.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">4.4. </span>Analysis of the solution of the difference equation</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               
@@ -574,8 +600,8 @@ solution. This second waveform is clearly an artifact introduced by the discreti
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#case-1-mu-leq-1">Case 1: <span class="math notranslate nohighlight">\(|\mu| \leq 1\)</span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#case-2-mu-gt-1">Case 2: <span class="math notranslate nohighlight">\(|\mu| \gt 1\)</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#case-1-mu-leq-1">4.3.1. Case 1: <span class="math notranslate nohighlight">\(|\mu| \leq 1\)</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#case-2-mu-gt-1">4.3.2. Case 2: <span class="math notranslate nohighlight">\(|\mu| \gt 1\)</span></a></li>
 </ul>
   </nav></div>
 

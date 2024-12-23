@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>3. The finite difference method (FDM) &#8212; GEOF211 resource pages</title>
+    <title>Stability of numerical schemes &#8212; GEOF211 resource pages</title>
   
   
   
@@ -57,13 +57,9 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'FiniteDifferences/Introduction';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'NumericalStability/intro';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="3.1. Algebraic approximation of the first derivative" href="algebraicDerivative.html" />
-    <link rel="prev" title="2.2. Advection equation" href="../GFD/Advection.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -126,6 +122,8 @@
       
       
       
+        
+      
       <div class="bd-sidebar-primary bd-sidebar">
         
 
@@ -181,7 +179,7 @@
                 </a>
             </li>
         </ul>
-        <ul class="current nav bd-sidenav">
+        <ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../Useful_calculus/Introduction.html">1. Useful calculus</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Useful_calculus/Taylor_Polynomials.html">1.1. Taylor series</a></li>
 
@@ -196,12 +194,12 @@
 <li class="toctree-l2"><a class="reference internal" href="../GFD/Advection.html">2.2. Advection equation</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">3. The finite difference method (FDM)</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="algebraicDerivative.html">3.1. Algebraic approximation of the first derivative</a></li>
-<li class="toctree-l2"><a class="reference internal" href="truncationErrors.html">3.2. Truncation Error</a></li>
-<li class="toctree-l2"><a class="reference internal" href="estimatesTruncationError.html">3.3. Estimates of the truncation error</a></li>
-<li class="toctree-l2"><a class="reference internal" href="fdFormulasFirstDerivative.html">3.4. Finite difference formulas for the 1st derivative</a></li>
-<li class="toctree-l2"><a class="reference internal" href="evaluatingTruncationError.html">3.5. Evaluating the truncation error</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../FiniteDifferences/Introduction.html">3. The finite difference method (FDM)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../FiniteDifferences/algebraicDerivative.html">3.1. Algebraic approximation of the first derivative</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../FiniteDifferences/truncationErrors.html">3.2. Truncation Error</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../FiniteDifferences/estimatesTruncationError.html">3.3. Estimates of the truncation error</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../FiniteDifferences/fdFormulasFirstDerivative.html">3.4. Finite difference formulas for the 1st derivative</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../FiniteDifferences/evaluatingTruncationError.html">3.5. Evaluating the truncation error</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../LinearAdvectionEquation/Introduction.html">4. The linear advection equation</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -282,7 +280,7 @@
       
       
       
-      <li><a href="https://kjerstid.github.io/GEOF211_compendium/intro.html/issues/new?title=Issue%20on%20page%20%2FFiniteDifferences/Introduction.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://kjerstid.github.io/GEOF211_compendium/intro.html/issues/new?title=Issue%20on%20page%20%2FNumericalStability/intro.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -312,7 +310,7 @@
       
       
       
-      <li><a href="../_sources/FiniteDifferences/Introduction.md" target="_blank"
+      <li><a href="../_sources/NumericalStability/intro.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -394,7 +392,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>The finite difference method (FDM)</h1>
+    <h1>Stability of numerical schemes</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -408,19 +406,14 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="the-finite-difference-method-fdm">
-<span id="finitedifferences-intro"></span><h1><span class="section-number">3. </span>The finite difference method (FDM)<a class="headerlink" href="#the-finite-difference-method-fdm" title="Link to this heading">#</a></h1>
-<p>The partial differential equations (PDEs) that govern important natural processes and that we need to solve to obtain societal and economic benefits are, in the most cases, impossible to solve analitically. Therefore we must consider solving them numerically.</p>
-<p>Solving a PDE numerically means that we <em>replace the analytical manipulation of the derivatives with algebraic manipulations</em> which, in addition, opens up the possibility of using computers in the process. This possibility has enabled great progress in fields such as numerical weather prediction, which has radically changed our lives and wouldn’t be possible without the use of computers.</p>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="algebraicDerivative.html">3.1. Algebraic approximation of the first derivative</a></li>
-<li class="toctree-l1"><a class="reference internal" href="truncationErrors.html">3.2. Truncation Error</a></li>
-<li class="toctree-l1"><a class="reference internal" href="estimatesTruncationError.html">3.3. Estimates of the truncation error</a></li>
-<li class="toctree-l1"><a class="reference internal" href="fdFormulasFirstDerivative.html">3.4. Finite difference formulas for the 1st derivative</a></li>
-<li class="toctree-l1"><a class="reference internal" href="evaluatingTruncationError.html">3.5. Evaluating the truncation error</a></li>
+  <section class="tex2jax_ignore mathjax_ignore" id="stability-of-numerical-schemes">
+<h1>Stability of numerical schemes<a class="headerlink" href="#stability-of-numerical-schemes" title="Link to this heading">#</a></h1>
+<p>In the previous chapter we analyzed the linear advection equation and its discretized version and we found that the solution could:</p>
+<ul class="simple">
+<li><p>Remain bounded or not.</p></li>
+<li><p>If it remained bounded, it could converge to the solution of the exact equation or not.</p></li>
 </ul>
-</div>
+<p>These behaviours are deeply related to the concept of <em>numerical stability</em> of the underlying numerical scheme used to discretize the equation. Moreover, they are common to every numerical scheme, so it is advantageous to devise a general methodology applicable to all numerical schemes.</p>
 </section>
 
     <script type="text/x-thebe-config">
@@ -436,7 +429,7 @@ document.write(`
         },
         kernelOptions: {
             name: "python3",
-            path: "./FiniteDifferences"
+            path: "./NumericalStability"
         },
         predefinedOutput: true
     }
@@ -453,24 +446,6 @@ document.write(`
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
-    <a class="left-prev"
-       href="../GFD/Advection.html"
-       title="previous page">
-      <i class="fa-solid fa-angle-left"></i>
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">2.2. </span>Advection equation</p>
-      </div>
-    </a>
-    <a class="right-next"
-       href="algebraicDerivative.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">3.1. </span>Algebraic approximation of the first derivative</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
-    </a>
 </div>
                 </footer>
               
