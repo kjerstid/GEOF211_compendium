@@ -16,9 +16,10 @@ $$
 $$ (eq:NonLinAdvection_u_1d)
 
 For other parameters, like, e.g., temperature ($\theta$) the non-linear advection equation is written:
+
 $$
 \frac{\partial \theta}{\partial t}+u(t,x)\frac{\partial \theta}{\partial x}=0
-$$ (eq:NonLinAdvection_theta_1d)
+$$ (eq:NonLinAdvection_t_1d)
 
 The first term of {eq}`eq:NonLinAdvection_t_1d` is the local change with time. If we consider, e.g. temperature, we can use an example of changing the temperature in a room. If you turn on a heater, the temperature will rise, but the air inside the room stays the same. The heater is a heat source and represent a local change in temperature with time. If you instead open the window, air will flow through the window and change the temperature by replacing some of the air (as air flow in through the window, air will also leave the room through the window). This is the temperature change following advection (second term of {eq}`eq:NonLinAdvection_t_1d`) .
 

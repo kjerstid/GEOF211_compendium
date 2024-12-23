@@ -427,14 +427,15 @@ document.write(`
 <span class="eqno">(2.6)<a class="headerlink" href="#equation-eq-nonlinadvection-u-1d" title="Link to this equation">#</a></span>\[
 \frac{\partial u}{\partial t}+u(t,x)\frac{\partial u}{\partial x}=0
 \]</div>
-<p>For other parameters, like, e.g., temperature (<span class="math notranslate nohighlight">\(\theta\)</span>) the non-linear advection equation is written:
-$<span class="math notranslate nohighlight">\(
+<p>For other parameters, like, e.g., temperature (<span class="math notranslate nohighlight">\(\theta\)</span>) the non-linear advection equation is written:</p>
+<div class="math notranslate nohighlight" id="equation-eq-nonlinadvection-t-1d">
+<span class="eqno">(2.7)<a class="headerlink" href="#equation-eq-nonlinadvection-t-1d" title="Link to this equation">#</a></span>\[
 \frac{\partial \theta}{\partial t}+u(t,x)\frac{\partial \theta}{\partial x}=0
-\)</span>$ (eq:NonLinAdvection_theta_1d)</p>
-<p>The first term of <code class="xref eq docutils literal notranslate"><span class="pre">eq:NonLinAdvection_t_1d</span></code> is the local change with time. If we consider, e.g. temperature, we can use an example of changing the temperature in a room. If you turn on a heater, the temperature will rise, but the air inside the room stays the same. The heater is a heat source and represent a local change in temperature with time. If you instead open the window, air will flow through the window and change the temperature by replacing some of the air (as air flow in through the window, air will also leave the room through the window). This is the temperature change following advection (second term of <code class="xref eq docutils literal notranslate"><span class="pre">eq:NonLinAdvection_t_1d</span></code>) .</p>
+\]</div>
+<p>The first term of <a class="reference internal" href="#equation-eq-nonlinadvection-t-1d">(2.7)</a> is the local change with time. If we consider, e.g. temperature, we can use an example of changing the temperature in a room. If you turn on a heater, the temperature will rise, but the air inside the room stays the same. The heater is a heat source and represent a local change in temperature with time. If you instead open the window, air will flow through the window and change the temperature by replacing some of the air (as air flow in through the window, air will also leave the room through the window). This is the temperature change following advection (second term of <a class="reference internal" href="#equation-eq-nonlinadvection-t-1d">(2.7)</a>) .</p>
 <p>To obtain the <em>linear advection equation</em>, you can simply replace the velocity <span class="math notranslate nohighlight">\(u(t)\)</span>, with a constant velocity <span class="math notranslate nohighlight">\(a\)</span>. The linear, 1D equation for temperature, <span class="math notranslate nohighlight">\(\theta\)</span> then becomes:</p>
 <div class="math notranslate nohighlight" id="equation-eq-linadvection-theta-1d">
-<span class="eqno">(2.7)<a class="headerlink" href="#equation-eq-linadvection-theta-1d" title="Link to this equation">#</a></span>\[
+<span class="eqno">(2.8)<a class="headerlink" href="#equation-eq-linadvection-theta-1d" title="Link to this equation">#</a></span>\[
 \frac{\partial \theta}{\partial t}+a\frac{\partial \theta}{\partial x}=0
 \]</div>
 </section>
