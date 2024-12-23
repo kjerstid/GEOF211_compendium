@@ -1,7 +1,7 @@
 - Create the repository in Github
 
 - Open Windows power shell, choose Git bash from the drop-down menu 
-- cd into the folder conaining the repository and write code.. to open visual studio code with connections to github.
+- cd into the folder containing the repository and write code. To open visual studio code with connections to github.
 
 - Add and commit changes to your repository to git via terminal or built-in menus in visual studio code.
 
