@@ -187,7 +187,8 @@
 
 <li class="toctree-l2"><a class="reference internal" href="../Useful_calculus/Trigonometry.html">1.3. Trigonometry</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Useful_calculus/Complex_numbers.html">1.4. Complex numbers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Useful_calculus/Fourier_transforms.html">1.5. Fourier transforms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Useful_calculus/Euler_Formula.html">1.5. The Euler formula</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Useful_calculus/Fourier_transforms.html">1.6. Fourier transforms</a></li>
 
 </ul>
 </details></li>
@@ -209,6 +210,11 @@
 <li class="toctree-l2"><a class="reference internal" href="differenceEquation.html">4.2. The difference equation</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">4.3. Solution of the difference equation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Analysis.html">4.4. Analysis of the solution of the difference equation</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../NumericalStability/Introduction.html">5. Stability of numerical schemes</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../NumericalStability/consistencyConvergenceStability.html">5.1. Consistency, convergence and stability</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../NumericalStability/vonNeumannStability.html">5.2. Von Neumann Stability Analysis</a></li>
 </ul>
 </details></li>
 </ul>
@@ -420,7 +426,7 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="solution-of-the-difference-equation">
-<h1><span class="section-number">4.3. </span>Solution of the difference equation<a class="headerlink" href="#solution-of-the-difference-equation" title="Link to this heading">#</a></h1>
+<span id="linearadvectionequation-differencesolution"></span><h1><span class="section-number">4.3. </span>Solution of the difference equation<a class="headerlink" href="#solution-of-the-difference-equation" title="Link to this heading">#</a></h1>
 <p>We shall solve <a class="reference internal" href="differenceEquation.html#equation-eq-diffequation">(4.6)</a> analytically to illustrate some aspects of the numerical solution of <a class="reference internal" href="Introduction.html#equation-eq-advection">(4.1)</a> by the leapfrog scheme <a class="reference internal" href="differenceEquation.html#equation-eq-leapfrog">(4.7)</a>. Indeed, while it is equation <a class="reference internal" href="Introduction.html#equation-eq-advection">(4.1)</a> that we ultimately want to solve, the time marching scheme will effectively solve <a class="reference internal" href="differenceEquation.html#equation-eq-diffequation">(4.6)</a>. Thus, by studying the exact solution to <a class="reference internal" href="differenceEquation.html#equation-eq-diffequation">(4.6)</a> and how close it is to <a class="reference internal" href="analyticSolution.html#equation-eq-anasolution">(4.4)</a>, the exact solution of <code class="xref eq docutils literal notranslate"><span class="pre">eqAdvection</span></code>, we shall be able to say whether or not our time marching method is suitable to the task.</p>
 <p>We assume an exponential solution to <a class="reference internal" href="differenceEquation.html#equation-eq-diffequation">(4.6)</a>:</p>
 <div class="math notranslate nohighlight" id="equation-eq-diffsolution">
