@@ -57,6 +57,8 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'Useful_calculus/Complex_numbers';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -412,32 +414,33 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="complex-numbers">
+  <section class="tex2jax_ignore mathjax_ignore" id="complex-numbers">
 <span id="useful-calculus-complex-numbers"></span><h1><span class="section-number">1.4. </span>Complex numbers<a class="headerlink" href="#complex-numbers" title="Link to this heading">#</a></h1>
-<p>The imaginary unit, $i$ is defined as:
-$$
+<p>The imaginary unit, <span class="math notranslate nohighlight">\(i\)</span> is defined as:
+$<span class="math notranslate nohighlight">\(
 i=\sqrt{-1}
-$$ (eq:Complex_i)</p>
+\)</span>$ (eq:Complex_i)</p>
 <p>A complex number is and expression of the form:</p>
-<p>$$
+<div class="math notranslate nohighlight" id="equation-eq-complex-def">
+<span class="eqno">(1.20)<a class="headerlink" href="#equation-eq-complex-def" title="Link to this equation">#</a></span>\[
 z=x+iy
-$$ (eq:Complex_def)</p>
+\]</div>
 <p>The distance from origo, the the point (x,y) in the complex plane is called the modulus and is defined as:
-$$
+$<span class="math notranslate nohighlight">\(
 |z|=\sqrt{x^2+y^2}
-$$ (eq:Complex_modulus)</p>
+\)</span>$ (eq:Complex_modulus)</p>
 <p>The norm of a complex  number (equivalent of the vector length in the complex plane) is:
-$$
+$<span class="math notranslate nohighlight">\(
 |z|^2=x^2+y^2
-$$ (eq:Complex_norm_squared)</p>
-<p>The modulus of a product of two complex numbers $z$ and $w$ is:
-$$
+\)</span>$ (eq:Complex_norm_squared)</p>
+<p>The modulus of a product of two complex numbers <span class="math notranslate nohighlight">\(z\)</span> and <span class="math notranslate nohighlight">\(w\)</span> is:
+$<span class="math notranslate nohighlight">\(
 |zw|=|z||w|
-$$ (eq:Complex_modulus_product)</p>
+\)</span>$ (eq:Complex_modulus_product)</p>
 <p>The modulus of the sum of two complex numbers, also called “The triangle inequality” is defined:
-$$
+$<span class="math notranslate nohighlight">\(
 |z+w|&lt;|z|+|w|
-$$ (eq:Complex_triangle_identity)</p>
+\)</span>$ (eq:Complex_triangle_identity)</p>
 <p>You can read more about complex numbers in <span id="id1">Adams and Essex [<a class="reference internal" href="../markdown.html#id3" title="Robert A Adams and Christopher Essex. Calculus: a complete course. Pearson, 2018.">AE18</a>]</span>, Appendix 1.</p>
 </section>
 

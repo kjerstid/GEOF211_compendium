@@ -57,6 +57,8 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'Useful_calculus/Trigonometry';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -436,111 +438,126 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="trigonometry">
+  <section class="tex2jax_ignore mathjax_ignore" id="trigonometry">
 <span id="useful-calculus-trigonometry"></span><h1><span class="section-number">1.3. </span>Trigonometry<a class="headerlink" href="#trigonometry" title="Link to this heading">#</a></h1>
 <section id="pythagorean-indentity">
 <h2><span class="section-number">1.3.1. </span>Pythagorean indentity:<a class="headerlink" href="#pythagorean-indentity" title="Link to this heading">#</a></h2>
-<p>$$
+<div class="math notranslate nohighlight" id="equation-eq-trig-pythagoras">
+<span class="eqno">(1.5)<a class="headerlink" href="#equation-eq-trig-pythagoras" title="Link to this equation">#</a></span>\[
 \sin^2 x+\cos^2 x=1
-$$ (eq:Trig_pythagoras)</p>
+\]</div>
 </section>
 <section id="sine-and-cosine-additive-identities">
 <h2><span class="section-number">1.3.2. </span>Sine and cosine additive identities<a class="headerlink" href="#sine-and-cosine-additive-identities" title="Link to this heading">#</a></h2>
-<p>$$
+<div class="math notranslate nohighlight" id="equation-eq-trig-sine-add">
+<span class="eqno">(1.6)<a class="headerlink" href="#equation-eq-trig-sine-add" title="Link to this equation">#</a></span>\[
 \sin(x+y)=\sin x\cos y+\cos x\sin y
-$$ (eq:Trig_sine_add)</p>
-<p>$$
+\]</div>
+<div class="math notranslate nohighlight" id="equation-eq-trig-cos-add">
+<span class="eqno">(1.7)<a class="headerlink" href="#equation-eq-trig-cos-add" title="Link to this equation">#</a></span>\[
 \cos(x+y)=\cos x\cos y-\sin x\sin y
-$$ (eq:Trig_cos_add)</p>
+\]</div>
 </section>
 <section id="double-angle-formulas">
 <h2><span class="section-number">1.3.3. </span>Double angle formulas:<a class="headerlink" href="#double-angle-formulas" title="Link to this heading">#</a></h2>
-<p>$$
+<div class="math notranslate nohighlight" id="equation-eq-trig-sine-double">
+<span class="eqno">(1.8)<a class="headerlink" href="#equation-eq-trig-sine-double" title="Link to this equation">#</a></span>\[
 \sin(2x)=2\sin x\cos x
-$$ (eq:Trig_sine_double)</p>
-<p>$$
+\]</div>
+<div class="math notranslate nohighlight" id="equation-eq-trig-cosine-double">
+<span class="eqno">(1.9)<a class="headerlink" href="#equation-eq-trig-cosine-double" title="Link to this equation">#</a></span>\[
 \cos(2x)=\cos^2 x-\sin^2 x=2cos^2 x-1=1-2\sin^2x
-$$ (eq:Trig_cosine_double)</p>
+\]</div>
 </section>
 <section id="half-angle-formulas">
 <h2><span class="section-number">1.3.4. </span>Half angle formulas:<a class="headerlink" href="#half-angle-formulas" title="Link to this heading">#</a></h2>
-<p>$$
+<div class="math notranslate nohighlight" id="equation-eq-trig-sine-half">
+<span class="eqno">(1.10)<a class="headerlink" href="#equation-eq-trig-sine-half" title="Link to this equation">#</a></span>\[
 \sin(\frac{x}{2})=\pm \sqrt{\frac{1-\cos x}{2}}
-$$ (eq:Trig_sine_half)</p>
-<p>$$
+\]</div>
+<div class="math notranslate nohighlight" id="equation-eq-trig-cosine-half">
+<span class="eqno">(1.11)<a class="headerlink" href="#equation-eq-trig-cosine-half" title="Link to this equation">#</a></span>\[
 \cos(\frac{x}{2})=\pm \sqrt{\frac{1+\cos x}{2}}
-$$ (eq:Trig_cosine_half)</p>
+\]</div>
 </section>
 <section id="complex-numbers">
 <h2><span class="section-number">1.3.5. </span>Complex numbers<a class="headerlink" href="#complex-numbers" title="Link to this heading">#</a></h2>
-<p>The imaginary unit, $i$ is defined as:
-$$
+<p>The imaginary unit, <span class="math notranslate nohighlight">\(i\)</span> is defined as:
+$<span class="math notranslate nohighlight">\(
 i=\sqrt{-1}
-$$ (eq:Complex_i)</p>
+\)</span>$ (eq:Complex_i)</p>
 <p>A complex number is and expression of the form:</p>
-<p>$$
+<div class="math notranslate nohighlight" id="equation-eq-complex-def">
+<span class="eqno">(1.12)<a class="headerlink" href="#equation-eq-complex-def" title="Link to this equation">#</a></span>\[
 z=x+iy
-$$ (eq:Complex_def)</p>
+\]</div>
 <p>The distance from origo, the the point (x,y) in the complex plane is called the modulus and is defined as:
-$$
+$<span class="math notranslate nohighlight">\(
 |z|=\sqrt{x^2+y^2}
-$$ (eq:Complex_modulus)</p>
+\)</span>$ (eq:Complex_modulus)</p>
 <p>The norm of a complex  number (equivalent of the vector length in the complex plane) is:
-$$
+$<span class="math notranslate nohighlight">\(
 |z|^2=x^2+y^2
-$$ (eq:Complex_norm_squared)</p>
-<p>The modulus of a product of two complex numbers $z$ and $w$ is:
-$$
+\)</span>$ (eq:Complex_norm_squared)</p>
+<p>The modulus of a product of two complex numbers <span class="math notranslate nohighlight">\(z\)</span> and <span class="math notranslate nohighlight">\(w\)</span> is:
+$<span class="math notranslate nohighlight">\(
 |zw|=|z||w|
-$$ (eq:Complex_modulus_product)</p>
+\)</span>$ (eq:Complex_modulus_product)</p>
 <p>The modulus of the sum of two complex numbers, also called “The triangle inequality” is defined:
-$$
+$<span class="math notranslate nohighlight">\(
 |z+w|&lt;|z|+|w|
-$$ (eq:Complex_triangle_identity)</p>
+\)</span>$ (eq:Complex_triangle_identity)</p>
 </section>
 <section id="the-euler-formula-and-modifications">
 <h2><span class="section-number">1.3.6. </span>The Euler formula and modifications<a class="headerlink" href="#the-euler-formula-and-modifications" title="Link to this heading">#</a></h2>
 <section id="eulers-identity">
 <h3><span class="section-number">1.3.6.1. </span>Eulers identity<a class="headerlink" href="#eulers-identity" title="Link to this heading">#</a></h3>
-<p>$$
+<div class="math notranslate nohighlight" id="equation-eq-euler-identity">
+<span class="eqno">(1.13)<a class="headerlink" href="#equation-eq-euler-identity" title="Link to this equation">#</a></span>\[
 e^{i\pi}+1=0
-$$ (eq:Euler_identity)</p>
+\]</div>
 </section>
 <section id="eulers-formula">
 <h3><span class="section-number">1.3.6.2. </span>Eulers formula<a class="headerlink" href="#eulers-formula" title="Link to this heading">#</a></h3>
-<p>$$
+<div class="math notranslate nohighlight" id="equation-eq-euler">
+<span class="eqno">(1.14)<a class="headerlink" href="#equation-eq-euler" title="Link to this equation">#</a></span>\[
 e^{ix}=\cos x+i\sin x
-$$ (eq:Euler)</p>
+\]</div>
 </section>
 <section id="cosine-exponential-form">
 <h3><span class="section-number">1.3.6.3. </span>Cosine exponential form<a class="headerlink" href="#cosine-exponential-form" title="Link to this heading">#</a></h3>
-<p>$$
+<div class="math notranslate nohighlight" id="equation-eq-euler-cos">
+<span class="eqno">(1.15)<a class="headerlink" href="#equation-eq-euler-cos" title="Link to this equation">#</a></span>\[
 \frac{e^{ix}+e^{-ix}}{2}=\cos x
-$$ (eq:Euler_cos)</p>
+\]</div>
 </section>
 <section id="sine-exponential-form">
 <h3><span class="section-number">1.3.6.4. </span>Sine exponential form<a class="headerlink" href="#sine-exponential-form" title="Link to this heading">#</a></h3>
-<p>$$
+<div class="math notranslate nohighlight" id="equation-eq-euler-sin">
+<span class="eqno">(1.16)<a class="headerlink" href="#equation-eq-euler-sin" title="Link to this equation">#</a></span>\[
 \frac{e^{ix}-e^{-ix}}{2i}=\sin x
-$$ (eq:Euler_sin)</p>
+\]</div>
 </section>
 <section id="tangent-exponential-form">
 <h3><span class="section-number">1.3.6.5. </span>Tangent exponential form<a class="headerlink" href="#tangent-exponential-form" title="Link to this heading">#</a></h3>
-<p>$$
+<div class="math notranslate nohighlight" id="equation-eq-euler-tan">
+<span class="eqno">(1.17)<a class="headerlink" href="#equation-eq-euler-tan" title="Link to this equation">#</a></span>\[
 \frac{e^{ix}-e^{-ix}}{i(e^{ix}+e^{-1x})}=\tan x
-$$ (eq:Euler_tan)</p>
+\]</div>
 </section>
 <section id="complex-exponential">
 <h3><span class="section-number">1.3.6.6. </span>Complex exponential<a class="headerlink" href="#complex-exponential" title="Link to this heading">#</a></h3>
-<p>$$
+<div class="math notranslate nohighlight" id="equation-eq-euler-complex-exp">
+<span class="eqno">(1.18)<a class="headerlink" href="#equation-eq-euler-complex-exp" title="Link to this equation">#</a></span>\[
 e^{x+iy}=e^x(\cos y+i\sin y)
-$$ (eq:Euler_complex_exp)</p>
+\]</div>
 </section>
 <section id="de-moivre-s-theorem">
 <h3><span class="section-number">1.3.6.7. </span>de Moivre’s theorem<a class="headerlink" href="#de-moivre-s-theorem" title="Link to this heading">#</a></h3>
-<p>$$
+<div class="math notranslate nohighlight" id="equation-eq-euler-sine-add">
+<span class="eqno">(1.19)<a class="headerlink" href="#equation-eq-euler-sine-add" title="Link to this equation">#</a></span>\[
 (\cos x+i\sin x)^n=\cos nx+i\sin nx
-$$ (eq:Euler_sine_add)</p>
+\]</div>
 <p>You can read more about trigonometry in <span id="id1">Adams and Essex [<a class="reference internal" href="../markdown.html#id3" title="Robert A Adams and Christopher Essex. Calculus: a complete course. Pearson, 2018.">AE18</a>]</span>, chapter P.6.</p>
 </section>
 </section>

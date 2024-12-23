@@ -57,7 +57,8 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'Useful_calculus/Taylor_Polynomials';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -428,33 +429,36 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="taylor-series">
+  <section class="tex2jax_ignore mathjax_ignore" id="taylor-series">
 <span id="useful-calculus-taylor-polynomials"></span><h1><span class="section-number">1.1. </span>Taylor series<a class="headerlink" href="#taylor-series" title="Link to this heading">#</a></h1>
-<p>Taylor polynomials or Taylor series are approximations of a function near a point $a$. This holds if  $f$ is a function whose $n+1^{th}$ derivative exists on an interval containing the point $a$. The approximation is better the more terms you include and the closer you are to the point $a$.</p>
-<p>$$
-f(x)=f(a)+\frac{f’(a)}{1!}(x-a)+\frac{f’’(a)}{2!}(x-a)^2+\frac{f’’’(a)}{3!}(x-a)^3+…=\sum_{n=0}^{\infty}\frac{f^{(n)}(a)}{n!}(x-a)^n
-$$ (eq:Taylor_series)</p>
+<p>Taylor polynomials or Taylor series are approximations of a function near a point <span class="math notranslate nohighlight">\(a\)</span>. This holds if  <span class="math notranslate nohighlight">\(f\)</span> is a function whose <span class="math notranslate nohighlight">\(n+1^{th}\)</span> derivative exists on an interval containing the point <span class="math notranslate nohighlight">\(a\)</span>. The approximation is better the more terms you include and the closer you are to the point <span class="math notranslate nohighlight">\(a\)</span>.</p>
+<div class="math notranslate nohighlight" id="equation-eq-taylor-series">
+<span class="eqno">(1.1)<a class="headerlink" href="#equation-eq-taylor-series" title="Link to this equation">#</a></span>\[
+f(x)=f(a)+\frac{f'(a)}{1!}(x-a)+\frac{f''(a)}{2!}(x-a)^2+\frac{f'''(a)}{3!}(x-a)^3+...=\sum_{n=0}^{\infty}\frac{f^{(n)}(a)}{n!}(x-a)^n
+\]</div>
 </section>
-<section id="mclaurin-series">
+<section class="tex2jax_ignore mathjax_ignore" id="mclaurin-series">
 <h1><span class="section-number">1.2. </span>McLaurin series<a class="headerlink" href="#mclaurin-series" title="Link to this heading">#</a></h1>
-<p>The McLaurin series are special cases of the Tayolor series, where the series are calculated for a region close to origo, setting $a=0$:</p>
-<p>$$
-f(x)=f(a)+\frac{f’(0)}{1!}x+\frac{f’’(0)}{2!}x^2+\frac{f’’’(0)}{3!}x^3+…=\sum_{n=0}^{\infty}\frac{f^{(n)}(0)}{n!}x^n
-$$ (eq:McLaurin_series)</p>
+<p>The McLaurin series are special cases of the Tayolor series, where the series are calculated for a region close to origo, setting <span class="math notranslate nohighlight">\(a=0\)</span>:</p>
+<div class="math notranslate nohighlight" id="equation-eq-mclaurin-series">
+<span class="eqno">(1.2)<a class="headerlink" href="#equation-eq-mclaurin-series" title="Link to this equation">#</a></span>\[
+f(x)=f(a)+\frac{f'(0)}{1!}x+\frac{f''(0)}{2!}x^2+\frac{f'''(0)}{3!}x^3+...=\sum_{n=0}^{\infty}\frac{f^{(n)}(0)}{n!}x^n
+\]</div>
 <section id="examples-of-taylor-and-mclaurin-series">
 <h2><span class="section-number">1.2.1. </span>Examples of Taylor and McLaurin series<a class="headerlink" href="#examples-of-taylor-and-mclaurin-series" title="Link to this heading">#</a></h2>
-<p>Taylor series for $sin(x)$:</p>
-<p>$$
-sin(x)= sin(a)+cos(a)(x-a)-\frac{sin(a)(x-a)^2}{2!}-\frac{cos(a)(x-a)^3}{3!}+…=\sum_{n=0}^{\infty}\frac{sin^{(n)}(a)}{n!}(x-a)^n
-$$ (eq:Taylor_sine)</p>
-<p>McLaurin series for $sin(x)$:</p>
-<p>$$</p>
-<div class="amsmath math notranslate nohighlight" id="equation-53ff3eeb-ff45-49e3-8c91-e7cddde8b0dd">
-<span class="eqno">(1.1)<a class="headerlink" href="#equation-53ff3eeb-ff45-49e3-8c91-e7cddde8b0dd" title="Permalink to this equation">#</a></span>\[\begin{align}
+<p>Taylor series for <span class="math notranslate nohighlight">\(sin(x)\)</span>:</p>
+<div class="math notranslate nohighlight" id="equation-eq-taylor-sine">
+<span class="eqno">(1.3)<a class="headerlink" href="#equation-eq-taylor-sine" title="Link to this equation">#</a></span>\[
+sin(x)= sin(a)+cos(a)(x-a)-\frac{sin(a)(x-a)^2}{2!}-\frac{cos(a)(x-a)^3}{3!}+...=\sum_{n=0}^{\infty}\frac{sin^{(n)}(a)}{n!}(x-a)^n
+\]</div>
+<p>McLaurin series for <span class="math notranslate nohighlight">\(sin(x)\)</span>:</p>
+<div class="math notranslate nohighlight" id="equation-eq-mclaurin-sine">
+<span class="eqno">(1.4)<a class="headerlink" href="#equation-eq-mclaurin-sine" title="Link to this equation">#</a></span>\[\begin{split}
+\begin{align}
 sin(x)&amp; = sin(0)+cos(0)(x-0)-\frac{sin(0)(x-0)^2}{2!}-\frac{cos(0)(x-0)^3}{3!}+...&amp;=\sum_{n=0}^{\infty}\frac{sin^{(n)}(0)}{n!}(x-0)^n\\
 &amp; =x-\frac{x^3}{3!}+\frac{x^5}{5!}-\frac{x^7}{7!}+...=\sum_{n=0}^{\infty}(-1)^n\frac{x^{2n+1}}{(2n+1)!}
-\end{align}\]</div>
-<p>$$ (eq:McLaurin_sine)</p>
+\end{align}
+\end{split}\]</div>
 <p>You can read more about Taylor polynomials in <span id="id1">Adams and Essex [<a class="reference internal" href="../markdown.html#id3" title="Robert A Adams and Christopher Essex. Calculus: a complete course. Pearson, 2018.">AE18</a>]</span> chapter 4.8 and 9.6.</p>
 </section>
 </section>

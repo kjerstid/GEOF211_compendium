@@ -57,6 +57,8 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'FiniteDifferences/estimatesTruncationError';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -412,43 +414,49 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="estimates-of-the-truncation-error">
+  <section class="tex2jax_ignore mathjax_ignore" id="estimates-of-the-truncation-error">
 <span id="finite-differences-estimate-truncation"></span><h1><span class="section-number">3.3. </span>Estimates of the truncation error<a class="headerlink" href="#estimates-of-the-truncation-error" title="Link to this heading">#</a></h1>
-<p>To obtain an estimate of the truncation error, we must first estimate the magnitude of the derivatives $du/dt$, $d^2u/dt^2$, $d^3u/dt^3$, and so on.</p>
-<p>Let us consider a signal $u(t)$ such as the following:</p>
+<p>To obtain an estimate of the truncation error, we must first estimate the magnitude of the derivatives <span class="math notranslate nohighlight">\(du/dt\)</span>, <span class="math notranslate nohighlight">\(d^2u/dt^2\)</span>, <span class="math notranslate nohighlight">\(d^3u/dt^3\)</span>, and so on.</p>
+<p>Let us consider a signal <span class="math notranslate nohighlight">\(u(t)\)</span> such as the following:</p>
 <figure class="align-default" id="figutscales">
 <a class="reference internal image-reference" href="../_images/UTscales.png"><img alt="../_images/UTscales.png" src="../_images/UTscales.png" style="height: 200px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 3.1 </span><span class="caption-text">Time and space scales of signal $u(t)$.</span><a class="headerlink" href="#figutscales" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 3.1 </span><span class="caption-text">Time and space scales of signal <span class="math notranslate nohighlight">\(u(t)\)</span>.</span><a class="headerlink" href="#figutscales" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
-<p>We observe that over time interval $T$, the signal shows a variation of size $U$. These characteristic values may be thought of as the time scale and the magnitude of the variation of $u$ over $T$, respectively.</p>
-<p>Since the derivative of $u(t)$ is the variation $\Delta u$ that occurs over time interval $\Delta t$, we can say that $U$ and $T$ are characteristic values of $\Delta u$ and $\Delta t$ and write</p>
-<p>$$
+<p>We observe that over time interval <span class="math notranslate nohighlight">\(T\)</span>, the signal shows a variation of size <span class="math notranslate nohighlight">\(U\)</span>. These characteristic values may be thought of as the time scale and the magnitude of the variation of <span class="math notranslate nohighlight">\(u\)</span> over <span class="math notranslate nohighlight">\(T\)</span>, respectively.</p>
+<p>Since the derivative of <span class="math notranslate nohighlight">\(u(t)\)</span> is the variation <span class="math notranslate nohighlight">\(\Delta u\)</span> that occurs over time interval <span class="math notranslate nohighlight">\(\Delta t\)</span>, we can say that <span class="math notranslate nohighlight">\(U\)</span> and <span class="math notranslate nohighlight">\(T\)</span> are characteristic values of <span class="math notranslate nohighlight">\(\Delta u\)</span> and <span class="math notranslate nohighlight">\(\Delta t\)</span> and write</p>
+<div class="math notranslate nohighlight" id="equation-eq-orderdudt">
+<span class="eqno">(3.9)<a class="headerlink" href="#equation-eq-orderdudt" title="Link to this equation">#</a></span>\[
 \frac{du}{dt} \approx \frac{U}{T}.
-$$ (eq:orderDuDt)</p>
-<p>To obtain an estimate of the second derivative, we may assume that the variations in $du/dt$ also occur over the same time scale $T$, as the signal $u$, and write</p>
-<p>$$
+\]</div>
+<p>To obtain an estimate of the second derivative, we may assume that the variations in <span class="math notranslate nohighlight">\(du/dt\)</span> also occur over the same time scale <span class="math notranslate nohighlight">\(T\)</span>, as the signal <span class="math notranslate nohighlight">\(u\)</span>, and write</p>
+<div class="math notranslate nohighlight" id="equation-eq-orderdu2dt2">
+<span class="eqno">(3.10)<a class="headerlink" href="#equation-eq-orderdu2dt2" title="Link to this equation">#</a></span>\[
 \frac{d^2u}{dt^2} = \frac{d}{dt} \frac{du}{dt} \approx \frac{U/T}{T} = \frac{U}{T^2}.
-$$ (eq:orderDu2Dt2)</p>
+\]</div>
 <p>For higher order derivatives, the reasoning is the same.</p>
-<p>To estimate the magnitude of the truncation error, we can write that the size of the terms of <code class="xref eq docutils literal notranslate"><span class="pre">eq:truncationError</span></code>:</p>
-<p>$$
+<p>To estimate the magnitude of the truncation error, we can write that the size of the terms of <a class="reference internal" href="truncationErrors.html#equation-eq-truncationerror">(3.7)</a>:</p>
+<div class="math notranslate nohighlight" id="equation-eq-magtruncationerror">
+<span class="eqno">(3.11)<a class="headerlink" href="#equation-eq-magtruncationerror" title="Link to this equation">#</a></span>\[
 \Delta t \frac{U}{T^2}, \quad \Delta t^2 \frac{U}{T^3}, \quad \Delta t^3 \frac{U}{T^4}, \quad \text{etc.}
-$$ (eq:magTruncationError)</p>
-<p>For small $\Delta t$, we can retain the leading order error term in <code class="xref eq docutils literal notranslate"><span class="pre">eq:magTruncationError</span></code> and write:</p>
-<p>$$
+\]</div>
+<p>For small <span class="math notranslate nohighlight">\(\Delta t\)</span>, we can retain the leading order error term in <a class="reference internal" href="#equation-eq-magtruncationerror">(3.11)</a> and write:</p>
+<div class="math notranslate nohighlight">
+\[
 \frac{du}{dt}=\frac{u^{n+1}-u^n}{\Delta t} + O\left( \frac{\Delta t}{T}\frac{U}{T}\right).
-$$</p>
-<p>Now we see that the <em>order</em> of the relative error $\varepsilon$, i.e. the difference between the exact derivative and the approximation divided by the magnitude of the derivative, is</p>
-<p>$$
+\]</div>
+<p>Now we see that the <em>order</em> of the relative error <span class="math notranslate nohighlight">\(\varepsilon\)</span>, i.e. the difference between the exact derivative and the approximation divided by the magnitude of the derivative, is</p>
+<div class="math notranslate nohighlight">
+\[
 O(\varepsilon)=O(\frac{\Delta t}{T}).
-$$</p>
-<p>This implies that to have an acceptable approximation to the derivative $du/dt$, we should have $O(\varepsilon)\ll 1$, which implies that</p>
-<p>$$
+\]</div>
+<p>This implies that to have an acceptable approximation to the derivative <span class="math notranslate nohighlight">\(du/dt\)</span>, we should have <span class="math notranslate nohighlight">\(O(\varepsilon)\ll 1\)</span>, which implies that</p>
+<div class="math notranslate nohighlight">
+\[
 \frac{\Delta t}{T} \ll 1 \implies \Delta t \ll T.
-$$</p>
-<p>This condition carries over easily to spatial derivatives, where the equivalent condition is $\Delta x \ll L$, where $L$ is the characteristic length, or <em>length scale</em> of the signal.</p>
+\]</div>
+<p>This condition carries over easily to spatial derivatives, where the equivalent condition is <span class="math notranslate nohighlight">\(\Delta x \ll L\)</span>, where <span class="math notranslate nohighlight">\(L\)</span> is the characteristic length, or <em>length scale</em> of the signal.</p>
 </section>
 
     <script type="text/x-thebe-config">
