@@ -204,6 +204,13 @@
 <li class="toctree-l2"><a class="reference internal" href="evaluatingTruncationError.html">3.5. Evaluating the truncation error</a></li>
 </ul>
 </details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../LinearAdvectionEquation/Introduction.html">4. The linear advection equation</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../LinearAdvectionEquation/analyticSolution.html">4.1. The exact equation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../LinearAdvectionEquation/differenceEquation.html">4.2. The difference equation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../LinearAdvectionEquation/differenceSolution.html">4.3. Solution of the difference equation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../LinearAdvectionEquation/Analysis.html">4.4. Analysis of the solution of the difference equation</a></li>
+</ul>
+</details></li>
 </ul>
 
     </div>
@@ -421,20 +428,21 @@ document.write(`
 <span id="finite-differences-formulas-1stderivative"></span><h1><span class="section-number">3.4. </span>Finite difference formulas for the 1st derivative<a class="headerlink" href="#finite-difference-formulas-for-the-1st-derivative" title="Link to this heading">#</a></h1>
 <section id="first-order-formulas">
 <span id="finite-differences-formulas-1stderivative-1storder"></span><h2><span class="section-number">3.4.1. </span>First order formulas<a class="headerlink" href="#first-order-formulas" title="Link to this heading">#</a></h2>
-<section id="forwardward-difference-formula">
-<h3><span class="section-number">3.4.1.1. </span>Forwardward difference formula<a class="headerlink" href="#forwardward-difference-formula" title="Link to this heading">#</a></h3>
-<p>Finite difference formulas are just finite difference approximations, disregarding the truncation error, e.g., from <a class="reference internal" href="truncationErrors.html#equation-eq-fdexpansion">(3.6)</a>, we have</p>
-<div class="math notranslate nohighlight" id="equation-eq-formulaforward">
-<span class="eqno">(3.12)<a class="headerlink" href="#equation-eq-formulaforward" title="Link to this equation">#</a></span>\[
-\frac{du}{dt}=\frac{u^{n+1}-u^n}{\Delta t}+O(\Delta t).
-\]</div>
-<p>Formula <a class="reference internal" href="#equation-eq-formulaforward">(3.12)</a> is called a <em>forward</em> difference formula because it uses the <span class="math notranslate nohighlight">\(u^n\)</span> and the <span class="math notranslate nohighlight">\(u^{n+1}\)</span> values, and it is a first order formula because the truncation error is of <span class="math notranslate nohighlight">\(O(\Delta t)\)</span>. The leading term of the truncation error is usually written with the formula to indicate its order of approximation.</p>
-<p>We can use Taylor series expansions to obtain several lower order finite difference formulas.</p>
+<p>Finite difference formulas are just finite difference approximations, disregarding the truncation error.
+We can use Taylor series expansions to obtain several lower order finite difference formulas.</p>
 <p>We typically start from equation <a class="reference internal" href="truncationErrors.html#equation-eq-taylorseries-v1">(3.4)</a>, repeated here:</p>
 <div class="math notranslate nohighlight">
 \[
 u(t)=u^n+\frac{u'(t^n)}{1!}(t-t^n)+\frac{u''(t^n)}{2!}(t-t^n)^2+\sum_{p=3}^{\infty}\frac{u^{(p)}(t^n)}{p!}(t-t^n)^p
 \]</div>
+<section id="forwardward-difference-formula">
+<h3><span class="section-number">3.4.1.1. </span>Forwardward difference formula<a class="headerlink" href="#forwardward-difference-formula" title="Link to this heading">#</a></h3>
+<p>From <a class="reference internal" href="truncationErrors.html#equation-eq-fdexpansion">(3.6)</a>, we have</p>
+<div class="math notranslate nohighlight" id="equation-eq-formulaforward">
+<span class="eqno">(3.12)<a class="headerlink" href="#equation-eq-formulaforward" title="Link to this equation">#</a></span>\[
+\frac{du}{dt}=\frac{u^{n+1}-u^n}{\Delta t}+O(\Delta t).
+\]</div>
+<p>Formula <a class="reference internal" href="#equation-eq-formulaforward">(3.12)</a> is called a <em>forward</em> difference formula because it uses the <span class="math notranslate nohighlight">\(u^n\)</span> and the <span class="math notranslate nohighlight">\(u^{n+1}\)</span> values, and it is a first order formula because the truncation error is of <span class="math notranslate nohighlight">\(O(\Delta t)\)</span>. The leading term of the truncation error is usually written with the formula to indicate its order of approximation.</p>
 </section>
 <section id="backward-difference-formula">
 <h3><span class="section-number">3.4.1.2. </span>Backward difference formula<a class="headerlink" href="#backward-difference-formula" title="Link to this heading">#</a></h3>
@@ -443,17 +451,17 @@ u(t)=u^n+\frac{u'(t^n)}{1!}(t-t^n)+\frac{u''(t^n)}{2!}(t-t^n)^2+\sum_{p=3}^{\inf
 <span class="eqno">(3.13)<a class="headerlink" href="#equation-eq-backward-taylorseries-a" title="Link to this equation">#</a></span>\[
 u^{n-1}=u^n+(t^{n-1}-t^{n})\frac{du}{dt}|_{t^n}+\frac{(t^{n-1}-t^{n})}{2!}\frac{d^2u}{dt^2}|_{t^n}+\sum_{p=3}^{\infty}\frac{(t^{n-1}-t^{n})^p}{p!}\frac{d^{(p)}u}{dt^p}|_{t^n}
 \]</div>
-<p>We note that <span class="math notranslate nohighlight">\(t^{n-1}-t^{n}=-\Delta t\)</span> and insert</p>
+<p>We note that <span class="math notranslate nohighlight">\(t^{n-1}-t^{n}=-\Delta t\)</span> and replace these terms:</p>
 <div class="math notranslate nohighlight" id="equation-eq-backward-taylorseries-b">
 <span class="eqno">(3.14)<a class="headerlink" href="#equation-eq-backward-taylorseries-b" title="Link to this equation">#</a></span>\[
 u^{n-1}=u^n+(-\Delta t)\frac{du}{dt}|_{t^n}+\frac{(-\Delta t)^2}{2!}\frac{d^2u}{dt^2}|_{t^n}+\sum_{p=3}^{\infty}\frac{(-\Delta t)^p}{p!}\frac{d^{(p)}u}{dt^p}|_{t^n}
 \]</div>
-<p>We can now adjust the signs from <span class="math notranslate nohighlight">\(\Delta t\)</span> to get</p>
+<p>We can now adjust the signs from <span class="math notranslate nohighlight">\(\Delta t\)</span> to get:</p>
 <div class="math notranslate nohighlight" id="equation-eq-backward-taylorseries-c">
 <span class="eqno">(3.15)<a class="headerlink" href="#equation-eq-backward-taylorseries-c" title="Link to this equation">#</a></span>\[
 u^{n-1}=u^n-\Delta t\frac{du}{dt}|_{t^n}+\frac{(\Delta t)^2}{2!}\frac{d^2u}{dt^2}|_{t^n}+\sum_{p=3}^{\infty}\frac{(-\Delta t)^p}{p!}\frac{d^{(p)}u}{dt^p}|_{t^n}
 \]</div>
-<p>We rearrange the terms to isolate <span class="math notranslate nohighlight">\(\frac{du}{dt}\)</span> and obtain the <em>backward</em> difference formula for the 1st derivative:</p>
+<p>We finally rearrange the terms to isolate <span class="math notranslate nohighlight">\(\frac{du}{dt}\)</span> and obtain the <em>backward</em> difference formula for the 1st derivative:</p>
 <div class="math notranslate nohighlight" id="equation-eq-formulabackward">
 <span class="eqno">(3.16)<a class="headerlink" href="#equation-eq-formulabackward" title="Link to this equation">#</a></span>\[
 \frac{du}{dt}=\frac{u^{n}-u^{n-1}}{\Delta t} + O\left( \Delta t\right),

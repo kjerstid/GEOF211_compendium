@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>The difference equation &#8212; GEOF211 resource pages</title>
+    <title>4.2. The difference equation &#8212; GEOF211 resource pages</title>
   
   
   
@@ -62,6 +62,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'LinearAdvectionEquation/differenceEquation';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="4.3. Solution of the difference equation" href="differenceSolution.html" />
+    <link rel="prev" title="4.1. The exact equation" href="analyticSolution.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -124,8 +126,6 @@
       
       
       
-        
-      
       <div class="bd-sidebar-primary bd-sidebar">
         
 
@@ -181,7 +181,7 @@
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../Useful_calculus/Introduction.html">1. Useful calculus</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Useful_calculus/Taylor_Polynomials.html">1.1. Taylor series</a></li>
 
@@ -202,6 +202,13 @@
 <li class="toctree-l2"><a class="reference internal" href="../FiniteDifferences/estimatesTruncationError.html">3.3. Estimates of the truncation error</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../FiniteDifferences/fdFormulasFirstDerivative.html">3.4. Finite difference formulas for the 1st derivative</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../FiniteDifferences/evaluatingTruncationError.html">3.5. Evaluating the truncation error</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="Introduction.html">4. The linear advection equation</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="analyticSolution.html">4.1. The exact equation</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">4.2. The difference equation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="differenceSolution.html">4.3. Solution of the difference equation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Analysis.html">4.4. Analysis of the solution of the difference equation</a></li>
 </ul>
 </details></li>
 </ul>
@@ -402,31 +409,31 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="the-difference-equation">
-<h1>The difference equation<a class="headerlink" href="#the-difference-equation" title="Link to this heading">#</a></h1>
-<p>We are going to solve equation <a class="reference internal" href="Introduction.html#equation-eq-advection">()</a> numerically on discretized time and space. The discretizations are:</p>
+<h1><span class="section-number">4.2. </span>The difference equation<a class="headerlink" href="#the-difference-equation" title="Link to this heading">#</a></h1>
+<p>We are going to solve equation <a class="reference internal" href="Introduction.html#equation-eq-advection">(4.1)</a> numerically on discretized time and space. The discretizations are:</p>
 <div class="math notranslate nohighlight" id="equation-eq-discretization">
-<span class="eqno">()<a class="headerlink" href="#equation-eq-discretization" title="Link to this equation">#</a></span>\[\begin{split}
+<span class="eqno">(4.5)<a class="headerlink" href="#equation-eq-discretization" title="Link to this equation">#</a></span>\[\begin{split}
 	x_m &amp;= m\Delta x, m=0,1,2,...,M \\
 	t^n &amp;= n\Delta t, n=0,1,2,...,N,
 \end{split}\]</div>
-<p>where <span class="math notranslate nohighlight">\(\Delta t\)</span> is the time step and <span class="math notranslate nohighlight">\(\Delta x\)</span> is the grid resolution. The discrete time-space domain is commonly represented as the <em>t-x diagram</em> in <code class="xref std std-numref docutils literal notranslate"><span class="pre">txDiagram</span></code>.</p>
+<p>where <span class="math notranslate nohighlight">\(\Delta t\)</span> is the time step and <span class="math notranslate nohighlight">\(\Delta x\)</span> is the grid resolution. The discrete time-space domain is commonly represented as the <em>t-x diagram</em> in <a class="reference internal" href="#txdiagram"><span class="std std-numref">Fig. 4.1</span></a>.</p>
 <figure class="align-default" id="txdiagram">
 <a class="reference internal image-reference" href="LinearAdvectionEquation/txDiagramCropped.png"><img alt="LinearAdvectionEquation/txDiagramCropped.png" src="LinearAdvectionEquation/txDiagramCropped.png" style="height: 600px;" /></a>
 <figcaption>
-<p><span class="caption-text">The discrete time-space domain represented as a t-x diagram. The numerical solution at time <span class="math notranslate nohighlight">\(t^n\)</span> and position <span class="math notranslate nohighlight">\(x_m\)</span> is <span class="math notranslate nohighlight">\(u_m^n\)</span> and is represented in the diagram in the position (<span class="math notranslate nohighlight">\(x_m\)</span>,<span class="math notranslate nohighlight">\(t^n\)</span>).</span><a class="headerlink" href="#txdiagram" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 4.1 </span><span class="caption-text">The discrete time-space domain represented as a t-x diagram. The numerical solution at time <span class="math notranslate nohighlight">\(t^n\)</span> and position <span class="math notranslate nohighlight">\(x_m\)</span> is <span class="math notranslate nohighlight">\(u_m^n\)</span> and is represented in the diagram in the position (<span class="math notranslate nohighlight">\(x_m\)</span>,<span class="math notranslate nohighlight">\(t^n\)</span>).</span><a class="headerlink" href="#txdiagram" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
-<p>Using the 2nd order centered formula <a class="reference internal" href="../FiniteDifferences/fdFormulasFirstDerivative.html#equation-eq-formulacentred">(3.17)</a> to replace the exact derivatives in <a class="reference internal" href="Introduction.html#equation-eq-advection">()</a>, we get:</p>
+<p>Using the 2nd order centered formula <a class="reference internal" href="../FiniteDifferences/fdFormulasFirstDerivative.html#equation-eq-formulacentred">(3.17)</a> to replace the exact derivatives in <a class="reference internal" href="Introduction.html#equation-eq-advection">(4.1)</a>, we get:</p>
 <div class="math notranslate nohighlight" id="equation-eq-diffequation">
-<span class="eqno">()<a class="headerlink" href="#equation-eq-diffequation" title="Link to this equation">#</a></span>\[
+<span class="eqno">(4.6)<a class="headerlink" href="#equation-eq-diffequation" title="Link to this equation">#</a></span>\[
 	\frac{u_{m}^{n+1} - u_{m}^{n-1}}{2\Delta t } + c \frac{u_{m+1}^{n} - u_{m-1}^{n}}{2\Delta x} = 0.
 \]</div>
-<p>We call <a class="reference internal" href="#equation-eq-diffequation">()</a> the <em>difference equation</em> resulting from the discretization of <a class="reference internal" href="Introduction.html#equation-eq-advection">()</a> by the 2nd order centred formulas for the first derivative. Rearranging the terms of <a class="reference internal" href="#equation-eq-diffequation">()</a> we obtain a time marching scheme:</p>
+<p>We call <a class="reference internal" href="#equation-eq-diffequation">(4.6)</a> the <em>difference equation</em> resulting from the discretization of <a class="reference internal" href="Introduction.html#equation-eq-advection">(4.1)</a> by the 2nd order centred formulas for the first derivative. Rearranging the terms of <a class="reference internal" href="#equation-eq-diffequation">(4.6)</a> we obtain a time marching scheme:</p>
 <div class="math notranslate nohighlight" id="equation-eq-leapfrog">
-<span class="eqno">()<a class="headerlink" href="#equation-eq-leapfrog" title="Link to this equation">#</a></span>\[
+<span class="eqno">(4.7)<a class="headerlink" href="#equation-eq-leapfrog" title="Link to this equation">#</a></span>\[
 u_{m}^{n+1} = u_{m}^{n-1} - c\frac{\Delta t}{\Delta x}(u_{m+1}^{n}-u_{m-1}^{n}),
 \]</div>
-<p>known as the <em>leapfrog</em> scheme, which is a three-level scheme, because it employs information at time levels <span class="math notranslate nohighlight">\(n-1\)</span>, <span class="math notranslate nohighlight">\(n\)</span> and <span class="math notranslate nohighlight">\(n+1\)</span>. Since the discretization of <a class="reference internal" href="Introduction.html#equation-eq-advection">()</a> was done with 2nd order formulas, the scheme <a class="reference internal" href="#equation-eq-leapfrog">()</a> is of 2nd order.</p>
+<p>known as the <em>leapfrog</em> scheme, which is a three-level scheme, because it employs information at time levels <span class="math notranslate nohighlight">\(n-1\)</span>, <span class="math notranslate nohighlight">\(n\)</span> and <span class="math notranslate nohighlight">\(n+1\)</span>. Since the discretization of <a class="reference internal" href="Introduction.html#equation-eq-advection">(4.1)</a> was done with 2nd order formulas, the scheme <a class="reference internal" href="#equation-eq-leapfrog">(4.7)</a> is of 2nd order.</p>
 </section>
 
     <script type="text/x-thebe-config">
@@ -459,6 +466,24 @@ u_{m}^{n+1} = u_{m}^{n-1} - c\frac{\Delta t}{\Delta x}(u_{m+1}^{n}-u_{m-1}^{n}),
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="analyticSolution.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">4.1. </span>The exact equation</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="differenceSolution.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">4.3. </span>Solution of the difference equation</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               

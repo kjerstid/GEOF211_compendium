@@ -31,7 +31,7 @@ chapters:
   - file: LinearAdvectionEquation/differenceEquation.md
   - file: LinearAdvectionEquation/differenceSolution.md
   - file: LinearAdvectionEquation/Analysis.md
-- file: NumericalStability/Intro.md
+- file: NumericalStability/Introduction.md
   sections: 
   - file: NumericalStability/ConsistencyConvergenceStability.md
   - file: NumericalStability/vonNeumannStability.md
