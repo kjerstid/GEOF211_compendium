@@ -44,7 +44,7 @@ The equal sign can only hold for all $(x,t)$ if both side are equal to a constan
       -c \frac{1}{H(x)} \frac{\partial H(x)}{\partial x}=& -\alpha \Leftrightarrow H(x)=A_2e^{\alpha x/c},
 \end{align}
 
-We can now subsitute the expressions for $G(t)$ and $H(x)$ into {eq}`eq:sepVar` $and find $u(x,t)=G(t)H(x)=A_1A_2e^{-\alpha t}e^{\alpha x/c}$. 
+We can now subsitute the expressions for $G(t)$ and $H(x)$ into {eq}`eq:sepVar` and find $u(x,t)=G(t)H(x)=A_1A_2e^{-\alpha t}e^{\alpha x/c}$. 
 
 Using the initial conditions {eq}`eq:Advection` at $t=0$ we have $u(x,0)=A_1A_2e^{\alpha x/c}$, so we know that $A=A_1A_2$ and $ik = \alpha/c$ and so $\alpha=ikc$. Finally, we can write:
 
