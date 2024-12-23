@@ -416,41 +416,45 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="the-exact-equation">
 <span id="linearadvectionequation-analyticsolution"></span><h1><span class="section-number">4.1. </span>The exact equation<a class="headerlink" href="#the-exact-equation" title="Link to this heading">#</a></h1>
-<p>The analytic (exact) solution of <a class="reference internal" href="Introduction.html#equation-eq-advection">(4.1)</a> can be obtained by the method of the separation of variables. We shall assume an initial condition in the form of a simple wave:</p>
 <aside class="margin sidebar">
-<p class="sidebar-title">Euler’s formula</p>
-<p>Euler’s formula:</p>
+<p class="sidebar-title">Euler’s formula:</p>
 <div class="math notranslate nohighlight">
 \[
 e^{i\theta}=\cos \theta + i\sin \theta
 \]</div>
 <p>is widely used to represent simple oscillatory behaviour.</p>
 </aside>
+<p>The linear advection equation is given by:
+$<span class="math notranslate nohighlight">\(
+\frac{\partial u}{\partial t} + a \frac{\partial u}{\partial x} = 0, c&gt;0
+\)</span>$(eq:Advection)</p>
+<p>We will assume an initial condition in the form of a simple wave:</p>
 <div class="math notranslate nohighlight" id="equation-eq-initialcond">
 <span class="eqno">(4.2)<a class="headerlink" href="#equation-eq-initialcond" title="Link to this equation">#</a></span>\[
 	u(x,0)=A e^{i k x},
 \]</div>
 <p>where <span class="math notranslate nohighlight">\(k = 2\pi/\lambda\)</span> is the wave number (<span class="math notranslate nohighlight">\(\lambda\)</span> is the wavelength).</p>
-<p>Let the solution to <a class="reference internal" href="Introduction.html#equation-eq-advection">(4.1)</a> with initial condition <a class="reference internal" href="#equation-eq-initialcond">(4.2)</a> be given by</p>
+<p>We can find the analytic (exact) solution of <a class="reference internal" href="Introduction.html#equation-eq-advection">(4.1)</a> using the method <em>separation of variables</em>.
+Let the solution to <a class="reference internal" href="Introduction.html#equation-eq-advection">(4.1)</a> with initial condition <a class="reference internal" href="#equation-eq-initialcond">(4.2)</a> be given by</p>
 <div class="math notranslate nohighlight" id="equation-eq-sepvar">
 <span class="eqno">(4.3)<a class="headerlink" href="#equation-eq-sepvar" title="Link to this equation">#</a></span>\[
 	u(x,t)=G(t)H(x).
 \]</div>
-<p>Substituting in <a class="reference internal" href="Introduction.html#equation-eq-advection">(4.1)</a>, we have</p>
-<div class="amsmath math notranslate nohighlight" id="equation-48781584-de7b-4959-addb-62470b1e3d61">
-<span class="eqno">(4.4)<a class="headerlink" href="#equation-48781584-de7b-4959-addb-62470b1e3d61" title="Permalink to this equation">#</a></span>\[\begin{align} 
+<p>We substitute <span class="math notranslate nohighlight">\(u(x,t)=G(t)H(x)\)</span> in <a class="reference internal" href="Introduction.html#equation-eq-advection">(4.1)</a>, and separate the x- and t-dependent terms on wither side of the equal sign:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-dc98330c-15fb-4d78-a1d7-3a3ef87e6090">
+<span class="eqno">(4.4)<a class="headerlink" href="#equation-dc98330c-15fb-4d78-a1d7-3a3ef87e6090" title="Permalink to this equation">#</a></span>\[\begin{align} 
    \frac{\partial }{\partial t} (G(t)H(x))=&amp; -c \frac{\partial }{\partial x} (G(t)H(x)) \\
    H(x)\frac{\partial G(t)}{\partial t} =&amp; -c G(t) \frac{\partial H(x)}{\partial x} \\
    \frac{1}{G(t)} \frac{\partial G(t)}{\partial t} =&amp; -c \frac{1}{H(x)} \frac{\partial H(x)}{\partial x}, 
 \end{align}\]</div>
-<p>that to be valid for all <span class="math notranslate nohighlight">\((x,t)\)</span> must be equal to a constant <span class="math notranslate nohighlight">\(-\alpha\)</span>. Integration yields</p>
-<div class="amsmath math notranslate nohighlight" id="equation-f431946f-47c4-4696-9ae2-17ff637b11a4">
-<span class="eqno">(4.5)<a class="headerlink" href="#equation-f431946f-47c4-4696-9ae2-17ff637b11a4" title="Permalink to this equation">#</a></span>\[\begin{align} 
+<p>The equal sign can only hold for all <span class="math notranslate nohighlight">\((x,t)\)</span> if both side are equal to a constant value, <span class="math notranslate nohighlight">\(-\alpha\)</span>. We can now integrate each side of the equation, yielding</p>
+<div class="amsmath math notranslate nohighlight" id="equation-c8af9fe1-d59c-415f-8c61-82fc0b4a0919">
+<span class="eqno">(4.5)<a class="headerlink" href="#equation-c8af9fe1-d59c-415f-8c61-82fc0b4a0919" title="Permalink to this equation">#</a></span>\[\begin{align} 
       \frac{1}{G(t)} \frac{\partial G(t)}{\partial t} =&amp; -\alpha \Leftrightarrow G(t)=A_1e^{-\alpha t} \\
       -c \frac{1}{H(x)} \frac{\partial H(x)}{\partial x}=&amp; -\alpha \Leftrightarrow H(x)=A_2e^{\alpha x/c},
 \end{align}\]</div>
-<p>and we find <span class="math notranslate nohighlight">\(u(x,t)=G(t)H(x)=A_1A_2e^{-\alpha t}e^{\alpha x/c}\)</span>.</p>
-<p>At <span class="math notranslate nohighlight">\(t=0\)</span> we have <span class="math notranslate nohighlight">\(u(x,0)=A_1A_2e^{\alpha x/c}\)</span>, so we know that <span class="math notranslate nohighlight">\(A=A_1A_2\)</span> and <span class="math notranslate nohighlight">\(ik = \alpha/c\)</span> and so <span class="math notranslate nohighlight">\(\alpha=ikc\)</span>. Finally, we can write:</p>
+<p>We can now subsitute the expressions for <span class="math notranslate nohighlight">\(G(t) and H(x) into {eq}`eq:sepVar` \)</span>and find <span class="math notranslate nohighlight">\(u(x,t)=G(t)H(x)=A_1A_2e^{-\alpha t}e^{\alpha x/c}\)</span>.</p>
+<p>Using the initial conditions <a class="reference internal" href="Introduction.html#equation-eq-advection">(4.1)</a> at <span class="math notranslate nohighlight">\(t=0\)</span> we have <span class="math notranslate nohighlight">\(u(x,0)=A_1A_2e^{\alpha x/c}\)</span>, so we know that <span class="math notranslate nohighlight">\(A=A_1A_2\)</span> and <span class="math notranslate nohighlight">\(ik = \alpha/c\)</span> and so <span class="math notranslate nohighlight">\(\alpha=ikc\)</span>. Finally, we can write:</p>
 <div class="math notranslate nohighlight" id="equation-eq-anasolution">
 <span class="eqno">(4.6)<a class="headerlink" href="#equation-eq-anasolution" title="Link to this equation">#</a></span>\[
 	u(x,t)=Ae^{-ikct}e^{ikcx/c}=Ae^{ik(x-ct)},
