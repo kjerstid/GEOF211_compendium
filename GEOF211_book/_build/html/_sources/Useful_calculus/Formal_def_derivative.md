@@ -1,0 +1,3 @@
+(Useful_calculus:Formal_def_derivative)=
+# The Formal definition of the derivative
+To come...

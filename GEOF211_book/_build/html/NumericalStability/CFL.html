@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>5.5. Von Neumann Stability Analysis &#8212; GEOF211 resource pages</title>
+    <title>5.3. Courant-Friedrich-Levy, CFL criterion &#8212; GEOF211 resource pages</title>
   
   
   
@@ -57,12 +57,11 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'NumericalStability/vonNeumannStability';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'NumericalStability/CFL';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="prev" title="5.4. Total variation" href="Total_variation.html" />
+    <link rel="next" title="5.4. Total variation" href="Total_variation.html" />
+    <link rel="prev" title="5.2. Domain of dependence" href="DomainDep.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -214,9 +213,9 @@
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="Introduction.html">5. Stability of numerical schemes</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="consistencyConvergenceStability.html">5.1. Consistency, convergence and stability</a></li>
 <li class="toctree-l2"><a class="reference internal" href="DomainDep.html">5.2. Domain of dependence</a></li>
-<li class="toctree-l2"><a class="reference internal" href="CFL.html">5.3. Courant-Friedrich-Levy, CFL criterion</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">5.3. Courant-Friedrich-Levy, CFL criterion</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Total_variation.html">5.4. Total variation</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">5.5. Von Neumann Stability Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vonNeumannStability.html">5.5. Von Neumann Stability Analysis</a></li>
 </ul>
 </details></li>
 </ul>
@@ -290,7 +289,7 @@
       
       
       
-      <li><a href="https://kjerstid.github.io/GEOF211_compendium/intro.html/issues/new?title=Issue%20on%20page%20%2FNumericalStability/vonNeumannStability.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://kjerstid.github.io/GEOF211_compendium/intro.html/issues/new?title=Issue%20on%20page%20%2FNumericalStability/CFL.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -320,7 +319,7 @@
       
       
       
-      <li><a href="../_sources/NumericalStability/vonNeumannStability.md" target="_blank"
+      <li><a href="../_sources/NumericalStability/CFL.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -391,9 +390,7 @@ document.write(`
   </button>
 `);
 </script>
-<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="fa-solid fa-list"></span>
-</button>
+
 </div></div>
       
     </div>
@@ -404,23 +401,11 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Von Neumann Stability Analysis</h1>
+    <h1>Courant-Friedrich-Levy, CFL criterion</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
-            <div>
-                <h2> Contents </h2>
-            </div>
-            <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stability-of-the-ftcs-scheme">5.5.1. Stability of the FTCS scheme</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-linear-advection-equation">5.5.1.1. The linear advection equation</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-diffusion-equation">5.5.1.2. The diffusion equation</a></li>
-</ul>
-</li>
-</ul>
-            </nav>
         </div>
     </div>
 </div>
@@ -430,89 +415,9 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="von-neumann-stability-analysis">
-<span id="numericalstability-vonneumannstability"></span><h1><span class="section-number">5.5. </span>Von Neumann Stability Analysis<a class="headerlink" href="#von-neumann-stability-analysis" title="Link to this heading">#</a></h1>
-<p>The von Neumann stability analysis method is simple to apply but it cannot handle boundary conditions.</p>
-<p>It consists of replacing the spatial variation by a single Fourier component. The method is sufficient for linear equations with constant coefficients.</p>
-<p>We shall illustrate the Von Neumann stability method with the FTCS scheme.</p>
-<section id="stability-of-the-ftcs-scheme">
-<h2><span class="section-number">5.5.1. </span>Stability of the FTCS scheme<a class="headerlink" href="#stability-of-the-ftcs-scheme" title="Link to this heading">#</a></h2>
-<section id="the-linear-advection-equation">
-<h3><span class="section-number">5.5.1.1. </span>The linear advection equation<a class="headerlink" href="#the-linear-advection-equation" title="Link to this heading">#</a></h3>
-<p>The FTCS scheme for the linear advection equation is given by:</p>
-<div class="math notranslate nohighlight" id="equation-eqftcsadvection">
-<span class="eqno">(5.1)<a class="headerlink" href="#equation-eqftcsadvection" title="Link to this equation">#</a></span>\[
-u_m^{n+1} = u_m^{n} - c\frac{\Delta t}{2\Delta x}(u_{m+1}^n-u_{m-1}^n)
-\]</div>
-<p>To apply the Von Neumann stability analysis method we assume a solution of the form:</p>
-<div class="math notranslate nohighlight" id="equation-eq-vonneumansolution">
-<span class="eqno">(5.2)<a class="headerlink" href="#equation-eq-vonneumansolution" title="Link to this equation">#</a></span>\[
-u_m^n=B^n e^{ikm\Delta x}. 
-\]</div>
-<p>Substituing in <a class="reference internal" href="#equation-eqftcsadvection">(5.1)</a>, we get</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-B^{n+1} e^{ikm\Delta x} &amp;= B^{n} e^{ikm\Delta x} - c\frac{\Delta t}{2\Delta x}(B^{n} e^{ik(m+1)\Delta x}-B^{n} e^{ik(m-1)\Delta x}) \\
-B^{n+1} e^{ikm\Delta x} &amp;= B^{n} e^{ikm\Delta x}\left[1 - c\frac{\Delta t}{2\Delta x}(e^{ik\Delta x}-e^{-ik\Delta x})\right].
-\end{split}\]</div>
-<p>Eliminating the common factor <span class="math notranslate nohighlight">\(e^{ikm\Delta x}\)</span> and defining the amplification factor as <span class="math notranslate nohighlight">\(|B^{n+1}/B^n|\)</span>, we can write:</p>
-<div class="math notranslate nohighlight">
-\[
-\frac{B^{n+1}}{B^n}=1-c\frac{\Delta t}{\Delta x}i\sin k\Delta x
-\]</div>
-<p>For the scheme to be stable, we require that the amplification factor be <span class="math notranslate nohighlight">\(\leq 1\)</span>:</p>
-<div class="math notranslate nohighlight">
-\[
-\left|\frac{B^{n+1}}{B^n}\right|=\left|1-c\frac{\Delta t}{\Delta x}i\sin k\Delta x\right|\leq 1,
-\]</div>
-<p>which is impossible to fulfill, because</p>
-<div class="math notranslate nohighlight">
-\[
-\left|\frac{B^{n+1}}{B^n}\right|=\sqrt{1+\left(c\frac{\Delta t}{\Delta x}\right)\sin^2 k\Delta x} \ge 1, \quad \text{for all } k.
-\]</div>
-<p>Therefore, the FTCS scheme applied to the linear advection equation is always unstable, i.e., it is <em>unconditionally unstable</em>.</p>
-</section>
-<section id="the-diffusion-equation">
-<h3><span class="section-number">5.5.1.2. </span>The diffusion equation<a class="headerlink" href="#the-diffusion-equation" title="Link to this heading">#</a></h3>
-<p>The one-dimensional diffusion equation is</p>
-<div class="math notranslate nohighlight" id="equation-eq-diffusion">
-<span class="eqno">(5.3)<a class="headerlink" href="#equation-eq-diffusion" title="Link to this equation">#</a></span>\[
-\frac{\partial u}{\partial t} = D \frac{\partial^2 u}{\partial x^2},
-\]</div>
-<p>where <span class="math notranslate nohighlight">\(D\)</span> is the diffusivity.</p>
-<p>The FTCS scheme applied to <a class="reference internal" href="#equation-eq-diffusion">(5.3)</a> is:</p>
-<div class="math notranslate nohighlight" id="equation-eq-ftcsdiffusion">
-<span class="eqno">(5.4)<a class="headerlink" href="#equation-eq-ftcsdiffusion" title="Link to this equation">#</a></span>\[
-u_m^{n+1} = u_m^{n} + D\frac{\Delta t}{\Delta x^2}(u_{m+1}^n-2u_{m}^n+u_{m-1}^n)
-\]</div>
-<p>Substituting a solution like <a class="reference internal" href="#equation-eq-vonneumansolution">(5.2)</a> in <a class="reference internal" href="#equation-eq-ftcsdiffusion">(5.4)</a>, we have</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-B^{n+1}e^{ikm\Delta x}=B^ne^{ikm\Delta x}+ D\frac{\Delta t}{\Delta x^2}(B^{n} e^{ik(m+1)\Delta x}\\
-    -2B^{n} e^{ikm\Delta x}+(B^{n} e^{ik(m-1)\Delta x})
-\end{split}\]</div>
-<p>which, after some manipulation, allows to obtain the following expression for the amplification factor:</p>
-<div class="math notranslate nohighlight">
-\[
-\frac{B^{n+1}}{B^n} = 1-2\tau+2\tau\cos k\Delta x = 1-4\tau \sin^2 \frac{k \Delta x}{2}, \quad \tau=D\frac{\Delta t}{\Delta x^2}.
-\]</div>
-<p>The Von Neumann stability condition is:</p>
-<div class="math notranslate nohighlight" id="equation-eq-vonneumannconditiondifffusion">
-<span class="eqno">(5.5)<a class="headerlink" href="#equation-eq-vonneumannconditiondifffusion" title="Link to this equation">#</a></span>\[
-\left|\frac{B^{n+1}}{B^n}\right|\leq 1 \Leftrightarrow \left|1-4\tau \sin^2 \frac{k \Delta x}{2}\right| \leq 1, \quad \text{for all } k.
-\]</div>
-<p>For <span class="math notranslate nohighlight">\(\tau &gt; 0\)</span>, the worst case occurs when <span class="math notranslate nohighlight">\(\sin^2 \frac{k \Delta x}{2}=1\)</span>, which leads to</p>
-<div class="math notranslate nohighlight">
-\[
-\tau \leq \frac{1}{2}. 
-\]</div>
-<p>Therefore, the FTCS scheme apllied to the linear diffusion equation <a class="reference internal" href="#equation-eq-diffusion">(5.3)</a> is <em>conditionally stable</em>, with the stability condition</p>
-<div class="math notranslate nohighlight" id="equation-eq-cfllimitdifffusion">
-<span class="eqno">(5.6)<a class="headerlink" href="#equation-eq-cfllimitdifffusion" title="Link to this equation">#</a></span>\[
-D\frac{\Delta t}{\Delta x^2} \leq \frac{1}{2}.
-\]</div>
-</section>
-</section>
+  <section class="tex2jax_ignore mathjax_ignore" id="courant-friedrich-levy-cfl-criterion">
+<span id="numericalstability-cfl"></span><h1><span class="section-number">5.3. </span>Courant-Friedrich-Levy, CFL criterion<a class="headerlink" href="#courant-friedrich-levy-cfl-criterion" title="Link to this heading">#</a></h1>
+<p>To come …</p>
 </section>
 
     <script type="text/x-thebe-config">
@@ -546,13 +451,22 @@ D\frac{\Delta t}{\Delta x^2} \leq \frac{1}{2}.
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="Total_variation.html"
+       href="DomainDep.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">5.2. </span>Domain of dependence</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Total_variation.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
         <p class="prev-next-title"><span class="section-number">5.4. </span>Total variation</p>
       </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>
@@ -560,25 +474,6 @@ D\frac{\Delta t}{\Delta x^2} \leq \frac{1}{2}.
             </div>
             
             
-              
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> Contents
-  </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stability-of-the-ftcs-scheme">5.5.1. Stability of the FTCS scheme</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-linear-advection-equation">5.5.1.1. The linear advection equation</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-diffusion-equation">5.5.1.2. The diffusion equation</a></li>
-</ul>
-</li>
-</ul>
-  </nav></div>
-
-</div></div>
               
             
           </div>

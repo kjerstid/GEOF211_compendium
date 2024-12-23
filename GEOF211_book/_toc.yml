@@ -13,7 +13,7 @@ chapters:
   - file: Useful_calculus/Complex_numbers.md
   - file: Useful_calculus/Euler_Formula.md
   - file: Useful_calculus/Fourier_transforms.md
-  - file: Useful_calculus/Formal_dev_derivative.md
+  - file: Useful_calculus/Formal_def_derivative.md
 - file: GFD/Introduction.md
   sections:
   - file: GFD/PrimitiveEquations.md
