@@ -428,32 +428,34 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="analysis-of-the-solution-of-the-difference-equation">
 <h1><span class="section-number">4.4. </span>Analysis of the solution of the difference equation<a class="headerlink" href="#analysis-of-the-solution-of-the-difference-equation" title="Link to this heading">#</a></h1>
-<p>In our study of the finite difference approximations to the derivative, we found that in general, when <span class="math notranslate nohighlight">\(\Delta t\)</span> and <span class="math notranslate nohighlight">\(\Delta x\)</span> approach zero, the errors in the approximations of the derivatives also approach zero. Therefore, since our difference equation is written with the finite difference approximations, we can ask ourselves if we will have the error of the difference equation, i.e. the difference between <a class="reference internal" href="differenceSolution.html#equation-eq-solutiondiffequation">(4.12)</a> and <a class="reference internal" href="analyticSolution.html#equation-eq-anasolution">(4.4)</a>, also approach zero when <span class="math notranslate nohighlight">\(\Delta t, \Delta x \to 0\)</span>.</p>
-<p>First, let <span class="math notranslate nohighlight">\(\Delta x \to 0\)</span>. We will have:
-\begin{align*}%\label{eqn:anaSol2}
-\sigma &amp; = c\frac{\Delta t}{\Delta x} \sin (\mu \Delta x) \
-&amp; = c\mu \Delta t \frac{\sin (\mu \Delta x)}{\mu \Delta x} \
-&amp; = c\mu \Delta t,
-\end{align*}
-since <span class="math notranslate nohighlight">\(\lim_{\Delta x\to0}\frac{\sin (\mu \Delta x)}{\mu \Delta x}=1\)</span>. Then, consider that <span class="math notranslate nohighlight">\(\Delta t\)</span> is small, so that <span class="math notranslate nohighlight">\(\alpha=\arcsin c\mu\Delta t \approx c\mu\Delta t\)</span>. Thus in the limit of small <span class="math notranslate nohighlight">\(\Delta t\)</span> and <span class="math notranslate nohighlight">\(\Delta x\)</span>, we will have
-\begin{align*}%\label{eqn:anaSol2}
-A \frac{1+\cos \alpha}{2\cos \alpha}e^{i\mu (m\Delta x - \alpha n/ \mu)}  &amp;= A \frac{1+\cos \alpha}{2\cos \alpha}e^{i\mu (m\Delta x -  n c\mu\Delta t/ \mu)} \ &amp;= A \frac{1+\cos \alpha}{2\cos \alpha}e^{i\mu (m\Delta x -  cn \Delta t)},
-\end{align*}
-and we recover the waveform <a class="reference internal" href="analyticSolution.html#equation-eq-anasolution">(4.4)</a>, written in the discrete grid positions <span class="math notranslate nohighlight">\(m\Delta x\)</span> and time steps <span class="math notranslate nohighlight">\(n \Delta t\)</span>. Furthermore, if we allow <span class="math notranslate nohighlight">\(\Delta t \to 0\)</span>, we will have <span class="math notranslate nohighlight">\(\alpha = 0\)</span> and</p>
+<p>In our study of the finite difference approximations to the derivative, we found that in general, when <span class="math notranslate nohighlight">\(\Delta t\)</span> and <span class="math notranslate nohighlight">\(\Delta x\)</span> approach zero, the errors in the approximations of the derivatives also approach zero. Therefore, since our difference equation is written with the finite difference approximations, we can ask ourselves if we will have the error of the difference equation, i.e. the difference between <a class="reference internal" href="differenceSolution.html#equation-eq-solutiondiffequation">(4.16)</a> and <a class="reference internal" href="analyticSolution.html#equation-eq-anasolution">(4.6)</a>, also approach zero when <span class="math notranslate nohighlight">\(\Delta t, \Delta x \to 0\)</span>.</p>
+<p>First, let <span class="math notranslate nohighlight">\(\Delta x \to 0\)</span>. We will have:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}%\label{eqn:anaSol2}
+	\sigma &amp; = c\frac{\Delta t}{\Delta x} \sin (\mu \Delta x) \\
+	&amp; = c\mu \Delta t \frac{\sin (\mu \Delta x)}{\mu \Delta x} \\
+	&amp; = c\mu \Delta t,
+\end{align*}\]</div>
+<p>since <span class="math notranslate nohighlight">\(\lim_{\Delta x\to0}\frac{\sin (\mu \Delta x)}{\mu \Delta x}=1\)</span>. Then, consider that <span class="math notranslate nohighlight">\(\Delta t\)</span> is small, so that <span class="math notranslate nohighlight">\(\alpha=\arcsin c\mu\Delta t \approx c\mu\Delta t\)</span>. Thus in the limit of small <span class="math notranslate nohighlight">\(\Delta t\)</span> and <span class="math notranslate nohighlight">\(\Delta x\)</span>, we will have</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}%\label{eqn:anaSol2}
+	A \frac{1+\cos \alpha}{2\cos \alpha}e^{i\mu (m\Delta x - \alpha n/ \mu)}  &amp;= A \frac{1+\cos \alpha}{2\cos \alpha}e^{i\mu (m\Delta x -  n c\mu\Delta t/ \mu)} \\ &amp;= A \frac{1+\cos \alpha}{2\cos \alpha}e^{i\mu (m\Delta x -  cn \Delta t)},
+\end{align*}\]</div>
+<p>and we recover the waveform <a class="reference internal" href="analyticSolution.html#equation-eq-anasolution">(4.6)</a>, written in the discrete grid positions <span class="math notranslate nohighlight">\(m\Delta x\)</span> and time steps <span class="math notranslate nohighlight">\(n \Delta t\)</span>. Furthermore, if we allow <span class="math notranslate nohighlight">\(\Delta t \to 0\)</span>, we will have <span class="math notranslate nohighlight">\(\alpha = 0\)</span> and</p>
 <div class="math notranslate nohighlight" id="equation-eq-amplitude">
-<span class="eqno">(4.13)<a class="headerlink" href="#equation-eq-amplitude" title="Link to this equation">#</a></span>\[
+<span class="eqno">(4.17)<a class="headerlink" href="#equation-eq-amplitude" title="Link to this equation">#</a></span>\[
 	\frac{1+\cos \alpha}{2\cos \alpha} = 1, \frac{1-\cos \alpha}{2\cos \alpha} = 0,
 \]</div>
-<p>which means that in the limit of <span class="math notranslate nohighlight">\(\Delta t, \Delta x \to 0\)</span> we recover the true solution as the second waveform of <a class="reference internal" href="differenceSolution.html#equation-eq-solutiondiffequation">(4.12)</a> vanishes.</p>
-<p>The existence of the two waveforms <a class="reference internal" href="differenceSolution.html#equation-eq-solutiondiffequation">(4.12)</a> as solution of the difference equation <a class="reference internal" href="differenceEquation.html#equation-eq-diffequation">(4.6)</a> is obviously problematic. The two waveforms correspond to two <strong>modes</strong>:</p>
+<p>which means that in the limit of <span class="math notranslate nohighlight">\(\Delta t, \Delta x \to 0\)</span> we recover the true solution as the second waveform of <a class="reference internal" href="differenceSolution.html#equation-eq-solutiondiffequation">(4.16)</a> vanishes.</p>
+<p>The existence of the two waveforms <a class="reference internal" href="differenceSolution.html#equation-eq-solutiondiffequation">(4.16)</a> as solution of the difference equation <a class="reference internal" href="differenceEquation.html#equation-eq-diffequation">(4.8)</a> is obviously problematic. The two waveforms correspond to two <strong>modes</strong>:</p>
 <ol class="arabic simple">
-<li><p>The <strong>physical mode</strong> (first waveform of <a class="reference internal" href="differenceSolution.html#equation-eq-solutiondiffequation">(4.12)</a>) that approaches the true solution as <span class="math notranslate nohighlight">\(\Delta t, \Delta x \to 0\)</span>.</p></li>
-<li><p>The <strong>computational mode</strong> (second waveform of <a class="reference internal" href="differenceSolution.html#equation-eq-solutiondiffequation">(4.12)</a>), that is <em>spurious</em> (unphysical) and vanishes when <span class="math notranslate nohighlight">\(\Delta t, \Delta x \to 0\)</span>. This mode is a source of errors (in addition to the truncation errors), and we note further that it changes sign every time step (due to <span class="math notranslate nohighlight">\((-1)^{n+1}\)</span>) and travels in the opposite direction to the physical mode.</p></li>
+<li><p>The <strong>physical mode</strong> (first waveform of <a class="reference internal" href="differenceSolution.html#equation-eq-solutiondiffequation">(4.16)</a>) that approaches the true solution as <span class="math notranslate nohighlight">\(\Delta t, \Delta x \to 0\)</span>.</p></li>
+<li><p>The <strong>computational mode</strong> (second waveform of <a class="reference internal" href="differenceSolution.html#equation-eq-solutiondiffequation">(4.16)</a>), that is <em>spurious</em> (unphysical) and vanishes when <span class="math notranslate nohighlight">\(\Delta t, \Delta x \to 0\)</span>. This mode is a source of errors (in addition to the truncation errors), and we note further that it changes sign every time step (due to <span class="math notranslate nohighlight">\((-1)^{n+1}\)</span>) and travels in the opposite direction to the physical mode.</p></li>
 </ol>
 <section id="amplitude">
 <h2><span class="section-number">4.4.1. </span>Amplitude<a class="headerlink" href="#amplitude" title="Link to this heading">#</a></h2>
 <p>The exact solution of <a class="reference internal" href="Introduction.html#equation-eq-advection">(4.1)</a> with the initial condition given by <a class="reference internal" href="analyticSolution.html#equation-eq-initialcond">(4.2)</a> is characterized by the amplitude <span class="math notranslate nohighlight">\(A\)</span>, the wavenumber <span class="math notranslate nohighlight">\(k\)</span> and the phase speed <span class="math notranslate nohighlight">\(c\)</span>. We are interested in how well will the numerical solution represent these parameters.</p>
-<p>Starting with the amplitude, we know that for small <span class="math notranslate nohighlight">\(\alpha\)</span> we will have <a class="reference internal" href="#equation-eq-amplitude">(4.13)</a>, so the amplitude of the physical model will <span class="math notranslate nohighlight">\(\to A\)</span> and the amplitude of the computational model will
+<p>Starting with the amplitude, we know that for small <span class="math notranslate nohighlight">\(\alpha\)</span> we will have <a class="reference internal" href="#equation-eq-amplitude">(4.17)</a>, so the amplitude of the physical model will <span class="math notranslate nohighlight">\(\to A\)</span> and the amplitude of the computational model will
 <span class="math notranslate nohighlight">\(\to 0\)</span>.</p>
 <p>Since small <span class="math notranslate nohighlight">\(\alpha\)</span> implies small <span class="math notranslate nohighlight">\(\sigma\)</span>, for fixed <span class="math notranslate nohighlight">\(c\Delta t/\Delta x\)</span>, it implies small <span class="math notranslate nohighlight">\(k\Delta x = 2\pi\Delta x/L\)</span>, which will occur when <span class="math notranslate nohighlight">\(\Delta x \ll L\)</span>.</p>
 <p>Therefore, for the amplitude of the physical mode to approach the amplitude <span class="math notranslate nohighlight">\(A\)</span> of the true solution, we must choose a <span class="math notranslate nohighlight">\(\Delta x\)</span> much smaller than the wavelength <span class="math notranslate nohighlight">\(L\)</span>, or in other words, we should have as many grid points as possible to resolve one wavelength.</p>
@@ -464,7 +466,7 @@ and we recover the waveform <a class="reference internal" href="analyticSolution
 </section>
 <section id="phase-speed">
 <h2><span class="section-number">4.4.2. </span>Phase speed<a class="headerlink" href="#phase-speed" title="Link to this heading">#</a></h2>
-<p>With respect to the phase speed <span class="math notranslate nohighlight">\(c\)</span>, if we compare the exact solution of <a class="reference internal" href="Introduction.html#equation-eq-advection">(4.1)</a> with the solution <a class="reference internal" href="differenceSolution.html#equation-eq-solutiondiffequation">(4.12)</a> of the difference equation, we observe that the counterpart of <span class="math notranslate nohighlight">\(ct\)</span> is <span class="math notranslate nohighlight">\(n\alpha/\mu\)</span>. This quantity is:</p>
+<p>With respect to the phase speed <span class="math notranslate nohighlight">\(c\)</span>, if we compare the exact solution of <a class="reference internal" href="Introduction.html#equation-eq-advection">(4.1)</a> with the solution <a class="reference internal" href="differenceSolution.html#equation-eq-solutiondiffequation">(4.16)</a> of the difference equation, we observe that the counterpart of <span class="math notranslate nohighlight">\(ct\)</span> is <span class="math notranslate nohighlight">\(n\alpha/\mu\)</span>. This quantity is:</p>
 <div class="math notranslate nohighlight">
 \[
 	\frac{n\alpha}{\mu} = \frac{n\alpha\Delta t}{\mu\Delta t} =  \frac{\alpha t}{\mu\Delta t} = c^\prime t,
@@ -475,13 +477,14 @@ and we recover the waveform <a class="reference internal" href="analyticSolution
 	c^\prime = \frac{\alpha}{\mu\Delta t} = \frac{\arcsin\left[ \left( c\Delta t/\Delta x \right) \sin \mu\Delta x
 	  \right]}{\mu\Delta t}
 \]</div>
-<p>is the phase speed of the solution <a class="reference internal" href="differenceSolution.html#equation-eq-solutiondiffequation">(4.12)</a> of the difference equation. We shall now see how does <span class="math notranslate nohighlight">\(c^\prime\)</span> compares with the phase speed <span class="math notranslate nohighlight">\(c\)</span> of the true solution.</p>
-<p>First, if <span class="math notranslate nohighlight">\(c\Delta t/\Delta x = 1\)</span>, we’ll have <span class="math notranslate nohighlight">\(c^\prime/c = 1\)</span>, because
-\begin{equation}
-c^\prime = \frac{\arcsin\left(\sin \mu\Delta x
-\right)}{\mu\Delta t} = \frac{\mu\Delta x}{\mu\Delta t} = \frac{\Delta x}{\Delta t} = c.
-\end{equation}
-This means that when <span class="math notranslate nohighlight">\(c\Delta t/\Delta x = 1\)</span> there are no errors in the phase speed of the numerical solution.</p>
+<p>is the phase speed of the solution <a class="reference internal" href="differenceSolution.html#equation-eq-solutiondiffequation">(4.16)</a> of the difference equation. We shall now see how does <span class="math notranslate nohighlight">\(c^\prime\)</span> compares with the phase speed <span class="math notranslate nohighlight">\(c\)</span> of the true solution.</p>
+<p>First, if <span class="math notranslate nohighlight">\(c\Delta t/\Delta x = 1\)</span>, we’ll have <span class="math notranslate nohighlight">\(c^\prime/c = 1\)</span>, because</p>
+<div class="amsmath math notranslate nohighlight" id="equation-6df8ddee-84bb-419a-922a-d99fc2169644">
+<span class="eqno">(4.18)<a class="headerlink" href="#equation-6df8ddee-84bb-419a-922a-d99fc2169644" title="Permalink to this equation">#</a></span>\[\begin{equation}
+	c^\prime = \frac{\arcsin\left(\sin \mu\Delta x
+	  \right)}{\mu\Delta t} = \frac{\mu\Delta x}{\mu\Delta t} = \frac{\Delta x}{\Delta t} = c.
+\end{equation}\]</div>
+<p>This means that when <span class="math notranslate nohighlight">\(c\Delta t/\Delta x = 1\)</span> there are no errors in the phase speed of the numerical solution.</p>
 <p>In the general case, we’ll have</p>
 <div class="math notranslate nohighlight">
 \[
@@ -502,7 +505,7 @@ This means that when <span class="math notranslate nohighlight">\(c\Delta t/\Del
 \[
 \nu=-L^2\frac{d}{dL}\left(\frac{c}{L}\right)=-cL^2\frac{d}{dL}\left(\frac{1}{L}\right)=-cL^2\left(-\frac{1}{L^2}\right)=c.
 \]</div>
-<p>and the energy propagates at the same speed as the waveform. For <a class="reference internal" href="differenceSolution.html#equation-eq-solutiondiffequation">(4.12)</a>, we have</p>
+<p>and the energy propagates at the same speed as the waveform. For <a class="reference internal" href="differenceSolution.html#equation-eq-solutiondiffequation">(4.16)</a>, we have</p>
 <div class="math notranslate nohighlight">
 \[
 \nu'=\frac{d(\mu c')}{d\mu}=\frac{d}{d\mu}\left\{\frac{\mu \sin^{-1}\left[ c\frac{\Delta t}{\Delta x} \sin \mu\Delta x\right]}{\mu\Delta t} \right\},
@@ -517,7 +520,7 @@ This means that when <span class="math notranslate nohighlight">\(c\Delta t/\Del
 \[
 \nu'=c \frac{\cos\mu\Delta x}{\left[1-\sin^2\mu\Delta x\right]^{1/2}}=c \frac{\cos\mu\Delta x}{\cos\mu\Delta x}=c,
 \]</div>
-<p>and <a class="reference internal" href="differenceSolution.html#equation-eq-solutiondiffequation">(4.12)</a> has the same group velocity as the exact solution.</p>
+<p>and <a class="reference internal" href="differenceSolution.html#equation-eq-solutiondiffequation">(4.16)</a> has the same group velocity as the exact solution.</p>
 <p>When <span class="math notranslate nohighlight">\(c\Delta t/\Delta x &lt; 1\)</span>, if <span class="math notranslate nohighlight">\(\mu\)</span> is small (small wavenumber, long wavelengths), <span class="math notranslate nohighlight">\(\sin \mu\Delta x \to 0\)</span> and <span class="math notranslate nohighlight">\(\cos \mu\Delta x \to 1\)</span>, which results in <span class="math notranslate nohighlight">\(\nu'=c\)</span>.</p>
 <p>If <span class="math notranslate nohighlight">\(\mu\)</span> is large however (short wavelengths), we shall have large errors in the group velocity, e.g. for:</p>
 <ol class="arabic simple">

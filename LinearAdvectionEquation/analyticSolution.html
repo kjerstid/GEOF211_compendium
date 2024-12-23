@@ -437,20 +437,22 @@ e^{i\theta}=\cos \theta + i\sin \theta
 	u(x,t)=G(t)H(x).
 \]</div>
 <p>Substituting in <a class="reference internal" href="Introduction.html#equation-eq-advection">(4.1)</a>, we have</p>
-<p>\begin{align}
-\frac{\partial }{\partial t} (G(t)H(x))=&amp; -c \frac{\partial }{\partial x} (G(t)H(x)) \
-H(x)\frac{\partial G(t)}{\partial t} =&amp; -c G(t) \frac{\partial H(x)}{\partial x} \
-\frac{1}{G(t)} \frac{\partial G(t)}{\partial t} =&amp; -c \frac{1}{H(x)} \frac{\partial H(x)}{\partial x},
-\end{align}</p>
+<div class="amsmath math notranslate nohighlight" id="equation-48781584-de7b-4959-addb-62470b1e3d61">
+<span class="eqno">(4.4)<a class="headerlink" href="#equation-48781584-de7b-4959-addb-62470b1e3d61" title="Permalink to this equation">#</a></span>\[\begin{align} 
+   \frac{\partial }{\partial t} (G(t)H(x))=&amp; -c \frac{\partial }{\partial x} (G(t)H(x)) \\
+   H(x)\frac{\partial G(t)}{\partial t} =&amp; -c G(t) \frac{\partial H(x)}{\partial x} \\
+   \frac{1}{G(t)} \frac{\partial G(t)}{\partial t} =&amp; -c \frac{1}{H(x)} \frac{\partial H(x)}{\partial x}, 
+\end{align}\]</div>
 <p>that to be valid for all <span class="math notranslate nohighlight">\((x,t)\)</span> must be equal to a constant <span class="math notranslate nohighlight">\(-\alpha\)</span>. Integration yields</p>
-<p>\begin{align}
-\frac{1}{G(t)} \frac{\partial G(t)}{\partial t} =&amp; -\alpha \Leftrightarrow G(t)=A_1e^{-\alpha t} \
--c \frac{1}{H(x)} \frac{\partial H(x)}{\partial x}=&amp; -\alpha \Leftrightarrow H(x)=A_2e^{\alpha x/c},
-\end{align}</p>
+<div class="amsmath math notranslate nohighlight" id="equation-f431946f-47c4-4696-9ae2-17ff637b11a4">
+<span class="eqno">(4.5)<a class="headerlink" href="#equation-f431946f-47c4-4696-9ae2-17ff637b11a4" title="Permalink to this equation">#</a></span>\[\begin{align} 
+      \frac{1}{G(t)} \frac{\partial G(t)}{\partial t} =&amp; -\alpha \Leftrightarrow G(t)=A_1e^{-\alpha t} \\
+      -c \frac{1}{H(x)} \frac{\partial H(x)}{\partial x}=&amp; -\alpha \Leftrightarrow H(x)=A_2e^{\alpha x/c},
+\end{align}\]</div>
 <p>and we find <span class="math notranslate nohighlight">\(u(x,t)=G(t)H(x)=A_1A_2e^{-\alpha t}e^{\alpha x/c}\)</span>.</p>
 <p>At <span class="math notranslate nohighlight">\(t=0\)</span> we have <span class="math notranslate nohighlight">\(u(x,0)=A_1A_2e^{\alpha x/c}\)</span>, so we know that <span class="math notranslate nohighlight">\(A=A_1A_2\)</span> and <span class="math notranslate nohighlight">\(ik = \alpha/c\)</span> and so <span class="math notranslate nohighlight">\(\alpha=ikc\)</span>. Finally, we can write:</p>
 <div class="math notranslate nohighlight" id="equation-eq-anasolution">
-<span class="eqno">(4.4)<a class="headerlink" href="#equation-eq-anasolution" title="Link to this equation">#</a></span>\[
+<span class="eqno">(4.6)<a class="headerlink" href="#equation-eq-anasolution" title="Link to this equation">#</a></span>\[
 	u(x,t)=Ae^{-ikct}e^{ikcx/c}=Ae^{ik(x-ct)},
 \]</div>
 <p>which is the solution of <a class="reference internal" href="Introduction.html#equation-eq-advection">(4.1)</a> given the initial condition <a class="reference internal" href="#equation-eq-initialcond">(4.2)</a>. This solution represents the initial condition moving along the positive <span class="math notranslate nohighlight">\(x\)</span>-direction with translation velocity <span class="math notranslate nohighlight">\(c\)</span>.</p>

@@ -427,34 +427,37 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="solution-of-the-difference-equation">
 <span id="linearadvectionequation-differencesolution"></span><h1><span class="section-number">4.3. </span>Solution of the difference equation<a class="headerlink" href="#solution-of-the-difference-equation" title="Link to this heading">#</a></h1>
-<p>We shall solve <a class="reference internal" href="differenceEquation.html#equation-eq-diffequation">(4.6)</a> analytically to illustrate some aspects of the numerical solution of <a class="reference internal" href="Introduction.html#equation-eq-advection">(4.1)</a> by the leapfrog scheme <a class="reference internal" href="differenceEquation.html#equation-eq-leapfrog">(4.7)</a>. Indeed, while it is equation <a class="reference internal" href="Introduction.html#equation-eq-advection">(4.1)</a> that we ultimately want to solve, the time marching scheme will effectively solve <a class="reference internal" href="differenceEquation.html#equation-eq-diffequation">(4.6)</a>. Thus, by studying the exact solution to <a class="reference internal" href="differenceEquation.html#equation-eq-diffequation">(4.6)</a> and how close it is to <a class="reference internal" href="analyticSolution.html#equation-eq-anasolution">(4.4)</a>, the exact solution of <code class="xref eq docutils literal notranslate"><span class="pre">eqAdvection</span></code>, we shall be able to say whether or not our time marching method is suitable to the task.</p>
-<p>We assume an exponential solution to <a class="reference internal" href="differenceEquation.html#equation-eq-diffequation">(4.6)</a>:</p>
+<p>We shall solve <a class="reference internal" href="differenceEquation.html#equation-eq-diffequation">(4.8)</a> analytically to illustrate some aspects of the numerical solution of <a class="reference internal" href="Introduction.html#equation-eq-advection">(4.1)</a> by the leapfrog scheme <a class="reference internal" href="differenceEquation.html#equation-eq-leapfrog">(4.9)</a>. Indeed, while it is equation <a class="reference internal" href="Introduction.html#equation-eq-advection">(4.1)</a> that we ultimately want to solve, the time marching scheme will effectively solve <a class="reference internal" href="differenceEquation.html#equation-eq-diffequation">(4.8)</a>. Thus, by studying the exact solution to <a class="reference internal" href="differenceEquation.html#equation-eq-diffequation">(4.8)</a> and how close it is to <a class="reference internal" href="analyticSolution.html#equation-eq-anasolution">(4.6)</a>, the exact solution of <code class="xref eq docutils literal notranslate"><span class="pre">eqAdvection</span></code>, we shall be able to say whether or not our time marching method is suitable to the task.</p>
+<p>We assume an exponential solution to <a class="reference internal" href="differenceEquation.html#equation-eq-diffequation">(4.8)</a>:</p>
 <div class="math notranslate nohighlight" id="equation-eq-diffsolution">
-<span class="eqno">(4.8)<a class="headerlink" href="#equation-eq-diffsolution" title="Link to this equation">#</a></span>\[
+<span class="eqno">(4.10)<a class="headerlink" href="#equation-eq-diffsolution" title="Link to this equation">#</a></span>\[
 	u_{m}^{n} =B^{n\Delta t}e^{ik m\Delta x}, 
 \]</div>
-<p>where <span class="math notranslate nohighlight">\(B\)</span> can be complex. Substituting in <a class="reference internal" href="differenceEquation.html#equation-eq-diffequation">(4.6)</a>, we have:</p>
-<p>\begin{align*}
-(B^{(n+1)\Delta t} - B^{(n-1)\Delta t})e^{i\mu m\Delta x} &amp;= -c\frac{\Delta t}{\Delta x} B^{n\Delta t}(e^{i\mu (m+1)\Delta x}-e^{i\mu (m-1)\Delta x}) \Leftrightarrow \
-(B^{\Delta t} - B^{-\Delta t})B^{n\Delta t} e^{i\mu m\Delta x} &amp;= -c\frac{\Delta t}{\Delta x} B^{n\Delta t}e^{i\mu m\Delta x}(e^{i\mu \Delta x}-e^{-i\mu \Delta x}) \Leftrightarrow \
-(B^{\Delta t} - B^{-\Delta t}) &amp;= -c\frac{\Delta t}{\Delta x} (e^{i\mu \Delta x}-e^{-i\mu \Delta x}).
-\end{align*}</p>
+<p>where <span class="math notranslate nohighlight">\(B\)</span> can be complex. Substituting in <a class="reference internal" href="differenceEquation.html#equation-eq-diffequation">(4.8)</a>, we have:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+        (B^{(n+1)\Delta t} - B^{(n-1)\Delta t})e^{i\mu m\Delta x} &amp;= -c\frac{\Delta t}{\Delta x} B^{n\Delta t}(e^{i\mu (m+1)\Delta x}-e^{i\mu (m-1)\Delta x}) \Leftrightarrow \\
+        (B^{\Delta t} - B^{-\Delta t})B^{n\Delta t} e^{i\mu m\Delta x} &amp;= -c\frac{\Delta t}{\Delta x} B^{n\Delta t}e^{i\mu m\Delta x}(e^{i\mu \Delta x}-e^{-i\mu \Delta x}) \Leftrightarrow \\
+        (B^{\Delta t} - B^{-\Delta t}) &amp;= -c\frac{\Delta t}{\Delta x} (e^{i\mu \Delta x}-e^{-i\mu \Delta x}). 
+\end{align*}\]</div>
 <p>Expanding the circular exponentials, we can write:</p>
-<p>\begin{align*}
-(B^{\Delta t} - B^{-\Delta t}) &amp;= -c\frac{\Delta t}{\Delta x} (\cos (\mu \Delta x) +  i\sin (\mu \Delta x) -
-\cos (\mu \Delta x) +  i\sin (\mu \Delta x)) \Leftrightarrow \
-(B^{\Delta t} - B^{-\Delta t}) &amp;= -c\frac{\Delta t}{\Delta x} (2i\sin (\mu \Delta x))
-\end{align*}</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+        (B^{\Delta t} - B^{-\Delta t}) &amp;= -c\frac{\Delta t}{\Delta x} (\cos (\mu \Delta x) +  i\sin (\mu \Delta x) -
+        \cos (\mu \Delta x) +  i\sin (\mu \Delta x)) \Leftrightarrow \\
+        (B^{\Delta t} - B^{-\Delta t}) &amp;= -c\frac{\Delta t}{\Delta x} (2i\sin (\mu \Delta x))
+\end{align*}\]</div>
 <p>and then multiply by <span class="math notranslate nohighlight">\(B^{\Delta t}\)</span> to get:</p>
-<p>\begin{align*}
-B^{2\Delta t} - 1 &amp;= -c\frac{\Delta t}{\Delta x} (\cos (\mu \Delta x) +  i\sin (\mu \Delta x) -
-\cos (\mu \Delta x) +  i\sin (\mu \Delta x)) \Leftrightarrow \
-B^{2\Delta t} - 1 &amp;= -2iB^{\Delta t} c\frac{\Delta t}{\Delta x} (\sin (\mu \Delta x))  \Leftrightarrow \
-B^{2\Delta t}  + &amp; 2i\mu B^{\Delta t} -1 =  0,
-\end{align*}</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+        B^{2\Delta t} - 1 &amp;= -c\frac{\Delta t}{\Delta x} (\cos (\mu \Delta x) +  i\sin (\mu \Delta x) -
+        \cos (\mu \Delta x) +  i\sin (\mu \Delta x)) \Leftrightarrow \\
+        B^{2\Delta t} - 1 &amp;= -2iB^{\Delta t} c\frac{\Delta t}{\Delta x} (\sin (\mu \Delta x))  \Leftrightarrow \\
+        B^{2\Delta t}  + &amp; 2i\mu B^{\Delta t} -1 =  0,
+\end{align*}\]</div>
 <p>with <span class="math notranslate nohighlight">\(\mu = c\frac{\Delta t}{\Delta x} \sin (k \Delta x)\)</span>. Solving for <span class="math notranslate nohighlight">\(B^{\Delta t}\)</span>, we obtain:</p>
 <div class="math notranslate nohighlight" id="equation-eqbroots">
-<span class="eqno">(4.9)<a class="headerlink" href="#equation-eqbroots" title="Link to this equation">#</a></span>\[
+<span class="eqno">(4.11)<a class="headerlink" href="#equation-eqbroots" title="Link to this equation">#</a></span>\[
 	B^{\Delta t}_\pm = -i\mu \pm \sqrt{1-\mu^2}
 \]</div>
 <p>The roots <span class="math notranslate nohighlight">\(B^{\Delta t}_\pm\)</span> will have different behaviours, depending on the magnitude of <span class="math notranslate nohighlight">\(|\mu|\)</span>.</p>
@@ -466,70 +469,75 @@ B^{2\Delta t}  + &amp; 2i\mu B^{\Delta t} -1 =  0,
 <p>The polar form of a complex number <span class="math notranslate nohighlight">\(z=a+ib\)</span> is <span class="math notranslate nohighlight">\((a^2+b^2)^{1/2}\exp (i\arctan \frac{b}{a})\)</span></p>
 </aside>
 <p>For <span class="math notranslate nohighlight">\(B^{\Delta t}_+\)</span>, we have:</p>
-<p>\begin{align*}
-B^{\Delta t}_+ &amp;= \left[ (\sqrt{1-\mu^2})^2+(-\mu)^2\right]^{1/2}\exp (i\arctan \frac{-\mu}{\sqrt{1-\mu^2}}) \
-&amp;= \left[1-\mu^2+\mu^2\right]^{1/2}\exp (i\arctan \frac{-\mu}{\sqrt{1-\mu^2}}) \
-&amp;= \exp (i\arctan \frac{-\mu}{\sqrt{1-\mu^2}}) \
-&amp;= \exp (-i\arcsin \mu) \
-&amp;= e^{-i\alpha},
-\end{align*}</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+	B^{\Delta t}_+ &amp;= \left[ (\sqrt{1-\mu^2})^2+(-\mu)^2\right]^{1/2}\exp (i\arctan \frac{-\mu}{\sqrt{1-\mu^2}}) \\
+	&amp;= \left[1-\mu^2+\mu^2\right]^{1/2}\exp (i\arctan \frac{-\mu}{\sqrt{1-\mu^2}}) \\
+	&amp;= \exp (i\arctan \frac{-\mu}{\sqrt{1-\mu^2}}) \\
+	&amp;= \exp (-i\arcsin \mu) \\
+	&amp;= e^{-i\alpha},
+\end{align*}\]</div>
 <p>with <span class="math notranslate nohighlight">\(\alpha = \arcsin \mu\)</span>, while for <span class="math notranslate nohighlight">\(B^{\Delta t}_{-}\)</span>, we obtain a similar expression:</p>
-<p>\begin{equation}
-B^{\Delta t}_{-}= e^{i(\alpha+\pi)}.
-\end{equation}</p>
-<p>With the roots of <span class="math notranslate nohighlight">\(B^{\Delta t}\)</span>, we can return to <a class="reference internal" href="#equation-eq-diffsolution">(4.8)</a> and write:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-9b3ef5ab-14fe-4e2c-9743-ca9641e84907">
+<span class="eqno">(4.12)<a class="headerlink" href="#equation-9b3ef5ab-14fe-4e2c-9743-ca9641e84907" title="Permalink to this equation">#</a></span>\[\begin{equation}
+	B^{\Delta t}_{-}= e^{i(\alpha+\pi)}.
+\end{equation}\]</div>
+<p>With the roots of <span class="math notranslate nohighlight">\(B^{\Delta t}\)</span>, we can return to <a class="reference internal" href="#equation-eq-diffsolution">(4.10)</a> and write:</p>
 <div class="math notranslate nohighlight" id="equation-eq-diffsolution2">
-<span class="eqno">(4.10)<a class="headerlink" href="#equation-eq-diffsolution2" title="Link to this equation">#</a></span>\[
+<span class="eqno">(4.13)<a class="headerlink" href="#equation-eq-diffsolution2" title="Link to this equation">#</a></span>\[
 	u_{m}^{n} =\left[ De^{-i\alpha n} + Ee^{-i(\alpha+\pi) n} \right]e^{i\mu m\Delta x} 
 \]</div>
 <p>as the sum of the solutions for each root of <span class="math notranslate nohighlight">\(B^{\Delta t}\)</span>, since <code class="xref eq docutils literal notranslate"><span class="pre">eqAdvection</span></code> is linear. The constants <span class="math notranslate nohighlight">\(D\)</span> and <span class="math notranslate nohighlight">\(E\)</span> are to be found through the initial condition.</p>
-<p>At the initial time, <span class="math notranslate nohighlight">\(n=0\)</span>, and <a class="reference internal" href="#equation-eq-diffsolution2">(4.10)</a> becomes</p>
+<p>At the initial time, <span class="math notranslate nohighlight">\(n=0\)</span>, and <a class="reference internal" href="#equation-eq-diffsolution2">(4.13)</a> becomes</p>
 <div class="math notranslate nohighlight">
 \[
 	u_{m}^{0} =\left( D + E \right) e^{i\mu m\Delta x},
 \]</div>
 <p>from which we conclude that <span class="math notranslate nohighlight">\(A=D+E\)</span>. For subsequent times (<span class="math notranslate nohighlight">\(n\ge1\)</span>), we have:</p>
-<p>\begin{align}
-u_{m}^{n} &amp;= \left[ De^{-i\alpha n} + Ee^{-i(\alpha+\pi) n} \right]e^{i\mu m\Delta x} \
-&amp;= De^{i\mu (m\Delta x - \alpha n/ \mu)} + Ee^{-i\pi}e^{i\mu (m\Delta x + \alpha n/ \mu)} \
-&amp;= (A-E)e^{i\mu (m\Delta x - \alpha n/ \mu)} + (-1)^{n}Ee^{i\mu (m\Delta x + \alpha n/ \mu)}.
-\end{align}</p>
-<p>The solution of <a class="reference internal" href="differenceEquation.html#equation-eq-diffequation">(4.6)</a> can thus be seen to have two waves, whereas the solution to the exact equation <code class="xref eq docutils literal notranslate"><span class="pre">eqAdvection</span></code> had only one wave.</p>
+<div class="amsmath math notranslate nohighlight" id="equation-9c5f2564-95b4-4c43-b167-718214816d8f">
+<span class="eqno">(4.14)<a class="headerlink" href="#equation-9c5f2564-95b4-4c43-b167-718214816d8f" title="Permalink to this equation">#</a></span>\[\begin{align}
+	u_{m}^{n} &amp;= \left[ De^{-i\alpha n} + Ee^{-i(\alpha+\pi) n} \right]e^{i\mu m\Delta x} \\
+	&amp;= De^{i\mu (m\Delta x - \alpha n/ \mu)} + Ee^{-i\pi}e^{i\mu (m\Delta x + \alpha n/ \mu)} \\
+	&amp;= (A-E)e^{i\mu (m\Delta x - \alpha n/ \mu)} + (-1)^{n}Ee^{i\mu (m\Delta x + \alpha n/ \mu)}.
+\end{align}\]</div>
+<p>The solution of <a class="reference internal" href="differenceEquation.html#equation-eq-diffequation">(4.8)</a> can thus be seen to have two waves, whereas the solution to the exact equation <code class="xref eq docutils literal notranslate"><span class="pre">eqAdvection</span></code> had only one wave.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The two waves arise from the two roots <span class="math notranslate nohighlight">\(B^{\Delta t}_\pm\)</span>. In general, a <span class="math notranslate nohighlight">\(p\)</span>-th order scheme will introduce additional wave solutions when it is applied to a <span class="math notranslate nohighlight">\((p-1)\)</span>-th order equation.</p>
 <p>An additional consequence of the use of a 2nd order scheme to solve a first order equation is that we need one additional initial condition.</p>
 </div>
-<p>By using the initial condition, we were able to find the value of <span class="math notranslate nohighlight">\(D\)</span>, but the value of <span class="math notranslate nohighlight">\(E\)</span> is still to be found. We can find <span class="math notranslate nohighlight">\(E\)</span> by marching the solution \label{eqn:diffEquationSolution2} to the first time step <span class="math notranslate nohighlight">\(n=1\)</span>. But we can’t use <a class="reference internal" href="differenceEquation.html#equation-eq-leapfrog">(4.7)</a>, because we don’t have the value of <span class="math notranslate nohighlight">\(u^{-1}_m\)</span>.</p>
+<p>By using the initial condition, we were able to find the value of <span class="math notranslate nohighlight">\(D\)</span>, but the value of <span class="math notranslate nohighlight">\(E\)</span> is still to be found. We can find <span class="math notranslate nohighlight">\(E\)</span> by marching the solution \label{eqn:diffEquationSolution2} to the first time step <span class="math notranslate nohighlight">\(n=1\)</span>. But we can’t use <a class="reference internal" href="differenceEquation.html#equation-eq-leapfrog">(4.9)</a>, because we don’t have the value of <span class="math notranslate nohighlight">\(u^{-1}_m\)</span>.</p>
 <p>Instead, we have to use a two-time level like the forward scheme (Euler), that approximates the time derivative by a first-order forward formula:</p>
 <div class="math notranslate nohighlight" id="equation-eq-eulerforward">
-<span class="eqno">(4.11)<a class="headerlink" href="#equation-eq-eulerforward" title="Link to this equation">#</a></span>\[
+<span class="eqno">(4.15)<a class="headerlink" href="#equation-eq-eulerforward" title="Link to this equation">#</a></span>\[
 	u_{m}^{n+1} = u_{m}^{n} - c\frac{\Delta t}{2\Delta x}(u_{m+1}^{n}-u_{m-1}^{n}).
 \]</div>
 <p>Using the initial condition <span class="math notranslate nohighlight">\(u_{m}^{0}=A e^{i \mu m\Delta x}\)</span>, we have:</p>
-<p>\begin{align*}
-u_{m}^{1} &amp;= Ae^{i \mu m\Delta x} - c\frac{\Delta t}{2\Delta x}A e^{i \mu m\Delta x}(e^{i \mu \Delta x}-e^{-i \mu m\Delta x}) \
-&amp;= Ae^{i \mu m\Delta x} \left[1 - c\frac{\Delta t}{2\Delta x}(e^{i \mu \Delta x}-e^{-i \mu m\Delta x})\right] \
-&amp;= A \left[1 - ic\frac{\Delta t}{2\Delta x}\sin \mu\Delta x \right]e^{i \mu m\Delta x}\
-&amp;= A \left[1 - i\mu \right]e^{i \mu m\Delta x}\
-&amp;=A \left[1 - i\sin \alpha \right]e^{i \mu m\Delta x},
-\end{align*}</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+	u_{m}^{1} &amp;= Ae^{i \mu m\Delta x} - c\frac{\Delta t}{2\Delta x}A e^{i \mu m\Delta x}(e^{i \mu \Delta x}-e^{-i \mu m\Delta x}) \\
+	&amp;= Ae^{i \mu m\Delta x} \left[1 - c\frac{\Delta t}{2\Delta x}(e^{i \mu \Delta x}-e^{-i \mu m\Delta x})\right] \\
+	&amp;= A \left[1 - ic\frac{\Delta t}{2\Delta x}\sin \mu\Delta x \right]e^{i \mu m\Delta x}\\
+	&amp;= A \left[1 - i\mu \right]e^{i \mu m\Delta x}\\
+	&amp;=A \left[1 - i\sin \alpha \right]e^{i \mu m\Delta x},
+\end{align*}\]</div>
 <p>which is the solution at <span class="math notranslate nohighlight">\(n=1\)</span>. Now we can solve for <span class="math notranslate nohighlight">\(E\)</span>:</p>
-<p>\begin{align*}
-A \left[1 - i\sin \alpha \right]e^{i \mu m\Delta x} &amp;= (A-E)e^{i\mu (\Delta x - \alpha/ \mu)} - Ee^{i\mu (\Delta x + \alpha/ \mu)}\Leftrightarrow \
-A \left[1 - i\sin \alpha \right]e^{i \mu m\Delta x} &amp;= e^{i \mu m\Delta x} \left[(A-E)e^{-i\alpha} - Ee^{i\alpha}\right]\Leftrightarrow \
-A \left[1 - i\sin \alpha \right] &amp;=  (A-E)e^{-i\alpha} - Ee^{i\alpha} \Leftrightarrow \
-A \left[1 - i\sin \alpha \right] &amp;=  (A-E)e^{-i\alpha} - Ee^{i\alpha} \Leftrightarrow \
-A - A\cos \alpha &amp;= -E (2\cos \alpha) \Leftrightarrow \
-E &amp;= \frac{A(\cos \alpha -1)}{2\cos \alpha}.
-\end{align*}</p>
-<p>We can now write the full solution of the difference equation <a class="reference internal" href="differenceEquation.html#equation-eq-diffequation">(4.6)</a> as:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+	A \left[1 - i\sin \alpha \right]e^{i \mu m\Delta x} &amp;= (A-E)e^{i\mu (\Delta x - \alpha/ \mu)} - Ee^{i\mu (\Delta x + \alpha/ \mu)}\Leftrightarrow \\
+	A \left[1 - i\sin \alpha \right]e^{i \mu m\Delta x} &amp;= e^{i \mu m\Delta x} \left[(A-E)e^{-i\alpha} - Ee^{i\alpha}\right]\Leftrightarrow \\
+	A \left[1 - i\sin \alpha \right] &amp;=  (A-E)e^{-i\alpha} - Ee^{i\alpha} \Leftrightarrow \\
+	A \left[1 - i\sin \alpha \right] &amp;=  (A-E)e^{-i\alpha} - Ee^{i\alpha} \Leftrightarrow \\
+	A - A\cos \alpha &amp;= -E (2\cos \alpha) \Leftrightarrow \\
+	E &amp;= \frac{A(\cos \alpha -1)}{2\cos \alpha}.
+\end{align*}\]</div>
+<p>We can now write the full solution of the difference equation <a class="reference internal" href="differenceEquation.html#equation-eq-diffequation">(4.8)</a> as:</p>
 <div class="math notranslate nohighlight" id="equation-eq-solutiondiffequation">
-<span class="eqno">(4.12)<a class="headerlink" href="#equation-eq-solutiondiffequation" title="Link to this equation">#</a></span>\[
+<span class="eqno">(4.16)<a class="headerlink" href="#equation-eq-solutiondiffequation" title="Link to this equation">#</a></span>\[
 	u_{m}^{n} = A \frac{1+\cos \alpha}{2\cos \alpha}e^{i\mu (m\Delta x - \alpha n/ \mu)} + (-1)^{n+1}A \frac{1-\cos \alpha}{2\cos \alpha}e^{i\mu (m\Delta x + \alpha n/ \mu)}.
 \]</div>
 <p>This solution is composed of two wave forms of different amplitudes and that travel in opposite senses.</p>
-<p>When we compare with <a class="reference internal" href="analyticSolution.html#equation-eq-anasolution">(4.4)</a>, that we write below in a discrete version at <span class="math notranslate nohighlight">\((x_m,t^n)\)</span></p>
+<p>When we compare with <a class="reference internal" href="analyticSolution.html#equation-eq-anasolution">(4.6)</a>, that we write below in a discrete version at <span class="math notranslate nohighlight">\((x_m,t^n)\)</span></p>
 <div class="math notranslate nohighlight">
 \[
 	u(x_m,t^n)=Ae^{i\mu (m\Delta x-cn\Delta t)},
