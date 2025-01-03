@@ -8,7 +8,7 @@ $$
 
 Here, the solution for $q_m^{n+1}$ depends on the terms $q_m^n$ and $q_{m-1}^n$. We can annotate these dependencies in the discrete time-space domain:
 
-```{figure} ../Figures/Domain_Dep_FTBS.*
+```{figure} ../Figures/Domain_Dep_FTBS.png
 The Domain of Dependence (DoD), for the FTBS scheme to the linear advection equation.
 ```
 
