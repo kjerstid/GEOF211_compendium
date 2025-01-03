@@ -15,7 +15,7 @@ A **uniformly bounded** family of functions is a family of bounded functions tha
 
 A scheme is monotonous if
 
-$ q_m^n=\geq q_{m+1}^n\,\, \forall\, m $. 
+$ q_m^n\geq q_{m+1}^n\,\, \forall\, m $. 
 
 ## Error of a numerical approximation
 
@@ -44,7 +44,7 @@ The first questions leads us to the concepts of *consistency* and *convergence*,
 (definition:consistency)=
 :::{admonition} Definition
 :class: important
-A difference equation is consistent when it approaches the corresponding PDE as $\Delta t, \Delta x \to 0$.
+A difference equation is **consistent** when it approaches the corresponding PDE as $\Delta t, \Delta x \to 0$.
 :::
 
 The truncation error of the leapfrog scheme applied to the linear advection equation is:
@@ -66,7 +66,7 @@ Having a concistent numerical scheme is not a guarantee that we will obtain mean
 (definition:convergence)=
 :::{admonition} Definition
 :class: important
-A numerical solution is convergent if, for fixed $n\Delta t$, $\epsilon_m^n \to 0$ as $\Delta t, \Delta x \to 0$.
+A numerical solution is **convergent** if, for fixed $n\Delta t$, $\epsilon_m^n \to 0$ as $\Delta t, \Delta x \to 0$.
 
 If a numerical scheme gives convergent solutions for any initial condition, the numerical scheme is said to be convergent.
 :::
