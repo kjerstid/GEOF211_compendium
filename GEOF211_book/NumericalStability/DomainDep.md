@@ -42,3 +42,4 @@ Here, the solution for $q_m^{n+1}$ depends on the terms $q_m^n$ and q_{m-1}^n. W
 \end{tikzpicture}
 
 \end{document}
+```
