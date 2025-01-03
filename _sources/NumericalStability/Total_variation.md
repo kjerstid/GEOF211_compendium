@@ -1,29 +1,43 @@
 (NumericalStability:Total_variation)=
 # Total Variation (TV) and Total Variation Diminishing (TVD) schemes
+
+## Total variation (TV)
 The total variation is a measure of the amount of oscillation in the field:
 
+(definition:Total Variation)=
+:::{admonition} Definition
+:class: important
 $$
 TV(q^n)=\sum_{m=2}^J|(q_m^n-q_{m-1}^n)|
 $$ (eq:TotalVariation)
+:::
 
-If $TV(q^{n+1})\leq TV(q^n)$ we have a total variation diminishing (TVD) scheme.
-Then the amount of oscillation does not increase with time.
+## Total Variation Diminishing (TVD) schemes
 
-A TVD scheme preserves *monotonicity*. If $ q_m^n=\geq q_{m+1}^n\,\, \forall\, m $. 
+(definition:Total Variation DIminishing schemes)=
+:::{admonition} Definition
+:class: important
+A numerical scheme is total variation diminishing if:
+$$
+$TV(q^{n+1})\leq TV(q^n)$
+$$ (eq:TotalVariation)
+:::
 
-Then 
+For TVD schemes, the amount of oscillation does not increase with time.
 
-$ q_m^{n+1}=\geq q_{m+1}^{n+1}\,\, \forall\, m $.
+A TVD scheme preserves *monotonicity*. If the initial field is monotone, a TVD scheme cannot give oscillations like
+overshoots.
 
-Hence, if the initial field is monotone, a TVD scheme cannot give oscillations like
-overshoots. However, discontinuities may still be smoothed.
+ If $ q_m^n=\geq q_{m+1}^n\,\, \forall\, m $, then $ q_m^{n+1}=\geq q_{m+1}^{n+1}\,\, \forall\, m $.
+
+However, discontinuities may still be smoothed in TVD schemes.
 
 ## Harten's theorem
 
 Consider a general method of the form:
 
 $$
-q_m^{n+1}=q_m^n-C_{m-1}^n(q_m*n-q_{m-1}^n)+D_m^n(q_{m+1}^n-q_m^n)
+q_m^{n+1}=q_m^n-C_{m-1}^n(q_m^n-q_{m-1}^n)+D_m^n(q_{m+1}^n-q_m^n)
 $$ (eq:HartenGeneral)
 
 where the coefficients $C$ and $D$ are arbitrary values that may depend on $q$. (Note that
