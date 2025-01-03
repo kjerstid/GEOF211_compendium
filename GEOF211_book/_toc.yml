@@ -34,7 +34,7 @@ chapters:
   - file: LinearAdvectionEquation/Analysis.md
 - file: NumericalStability/Introduction.md
   sections: 
-  - file: NumericalStability/consistencyConvergenceStability.md
+  - file: NumericalStability/ConceptsDefinitions.md
   - file: NumericalStability/DomainDep.md
   - file: NumericalStability/CFL.md
   - file: NumericalStability/Total_variation.md
