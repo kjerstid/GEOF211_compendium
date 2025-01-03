@@ -62,7 +62,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'Useful_calculus/Fourier_transforms';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="2. Geophysical Fluid Dynamics (GFD)" href="../GFD/Introduction.html" />
+    <link rel="next" title="1.8. The Formal definition of the derivative" href="Formal_def_derivative.html" />
     <link rel="prev" title="1.5. The Euler formula" href="Euler_Formula.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -190,6 +190,7 @@
 <li class="toctree-l2"><a class="reference internal" href="Euler_Formula.html">1.5. The Euler formula</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">1.6. Fourier transforms</a></li>
 
+<li class="toctree-l2"><a class="reference internal" href="Formal_def_derivative.html">1.8. The Formal definition of the derivative</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../GFD/Introduction.html">2. Geophysical Fluid Dynamics (GFD)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -213,8 +214,11 @@
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../NumericalStability/Introduction.html">5. Stability of numerical schemes</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../NumericalStability/consistencyConvergenceStability.html">5.1. Consistency, convergence and stability</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../NumericalStability/vonNeumannStability.html">5.2. Von Neumann Stability Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../NumericalStability/ConceptsDefinitions.html">5.1. Concepts and definitions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../NumericalStability/DomainDep.html">5.2. Domain of dependence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../NumericalStability/CFL.html">5.3. Courant-Friedrich-Levy, CFL criterion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../NumericalStability/Total_variation.html">5.4. Total Variation (TV) and Total Variation Diminishing (TVD) schemes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../NumericalStability/vonNeumannStability.html">5.5. Von Neumann Stability Analysis</a></li>
 </ul>
 </details></li>
 </ul>
@@ -790,7 +794,7 @@ The example used is of a step function, often used to illustrate Gibbs phenomeno
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x1f169f3abd0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x2b1f27cade0&gt;
 </pre></div>
 </div>
 <img alt="../_images/48ad2d542a33abc524dd2a36ed69599fb2d79cb84f6445ac5881ba05d0adb952.png" src="../_images/48ad2d542a33abc524dd2a36ed69599fb2d79cb84f6445ac5881ba05d0adb952.png" />
@@ -816,6 +820,10 @@ The example used is of a step function, often used to illustrate Gibbs phenomeno
 <div class="citation" id="id11" role="doc-biblioentry">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">ET97</a><span class="fn-bracket">]</span></span>
 <p>Emery, WIlliam J. and Richard E. Thompson. <em>Data Analysis Methods in Physical Oceanography</em>. Elsevier B. V., 3rd ed edition, 1997. ISBN 0-444-50757 4.</p>
+</div>
+<div class="citation" id="id15" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>Har83<span class="fn-bracket">]</span></span>
+<p>A. Harten. High-resolution schemes for hyperbolic conservation-laws. <em>Journal of computational physics</em>, 49(3):357–393, 1983.</p>
 </div>
 </div>
 </div>
@@ -862,11 +870,11 @@ The example used is of a step function, often used to illustrate Gibbs phenomeno
       </div>
     </a>
     <a class="right-next"
-       href="../GFD/Introduction.html"
+       href="Formal_def_derivative.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">2. </span>Geophysical Fluid Dynamics (GFD)</p>
+        <p class="prev-next-title"><span class="section-number">1.8. </span>The Formal definition of the derivative</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

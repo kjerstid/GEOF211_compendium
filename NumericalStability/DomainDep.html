@@ -57,11 +57,13 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'NumericalStability/DomainDep';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="5.3. Courant-Friedrich-Levy, CFL criterion" href="CFL.html" />
-    <link rel="prev" title="5.1. Consistency, convergence and stability" href="consistencyConvergenceStability.html" />
+    <link rel="prev" title="5.1. Concepts and definitions" href="ConceptsDefinitions.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -188,6 +190,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../Useful_calculus/Euler_Formula.html">1.5. The Euler formula</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Useful_calculus/Fourier_transforms.html">1.6. Fourier transforms</a></li>
 
+<li class="toctree-l2"><a class="reference internal" href="../Useful_calculus/Formal_def_derivative.html">1.8. The Formal definition of the derivative</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../GFD/Introduction.html">2. Geophysical Fluid Dynamics (GFD)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -211,10 +214,10 @@
 </ul>
 </details></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="Introduction.html">5. Stability of numerical schemes</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="consistencyConvergenceStability.html">5.1. Consistency, convergence and stability</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ConceptsDefinitions.html">5.1. Concepts and definitions</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">5.2. Domain of dependence</a></li>
 <li class="toctree-l2"><a class="reference internal" href="CFL.html">5.3. Courant-Friedrich-Levy, CFL criterion</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Total_variation.html">5.4. Total variation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Total_variation.html">5.4. Total Variation (TV) and Total Variation Diminishing (TVD) schemes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="vonNeumannStability.html">5.5. Von Neumann Stability Analysis</a></li>
 </ul>
 </details></li>
@@ -417,7 +420,38 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="domain-of-dependence">
 <span id="numericalstability-domaindep"></span><h1><span class="section-number">5.2. </span>Domain of dependence<a class="headerlink" href="#domain-of-dependence" title="Link to this heading">#</a></h1>
-<p>To come …</p>
+<p>The domain of dependence is a measure of which grid points the numerical solution for a given grid point <span class="math notranslate nohighlight">\(q_m^{n+1}\)</span> depends on. If we, for example look at the FTBS scheme for the advection equation:</p>
+<div class="math notranslate nohighlight">
+\[
+q_m^{n+1}=q_m^n-a\frac{\Delta t}{\Delta x}(q_m^n-q_{m-1}^n)
+\]</div>
+<p>Here, the solution for <span class="math notranslate nohighlight">\(q_m^{n+1}\)</span> depends on the terms <span class="math notranslate nohighlight">\(q_m^n\)</span> and q_{m-1}^n. We can annotate these dependencies in the discrete time-space domain:</p>
+<p>\begin{tikzpicture}
+% Axes
+\draw[-&gt;] (0,0) – (5,0) node[right] {<span class="math notranslate nohighlight">\(x\)</span>};
+\draw[-&gt;] (0,0) – (0,5) node[above] {<span class="math notranslate nohighlight">\(t\)</span>};</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>% Grid points
+\foreach \x in {1,2,3,4} {
+    \foreach \y in {1,2,3,4} {
+        \fill (\x,\y) circle (2pt);
+    }
+}
+
+% Domain of dependence
+\draw[thick, dashed] (2,2) -- (1,1) -- (3,1) -- cycle;
+\fill[gray, opacity=0.3] (2,2) -- (1,1) -- (3,1) -- cycle;
+
+% Labels
+\node at (2,2) [above right] {$(x_i, t_n)$};
+\node at (1,1) [below left] {$(x_{i-1}, t_{n-1})$};
+\node at (3,1) [below right] {$(x_{i+1}, t_{n-1})$};
+
+% Arrows
+\draw[-&gt;, thick] (2,2) -- (1,1);
+\draw[-&gt;, thick] (2,2) -- (3,1);
+</pre></div>
+</div>
+<p>\end{tikzpicture}</p>
 </section>
 
     <script type="text/x-thebe-config">
@@ -451,12 +485,12 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="consistencyConvergenceStability.html"
+       href="ConceptsDefinitions.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">5.1. </span>Consistency, convergence and stability</p>
+        <p class="prev-next-title"><span class="section-number">5.1. </span>Concepts and definitions</p>
       </div>
     </a>
     <a class="right-next"
