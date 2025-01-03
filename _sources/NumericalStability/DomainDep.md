@@ -6,12 +6,11 @@ $$
 q_m^{n+1}=q_m^n-a\frac{\Delta t}{\Delta x}(q_m^n-q_{m-1}^n)
 $$
 
-Here, the solution for $q_m^{n+1}$ depends on the terms $q_m^n$ and q_{m-1}^n. We can annotate these dependencies in the discrete time-space domain:
+Here, the solution for $q_m^{n+1}$ depends on the terms $q_m^n$ and $q_{m-1}^n$. We can annotate these dependencies in the discrete time-space domain:
 
-```{code-cell} ipython3
-%load_ext jupyter_tikz
+
+%load_ext tikzmagic
 %%tikz
-
 \begin{tikzpicture}
     % Axes
     \draw[->] (0,0) -- (5,0) node[right] {$x$};
@@ -38,4 +37,4 @@ Here, the solution for $q_m^{n+1}$ depends on the terms $q_m^n$ and q_{m-1}^n. W
     \draw[->, thick] (2,2) -- (3,1);
 
 \end{tikzpicture}
-```
+
