@@ -1,5 +1,5 @@
 (NumericalStability:DomainDep)=
-# Domain of dependence
+# Domain of Dependence (DoD)
 The domain of dependence is a measure of which grid points the numerical solution for a given grid point $q_m^{n+1}$ depends on. If we, for example look at the FTBS scheme for the advection equation:
 
 $$
