@@ -10,6 +10,19 @@ Here, the solution for $q_m^{n+1}$ depends on the terms $q_m^n$ and $q_{m-1}^n$.
 
 
 %load_ext tikzmagic
+
+%%tikz
+\begin{tikzpicture}
+    \draw[help lines] grid (5, 5);
+    \draw[fill=black!10] (1, 1) rectangle (2, 2);
+    \draw[fill=black!10] (2, 1) rectangle (3, 2);
+    \draw[fill=black!10] (3, 1) rectangle (4, 2);
+    \draw[fill=black!10] (3, 2) rectangle (4, 3);
+    \draw[fill=black!10] (2, 3) rectangle (3, 4);
+\end{tikzpicture}
+
+
+
 %%tikz
 \begin{tikzpicture}
     % Axes
