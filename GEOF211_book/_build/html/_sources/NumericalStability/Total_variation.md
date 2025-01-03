@@ -19,7 +19,7 @@ $$ (eq:TotalVariation)
 :class: important
 A numerical scheme is total variation diminishing if:
 $$
-$TV(q^{n+1})\leq TV(q^n)$
+TV(q^{n+1})\leq TV(q^n)
 $$ (eq:TotalVariation)
 :::
 

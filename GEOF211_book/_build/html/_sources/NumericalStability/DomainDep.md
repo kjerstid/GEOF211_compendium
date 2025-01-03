@@ -8,11 +8,9 @@ $$
 
 Here, the solution for $q_m^{n+1}$ depends on the terms $q_m^n$ and q_{m-1}^n. We can annotate these dependencies in the discrete time-space domain:
 
-
-```latex
-\documentclass{standalone}
-\usepackage{tikz}
-\begin{document}
+```{code-cell} ipython3
+%load_ext jupyter_tikz
+%%tikz
 
 \begin{tikzpicture}
     % Axes
@@ -40,6 +38,4 @@ Here, the solution for $q_m^{n+1}$ depends on the terms $q_m^n$ and q_{m-1}^n. W
     \draw[->, thick] (2,2) -- (3,1);
 
 \end{tikzpicture}
-
-\end{document}
 ```

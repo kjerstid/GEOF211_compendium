@@ -49,3 +49,6 @@ parse:
     - dollarmath
     - colon_fence
 
+extra_extensions:
+  - tikx
+
