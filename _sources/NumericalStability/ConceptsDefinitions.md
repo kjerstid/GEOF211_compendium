@@ -1,6 +1,10 @@
 # Concepts and definitions
 
 ## Boundedness
+
+(definition:errorApproximation)=
+:::{admonition} Definition
+:class: important
 A function $f$ defined on a set $X$ with real or complex values is called **bounded** if there exists a real number $M$ such that
 
 $$
@@ -8,14 +12,23 @@ $$
 $$
 
 for all $x$ in $X$.
+:::
+
+The function $f(x)=sin(x)$ is an example of a bounded function, since $|sin(x)|\leq 1$ for all values of $x$.
 
 A **uniformly bounded** family of functions is a family of bounded functions that can all be bounded by the same constant. 
 
 ## Monotonicity
 
-A scheme is monotonous if
+(definition:errorApproximation)=
+:::{admonition} Definition
+:class: important
+A scheme is **monotonous** if
 
 $ q_m^n\geq q_{m+1}^n\,\, \forall\, m $. 
+:::
+
+Could you think of any functions that fullfuill this criteria?
 
 ## Error of a numerical approximation
 
@@ -24,13 +37,13 @@ First, let's clarify the expression "converge to the solution of the exact equat
 (definition:errorApproximation)=
 :::{admonition} Definition
 :class: important
-The error of the numerical approximation $q_m^n$, $\epsilon_m^n$, is
+The **error of the numerical approximation** $q_m^n$, $\epsilon_m^n$, is
 
 $$
 \epsilon_m^n = q_m^n - q(m\Delta x,n\Delta t),
 $$
 
-where $q_m^n$ is the numerical solution and $u(m\Delta x,n\Delta t)$ is the exact solution at $(x_m,t^n)$.
+where $q_m^n$ is the numerical solution and $q(m\Delta x,n\Delta t)$ is the exact solution at $(x_m,t^n)$.
 :::
 
 We can now define more precisely the concepts of boundedness and convergence. Let us consider the following questions:

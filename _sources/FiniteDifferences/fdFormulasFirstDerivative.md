@@ -12,7 +12,7 @@ $$
 u(t)=u^n+\frac{u'(t^n)}{1!}(t-t^n)+\frac{u''(t^n)}{2!}(t-t^n)^2+\sum_{p=3}^{\infty}\frac{u^{(p)}(t^n)}{p!}(t-t^n)^p
 $$
 
-### Forwardward difference formula
+### Forward difference formula
 From {eq}`eq:fdExpansion`, we have
 
 $$
