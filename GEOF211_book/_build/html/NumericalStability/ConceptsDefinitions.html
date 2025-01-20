@@ -62,7 +62,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'NumericalStability/ConceptsDefinitions';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="5.2. Domain of dependence" href="DomainDep.html" />
+    <link rel="next" title="5.2. Domain of Dependence (DoD)" href="DomainDep.html" />
     <link rel="prev" title="5. Stability of numerical schemes" href="Introduction.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -215,8 +215,8 @@
 </details></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="Introduction.html">5. Stability of numerical schemes</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">5.1. Concepts and definitions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="DomainDep.html">5.2. Domain of dependence</a></li>
-<li class="toctree-l2"><a class="reference internal" href="CFL.html">5.3. Courant-Friedrich-Levy, CFL criterion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DomainDep.html">5.2. Domain of Dependence (DoD)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CFL.html">5.3. Courant-Friedrich-Lewy, CFL criterion</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Total_variation.html">5.4. Total Variation (TV) and Total Variation Diminishing (TVD) schemes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="vonNeumannStability.html">5.5. Von Neumann Stability Analysis</a></li>
 </ul>
@@ -448,7 +448,7 @@ document.write(`
 <section id="monotonicity">
 <h2><span class="section-number">5.1.2. </span>Monotonicity<a class="headerlink" href="#monotonicity" title="Link to this heading">#</a></h2>
 <p>A scheme is monotonous if</p>
-<p><span class="math notranslate nohighlight">\( q_m^n=\geq q_{m+1}^n\,\, \forall\, m \)</span>.</p>
+<p><span class="math notranslate nohighlight">\( q_m^n\geq q_{m+1}^n\,\, \forall\, m \)</span>.</p>
 </section>
 <section id="error-of-a-numerical-approximation">
 <h2><span class="section-number">5.1.3. </span>Error of a numerical approximation<a class="headerlink" href="#error-of-a-numerical-approximation" title="Link to this heading">#</a></h2>
@@ -473,7 +473,7 @@ document.write(`
 <h2><span class="section-number">5.1.4. </span>Consistency<a class="headerlink" href="#consistency" title="Link to this heading">#</a></h2>
 <div class="important admonition" id="definition-consistency">
 <p class="admonition-title">Definition</p>
-<p>A difference equation is consistent when it approaches the corresponding PDE as <span class="math notranslate nohighlight">\(\Delta t, \Delta x \to 0\)</span>.</p>
+<p>A difference equation is <strong>consistent</strong> when it approaches the corresponding PDE as <span class="math notranslate nohighlight">\(\Delta t, \Delta x \to 0\)</span>.</p>
 </div>
 <p>The truncation error of the leapfrog scheme applied to the linear advection equation is:</p>
 <div class="math notranslate nohighlight">
@@ -491,7 +491,7 @@ Tr = \frac{\Delta t^2}{3!}\frac{\partial^3 q}{\partial t^3} + c\frac{\Delta x^2}
 <p>Having a concistent numerical scheme is not a guarantee that we will obtain meaningful results. We must also demand that, over an interval <span class="math notranslate nohighlight">\(n\Delta t\)</span>, <span class="math notranslate nohighlight">\(\epsilon_m^n \to 0\)</span> as <span class="math notranslate nohighlight">\(\Delta t, \Delta x \to 0\)</span>.</p>
 <div class="important admonition" id="definition-convergence">
 <p class="admonition-title">Definition</p>
-<p>A numerical solution is convergent if, for fixed <span class="math notranslate nohighlight">\(n\Delta t\)</span>, <span class="math notranslate nohighlight">\(\epsilon_m^n \to 0\)</span> as <span class="math notranslate nohighlight">\(\Delta t, \Delta x \to 0\)</span>.</p>
+<p>A numerical solution is <strong>convergent</strong> if, for fixed <span class="math notranslate nohighlight">\(n\Delta t\)</span>, <span class="math notranslate nohighlight">\(\epsilon_m^n \to 0\)</span> as <span class="math notranslate nohighlight">\(\Delta t, \Delta x \to 0\)</span>.</p>
 <p>If a numerical scheme gives convergent solutions for any initial condition, the numerical scheme is said to be convergent.</p>
 </div>
 </section>
@@ -565,7 +565,7 @@ $<span class="math notranslate nohighlight">\(
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">5.2. </span>Domain of dependence</p>
+        <p class="prev-next-title"><span class="section-number">5.2. </span>Domain of Dependence (DoD)</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

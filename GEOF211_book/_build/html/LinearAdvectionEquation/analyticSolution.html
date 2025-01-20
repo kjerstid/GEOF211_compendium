@@ -190,6 +190,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../Useful_calculus/Euler_Formula.html">1.5. The Euler formula</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Useful_calculus/Fourier_transforms.html">1.6. Fourier transforms</a></li>
 
+<li class="toctree-l2"><a class="reference internal" href="../Useful_calculus/Formal_def_derivative.html">1.8. The Formal definition of the derivative</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../GFD/Introduction.html">2. Geophysical Fluid Dynamics (GFD)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -213,8 +214,11 @@
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../NumericalStability/Introduction.html">5. Stability of numerical schemes</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../NumericalStability/consistencyConvergenceStability.html">5.1. Consistency, convergence and stability</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../NumericalStability/vonNeumannStability.html">5.2. Von Neumann Stability Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../NumericalStability/ConceptsDefinitions.html">5.1. Concepts and definitions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../NumericalStability/DomainDep.html">5.2. Domain of Dependence (DoD)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../NumericalStability/CFL.html">5.3. Courant-Friedrich-Lewy, CFL criterion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../NumericalStability/Total_variation.html">5.4. Total Variation (TV) and Total Variation Diminishing (TVD) schemes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../NumericalStability/vonNeumannStability.html">5.5. Von Neumann Stability Analysis</a></li>
 </ul>
 </details></li>
 </ul>
@@ -424,10 +428,10 @@ e^{i\theta}=\cos \theta + i\sin \theta
 \]</div>
 <p>is widely used to represent simple oscillatory behaviour.</p>
 </aside>
-<p>The linear advection equation (eq. <code class="xref eq docutils literal notranslate"><span class="pre">eq:Advection</span></code>) is given by:</p>
+<p>The linear advection equation (eq. <a class="reference internal" href="Introduction.html#equation-eq-advection">(4.1)</a>) is given by:</p>
 <div class="math notranslate nohighlight">
 \[
-\frac{\partial u}{\partial t} + a \frac{\partial u}{\partial x} = 0, c&gt;0
+\frac{\partial u}{\partial t} + a \frac{\partial u}{\partial x} = 0, a&gt;0
 \]</div>
 <p>We will assume an initial condition in the form of a simple wave:</p>
 <div class="math notranslate nohighlight" id="equation-eq-initialcond">
@@ -435,32 +439,32 @@ e^{i\theta}=\cos \theta + i\sin \theta
 	u(x,0)=A e^{i k x},
 \]</div>
 <p>where <span class="math notranslate nohighlight">\(k = 2\pi/\lambda\)</span> is the wave number (<span class="math notranslate nohighlight">\(\lambda\)</span> is the wavelength).</p>
-<p>We can find the analytic (exact) solution of <code class="xref eq docutils literal notranslate"><span class="pre">eq:Advection</span></code> using the method <em>separation of variables</em>.
-Let the solution to <code class="xref eq docutils literal notranslate"><span class="pre">eq:Advection</span></code> with initial condition <a class="reference internal" href="#equation-eq-initialcond">(4.2)</a> be given by:</p>
+<p>We can find the analytic (exact) solution of <a class="reference internal" href="Introduction.html#equation-eq-advection">(4.1)</a> using the method <em>separation of variables</em>.
+Let the solution to <a class="reference internal" href="Introduction.html#equation-eq-advection">(4.1)</a> with initial condition <a class="reference internal" href="#equation-eq-initialcond">(4.2)</a> be given by:</p>
 <div class="math notranslate nohighlight" id="equation-eq-sepvar">
 <span class="eqno">(4.3)<a class="headerlink" href="#equation-eq-sepvar" title="Link to this equation">#</a></span>\[
 u(x,t)=G(t)H(x)
 \]</div>
-<p>We substitute <span class="math notranslate nohighlight">\(u(x,t)=G(t)H(x)\)</span> in <code class="xref eq docutils literal notranslate"><span class="pre">eq:Advection</span></code>, and separate the x- and t-dependent terms on wither side of the equal sign:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c9810d82-edd2-4d6d-b1a4-7cac3a64d4a7">
-<span class="eqno">(4.4)<a class="headerlink" href="#equation-c9810d82-edd2-4d6d-b1a4-7cac3a64d4a7" title="Permalink to this equation">#</a></span>\[\begin{align} 
-   \frac{\partial }{\partial t} (G(t)H(x))=&amp; -c \frac{\partial }{\partial x} (G(t)H(x)) \\
-   H(x)\frac{\partial G(t)}{\partial t} =&amp; -c G(t) \frac{\partial H(x)}{\partial x} \\
-   \frac{1}{G(t)} \frac{\partial G(t)}{\partial t} =&amp; -c \frac{1}{H(x)} \frac{\partial H(x)}{\partial x}, 
+<p>We substitute <span class="math notranslate nohighlight">\(u(x,t)=G(t)H(x)\)</span> in <a class="reference internal" href="Introduction.html#equation-eq-advection">(4.1)</a>, and separate the x- and t-dependent terms on wither side of the equal sign:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-4698e858-a6e8-4f67-89d1-fb7a1c442994">
+<span class="eqno">(4.4)<a class="headerlink" href="#equation-4698e858-a6e8-4f67-89d1-fb7a1c442994" title="Permalink to this equation">#</a></span>\[\begin{align} 
+   \frac{\partial }{\partial t} (G(t)H(x))=&amp; -a \frac{\partial }{\partial x} (G(t)H(x)) \\
+   H(x)\frac{\partial G(t)}{\partial t} =&amp; -a G(t) \frac{\partial H(x)}{\partial x} \\
+   \frac{1}{G(t)} \frac{\partial G(t)}{\partial t} =&amp; -a \frac{1}{H(x)} \frac{\partial H(x)}{\partial x}, 
 \end{align}\]</div>
 <p>The equal sign can only hold for all <span class="math notranslate nohighlight">\((x,t)\)</span> if both side are equal to a constant value, <span class="math notranslate nohighlight">\(-\alpha\)</span>. We can now integrate each side of the equation, yielding</p>
-<div class="amsmath math notranslate nohighlight" id="equation-09b5f89f-8c8c-4bf2-869e-d55bebc04a08">
-<span class="eqno">(4.5)<a class="headerlink" href="#equation-09b5f89f-8c8c-4bf2-869e-d55bebc04a08" title="Permalink to this equation">#</a></span>\[\begin{align} 
+<div class="amsmath math notranslate nohighlight" id="equation-2e7a5342-7821-40ea-b0fd-8dc54f4bd8c9">
+<span class="eqno">(4.5)<a class="headerlink" href="#equation-2e7a5342-7821-40ea-b0fd-8dc54f4bd8c9" title="Permalink to this equation">#</a></span>\[\begin{align} 
       \frac{1}{G(t)} \frac{\partial G(t)}{\partial t} =&amp; -\alpha \Leftrightarrow G(t)=A_1e^{-\alpha t} \\
-      -c \frac{1}{H(x)} \frac{\partial H(x)}{\partial x}=&amp; -\alpha \Leftrightarrow H(x)=A_2e^{\alpha x/c},
+      -a \frac{1}{H(x)} \frac{\partial H(x)}{\partial x}=&amp; -\alpha \Leftrightarrow H(x)=A_2e^{\alpha x/a},
 \end{align}\]</div>
-<p>We can now subsitute the expressions for <span class="math notranslate nohighlight">\(G(t)\)</span> and <span class="math notranslate nohighlight">\(H(x)\)</span> into <a class="reference internal" href="#equation-eq-sepvar">(4.3)</a> and find <span class="math notranslate nohighlight">\(u(x,t)=G(t)H(x)=A_1A_2e^{-\alpha t}e^{\alpha x/c}\)</span>.</p>
-<p>Using the initial conditions <code class="xref eq docutils literal notranslate"><span class="pre">eq:Advection</span></code> at <span class="math notranslate nohighlight">\(t=0\)</span> we have <span class="math notranslate nohighlight">\(u(x,0)=A_1A_2e^{\alpha x/c}\)</span>, so we know that <span class="math notranslate nohighlight">\(A=A_1A_2\)</span> and <span class="math notranslate nohighlight">\(ik = \alpha/c\)</span> and so <span class="math notranslate nohighlight">\(\alpha=ikc\)</span>. Finally, we can write:</p>
+<p>We can now subsitute the expressions for <span class="math notranslate nohighlight">\(G(t)\)</span> and <span class="math notranslate nohighlight">\(H(x)\)</span> into <a class="reference internal" href="#equation-eq-sepvar">(4.3)</a> and find <span class="math notranslate nohighlight">\(u(x,t)=G(t)H(x)=A_1A_2e^{-\alpha t}e^{\alpha x/a}\)</span>.</p>
+<p>Using the initial conditions <a class="reference internal" href="Introduction.html#equation-eq-advection">(4.1)</a> at <span class="math notranslate nohighlight">\(t=0\)</span> we have <span class="math notranslate nohighlight">\(u(x,0)=A_1A_2e^{\alpha x/c}\)</span>, so we know that <span class="math notranslate nohighlight">\(A=A_1A_2\)</span> and <span class="math notranslate nohighlight">\(ik = \alpha/a\)</span> and so <span class="math notranslate nohighlight">\(\alpha=ika\)</span>. Finally, we can write:</p>
 <div class="math notranslate nohighlight" id="equation-eq-anasolution">
 <span class="eqno">(4.6)<a class="headerlink" href="#equation-eq-anasolution" title="Link to this equation">#</a></span>\[
-	u(x,t)=Ae^{-ikct}e^{ikcx/c}=Ae^{ik(x-ct)},
+	u(x,t)=Ae^{-ikct}e^{ikcx/c}=Ae^{ik(x-at)},
 \]</div>
-<p>which is the solution of <code class="xref eq docutils literal notranslate"><span class="pre">eq:Advection</span></code> given the initial condition <a class="reference internal" href="#equation-eq-initialcond">(4.2)</a>. This solution represents the initial condition moving along the positive <span class="math notranslate nohighlight">\(x\)</span>-direction with translation velocity <span class="math notranslate nohighlight">\(c\)</span>.</p>
+<p>which is the solution of <a class="reference internal" href="Introduction.html#equation-eq-advection">(4.1)</a> given the initial condition <a class="reference internal" href="#equation-eq-initialcond">(4.2)</a>. This solution represents the initial condition moving along the positive <span class="math notranslate nohighlight">\(x\)</span>-direction with translation velocity <span class="math notranslate nohighlight">\(a\)</span>.</p>
 </section>
 
     <script type="text/x-thebe-config">

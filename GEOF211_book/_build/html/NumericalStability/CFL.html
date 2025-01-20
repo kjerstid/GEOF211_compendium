@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>5.3. Courant-Friedrich-Levy, CFL criterion &#8212; GEOF211 resource pages</title>
+    <title>5.3. Courant-Friedrich-Lewy, CFL criterion &#8212; GEOF211 resource pages</title>
   
   
   
@@ -57,11 +57,13 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'NumericalStability/CFL';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="5.4. Total variation" href="Total_variation.html" />
-    <link rel="prev" title="5.2. Domain of dependence" href="DomainDep.html" />
+    <link rel="next" title="5.4. Total Variation (TV) and Total Variation Diminishing (TVD) schemes" href="Total_variation.html" />
+    <link rel="prev" title="5.2. Domain of Dependence (DoD)" href="DomainDep.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -188,6 +190,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../Useful_calculus/Euler_Formula.html">1.5. The Euler formula</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Useful_calculus/Fourier_transforms.html">1.6. Fourier transforms</a></li>
 
+<li class="toctree-l2"><a class="reference internal" href="../Useful_calculus/Formal_def_derivative.html">1.8. The Formal definition of the derivative</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../GFD/Introduction.html">2. Geophysical Fluid Dynamics (GFD)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -211,10 +214,10 @@
 </ul>
 </details></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="Introduction.html">5. Stability of numerical schemes</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="consistencyConvergenceStability.html">5.1. Consistency, convergence and stability</a></li>
-<li class="toctree-l2"><a class="reference internal" href="DomainDep.html">5.2. Domain of dependence</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">5.3. Courant-Friedrich-Levy, CFL criterion</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Total_variation.html">5.4. Total variation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ConceptsDefinitions.html">5.1. Concepts and definitions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DomainDep.html">5.2. Domain of Dependence (DoD)</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">5.3. Courant-Friedrich-Lewy, CFL criterion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Total_variation.html">5.4. Total Variation (TV) and Total Variation Diminishing (TVD) schemes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="vonNeumannStability.html">5.5. Von Neumann Stability Analysis</a></li>
 </ul>
 </details></li>
@@ -390,7 +393,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -401,11 +406,19 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Courant-Friedrich-Levy, CFL criterion</h1>
+    <h1>Courant-Friedrich-Lewy, CFL criterion</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#characteristics-of-the-linear-advection-equation">5.3.1. Characteristics of the linear advection equation</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -415,9 +428,49 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="courant-friedrich-levy-cfl-criterion">
-<span id="numericalstability-cfl"></span><h1><span class="section-number">5.3. </span>Courant-Friedrich-Levy, CFL criterion<a class="headerlink" href="#courant-friedrich-levy-cfl-criterion" title="Link to this heading">#</a></h1>
-<p>To come …</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="courant-friedrich-lewy-cfl-criterion">
+<span id="numericalstability-cfl"></span><h1><span class="section-number">5.3. </span>Courant-Friedrich-Lewy, CFL criterion<a class="headerlink" href="#courant-friedrich-lewy-cfl-criterion" title="Link to this heading">#</a></h1>
+<p>The CFL criterion is named after the mathematicians Richard Courant, Kurt Otto Friederichs and Hans Lewy who published a piece “On the partial difference equations of mathematical physics” in 1928, where they discuss the factor and how it relates to stability.</p>
+<p>To understand where the CFL criterion comes from, we can, for example, look at the FTBS scheme for the linear advection equation:</p>
+<div class="math notranslate nohighlight">
+\[
+q_m^{n+1}=q_m^n-a\frac{\Delta t}{\Delta x}(q_m^n-q_{m-1}^n)
+\]</div>
+<div class="important admonition" id="definition-cfl">
+<p class="admonition-title">Definition</p>
+<p>The factor <span class="math notranslate nohighlight">\(C=a\frac{\Delta t}{\Delta x}\)</span> is typically called the <em>Courant number</em> or simply the <em>CFL</em> number</p>
+</div>
+<p>When examining the CFL number, we compare  the size of the displacement during one time step (<span class="math notranslate nohighlight">\(a\Delta t\)</span>) to the grid cell size <span class="math notranslate nohighlight">\(\Delta x\)</span>. For most numerical schemes, <span class="math notranslate nohighlight">\(C\leq 1\)</span> is a necessary (but not sufficient!) condition for stability. If the displacement is much larger than the grid cell size, <span class="math notranslate nohighlight">\(C&gt;&gt;1\)</span>, the signal travels many grid cells in just one time step. This means that we cannot calculate the next time step based on the few neighboring grid points like we do in the simple Finite Difference schemes.</p>
+<section id="characteristics-of-the-linear-advection-equation">
+<h2><span class="section-number">5.3.1. </span>Characteristics of the linear advection equation<a class="headerlink" href="#characteristics-of-the-linear-advection-equation" title="Link to this heading">#</a></h2>
+<p>The analytical solution to the linear advection equation (eq <a class="reference internal" href="../LinearAdvectionEquation/Introduction.html#equation-eq-advection">(4.1)</a>) is given by <span class="math notranslate nohighlight">\(q(x,t)=q_0(x-at)\)</span>, or we can write it as <span class="math notranslate nohighlight">\(q(x-at,0)\)</span>. For this to be true, the solution must be constant along the charachteristics <span class="math notranslate nohighlight">\(x-at\)</span>. We can sketch this in the <span class="math notranslate nohighlight">\(x-t\)</span> space:</p>
+<figure class="align-default" id="id1">
+<img alt="Figures/Lin_adv_charachteristic.png" src="Figures/Lin_adv_charachteristic.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 5.2 </span><span class="caption-text">The charactheristics for linear advection with different values of <span class="math notranslate nohighlight">\(a\)</span> in different colors. The solution starting at any of these characteristics will stay at the charachteristics as they translate in time and space.</span><a class="headerlink" href="#id1" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Alternatively, we can translate the charactheristics to find how they look while passing through the grid point <span class="math notranslate nohighlight">\((m,n)\)</span>. The domain of dependence for the exact solution, will lie along the charachteristics.</p>
+<figure class="align-default" id="id2">
+<img alt="Figures/Lin_adv_charachteristic_2.png" src="Figures/Lin_adv_charachteristic_2.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 5.3 </span><span class="caption-text">The charactheristics for linear advection with different values of <span class="math notranslate nohighlight">\(a\)</span> in different colors. The solution starting at any of these characteristics will stay at the charachteristics as they translate in time and space.</span><a class="headerlink" href="#id2" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>If we now combine the figures showing the numerical domain of dependence for the FTBS scheme and the exact domain of dependence from the charactheristics, we obtain:</p>
+<figure class="align-default" id="id3">
+<img alt="../_images/Lin_adv_charachteristic_3.png" src="../_images/Lin_adv_charachteristic_3.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 5.4 </span><span class="caption-text">Domain of dependence for the exact (analytical) solution of the linear advection equation (colors) and for the FTBS scheme (shaded triangles).</span><a class="headerlink" href="#id3" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>If the analytical domain of dependence lies within the numerical domain of dependence of a given scheme, then the scheme fullfills a necessary (but not sufficient) requirement for stability.</p>
+<p>The slope of the charachteristic (i.e., physical DoD) is <span class="math notranslate nohighlight">\(1/a\)</span>.The slope of the nuemrical DoD is <span class="math notranslate nohighlight">\(\Delta t/\Delta x\)</span>. The physical DoD is within the numerical DoD if
+$<span class="math notranslate nohighlight">\(
+\frac{\Delta t}{\Delta x}\leq \frac{1}{a}.
+\)</span>$</p>
+<p>This is true if  <span class="math notranslate nohighlight">\(a\frac{\Delta t}{\Delta x}\leq 1\)</span>. We recognize this as the CFL conditions, where <span class="math notranslate nohighlight">\(C=a\frac{\Delta t}{\Delta x}\)</span></p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -456,7 +509,7 @@ document.write(`
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">5.2. </span>Domain of dependence</p>
+        <p class="prev-next-title"><span class="section-number">5.2. </span>Domain of Dependence (DoD)</p>
       </div>
     </a>
     <a class="right-next"
@@ -464,7 +517,7 @@ document.write(`
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">5.4. </span>Total variation</p>
+        <p class="prev-next-title"><span class="section-number">5.4. </span>Total Variation (TV) and Total Variation Diminishing (TVD) schemes</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -474,6 +527,21 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#characteristics-of-the-linear-advection-equation">5.3.1. Characteristics of the linear advection equation</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
