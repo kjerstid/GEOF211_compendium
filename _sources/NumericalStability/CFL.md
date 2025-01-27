@@ -27,7 +27,7 @@ The charactheristics for linear advection with different values of $a$ in differ
 
 Alternatively, we can translate the charactheristics to find how they look while passing through the grid point $(m,n)$. The domain of dependence for the exact solution, will lie along the charachteristics.
 
-```{figure} ../Figures/Lin_adv_charachteristic_2.png
+```{figure} ../Figures/Test2.png
 The charactheristics for linear advection with different values of $a$ in different colors. The solution starting at any of these characteristics will stay at the charachteristics as they translate in time and space.
 ```
 
