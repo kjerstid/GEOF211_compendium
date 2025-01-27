@@ -458,12 +458,6 @@ q_m^{n+1}=q_m^n-a\frac{\Delta t}{\Delta x}(q_m^n-q_{m-1}^n)
 </figcaption>
 </figure>
 <p>If we now combine the figures showing the numerical domain of dependence for the FTBS scheme and the exact domain of dependence from the charactheristics, we obtain:</p>
-<figure class="align-default" id="id2">
-<img alt="../_images/Lin_adv_charachteristic_3.png" src="../_images/Lin_adv_charachteristic_3.png" />
-<figcaption>
-<p><span class="caption-number">Fig. 5.4 </span><span class="caption-text">Domain of dependence for the exact (analytical) solution of the linear advection equation (colors) and for the FTBS scheme (shaded triangles).</span><a class="headerlink" href="#id2" title="Link to this image">#</a></p>
-</figcaption>
-</figure>
 <p>If the analytical domain of dependence lies within the numerical domain of dependence of a given scheme, then the scheme fullfills a necessary (but not sufficient) requirement for stability.</p>
 <p>The slope of the charachteristic (i.e., physical DoD) is <span class="math notranslate nohighlight">\(1/a\)</span>. The slope of the nuemrical DoD is <span class="math notranslate nohighlight">\(\Delta t/\Delta x\)</span>. The physical DoD is within the numerical DoD if <span class="math notranslate nohighlight">\(\frac{\Delta t}{\Delta x}\leq \frac{1}{a}\)</span>.</p>
 <p>This is true if  <span class="math notranslate nohighlight">\(a\frac{\Delta t}{\Delta x}\leq 1\)</span>. We recognize this as the CFL conditions, where <span class="math notranslate nohighlight">\(C=a\frac{\Delta t}{\Delta x}\)</span></p>

@@ -37,9 +37,9 @@ The charactheristics for linear advection with different values of $a$ in differ
 
 If we now combine the figures showing the numerical domain of dependence for the FTBS scheme and the exact domain of dependence from the charactheristics, we obtain:
 
-```{figure} ../Figures/Lin_adv_charachteristic_3.png
-Domain of dependence for the exact (analytical) solution of the linear advection equation (colors) and for the FTBS scheme (shaded triangles).
-```
+%```{figure} ../Figures/Lin_adv_charachteristic_3.png
+%Domain of dependence for the exact (analytical) solution of the linear advection equation (colors) and for the FTBS %scheme (shaded triangles).
+%```
 
 If the analytical domain of dependence lies within the numerical domain of dependence of a given scheme, then the scheme fullfills a necessary (but not sufficient) requirement for stability. 
 
