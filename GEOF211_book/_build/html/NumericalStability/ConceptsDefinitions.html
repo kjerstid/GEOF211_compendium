@@ -437,30 +437,38 @@ document.write(`
 <h1><span class="section-number">5.1. </span>Concepts and definitions<a class="headerlink" href="#concepts-and-definitions" title="Link to this heading">#</a></h1>
 <section id="boundedness">
 <h2><span class="section-number">5.1.1. </span>Boundedness<a class="headerlink" href="#boundedness" title="Link to this heading">#</a></h2>
+<div class="important admonition" id="definition-errorapproximation">
+<p class="admonition-title">Definition</p>
 <p>A function <span class="math notranslate nohighlight">\(f\)</span> defined on a set <span class="math notranslate nohighlight">\(X\)</span> with real or complex values is called <strong>bounded</strong> if there exists a real number <span class="math notranslate nohighlight">\(M\)</span> such that</p>
 <div class="math notranslate nohighlight">
 \[
 |f(x)|\le M
 \]</div>
 <p>for all <span class="math notranslate nohighlight">\(x\)</span> in <span class="math notranslate nohighlight">\(X\)</span>.</p>
+</div>
+<p>The function <span class="math notranslate nohighlight">\(f(x)=sin(x)\)</span> is an example of a bounded function, since <span class="math notranslate nohighlight">\(|sin(x)|\leq 1\)</span> for all values of <span class="math notranslate nohighlight">\(x\)</span>.</p>
 <p>A <strong>uniformly bounded</strong> family of functions is a family of bounded functions that can all be bounded by the same constant.</p>
 </section>
 <section id="monotonicity">
 <h2><span class="section-number">5.1.2. </span>Monotonicity<a class="headerlink" href="#monotonicity" title="Link to this heading">#</a></h2>
-<p>A scheme is monotonous if</p>
+<div class="important admonition" id="id1">
+<p class="admonition-title">Definition</p>
+<p>A scheme is <strong>monotonous</strong> if</p>
 <p><span class="math notranslate nohighlight">\( q_m^n\geq q_{m+1}^n\,\, \forall\, m \)</span>.</p>
+</div>
+<p>Could you think of any functions that fullfuill this criteria?</p>
 </section>
 <section id="error-of-a-numerical-approximation">
 <h2><span class="section-number">5.1.3. </span>Error of a numerical approximation<a class="headerlink" href="#error-of-a-numerical-approximation" title="Link to this heading">#</a></h2>
 <p>First, let’s clarify the expression “converge to the solution of the exact equation”, by defining the error of the numerical approximation.</p>
-<div class="important admonition" id="definition-errorapproximation">
+<div class="important admonition" id="id2">
 <p class="admonition-title">Definition</p>
-<p>The error of the numerical approximation <span class="math notranslate nohighlight">\(q_m^n\)</span>, <span class="math notranslate nohighlight">\(\epsilon_m^n\)</span>, is</p>
+<p>The <strong>error of the numerical approximation</strong> <span class="math notranslate nohighlight">\(q_m^n\)</span>, <span class="math notranslate nohighlight">\(\epsilon_m^n\)</span>, is</p>
 <div class="math notranslate nohighlight">
 \[
 \epsilon_m^n = q_m^n - q(m\Delta x,n\Delta t),
 \]</div>
-<p>where <span class="math notranslate nohighlight">\(q_m^n\)</span> is the numerical solution and <span class="math notranslate nohighlight">\(u(m\Delta x,n\Delta t)\)</span> is the exact solution at <span class="math notranslate nohighlight">\((x_m,t^n)\)</span>.</p>
+<p>where <span class="math notranslate nohighlight">\(q_m^n\)</span> is the numerical solution and <span class="math notranslate nohighlight">\(q(m\Delta x,n\Delta t)\)</span> is the exact solution at <span class="math notranslate nohighlight">\((x_m,t^n)\)</span>.</p>
 </div>
 <p>We can now define more precisely the concepts of boundedness and convergence. Let us consider the following questions:</p>
 <ul class="simple">
@@ -512,7 +520,7 @@ $<span class="math notranslate nohighlight">\(
 <p class="admonition-title">Important</p>
 <p>The concept of stability is not directly related to the underlying PDE.</p>
 </div>
-<p>Convergence is not so easily demonstrated as it involves the exact equation, whose solution may not be known. Stability is easier to demonstrate as it involved the finite-difference scheme. Luckily, we can infer convergence from stability in certain cases using the Lax-Richtmyer Equivalence Theorem <span id="id1">[<a class="reference internal" href="../markdown.html#id9" title="Benoit Cushman-Roisin and Jean-Marie Beckers. Introduction to Geophysical Fluid Dynamics: Physical and Numerical Aspects. Number v. 101 in International Geophysics Series. Academic Press, 2nd ed edition, 2011. ISBN 978-0-12-088759-0.">CRB11</a>]</span>.</p>
+<p>Convergence is not so easily demonstrated as it involves the exact equation, whose solution may not be known. Stability is easier to demonstrate as it involved the finite-difference scheme. Luckily, we can infer convergence from stability in certain cases using the Lax-Richtmyer Equivalence Theorem <span id="id3">[<a class="reference internal" href="../markdown.html#id9" title="Benoit Cushman-Roisin and Jean-Marie Beckers. Introduction to Geophysical Fluid Dynamics: Physical and Numerical Aspects. Number v. 101 in International Geophysics Series. Academic Press, 2nd ed edition, 2011. ISBN 978-0-12-088759-0.">CRB11</a>]</span>.</p>
 <div class="important admonition" id="theorem-laxequivalence">
 <p class="admonition-title">Lax-Richtmyer Equivalence Theorem</p>
 <p>Given a properly posed, linear initial value problem and a finite-difference approximation that satisfies the consistency condition, stability is the necessary and sufficient condition for convergence.</p>
