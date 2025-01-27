@@ -444,20 +444,26 @@ q_m^{n+1}=q_m^n-a\frac{\Delta t}{\Delta x}(q_m^n-q_{m-1}^n)
 <section id="characteristics-of-the-linear-advection-equation">
 <h2><span class="section-number">5.3.1. </span>Characteristics of the linear advection equation<a class="headerlink" href="#characteristics-of-the-linear-advection-equation" title="Link to this heading">#</a></h2>
 <p>The analytical solution to the linear advection equation (eq <a class="reference internal" href="../LinearAdvectionEquation/Introduction.html#equation-eq-advection">(4.1)</a>) is given by <span class="math notranslate nohighlight">\(q(x,t)=q_0(x-at)\)</span>, or we can write it as <span class="math notranslate nohighlight">\(q(x-at,0)\)</span>. For this to be true, the solution must be constant along the charachteristics <span class="math notranslate nohighlight">\(x-at\)</span>. We can sketch this in the <span class="math notranslate nohighlight">\(x-t\)</span> space:</p>
-<figure class="align-default" id="directive-fig">
-<a class="reference internal image-reference" href="Figures/Lin_adv_charachteristic.png"><img alt="Figures/Lin_adv_charachteristic.png" src="Figures/Lin_adv_charachteristic.png" style="height: 300px;" /></a>
+<figure class="align-default" id="id1">
+<img alt="../_images/Lin_adv_charachteristic_3.png" src="../_images/Lin_adv_charachteristic_3.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 5.2 </span><span class="caption-text">The charactheristics for linear advection with different values of <span class="math notranslate nohighlight">\(a\)</span> in different colors. The solution starting at any of these characteristics will stay at the charachteristics as they translate in time and space.</span><a class="headerlink" href="#directive-fig" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 5.2 </span><span class="caption-text">The charactheristics for linear advection with different values of <span class="math notranslate nohighlight">\(a\)</span> in different colors. The solution starting at any of these characteristics will stay at the charachteristics as they translate in time and space.</span><a class="headerlink" href="#id1" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>Alternatively, we can translate the charactheristics to find how they look while passing through the grid point <span class="math notranslate nohighlight">\((m,n)\)</span>. The domain of dependence for the exact solution, will lie along the charachteristics.</p>
-<figure class="align-default" id="id1">
+<figure class="align-default" id="id2">
 <img alt="Figures/Lin_adv_charachteristic_2.png" src="Figures/Lin_adv_charachteristic_2.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 5.3 </span><span class="caption-text">The charactheristics for linear advection with different values of <span class="math notranslate nohighlight">\(a\)</span> in different colors. The solution starting at any of these characteristics will stay at the charachteristics as they translate in time and space.</span><a class="headerlink" href="#id1" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 5.3 </span><span class="caption-text">The charactheristics for linear advection with different values of <span class="math notranslate nohighlight">\(a\)</span> in different colors. The solution starting at any of these characteristics will stay at the charachteristics as they translate in time and space.</span><a class="headerlink" href="#id2" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>If we now combine the figures showing the numerical domain of dependence for the FTBS scheme and the exact domain of dependence from the charactheristics, we obtain:</p>
+<figure class="align-default" id="id3">
+<img alt="../_images/Lin_adv_charachteristic_3.png" src="../_images/Lin_adv_charachteristic_3.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 5.4 </span><span class="caption-text">Domain of dependence for the exact (analytical) solution of the linear advection equation (colors) and for the FTBS scheme (shaded triangles).</span><a class="headerlink" href="#id3" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
 <p>If the analytical domain of dependence lies within the numerical domain of dependence of a given scheme, then the scheme fullfills a necessary (but not sufficient) requirement for stability.</p>
 <p>The slope of the charachteristic (i.e., physical DoD) is <span class="math notranslate nohighlight">\(1/a\)</span>. The slope of the nuemrical DoD is <span class="math notranslate nohighlight">\(\Delta t/\Delta x\)</span>. The physical DoD is within the numerical DoD if <span class="math notranslate nohighlight">\(\frac{\Delta t}{\Delta x}\leq \frac{1}{a}\)</span>.</p>
 <p>This is true if  <span class="math notranslate nohighlight">\(a\frac{\Delta t}{\Delta x}\leq 1\)</span>. We recognize this as the CFL conditions, where <span class="math notranslate nohighlight">\(C=a\frac{\Delta t}{\Delta x}\)</span></p>
