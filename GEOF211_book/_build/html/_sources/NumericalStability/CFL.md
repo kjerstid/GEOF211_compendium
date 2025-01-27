@@ -21,7 +21,7 @@ When examining the CFL number, we compare  the size of the displacement during o
 
 The analytical solution to the linear advection equation (eq {eq}`eq:Advection`) is given by $q(x,t)=q_0(x-at)$, or we can write it as $q(x-at,0)$. For this to be true, the solution must be constant along the charachteristics $x-at$. We can sketch this in the $x-t$ space:
 
-```{figure} ../Figures/Lin_adv_charachteristic_3.png
+```{figure} ../Figures/Lin_adv_charachteristic.png
 The charactheristics for linear advection with different values of $a$ in different colors. The solution starting at any of these characteristics will stay at the charachteristics as they translate in time and space.
 ```
 
