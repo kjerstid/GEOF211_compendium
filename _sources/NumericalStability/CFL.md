@@ -21,11 +21,7 @@ When examining the CFL number, we compare  the size of the displacement during o
 
 The analytical solution to the linear advection equation (eq {eq}`eq:Advection`) is given by $q(x,t)=q_0(x-at)$, or we can write it as $q(x-at,0)$. For this to be true, the solution must be constant along the charachteristics $x-at$. We can sketch this in the $x-t$ space:
 
-```{figure} ../Figures/Lin_adv_charachteristic.png
----
-height: 300px
-name: directive-fig
----
+```{figure} ../Figures/Lin_adv_charachteristic_3.png
 The charactheristics for linear advection with different values of $a$ in different colors. The solution starting at any of these characteristics will stay at the charachteristics as they translate in time and space.
 ```
 
@@ -37,9 +33,9 @@ The charactheristics for linear advection with different values of $a$ in differ
 
 If we now combine the figures showing the numerical domain of dependence for the FTBS scheme and the exact domain of dependence from the charactheristics, we obtain:
 
-%```{figure} ../Figures/Lin_adv_charachteristic_3.png
-%Domain of dependence for the exact (analytical) solution of the linear advection equation (colors) and for the FTBS %scheme (shaded triangles).
-%```
+```{figure} ../Figures/Lin_adv_charachteristic_3.png
+Domain of dependence for the exact (analytical) solution of the linear advection equation (colors) and for the FTBS scheme (shaded triangles).
+```
 
 If the analytical domain of dependence lies within the numerical domain of dependence of a given scheme, then the scheme fullfills a necessary (but not sufficient) requirement for stability. 
 
