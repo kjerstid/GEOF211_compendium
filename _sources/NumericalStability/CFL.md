@@ -26,7 +26,7 @@ When examining the CFL number, we compare  the size of the displacement during o
 
 For the two-dimensional non-linear advection equation,
 $$
-\frac{\partial q}{\partial t}+u\frac{\partial u}{\partial} x+v\frac{\partial u}\{partial y},
+\frac{\partial q}{\partial t}+u\frac{\partial u}{\partial x}+v\frac{\partial u}{\partial y},
 $$
 
 the CFL criterion looks similar:
