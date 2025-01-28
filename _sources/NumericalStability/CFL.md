@@ -12,10 +12,30 @@ $$
 (definition:CFL)=
 :::{admonition} Definition
 :class: important
-The factor $C=a\frac{\Delta t}{\Delta x}$ is typically called the *Courant number* or simply the *CFL* number
+The factor $C=a\frac{\Delta t}{\Delta x}$ is typically called the *Courant number* 
 :::
 
+(definition:CFL)=
+:::{admonition} CFL criterion
+:class: important
+$C=a\frac{\Delta t}{\Delta x}\leq C_{max}$ is the CFL criterion for stability of the one-dimensional linear advection equation.
+:::
+
+
 When examining the CFL number, we compare  the size of the displacement during one time step ($a\Delta t$) to the grid cell size $\Delta x$. For most numerical schemes, $C\leq 1$ is a necessary (but not sufficient!) condition for stability. If the displacement is much larger than the grid cell size, $C>>1$, the signal travels many grid cells in just one time step. This means that we cannot calculate the next time step based on the few neighboring grid points like we do in the simple Finite Difference schemes. 
+
+For the two-dimensional non-linear advection equation,
+$$
+\frac{\partial q}{\partial t}+u\frac{\partial u}\partial x+v\frac{\partial u}\{partial y},
+$$
+
+the CFL criterion looks similar:
+
+definition:CFL)=
+:::{admonition} CFL criterion in 2D
+:class: important
+$C=u\frac{\Delta t}{\Delta x}+v\frac{\Delta t}{\Delta y}\leq C_{max}$ is the CFL criterion for stability of the two-dimensional non-linear advection equation.
+:::
 
 ## Characteristics of the linear advection equation
 
