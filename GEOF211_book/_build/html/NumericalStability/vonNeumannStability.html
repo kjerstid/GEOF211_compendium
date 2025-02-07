@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>5.5. Von Neumann Stability Analysis &#8212; GEOF211 resource pages</title>
+    <title>6.5. Von Neumann Stability Analysis &#8212; GEOF211 resource pages</title>
   
   
   
@@ -62,7 +62,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'NumericalStability/vonNeumannStability';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="prev" title="5.4. Total Variation (TV) and Total Variation Diminishing (TVD) schemes" href="Total_variation.html" />
+    <link rel="prev" title="6.4. Total Variation (TV) and Total Variation Diminishing (TVD) schemes" href="Total_variation.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -183,13 +183,12 @@
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../Useful_calculus/Introduction.html">1. Useful calculus</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Useful_calculus/Taylor_Polynomials.html">1.1. Taylor series</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Useful_calculus/Trigonometry.html">1.2. Trigonometry</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Useful_calculus/Complex_numbers.html">1.3. Complex numbers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Useful_calculus/Euler_Formula.html">1.4. The Euler formula</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Useful_calculus/Fourier_transforms.html">1.5. Fourier transforms</a></li>
 
-<li class="toctree-l2"><a class="reference internal" href="../Useful_calculus/Trigonometry.html">1.3. Trigonometry</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Useful_calculus/Complex_numbers.html">1.4. Complex numbers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Useful_calculus/Euler_Formula.html">1.5. The Euler formula</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Useful_calculus/Fourier_transforms.html">1.6. Fourier transforms</a></li>
-
-<li class="toctree-l2"><a class="reference internal" href="../Useful_calculus/Formal_def_derivative.html">1.8. The Formal definition of the derivative</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Useful_calculus/Formal_def_derivative.html">1.7. The Formal definition of the derivative</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../GFD/Introduction.html">2. Geophysical Fluid Dynamics (GFD)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -205,19 +204,23 @@
 <li class="toctree-l2"><a class="reference internal" href="../FiniteDifferences/evaluatingTruncationError.html">3.5. Evaluating the truncation error</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../LinearAdvectionEquation/Introduction.html">4. The linear advection equation</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../LinearAdvectionEquation/analyticSolution.html">4.1. The exact equation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../LinearAdvectionEquation/differenceEquation.html">4.2. The difference equation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../LinearAdvectionEquation/differenceSolution.html">4.3. Solution of the difference equation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../LinearAdvectionEquation/Analysis.html">4.4. Analysis of the solution of the difference equation</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../ImplicitSchemes/Introduction.html">4. Implicit schemes vs explicit schemes</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../ImplicitSchemes/Implicit_General.html">4.1. The Implicit Scheme</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="Introduction.html">5. Stability of numerical schemes</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="ConceptsDefinitions.html">5.1. Concepts and definitions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="DomainDep.html">5.2. Domain of dependence</a></li>
-<li class="toctree-l2"><a class="reference internal" href="CFL.html">5.3. Courant-Friedrich-Levy, CFL criterion</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Total_variation.html">5.4. Total Variation (TV) and Total Variation Diminishing (TVD) schemes</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">5.5. Von Neumann Stability Analysis</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../LinearAdvectionEquation/Introduction.html">5. The linear advection equation</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../LinearAdvectionEquation/analyticSolution.html">5.1. The exact equation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../LinearAdvectionEquation/differenceEquation.html">5.2. The difference equation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../LinearAdvectionEquation/differenceSolution.html">5.3. Solution of the difference equation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../LinearAdvectionEquation/Analysis.html">5.4. Analysis of the solution of the difference equation</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="Introduction.html">6. Stability of numerical schemes</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="ConceptsDefinitions.html">6.1. Concepts and definitions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DomainDep.html">6.2. Domain of Dependence (DoD)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CFL.html">6.3. Courant-Friedrich-Lewy, CFL criterion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Total_variation.html">6.4. Total Variation (TV) and Total Variation Diminishing (TVD) schemes</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">6.5. Von Neumann Stability Analysis</a></li>
 </ul>
 </details></li>
 </ul>
@@ -415,9 +418,9 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stability-of-the-ftcs-scheme">5.5.1. Stability of the FTCS scheme</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-linear-advection-equation">5.5.1.1. The linear advection equation</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-diffusion-equation">5.5.1.2. The diffusion equation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stability-of-the-ftcs-scheme">6.5.1. Stability of the FTCS scheme</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-linear-advection-equation">6.5.1.1. The linear advection equation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-diffusion-equation">6.5.1.2. The diffusion equation</a></li>
 </ul>
 </li>
 </ul>
@@ -432,25 +435,25 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="von-neumann-stability-analysis">
-<span id="numericalstability-vonneumannstability"></span><h1><span class="section-number">5.5. </span>Von Neumann Stability Analysis<a class="headerlink" href="#von-neumann-stability-analysis" title="Link to this heading">#</a></h1>
+<span id="numericalstability-vonneumannstability"></span><h1><span class="section-number">6.5. </span>Von Neumann Stability Analysis<a class="headerlink" href="#von-neumann-stability-analysis" title="Link to this heading">#</a></h1>
 <p>The von Neumann stability analysis method is simple to apply but it cannot handle boundary conditions.</p>
 <p>It consists of replacing the spatial variation by a single Fourier component. The method is sufficient for linear equations with constant coefficients.</p>
 <p>We shall illustrate the Von Neumann stability method with the FTCS scheme.</p>
 <section id="stability-of-the-ftcs-scheme">
-<h2><span class="section-number">5.5.1. </span>Stability of the FTCS scheme<a class="headerlink" href="#stability-of-the-ftcs-scheme" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">6.5.1. </span>Stability of the FTCS scheme<a class="headerlink" href="#stability-of-the-ftcs-scheme" title="Link to this heading">#</a></h2>
 <section id="the-linear-advection-equation">
-<h3><span class="section-number">5.5.1.1. </span>The linear advection equation<a class="headerlink" href="#the-linear-advection-equation" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">6.5.1.1. </span>The linear advection equation<a class="headerlink" href="#the-linear-advection-equation" title="Link to this heading">#</a></h3>
 <p>The FTCS scheme for the linear advection equation is given by:</p>
 <div class="math notranslate nohighlight" id="equation-eqftcsadvection">
-<span class="eqno">(5.3)<a class="headerlink" href="#equation-eqftcsadvection" title="Link to this equation">#</a></span>\[
+<span class="eqno">(6.3)<a class="headerlink" href="#equation-eqftcsadvection" title="Link to this equation">#</a></span>\[
 u_m^{n+1} = u_m^{n} - c\frac{\Delta t}{2\Delta x}(u_{m+1}^n-u_{m-1}^n)
 \]</div>
 <p>To apply the Von Neumann stability analysis method we assume a solution of the form:</p>
 <div class="math notranslate nohighlight" id="equation-eq-vonneumansolution">
-<span class="eqno">(5.4)<a class="headerlink" href="#equation-eq-vonneumansolution" title="Link to this equation">#</a></span>\[
+<span class="eqno">(6.4)<a class="headerlink" href="#equation-eq-vonneumansolution" title="Link to this equation">#</a></span>\[
 u_m^n=B^n e^{ikm\Delta x}. 
 \]</div>
-<p>Substituing in <a class="reference internal" href="#equation-eqftcsadvection">(5.3)</a>, we get</p>
+<p>Substituing in <a class="reference internal" href="#equation-eqftcsadvection">(6.3)</a>, we get</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 B^{n+1} e^{ikm\Delta x} &amp;= B^{n} e^{ikm\Delta x} - c\frac{\Delta t}{2\Delta x}(B^{n} e^{ik(m+1)\Delta x}-B^{n} e^{ik(m-1)\Delta x}) \\
@@ -474,19 +477,19 @@ B^{n+1} e^{ikm\Delta x} &amp;= B^{n} e^{ikm\Delta x}\left[1 - c\frac{\Delta t}{2
 <p>Therefore, the FTCS scheme applied to the linear advection equation is always unstable, i.e., it is <em>unconditionally unstable</em>.</p>
 </section>
 <section id="the-diffusion-equation">
-<h3><span class="section-number">5.5.1.2. </span>The diffusion equation<a class="headerlink" href="#the-diffusion-equation" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">6.5.1.2. </span>The diffusion equation<a class="headerlink" href="#the-diffusion-equation" title="Link to this heading">#</a></h3>
 <p>The one-dimensional diffusion equation is</p>
 <div class="math notranslate nohighlight" id="equation-eq-diffusion">
-<span class="eqno">(5.5)<a class="headerlink" href="#equation-eq-diffusion" title="Link to this equation">#</a></span>\[
+<span class="eqno">(6.5)<a class="headerlink" href="#equation-eq-diffusion" title="Link to this equation">#</a></span>\[
 \frac{\partial u}{\partial t} = D \frac{\partial^2 u}{\partial x^2},
 \]</div>
 <p>where <span class="math notranslate nohighlight">\(D\)</span> is the diffusivity.</p>
-<p>The FTCS scheme applied to <a class="reference internal" href="#equation-eq-diffusion">(5.5)</a> is:</p>
+<p>The FTCS scheme applied to <a class="reference internal" href="#equation-eq-diffusion">(6.5)</a> is:</p>
 <div class="math notranslate nohighlight" id="equation-eq-ftcsdiffusion">
-<span class="eqno">(5.6)<a class="headerlink" href="#equation-eq-ftcsdiffusion" title="Link to this equation">#</a></span>\[
+<span class="eqno">(6.6)<a class="headerlink" href="#equation-eq-ftcsdiffusion" title="Link to this equation">#</a></span>\[
 u_m^{n+1} = u_m^{n} + D\frac{\Delta t}{\Delta x^2}(u_{m+1}^n-2u_{m}^n+u_{m-1}^n)
 \]</div>
-<p>Substituting a solution like <a class="reference internal" href="#equation-eq-vonneumansolution">(5.4)</a> in <a class="reference internal" href="#equation-eq-ftcsdiffusion">(5.6)</a>, we have</p>
+<p>Substituting a solution like <a class="reference internal" href="#equation-eq-vonneumansolution">(6.4)</a> in <a class="reference internal" href="#equation-eq-ftcsdiffusion">(6.6)</a>, we have</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 B^{n+1}e^{ikm\Delta x}=B^ne^{ikm\Delta x}+ D\frac{\Delta t}{\Delta x^2}(B^{n} e^{ik(m+1)\Delta x}\\
@@ -499,7 +502,7 @@ B^{n+1}e^{ikm\Delta x}=B^ne^{ikm\Delta x}+ D\frac{\Delta t}{\Delta x^2}(B^{n} e^
 \]</div>
 <p>The Von Neumann stability condition is:</p>
 <div class="math notranslate nohighlight" id="equation-eq-vonneumannconditiondifffusion">
-<span class="eqno">(5.7)<a class="headerlink" href="#equation-eq-vonneumannconditiondifffusion" title="Link to this equation">#</a></span>\[
+<span class="eqno">(6.7)<a class="headerlink" href="#equation-eq-vonneumannconditiondifffusion" title="Link to this equation">#</a></span>\[
 \left|\frac{B^{n+1}}{B^n}\right|\leq 1 \Leftrightarrow \left|1-4\tau \sin^2 \frac{k \Delta x}{2}\right| \leq 1, \quad \text{for all } k.
 \]</div>
 <p>For <span class="math notranslate nohighlight">\(\tau &gt; 0\)</span>, the worst case occurs when <span class="math notranslate nohighlight">\(\sin^2 \frac{k \Delta x}{2}=1\)</span>, which leads to</p>
@@ -507,9 +510,9 @@ B^{n+1}e^{ikm\Delta x}=B^ne^{ikm\Delta x}+ D\frac{\Delta t}{\Delta x^2}(B^{n} e^
 \[
 \tau \leq \frac{1}{2}. 
 \]</div>
-<p>Therefore, the FTCS scheme apllied to the linear diffusion equation <a class="reference internal" href="#equation-eq-diffusion">(5.5)</a> is <em>conditionally stable</em>, with the stability condition</p>
+<p>Therefore, the FTCS scheme apllied to the linear diffusion equation <a class="reference internal" href="#equation-eq-diffusion">(6.5)</a> is <em>conditionally stable</em>, with the stability condition</p>
 <div class="math notranslate nohighlight" id="equation-eq-cfllimitdifffusion">
-<span class="eqno">(5.8)<a class="headerlink" href="#equation-eq-cfllimitdifffusion" title="Link to this equation">#</a></span>\[
+<span class="eqno">(6.8)<a class="headerlink" href="#equation-eq-cfllimitdifffusion" title="Link to this equation">#</a></span>\[
 D\frac{\Delta t}{\Delta x^2} \leq \frac{1}{2}.
 \]</div>
 </section>
@@ -552,7 +555,7 @@ D\frac{\Delta t}{\Delta x^2} \leq \frac{1}{2}.
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">5.4. </span>Total Variation (TV) and Total Variation Diminishing (TVD) schemes</p>
+        <p class="prev-next-title"><span class="section-number">6.4. </span>Total Variation (TV) and Total Variation Diminishing (TVD) schemes</p>
       </div>
     </a>
 </div>
@@ -571,9 +574,9 @@ D\frac{\Delta t}{\Delta x^2} \leq \frac{1}{2}.
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stability-of-the-ftcs-scheme">5.5.1. Stability of the FTCS scheme</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-linear-advection-equation">5.5.1.1. The linear advection equation</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-diffusion-equation">5.5.1.2. The diffusion equation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stability-of-the-ftcs-scheme">6.5.1. Stability of the FTCS scheme</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-linear-advection-equation">6.5.1.1. The linear advection equation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-diffusion-equation">6.5.1.2. The diffusion equation</a></li>
 </ul>
 </li>
 </ul>

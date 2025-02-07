@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>6.4. Total Variation (TV) and Total Variation Diminishing (TVD) schemes &#8212; GEOF211 resource pages</title>
+    <title>4.1. The Implicit Scheme &#8212; GEOF211 resource pages</title>
   
   
   
@@ -59,11 +59,11 @@
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'NumericalStability/Total_variation';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'ImplicitSchemes/Implicit_General';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="6.5. Von Neumann Stability Analysis" href="vonNeumannStability.html" />
-    <link rel="prev" title="6.3. Courant-Friedrich-Lewy, CFL criterion" href="CFL.html" />
+    <link rel="next" title="5. The linear advection equation" href="../LinearAdvectionEquation/Introduction.html" />
+    <link rel="prev" title="4. Implicit schemes vs explicit schemes" href="Introduction.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -205,8 +205,8 @@
 <li class="toctree-l2"><a class="reference internal" href="../FiniteDifferences/evaluatingTruncationError.html">3.5. Evaluating the truncation error</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../ImplicitSchemes/Introduction.html">4. Implicit schemes vs explicit schemes</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../ImplicitSchemes/Implicit_General.html">4.1. The Implicit Scheme</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="Introduction.html">4. Implicit schemes vs explicit schemes</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">4.1. The Implicit Scheme</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../LinearAdvectionEquation/Introduction.html">5. The linear advection equation</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -216,12 +216,12 @@
 <li class="toctree-l2"><a class="reference internal" href="../LinearAdvectionEquation/Analysis.html">5.4. Analysis of the solution of the difference equation</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="Introduction.html">6. Stability of numerical schemes</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="ConceptsDefinitions.html">6.1. Concepts and definitions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="DomainDep.html">6.2. Domain of Dependence (DoD)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="CFL.html">6.3. Courant-Friedrich-Lewy, CFL criterion</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">6.4. Total Variation (TV) and Total Variation Diminishing (TVD) schemes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="vonNeumannStability.html">6.5. Von Neumann Stability Analysis</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../NumericalStability/Introduction.html">6. Stability of numerical schemes</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../NumericalStability/ConceptsDefinitions.html">6.1. Concepts and definitions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../NumericalStability/DomainDep.html">6.2. Domain of Dependence (DoD)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../NumericalStability/CFL.html">6.3. Courant-Friedrich-Lewy, CFL criterion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../NumericalStability/Total_variation.html">6.4. Total Variation (TV) and Total Variation Diminishing (TVD) schemes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../NumericalStability/vonNeumannStability.html">6.5. Von Neumann Stability Analysis</a></li>
 </ul>
 </details></li>
 </ul>
@@ -295,7 +295,7 @@
       
       
       
-      <li><a href="https://kjerstid.github.io/GEOF211_compendium/intro.html/issues/new?title=Issue%20on%20page%20%2FNumericalStability/Total_variation.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://kjerstid.github.io/GEOF211_compendium/intro.html/issues/new?title=Issue%20on%20page%20%2FImplicitSchemes/Implicit_General.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -325,7 +325,7 @@
       
       
       
-      <li><a href="../_sources/NumericalStability/Total_variation.md" target="_blank"
+      <li><a href="../_sources/ImplicitSchemes/Implicit_General.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -409,7 +409,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Total Variation (TV) and Total Variation Diminishing (TVD) schemes</h1>
+    <h1>The Implicit Scheme</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -419,9 +419,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#total-variation-tv">6.4.1. Total variation (TV)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#total-variation-diminishing-tvd-schemes">6.4.2. Total Variation Diminishing (TVD) schemes</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#harten-s-theorem">6.4.3. Harten’s theorem</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#consistency-stability-and-convergence">4.1.1. Consistency, stability and convergence</a></li>
 </ul>
             </nav>
         </div>
@@ -433,64 +431,41 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="total-variation-tv-and-total-variation-diminishing-tvd-schemes">
-<span id="numericalstability-total-variation"></span><h1><span class="section-number">6.4. </span>Total Variation (TV) and Total Variation Diminishing (TVD) schemes<a class="headerlink" href="#total-variation-tv-and-total-variation-diminishing-tvd-schemes" title="Link to this heading">#</a></h1>
-<section id="total-variation-tv">
-<h2><span class="section-number">6.4.1. </span>Total variation (TV)<a class="headerlink" href="#total-variation-tv" title="Link to this heading">#</a></h2>
-<p>The total variation is a measure of the amount of oscillation in the field:</p>
-<div class="important admonition" id="definition-total-variation">
-<p class="admonition-title">Definition</p>
-<div class="math notranslate nohighlight" id="equation-eq-totalvariation">
-<span class="eqno">(6.1)<a class="headerlink" href="#equation-eq-totalvariation" title="Link to this equation">#</a></span>\[
-TV(q^n)=\sum_{m=2}^J|(q_m^n-q_{m-1}^n)|
+  <section class="tex2jax_ignore mathjax_ignore" id="the-implicit-scheme">
+<h1><span class="section-number">4.1. </span>The Implicit Scheme<a class="headerlink" href="#the-implicit-scheme" title="Link to this heading">#</a></h1>
+<p>We can derive a general implict scheme by noting that the Crank-Nicholson scheme has the spatial derivatives at <span class="math notranslate nohighlight">\(t^n\)</span> and <span class="math notranslate nohighlight">\(t^{n+1}\)</span> multiplied by <span class="math notranslate nohighlight">\(1/2\)</span>. We can generalize the formula in the following fashion:</p>
+<div class="math notranslate nohighlight" id="equation-schemegeneralimplicit">
+<span class="eqno">(4.3)<a class="headerlink" href="#equation-schemegeneralimplicit" title="Link to this equation">#</a></span>\[
+  \frac{u_m^{n+1}-u_m^n}{\Delta t} = -\frac{c}{2}\left(\alpha\frac{u_{m+1}^{n+1}-u_{m-1}^{n+1}}{2\Delta x} + (1-\alpha)\frac{u_{m+1}^{n}-u_{m-1}^{n}}{2\Delta x}\right)
 \]</div>
-</div>
-<p>The change in total variation with time, can tell you much about the behaviour of the numerical solution. Schemes that give unwanted oscillations will typically have large variation in Total variation, although the Total Variation may still vary within bounds.</p>
-<div class="admonition important" id="important-stabilitypde">
-<p class="admonition-title">Important</p>
-<p>When you calculate the Total Variation, you must carefully consider your boundary conditions to make sure you treat the boudnary points correctly.</p>
-</div>
-</section>
-<section id="total-variation-diminishing-tvd-schemes">
-<h2><span class="section-number">6.4.2. </span>Total Variation Diminishing (TVD) schemes<a class="headerlink" href="#total-variation-diminishing-tvd-schemes" title="Link to this heading">#</a></h2>
-<div class="important admonition" id="definition-total-variation-diminishing-schemes">
-<p class="admonition-title">Definition</p>
-<p>A numerical scheme is total variation diminishing if:
-$<span class="math notranslate nohighlight">\(
-TV(q^{n+1})\leq TV(q^n)
-\)</span>$ (eq:TotalVariation)</p>
-</div>
-<p>For TVD schemes, the amount of oscillation does not increase with time. The FTBS scheme for linear advection is an example of a TVD scheme, as long as we don’t break the CFL criterion. The scheme smoothes out the original signal and reduce the Total Variation with time.</p>
-<p>A TVD scheme preserves <em>monotonicity</em>. If the initial field is monotone, a TVD scheme cannot give oscillations like
-overshoots.</p>
-<p>If <span class="math notranslate nohighlight">\( q_m^n=\geq q_{m+1}^n\,\, \forall\, m \)</span>, then <span class="math notranslate nohighlight">\( q_m^{n+1}=\geq q_{m+1}^{n+1}\,\, \forall\, m \)</span>.</p>
-<p>However, discontinuities may still be smoothed in TVD schemes, as is the case for  the FTBS for linear advection.</p>
-</section>
-<section id="harten-s-theorem">
-<h2><span class="section-number">6.4.3. </span>Harten’s theorem<a class="headerlink" href="#harten-s-theorem" title="Link to this heading">#</a></h2>
-<p>Consider a general method of the form:</p>
-<div class="math notranslate nohighlight" id="equation-eq-hartengeneral">
-<span class="eqno">(6.2)<a class="headerlink" href="#equation-eq-hartengeneral" title="Link to this equation">#</a></span>\[
-q_m^{n+1}=q_m^n-C_{m-1}^n(q_m^n-q_{m-1}^n)+D_m^n(q_{m+1}^n-q_m^n)
+<p>The value of <span class="math notranslate nohighlight">\(\alpha\)</span> determines the nature of the scheme:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-3e4a98cd-130a-41a3-bc62-9ebba6eac13b">
+<span class="eqno">(4.4)<a class="headerlink" href="#equation-3e4a98cd-130a-41a3-bc62-9ebba6eac13b" title="Permalink to this equation">#</a></span>\[\begin{align}
+    \alpha &amp;= 0 \quad \text{Fully explicit scheme} \\
+    \alpha &amp;= 0.5 \quad \text{Crank-Nicholson scheme} \\
+    \alpha &amp;= 1 \quad \text{Fully implicit scheme}
+\end{align}\]</div>
+<section id="consistency-stability-and-convergence">
+<h2><span class="section-number">4.1.1. </span>Consistency, stability and convergence<a class="headerlink" href="#consistency-stability-and-convergence" title="Link to this heading">#</a></h2>
+<p>The formula of the amplification factor <a class="reference internal" href="schemeCrankNicholson.html#equation-eq-ampfactorcn">()</a> can be generalized following <a class="reference internal" href="Introduction.html#equation-schemegeneralimplicit">(4.2)</a>:</p>
+<div class="math notranslate nohighlight" id="equation-ampfactorcn">
+<span class="eqno">(4.5)<a class="headerlink" href="#equation-ampfactorcn" title="Link to this equation">#</a></span>\[
+   G = \frac{u_{m}^{n+1}}{u_{m}^{n}} = \frac{1-(1-\alpha)(\sigma/2)i\sin\lambda \Delta x}{1+\alpha(\sigma/2)i\sin\lambda \Delta x},
 \]</div>
-<p>where the coefficients <span class="math notranslate nohighlight">\(C\)</span> and <span class="math notranslate nohighlight">\(D\)</span> are arbitrary values that may depend on <span class="math notranslate nohighlight">\(q\)</span>. (Note that
-these coefficients are displaced half a grid length to the right, so that, e.g., <span class="math notranslate nohighlight">\(D_m^n\)</span> is valid
-at <span class="math notranslate nohighlight">\(j+\frac{1}{2}\)</span>.) Then it has been shown <span id="id1">[<a class="reference internal" href="../markdown.html#id15" title="A. Harten. High-resolution schemes for hyperbolic conservation-laws. Journal of computational physics, 49(3):357–393, 1983.">Har83</a>]</span> that</p>
-<div class="important admonition" id="theorem-hartentheorem">
-<p class="admonition-title">Harten’s Theorem</p>
-<p>Consider a method on the general form (<code class="docutils literal notranslate"><span class="pre">eq:HartenGeneral</span></code>). Then
-$<span class="math notranslate nohighlight">\(
-TV(q^{n+1})\leq TV(q^n)
-\)</span><span class="math notranslate nohighlight">\(
-if \)</span>A_m^n+B_m^n\leq 1<span class="math notranslate nohighlight">\( and \)</span>A_m^n\geq 0<span class="math notranslate nohighlight">\(, \)</span>B_m^n \geq 0,, \forall,m$</p>
-</div>
-<p>We can now verify that the FTBS scheme for linear advection is TVD.
-The FTBS scheme for linear advection is written:
-$<span class="math notranslate nohighlight">\(
-q_m^{n+1}=q_m^n-a\frac{\Delta t}{\Delta x}(q_m^n-q_{m-1}^n)
-\)</span>$</p>
-<p>If we compare this scheme with the general form (eq. <code class="docutils literal notranslate"><span class="pre">eq:HartenGeneral</span></code>), we find that <span class="math notranslate nohighlight">\(A_{m-1}^n=a\frac{\Delta t}{\Delta x}\)</span> and <span class="math notranslate nohighlight">\(B_m^n=0\)</span>. The coefficient <span class="math notranslate nohighlight">\(A_{m-1}\)</span> is positive as long as the advection speed <span class="math notranslate nohighlight">\(a\)</span> is positive. We also find that the requirement <span class="math notranslate nohighlight">\(A_{m-1}+B_m^n&lt;1\)</span> holds as long as <span class="math notranslate nohighlight">\(A=a\frac{\Delta t}{\Delta x}\leq 1\)</span>, which is the same requirement as the CFL criterion. The FTBS scheme for linear advection is, therefore, TVD as along as <span class="math notranslate nohighlight">\(A=a\frac{\Delta t}{\Delta x}\leq 1\)</span>.</p>
-<p>Try for yourself to write the CTCS schgeme for linear advection on the general form, and check if the scheme is TVD.</p>
+<p>The effect of varying <span class="math notranslate nohighlight">\(\alpha\)</span> in the stability is shown below:</p>
+<figure class="align-default" id="implicitstabilitydiagram">
+<a class="reference internal image-reference" href="../_images/Implicit_Stability_Diagram.png"><img alt="../_images/Implicit_Stability_Diagram.png" src="../_images/Implicit_Stability_Diagram.png" style="height: 400px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 4.1 </span><span class="caption-text">The amplification factor of the general implicit scheme, for a range of CFL numbers and <span class="math notranslate nohighlight">\(\alpha\)</span>.</span><a class="headerlink" href="#implicitstabilitydiagram" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>The implicit scheme <span class="math notranslate nohighlight">\(\alpha &gt; 0.5\)</span> is damping and for <span class="math notranslate nohighlight">\(\alpha &lt; 0.5\)</span>, the scheme is unconditionally unstable. The damping effect of the numerical diffusion of the implicit scheme increases as the CFL number increases.</p>
+<figure class="align-default" id="implicitschemesolution">
+<a class="reference internal image-reference" href="../_images/ImplicitScheme_Solution.png"><img alt="../_images/ImplicitScheme_Solution.png" src="../_images/ImplicitScheme_Solution.png" style="height: 400px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 4.2 </span><span class="caption-text">The solution of the implicit scheme after 10 time steps for a <em>top hat</em> initial condition, for CFL numbers of 1.9 and <span class="math notranslate nohighlight">\(\alpha=0.5, 0.7, 0.9, 0.99\)</span>, with <span class="math notranslate nohighlight">\(\Delta t=2\)</span> and <span class="math notranslate nohighlight">\(\Delta x=1\)</span>.</span><a class="headerlink" href="#implicitschemesolution" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
 </section>
 </section>
 
@@ -507,7 +482,7 @@ q_m^{n+1}=q_m^n-a\frac{\Delta t}{\Delta x}(q_m^n-q_{m-1}^n)
         },
         kernelOptions: {
             name: "python3",
-            path: "./NumericalStability"
+            path: "./ImplicitSchemes"
         },
         predefinedOutput: true
     }
@@ -525,20 +500,20 @@ q_m^{n+1}=q_m^n-a\frac{\Delta t}{\Delta x}(q_m^n-q_{m-1}^n)
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="CFL.html"
+       href="Introduction.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">6.3. </span>Courant-Friedrich-Lewy, CFL criterion</p>
+        <p class="prev-next-title"><span class="section-number">4. </span>Implicit schemes vs explicit schemes</p>
       </div>
     </a>
     <a class="right-next"
-       href="vonNeumannStability.html"
+       href="../LinearAdvectionEquation/Introduction.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">6.5. </span>Von Neumann Stability Analysis</p>
+        <p class="prev-next-title"><span class="section-number">5. </span>The linear advection equation</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -558,9 +533,7 @@ q_m^{n+1}=q_m^n-a\frac{\Delta t}{\Delta x}(q_m^n-q_{m-1}^n)
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#total-variation-tv">6.4.1. Total variation (TV)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#total-variation-diminishing-tvd-schemes">6.4.2. Total Variation Diminishing (TVD) schemes</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#harten-s-theorem">6.4.3. Harten’s theorem</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#consistency-stability-and-convergence">4.1.1. Consistency, stability and convergence</a></li>
 </ul>
   </nav></div>
 

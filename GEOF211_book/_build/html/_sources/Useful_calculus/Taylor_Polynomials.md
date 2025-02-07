@@ -7,7 +7,7 @@ $$
 f(x)=f(a)+\frac{f'(a)}{1!}(x-a)+\frac{f''(a)}{2!}(x-a)^2+\frac{f'''(a)}{3!}(x-a)^3+...=\sum_{n=0}^{\infty}\frac{f^{(n)}(a)}{n!}(x-a)^n
 $$ (eq:Taylor_series)
 
-# McLaurin series
+## McLaurin series
 The McLaurin series are special cases of the Tayolor series, where the series are calculated for a region close to origo, setting $a=0$:
 
 $$

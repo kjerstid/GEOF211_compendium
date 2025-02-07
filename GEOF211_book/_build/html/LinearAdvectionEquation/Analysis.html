@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>4.4. Analysis of the solution of the difference equation &#8212; GEOF211 resource pages</title>
+    <title>5.4. Analysis of the solution of the difference equation &#8212; GEOF211 resource pages</title>
   
   
   
@@ -62,8 +62,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'LinearAdvectionEquation/Analysis';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="5. Stability of numerical schemes" href="../NumericalStability/Introduction.html" />
-    <link rel="prev" title="4.3. Solution of the difference equation" href="differenceSolution.html" />
+    <link rel="next" title="6. Stability of numerical schemes" href="../NumericalStability/Introduction.html" />
+    <link rel="prev" title="5.3. Solution of the difference equation" href="differenceSolution.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -184,12 +184,12 @@
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../Useful_calculus/Introduction.html">1. Useful calculus</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Useful_calculus/Taylor_Polynomials.html">1.1. Taylor series</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Useful_calculus/Trigonometry.html">1.2. Trigonometry</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Useful_calculus/Complex_numbers.html">1.3. Complex numbers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Useful_calculus/Euler_Formula.html">1.4. The Euler formula</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Useful_calculus/Fourier_transforms.html">1.5. Fourier transforms</a></li>
 
-<li class="toctree-l2"><a class="reference internal" href="../Useful_calculus/Trigonometry.html">1.3. Trigonometry</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Useful_calculus/Complex_numbers.html">1.4. Complex numbers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Useful_calculus/Euler_Formula.html">1.5. The Euler formula</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Useful_calculus/Fourier_transforms.html">1.6. Fourier transforms</a></li>
-
+<li class="toctree-l2"><a class="reference internal" href="../Useful_calculus/Formal_def_derivative.html">1.7. The Formal definition of the derivative</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../GFD/Introduction.html">2. Geophysical Fluid Dynamics (GFD)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -205,16 +205,23 @@
 <li class="toctree-l2"><a class="reference internal" href="../FiniteDifferences/evaluatingTruncationError.html">3.5. Evaluating the truncation error</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="Introduction.html">4. The linear advection equation</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="analyticSolution.html">4.1. The exact equation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="differenceEquation.html">4.2. The difference equation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="differenceSolution.html">4.3. Solution of the difference equation</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">4.4. Analysis of the solution of the difference equation</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../ImplicitSchemes/Introduction.html">4. Implicit schemes vs explicit schemes</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../ImplicitSchemes/Implicit_General.html">4.1. The Implicit Scheme</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../NumericalStability/Introduction.html">5. Stability of numerical schemes</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../NumericalStability/consistencyConvergenceStability.html">5.1. Consistency, convergence and stability</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../NumericalStability/vonNeumannStability.html">5.2. Von Neumann Stability Analysis</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="Introduction.html">5. The linear advection equation</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="analyticSolution.html">5.1. The exact equation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="differenceEquation.html">5.2. The difference equation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="differenceSolution.html">5.3. Solution of the difference equation</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">5.4. Analysis of the solution of the difference equation</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../NumericalStability/Introduction.html">6. Stability of numerical schemes</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../NumericalStability/ConceptsDefinitions.html">6.1. Concepts and definitions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../NumericalStability/DomainDep.html">6.2. Domain of Dependence (DoD)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../NumericalStability/CFL.html">6.3. Courant-Friedrich-Lewy, CFL criterion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../NumericalStability/Total_variation.html">6.4. Total Variation (TV) and Total Variation Diminishing (TVD) schemes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../NumericalStability/vonNeumannStability.html">6.5. Von Neumann Stability Analysis</a></li>
 </ul>
 </details></li>
 </ul>
@@ -412,9 +419,9 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#amplitude">4.4.1. Amplitude</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#phase-speed">4.4.2. Phase speed</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#group-velocity">4.4.3. Group velocity</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#amplitude">5.4.1. Amplitude</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#phase-speed">5.4.2. Phase speed</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#group-velocity">5.4.3. Group velocity</a></li>
 </ul>
             </nav>
         </div>
@@ -427,8 +434,8 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="analysis-of-the-solution-of-the-difference-equation">
-<h1><span class="section-number">4.4. </span>Analysis of the solution of the difference equation<a class="headerlink" href="#analysis-of-the-solution-of-the-difference-equation" title="Link to this heading">#</a></h1>
-<p>In our study of the finite difference approximations to the derivative, we found that in general, when <span class="math notranslate nohighlight">\(\Delta t\)</span> and <span class="math notranslate nohighlight">\(\Delta x\)</span> approach zero, the errors in the approximations of the derivatives also approach zero. Therefore, since our difference equation is written with the finite difference approximations, we can ask ourselves if we will have the error of the difference equation, i.e. the difference between <a class="reference internal" href="differenceSolution.html#equation-eq-solutiondiffequation">(4.16)</a> and <a class="reference internal" href="analyticSolution.html#equation-eq-anasolution">(4.6)</a>, also approach zero when <span class="math notranslate nohighlight">\(\Delta t, \Delta x \to 0\)</span>.</p>
+<h1><span class="section-number">5.4. </span>Analysis of the solution of the difference equation<a class="headerlink" href="#analysis-of-the-solution-of-the-difference-equation" title="Link to this heading">#</a></h1>
+<p>In our study of the finite difference approximations to the derivative, we found that in general, when <span class="math notranslate nohighlight">\(\Delta t\)</span> and <span class="math notranslate nohighlight">\(\Delta x\)</span> approach zero, the errors in the approximations of the derivatives also approach zero. Therefore, since our difference equation is written with the finite difference approximations, we can ask ourselves if we will have the error of the difference equation, i.e. the difference between <a class="reference internal" href="differenceSolution.html#equation-eq-solutiondiffequation">(5.16)</a> and <a class="reference internal" href="analyticSolution.html#equation-eq-anasolution">(5.6)</a>, also approach zero when <span class="math notranslate nohighlight">\(\Delta t, \Delta x \to 0\)</span>.</p>
 <p>First, let <span class="math notranslate nohighlight">\(\Delta x \to 0\)</span>. We will have:</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{align*}%\label{eqn:anaSol2}
@@ -441,21 +448,21 @@ document.write(`
 \[\begin{align*}%\label{eqn:anaSol2}
 	A \frac{1+\cos \alpha}{2\cos \alpha}e^{i\mu (m\Delta x - \alpha n/ \mu)}  &amp;= A \frac{1+\cos \alpha}{2\cos \alpha}e^{i\mu (m\Delta x -  n c\mu\Delta t/ \mu)} \\ &amp;= A \frac{1+\cos \alpha}{2\cos \alpha}e^{i\mu (m\Delta x -  cn \Delta t)},
 \end{align*}\]</div>
-<p>and we recover the waveform <a class="reference internal" href="analyticSolution.html#equation-eq-anasolution">(4.6)</a>, written in the discrete grid positions <span class="math notranslate nohighlight">\(m\Delta x\)</span> and time steps <span class="math notranslate nohighlight">\(n \Delta t\)</span>. Furthermore, if we allow <span class="math notranslate nohighlight">\(\Delta t \to 0\)</span>, we will have <span class="math notranslate nohighlight">\(\alpha = 0\)</span> and</p>
+<p>and we recover the waveform <a class="reference internal" href="analyticSolution.html#equation-eq-anasolution">(5.6)</a>, written in the discrete grid positions <span class="math notranslate nohighlight">\(m\Delta x\)</span> and time steps <span class="math notranslate nohighlight">\(n \Delta t\)</span>. Furthermore, if we allow <span class="math notranslate nohighlight">\(\Delta t \to 0\)</span>, we will have <span class="math notranslate nohighlight">\(\alpha = 0\)</span> and</p>
 <div class="math notranslate nohighlight" id="equation-eq-amplitude">
-<span class="eqno">(4.17)<a class="headerlink" href="#equation-eq-amplitude" title="Link to this equation">#</a></span>\[
+<span class="eqno">(5.17)<a class="headerlink" href="#equation-eq-amplitude" title="Link to this equation">#</a></span>\[
 	\frac{1+\cos \alpha}{2\cos \alpha} = 1, \frac{1-\cos \alpha}{2\cos \alpha} = 0,
 \]</div>
-<p>which means that in the limit of <span class="math notranslate nohighlight">\(\Delta t, \Delta x \to 0\)</span> we recover the true solution as the second waveform of <a class="reference internal" href="differenceSolution.html#equation-eq-solutiondiffequation">(4.16)</a> vanishes.</p>
-<p>The existence of the two waveforms <a class="reference internal" href="differenceSolution.html#equation-eq-solutiondiffequation">(4.16)</a> as solution of the difference equation <a class="reference internal" href="differenceEquation.html#equation-eq-diffequation">(4.8)</a> is obviously problematic. The two waveforms correspond to two <strong>modes</strong>:</p>
+<p>which means that in the limit of <span class="math notranslate nohighlight">\(\Delta t, \Delta x \to 0\)</span> we recover the true solution as the second waveform of <a class="reference internal" href="differenceSolution.html#equation-eq-solutiondiffequation">(5.16)</a> vanishes.</p>
+<p>The existence of the two waveforms <a class="reference internal" href="differenceSolution.html#equation-eq-solutiondiffequation">(5.16)</a> as solution of the difference equation <a class="reference internal" href="differenceEquation.html#equation-eq-diffequation">(5.8)</a> is obviously problematic. The two waveforms correspond to two <strong>modes</strong>:</p>
 <ol class="arabic simple">
-<li><p>The <strong>physical mode</strong> (first waveform of <a class="reference internal" href="differenceSolution.html#equation-eq-solutiondiffequation">(4.16)</a>) that approaches the true solution as <span class="math notranslate nohighlight">\(\Delta t, \Delta x \to 0\)</span>.</p></li>
-<li><p>The <strong>computational mode</strong> (second waveform of <a class="reference internal" href="differenceSolution.html#equation-eq-solutiondiffequation">(4.16)</a>), that is <em>spurious</em> (unphysical) and vanishes when <span class="math notranslate nohighlight">\(\Delta t, \Delta x \to 0\)</span>. This mode is a source of errors (in addition to the truncation errors), and we note further that it changes sign every time step (due to <span class="math notranslate nohighlight">\((-1)^{n+1}\)</span>) and travels in the opposite direction to the physical mode.</p></li>
+<li><p>The <strong>physical mode</strong> (first waveform of <a class="reference internal" href="differenceSolution.html#equation-eq-solutiondiffequation">(5.16)</a>) that approaches the true solution as <span class="math notranslate nohighlight">\(\Delta t, \Delta x \to 0\)</span>.</p></li>
+<li><p>The <strong>computational mode</strong> (second waveform of <a class="reference internal" href="differenceSolution.html#equation-eq-solutiondiffequation">(5.16)</a>), that is <em>spurious</em> (unphysical) and vanishes when <span class="math notranslate nohighlight">\(\Delta t, \Delta x \to 0\)</span>. This mode is a source of errors (in addition to the truncation errors), and we note further that it changes sign every time step (due to <span class="math notranslate nohighlight">\((-1)^{n+1}\)</span>) and travels in the opposite direction to the physical mode.</p></li>
 </ol>
 <section id="amplitude">
-<h2><span class="section-number">4.4.1. </span>Amplitude<a class="headerlink" href="#amplitude" title="Link to this heading">#</a></h2>
-<p>The exact solution of <code class="xref eq docutils literal notranslate"><span class="pre">eq:Advection</span></code> with the initial condition given by <a class="reference internal" href="analyticSolution.html#equation-eq-initialcond">(4.2)</a> is characterized by the amplitude <span class="math notranslate nohighlight">\(A\)</span>, the wavenumber <span class="math notranslate nohighlight">\(k\)</span> and the phase speed <span class="math notranslate nohighlight">\(c\)</span>. We are interested in how well will the numerical solution represent these parameters.</p>
-<p>Starting with the amplitude, we know that for small <span class="math notranslate nohighlight">\(\alpha\)</span> we will have <a class="reference internal" href="#equation-eq-amplitude">(4.17)</a>, so the amplitude of the physical model will <span class="math notranslate nohighlight">\(\to A\)</span> and the amplitude of the computational model will
+<h2><span class="section-number">5.4.1. </span>Amplitude<a class="headerlink" href="#amplitude" title="Link to this heading">#</a></h2>
+<p>The exact solution of <a class="reference internal" href="Introduction.html#equation-eq-advection">(5.1)</a> with the initial condition given by <a class="reference internal" href="analyticSolution.html#equation-eq-initialcond">(5.2)</a> is characterized by the amplitude <span class="math notranslate nohighlight">\(A\)</span>, the wavenumber <span class="math notranslate nohighlight">\(k\)</span> and the phase speed <span class="math notranslate nohighlight">\(c\)</span>. We are interested in how well will the numerical solution represent these parameters.</p>
+<p>Starting with the amplitude, we know that for small <span class="math notranslate nohighlight">\(\alpha\)</span> we will have <a class="reference internal" href="#equation-eq-amplitude">(5.17)</a>, so the amplitude of the physical model will <span class="math notranslate nohighlight">\(\to A\)</span> and the amplitude of the computational model will
 <span class="math notranslate nohighlight">\(\to 0\)</span>.</p>
 <p>Since small <span class="math notranslate nohighlight">\(\alpha\)</span> implies small <span class="math notranslate nohighlight">\(\sigma\)</span>, for fixed <span class="math notranslate nohighlight">\(c\Delta t/\Delta x\)</span>, it implies small <span class="math notranslate nohighlight">\(k\Delta x = 2\pi\Delta x/L\)</span>, which will occur when <span class="math notranslate nohighlight">\(\Delta x \ll L\)</span>.</p>
 <p>Therefore, for the amplitude of the physical mode to approach the amplitude <span class="math notranslate nohighlight">\(A\)</span> of the true solution, we must choose a <span class="math notranslate nohighlight">\(\Delta x\)</span> much smaller than the wavelength <span class="math notranslate nohighlight">\(L\)</span>, or in other words, we should have as many grid points as possible to resolve one wavelength.</p>
@@ -465,8 +472,8 @@ document.write(`
 </div>
 </section>
 <section id="phase-speed">
-<h2><span class="section-number">4.4.2. </span>Phase speed<a class="headerlink" href="#phase-speed" title="Link to this heading">#</a></h2>
-<p>With respect to the phase speed <span class="math notranslate nohighlight">\(c\)</span>, if we compare the exact solution of <code class="xref eq docutils literal notranslate"><span class="pre">eq:Advection</span></code> with the solution <a class="reference internal" href="differenceSolution.html#equation-eq-solutiondiffequation">(4.16)</a> of the difference equation, we observe that the counterpart of <span class="math notranslate nohighlight">\(ct\)</span> is <span class="math notranslate nohighlight">\(n\alpha/\mu\)</span>. This quantity is:</p>
+<h2><span class="section-number">5.4.2. </span>Phase speed<a class="headerlink" href="#phase-speed" title="Link to this heading">#</a></h2>
+<p>With respect to the phase speed <span class="math notranslate nohighlight">\(c\)</span>, if we compare the exact solution of <a class="reference internal" href="Introduction.html#equation-eq-advection">(5.1)</a> with the solution <a class="reference internal" href="differenceSolution.html#equation-eq-solutiondiffequation">(5.16)</a> of the difference equation, we observe that the counterpart of <span class="math notranslate nohighlight">\(ct\)</span> is <span class="math notranslate nohighlight">\(n\alpha/\mu\)</span>. This quantity is:</p>
 <div class="math notranslate nohighlight">
 \[
 	\frac{n\alpha}{\mu} = \frac{n\alpha\Delta t}{\mu\Delta t} =  \frac{\alpha t}{\mu\Delta t} = c^\prime t,
@@ -477,10 +484,10 @@ document.write(`
 	c^\prime = \frac{\alpha}{\mu\Delta t} = \frac{\arcsin\left[ \left( c\Delta t/\Delta x \right) \sin \mu\Delta x
 	  \right]}{\mu\Delta t}
 \]</div>
-<p>is the phase speed of the solution <a class="reference internal" href="differenceSolution.html#equation-eq-solutiondiffequation">(4.16)</a> of the difference equation. We shall now see how does <span class="math notranslate nohighlight">\(c^\prime\)</span> compares with the phase speed <span class="math notranslate nohighlight">\(c\)</span> of the true solution.</p>
+<p>is the phase speed of the solution <a class="reference internal" href="differenceSolution.html#equation-eq-solutiondiffequation">(5.16)</a> of the difference equation. We shall now see how does <span class="math notranslate nohighlight">\(c^\prime\)</span> compares with the phase speed <span class="math notranslate nohighlight">\(c\)</span> of the true solution.</p>
 <p>First, if <span class="math notranslate nohighlight">\(c\Delta t/\Delta x = 1\)</span>, we’ll have <span class="math notranslate nohighlight">\(c^\prime/c = 1\)</span>, because</p>
 <div class="amsmath math notranslate nohighlight" id="equation-6df8ddee-84bb-419a-922a-d99fc2169644">
-<span class="eqno">(4.18)<a class="headerlink" href="#equation-6df8ddee-84bb-419a-922a-d99fc2169644" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<span class="eqno">(5.18)<a class="headerlink" href="#equation-6df8ddee-84bb-419a-922a-d99fc2169644" title="Permalink to this equation">#</a></span>\[\begin{equation}
 	c^\prime = \frac{\arcsin\left(\sin \mu\Delta x
 	  \right)}{\mu\Delta t} = \frac{\mu\Delta x}{\mu\Delta t} = \frac{\Delta x}{\Delta t} = c.
 \end{equation}\]</div>
@@ -494,7 +501,7 @@ document.write(`
 <p>In addition, as <span class="math notranslate nohighlight">\(\Delta x/L \to 0\)</span>, <span class="math notranslate nohighlight">\(c' \to c\)</span>. This means that waves with large <span class="math notranslate nohighlight">\(L\)</span> have smaller phase speed errors. So, if the initial field has many wavelengths, it will be distorted as the numerical integration proceeds, with the shorter waves being delayed wrt the larger waves. This phenomenon is called <em>computational dispersion</em>.</p>
 </section>
 <section id="group-velocity">
-<h2><span class="section-number">4.4.3. </span>Group velocity<a class="headerlink" href="#group-velocity" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">5.4.3. </span>Group velocity<a class="headerlink" href="#group-velocity" title="Link to this heading">#</a></h2>
 <p>The group velocity is the velocity at which energy propagates. It is given by</p>
 <div class="math notranslate nohighlight">
 \[
@@ -505,7 +512,7 @@ document.write(`
 \[
 \nu=-L^2\frac{d}{dL}\left(\frac{c}{L}\right)=-cL^2\frac{d}{dL}\left(\frac{1}{L}\right)=-cL^2\left(-\frac{1}{L^2}\right)=c.
 \]</div>
-<p>and the energy propagates at the same speed as the waveform. For <a class="reference internal" href="differenceSolution.html#equation-eq-solutiondiffequation">(4.16)</a>, we have</p>
+<p>and the energy propagates at the same speed as the waveform. For <a class="reference internal" href="differenceSolution.html#equation-eq-solutiondiffequation">(5.16)</a>, we have</p>
 <div class="math notranslate nohighlight">
 \[
 \nu'=\frac{d(\mu c')}{d\mu}=\frac{d}{d\mu}\left\{\frac{\mu \sin^{-1}\left[ c\frac{\Delta t}{\Delta x} \sin \mu\Delta x\right]}{\mu\Delta t} \right\},
@@ -520,7 +527,7 @@ document.write(`
 \[
 \nu'=c \frac{\cos\mu\Delta x}{\left[1-\sin^2\mu\Delta x\right]^{1/2}}=c \frac{\cos\mu\Delta x}{\cos\mu\Delta x}=c,
 \]</div>
-<p>and <a class="reference internal" href="differenceSolution.html#equation-eq-solutiondiffequation">(4.16)</a> has the same group velocity as the exact solution.</p>
+<p>and <a class="reference internal" href="differenceSolution.html#equation-eq-solutiondiffequation">(5.16)</a> has the same group velocity as the exact solution.</p>
 <p>When <span class="math notranslate nohighlight">\(c\Delta t/\Delta x &lt; 1\)</span>, if <span class="math notranslate nohighlight">\(\mu\)</span> is small (small wavenumber, long wavelengths), <span class="math notranslate nohighlight">\(\sin \mu\Delta x \to 0\)</span> and <span class="math notranslate nohighlight">\(\cos \mu\Delta x \to 1\)</span>, which results in <span class="math notranslate nohighlight">\(\nu'=c\)</span>.</p>
 <p>If <span class="math notranslate nohighlight">\(\mu\)</span> is large however (short wavelengths), we shall have large errors in the group velocity, e.g. for:</p>
 <ol class="arabic simple">
@@ -577,7 +584,7 @@ document.write(`
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">4.3. </span>Solution of the difference equation</p>
+        <p class="prev-next-title"><span class="section-number">5.3. </span>Solution of the difference equation</p>
       </div>
     </a>
     <a class="right-next"
@@ -585,7 +592,7 @@ document.write(`
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">5. </span>Stability of numerical schemes</p>
+        <p class="prev-next-title"><span class="section-number">6. </span>Stability of numerical schemes</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -605,9 +612,9 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#amplitude">4.4.1. Amplitude</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#phase-speed">4.4.2. Phase speed</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#group-velocity">4.4.3. Group velocity</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#amplitude">5.4.1. Amplitude</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#phase-speed">5.4.2. Phase speed</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#group-velocity">5.4.3. Group velocity</a></li>
 </ul>
   </nav></div>
 

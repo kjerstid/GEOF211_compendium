@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>4. The linear advection equation &#8212; GEOF211 resource pages</title>
+    <title>5. The linear advection equation &#8212; GEOF211 resource pages</title>
   
   
   
@@ -62,8 +62,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'LinearAdvectionEquation/Introduction';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="4.1. The exact equation" href="analyticSolution.html" />
-    <link rel="prev" title="3.5. Evaluating the truncation error" href="../FiniteDifferences/evaluatingTruncationError.html" />
+    <link rel="next" title="5.1. The exact equation" href="analyticSolution.html" />
+    <link rel="prev" title="4.1. The Implicit Scheme" href="../ImplicitSchemes/Implicit_General.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -184,13 +184,12 @@
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../Useful_calculus/Introduction.html">1. Useful calculus</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Useful_calculus/Taylor_Polynomials.html">1.1. Taylor series</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Useful_calculus/Trigonometry.html">1.2. Trigonometry</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Useful_calculus/Complex_numbers.html">1.3. Complex numbers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Useful_calculus/Euler_Formula.html">1.4. The Euler formula</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Useful_calculus/Fourier_transforms.html">1.5. Fourier transforms</a></li>
 
-<li class="toctree-l2"><a class="reference internal" href="../Useful_calculus/Trigonometry.html">1.3. Trigonometry</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Useful_calculus/Complex_numbers.html">1.4. Complex numbers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Useful_calculus/Euler_Formula.html">1.5. The Euler formula</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Useful_calculus/Fourier_transforms.html">1.6. Fourier transforms</a></li>
-
-<li class="toctree-l2"><a class="reference internal" href="../Useful_calculus/Formal_def_derivative.html">1.8. The Formal definition of the derivative</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Useful_calculus/Formal_def_derivative.html">1.7. The Formal definition of the derivative</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../GFD/Introduction.html">2. Geophysical Fluid Dynamics (GFD)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -206,19 +205,23 @@
 <li class="toctree-l2"><a class="reference internal" href="../FiniteDifferences/evaluatingTruncationError.html">3.5. Evaluating the truncation error</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">4. The linear advection equation</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="analyticSolution.html">4.1. The exact equation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="differenceEquation.html">4.2. The difference equation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="differenceSolution.html">4.3. Solution of the difference equation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Analysis.html">4.4. Analysis of the solution of the difference equation</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../ImplicitSchemes/Introduction.html">4. Implicit schemes vs explicit schemes</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../ImplicitSchemes/Implicit_General.html">4.1. The Implicit Scheme</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../NumericalStability/Introduction.html">5. Stability of numerical schemes</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../NumericalStability/ConceptsDefinitions.html">5.1. Concepts and definitions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../NumericalStability/DomainDep.html">5.2. Domain of Dependence (DoD)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../NumericalStability/CFL.html">5.3. Courant-Friedrich-Lewy, CFL criterion</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../NumericalStability/Total_variation.html">5.4. Total Variation (TV) and Total Variation Diminishing (TVD) schemes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../NumericalStability/vonNeumannStability.html">5.5. Von Neumann Stability Analysis</a></li>
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">5. The linear advection equation</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="analyticSolution.html">5.1. The exact equation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="differenceEquation.html">5.2. The difference equation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="differenceSolution.html">5.3. Solution of the difference equation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Analysis.html">5.4. Analysis of the solution of the difference equation</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../NumericalStability/Introduction.html">6. Stability of numerical schemes</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../NumericalStability/ConceptsDefinitions.html">6.1. Concepts and definitions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../NumericalStability/DomainDep.html">6.2. Domain of Dependence (DoD)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../NumericalStability/CFL.html">6.3. Courant-Friedrich-Lewy, CFL criterion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../NumericalStability/Total_variation.html">6.4. Total Variation (TV) and Total Variation Diminishing (TVD) schemes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../NumericalStability/vonNeumannStability.html">6.5. Von Neumann Stability Analysis</a></li>
 </ul>
 </details></li>
 </ul>
@@ -419,21 +422,21 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="the-linear-advection-equation">
-<span id="linearadvection-introduction"></span><h1><span class="section-number">4. </span>The linear advection equation<a class="headerlink" href="#the-linear-advection-equation" title="Link to this heading">#</a></h1>
+<span id="linearadvection-introduction"></span><h1><span class="section-number">5. </span>The linear advection equation<a class="headerlink" href="#the-linear-advection-equation" title="Link to this heading">#</a></h1>
 <p>The linear advection equation is a first order partial differential equation that represents, in a simple form, the process of advection in the atmosphere and ocean. The equation</p>
 <div class="math notranslate nohighlight" id="equation-eq-advection">
-<span class="eqno">(4.1)<a class="headerlink" href="#equation-eq-advection" title="Link to this equation">#</a></span>\[
+<span class="eqno">(5.1)<a class="headerlink" href="#equation-eq-advection" title="Link to this equation">#</a></span>\[
 \frac{\partial u}{\partial t} + a \frac{\partial u}{\partial x} = 0, a&gt;0
 \]</div>
-<p>models the transport of a signal <span class="math notranslate nohighlight">\(u(x,t)\)</span> in 1-d space with velocity <span class="math notranslate nohighlight">\(a\)</span>, that may also be interpreted as a phase speed of a wave that propagates in the positive <span class="math notranslate nohighlight">\(x\)</span>-direction. Equation <a class="reference internal" href="#equation-eq-advection">(4.1)</a> is similar to the first two terms of the momentum equations (e.g. <span id="id1">Cushman-Roisin and Beckers [<a class="reference internal" href="../markdown.html#id9" title="Benoit Cushman-Roisin and Jean-Marie Beckers. Introduction to Geophysical Fluid Dynamics: Physical and Numerical Aspects. Number v. 101 in International Geophysics Series. Academic Press, 2nd ed edition, 2011. ISBN 978-0-12-088759-0.">CRB11</a>]</span>, p. 106), that represent the nonlinear advection of momentum by the motions of the fluid.</p>
+<p>models the transport of a signal <span class="math notranslate nohighlight">\(u(x,t)\)</span> in 1-d space with velocity <span class="math notranslate nohighlight">\(a\)</span>, that may also be interpreted as a phase speed of a wave that propagates in the positive <span class="math notranslate nohighlight">\(x\)</span>-direction. Equation <a class="reference internal" href="#equation-eq-advection">(5.1)</a> is similar to the first two terms of the momentum equations (e.g. <span id="id1">Cushman-Roisin and Beckers [<a class="reference internal" href="../markdown.html#id9" title="Benoit Cushman-Roisin and Jean-Marie Beckers. Introduction to Geophysical Fluid Dynamics: Physical and Numerical Aspects. Number v. 101 in International Geophysics Series. Academic Press, 2nd ed edition, 2011. ISBN 978-0-12-088759-0.">CRB11</a>]</span>, p. 106), that represent the nonlinear advection of momentum by the motions of the fluid.</p>
 <p>Its simplicity and its closeness to the equations that govern fluid flow make it an attractive model with which to study the solution of partial differential equations with numerical methods.</p>
-<p>The simplicity of <a class="reference internal" href="#equation-eq-advection">(4.1)</a> makes possible obtaining an analytic solution and also solve the associated difference equations, allowing a direct comparison of the analytic and numerical solutions.</p>
+<p>The simplicity of <a class="reference internal" href="#equation-eq-advection">(5.1)</a> makes possible obtaining an analytic solution and also solve the associated difference equations, allowing a direct comparison of the analytic and numerical solutions.</p>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="analyticSolution.html">4.1. The exact equation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="differenceEquation.html">4.2. The difference equation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="differenceSolution.html">4.3. Solution of the difference equation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Analysis.html">4.4. Analysis of the solution of the difference equation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="analyticSolution.html">5.1. The exact equation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="differenceEquation.html">5.2. The difference equation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="differenceSolution.html">5.3. Solution of the difference equation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Analysis.html">5.4. Analysis of the solution of the difference equation</a></li>
 </ul>
 </div>
 </section>
@@ -469,12 +472,12 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../FiniteDifferences/evaluatingTruncationError.html"
+       href="../ImplicitSchemes/Implicit_General.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">3.5. </span>Evaluating the truncation error</p>
+        <p class="prev-next-title"><span class="section-number">4.1. </span>The Implicit Scheme</p>
       </div>
     </a>
     <a class="right-next"
@@ -482,7 +485,7 @@ document.write(`
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">4.1. </span>The exact equation</p>
+        <p class="prev-next-title"><span class="section-number">5.1. </span>The exact equation</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
