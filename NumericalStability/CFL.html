@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>5.3. Courant-Friedrich-Lewy, CFL criterion &#8212; GEOF211 resource pages</title>
+    <title>6.3. Courant-Friedrich-Lewy, CFL criterion &#8212; GEOF211 resource pages</title>
   
   
   
@@ -62,8 +62,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'NumericalStability/CFL';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="5.4. Total Variation (TV) and Total Variation Diminishing (TVD) schemes" href="Total_variation.html" />
-    <link rel="prev" title="5.2. Domain of Dependence (DoD)" href="DomainDep.html" />
+    <link rel="next" title="6.4. Total Variation (TV) and Total Variation Diminishing (TVD) schemes" href="Total_variation.html" />
+    <link rel="prev" title="6.2. Domain of Dependence (DoD)" href="DomainDep.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -184,13 +184,12 @@
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../Useful_calculus/Introduction.html">1. Useful calculus</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Useful_calculus/Taylor_Polynomials.html">1.1. Taylor series</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Useful_calculus/Trigonometry.html">1.2. Trigonometry</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Useful_calculus/Complex_numbers.html">1.3. Complex numbers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Useful_calculus/Euler_Formula.html">1.4. The Euler formula</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Useful_calculus/Fourier_transforms.html">1.5. Fourier transforms</a></li>
 
-<li class="toctree-l2"><a class="reference internal" href="../Useful_calculus/Trigonometry.html">1.3. Trigonometry</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Useful_calculus/Complex_numbers.html">1.4. Complex numbers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Useful_calculus/Euler_Formula.html">1.5. The Euler formula</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Useful_calculus/Fourier_transforms.html">1.6. Fourier transforms</a></li>
-
-<li class="toctree-l2"><a class="reference internal" href="../Useful_calculus/Formal_def_derivative.html">1.8. The Formal definition of the derivative</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Useful_calculus/Formal_def_derivative.html">1.7. The Formal definition of the derivative</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../GFD/Introduction.html">2. Geophysical Fluid Dynamics (GFD)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -206,19 +205,23 @@
 <li class="toctree-l2"><a class="reference internal" href="../FiniteDifferences/evaluatingTruncationError.html">3.5. Evaluating the truncation error</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../LinearAdvectionEquation/Introduction.html">4. The linear advection equation</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../LinearAdvectionEquation/analyticSolution.html">4.1. The exact equation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../LinearAdvectionEquation/differenceEquation.html">4.2. The difference equation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../LinearAdvectionEquation/differenceSolution.html">4.3. Solution of the difference equation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../LinearAdvectionEquation/Analysis.html">4.4. Analysis of the solution of the difference equation</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../ImplicitSchemes/Introduction.html">4. Implicit schemes vs explicit schemes</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../ImplicitSchemes/Implicit_General.html">4.1. The Implicit Scheme</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="Introduction.html">5. Stability of numerical schemes</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="ConceptsDefinitions.html">5.1. Concepts and definitions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="DomainDep.html">5.2. Domain of Dependence (DoD)</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">5.3. Courant-Friedrich-Lewy, CFL criterion</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Total_variation.html">5.4. Total Variation (TV) and Total Variation Diminishing (TVD) schemes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="vonNeumannStability.html">5.5. Von Neumann Stability Analysis</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../LinearAdvectionEquation/Introduction.html">5. The linear advection equation</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../LinearAdvectionEquation/analyticSolution.html">5.1. The exact equation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../LinearAdvectionEquation/differenceEquation.html">5.2. The difference equation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../LinearAdvectionEquation/differenceSolution.html">5.3. Solution of the difference equation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../LinearAdvectionEquation/Analysis.html">5.4. Analysis of the solution of the difference equation</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="Introduction.html">6. Stability of numerical schemes</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="ConceptsDefinitions.html">6.1. Concepts and definitions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DomainDep.html">6.2. Domain of Dependence (DoD)</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">6.3. Courant-Friedrich-Lewy, CFL criterion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Total_variation.html">6.4. Total Variation (TV) and Total Variation Diminishing (TVD) schemes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vonNeumannStability.html">6.5. Von Neumann Stability Analysis</a></li>
 </ul>
 </details></li>
 </ul>
@@ -416,7 +419,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#characteristics-of-the-linear-advection-equation">5.3.1. Characteristics of the linear advection equation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#characteristics-of-the-linear-advection-equation">6.3.1. Characteristics of the linear advection equation</a></li>
 </ul>
             </nav>
         </div>
@@ -429,7 +432,7 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="courant-friedrich-lewy-cfl-criterion">
-<span id="numericalstability-cfl"></span><h1><span class="section-number">5.3. </span>Courant-Friedrich-Lewy, CFL criterion<a class="headerlink" href="#courant-friedrich-lewy-cfl-criterion" title="Link to this heading">#</a></h1>
+<span id="numericalstability-cfl"></span><h1><span class="section-number">6.3. </span>Courant-Friedrich-Lewy, CFL criterion<a class="headerlink" href="#courant-friedrich-lewy-cfl-criterion" title="Link to this heading">#</a></h1>
 <p>The CFL criterion is named after the mathematicians Richard Courant, Kurt Otto Friederichs and Hans Lewy who published a piece “On the partial difference equations of mathematical physics” in 1928, where they discuss the factor and how it relates to stability.</p>
 <p>To understand where the CFL criterion comes from, we can, for example, look at the FTBS scheme for the linear advection equation:</p>
 <div class="math notranslate nohighlight">
@@ -456,26 +459,26 @@ $<span class="math notranslate nohighlight">\(
 <p><span class="math notranslate nohighlight">\(C=u\frac{\Delta t}{\Delta x}+v\frac{\Delta t}{\Delta y}\leq C_{max}\)</span> is the CFL criterion for stability of the two-dimensional non-linear advection equation.</p>
 </div>
 <section id="characteristics-of-the-linear-advection-equation">
-<h2><span class="section-number">5.3.1. </span>Characteristics of the linear advection equation<a class="headerlink" href="#characteristics-of-the-linear-advection-equation" title="Link to this heading">#</a></h2>
-<p>The analytical solution to the linear advection equation (eq <a class="reference internal" href="../LinearAdvectionEquation/Introduction.html#equation-eq-advection">(4.1)</a>) is given by <span class="math notranslate nohighlight">\(q(x,t)=q_0(x-at)\)</span>, or we can write it as <span class="math notranslate nohighlight">\(q(x-at,0)\)</span>. For this to be true, the solution must be constant along the charachteristics <span class="math notranslate nohighlight">\(x-at\)</span>. We can sketch this in the <span class="math notranslate nohighlight">\(x-t\)</span> space:</p>
+<h2><span class="section-number">6.3.1. </span>Characteristics of the linear advection equation<a class="headerlink" href="#characteristics-of-the-linear-advection-equation" title="Link to this heading">#</a></h2>
+<p>The analytical solution to the linear advection equation (eq <a class="reference internal" href="../LinearAdvectionEquation/Introduction.html#equation-eq-advection">(5.1)</a>) is given by <span class="math notranslate nohighlight">\(q(x,t)=q_0(x-at)\)</span>, or we can write it as <span class="math notranslate nohighlight">\(q(x-at,0)\)</span>. For this to be true, the solution must be constant along the charachteristics <span class="math notranslate nohighlight">\(x-at\)</span>. We can sketch this in the <span class="math notranslate nohighlight">\(x-t\)</span> space:</p>
 <figure class="align-left" id="id2">
 <a class="reference internal image-reference" href="../_images/Test1.png"><img alt="../_images/Test1.png" src="../_images/Test1.png" style="width: 441.0px; height: 436.5px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 5.2 </span><span class="caption-text">The charactheristics for linear advection with different values of <span class="math notranslate nohighlight">\(a\)</span> in different colors. The solution starting at any of these characteristics will stay at the charachteristics as they translate in time and space.</span><a class="headerlink" href="#id2" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 6.2 </span><span class="caption-text">The charactheristics for linear advection with different values of <span class="math notranslate nohighlight">\(a\)</span> in different colors. The solution starting at any of these characteristics will stay at the charachteristics as they translate in time and space.</span><a class="headerlink" href="#id2" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>Alternatively, we can translate the charactheristics to find how they look while passing through the grid point <span class="math notranslate nohighlight">\((m,n)\)</span>. The domain of dependence for the exact solution, will lie along the charachteristics.</p>
 <figure class="align-left" id="id3">
 <a class="reference internal image-reference" href="../_images/Test2.png"><img alt="../_images/Test2.png" src="../_images/Test2.png" style="width: 441.0px; height: 436.5px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 5.3 </span><span class="caption-text">The charactheristics for linear advection with different values of <span class="math notranslate nohighlight">\(a\)</span> in different colors. The solution starting at any of these characteristics will stay at the charachteristics as they translate in time and space.</span><a class="headerlink" href="#id3" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 6.3 </span><span class="caption-text">The charactheristics for linear advection with different values of <span class="math notranslate nohighlight">\(a\)</span> in different colors. The solution starting at any of these characteristics will stay at the charachteristics as they translate in time and space.</span><a class="headerlink" href="#id3" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>If we now combine the figures showing the numerical domain of dependence for the FTBS scheme and the exact domain of dependence from the charactheristics, we obtain:</p>
 <figure class="align-default" id="id4">
 <img alt="../_images/Lin_adv_charachteristic_3.png" src="../_images/Lin_adv_charachteristic_3.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 5.4 </span><span class="caption-text">Domain of dependence for the exact (analytical) solution of the linear advection equation (colors) and for the FTBS scheme (shaded triangles).</span><a class="headerlink" href="#id4" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 6.4 </span><span class="caption-text">Domain of dependence for the exact (analytical) solution of the linear advection equation (colors) and for the FTBS scheme (shaded triangles).</span><a class="headerlink" href="#id4" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>If the analytical domain of dependence lies within the numerical domain of dependence of a given scheme, then the scheme fullfills a necessary (but not sufficient) requirement for stability.</p>
@@ -520,7 +523,7 @@ $<span class="math notranslate nohighlight">\(
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">5.2. </span>Domain of Dependence (DoD)</p>
+        <p class="prev-next-title"><span class="section-number">6.2. </span>Domain of Dependence (DoD)</p>
       </div>
     </a>
     <a class="right-next"
@@ -528,7 +531,7 @@ $<span class="math notranslate nohighlight">\(
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">5.4. </span>Total Variation (TV) and Total Variation Diminishing (TVD) schemes</p>
+        <p class="prev-next-title"><span class="section-number">6.4. </span>Total Variation (TV) and Total Variation Diminishing (TVD) schemes</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -548,7 +551,7 @@ $<span class="math notranslate nohighlight">\(
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#characteristics-of-the-linear-advection-equation">5.3.1. Characteristics of the linear advection equation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#characteristics-of-the-linear-advection-equation">6.3.1. Characteristics of the linear advection equation</a></li>
 </ul>
   </nav></div>
 
