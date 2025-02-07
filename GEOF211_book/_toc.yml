@@ -26,6 +26,10 @@ chapters:
   - file: FiniteDifferences/estimatesTruncationError.md
   - file: FiniteDifferences/fdFormulasFirstDerivative.md
   - file: FiniteDifferences/evaluatingTruncationError.md
+- file: ImplicitSchemes/Introduction.md
+  sections:
+  - file: ImplicitSchemes/CrankNicoloson.md
+  - file: ImplicitSchemes/Implicit_General.md
 - file: LinearAdvectionEquation/Introduction.md
   sections:
   - file: LinearAdvectionEquation/analyticSolution.md
