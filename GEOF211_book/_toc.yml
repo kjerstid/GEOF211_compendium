@@ -28,7 +28,7 @@ chapters:
   - file: FiniteDifferences/evaluatingTruncationError.md
 - file: ImplicitSchemes/Introduction.md
   sections:
-  - file: ImplicitSchemes/CrankNicoloson.md
+  - file: ImplicitSchemes/CrankNicolson.md
   - file: ImplicitSchemes/Implicit_General.md
 - file: LinearAdvectionEquation/Introduction.md
   sections:
