@@ -25,7 +25,10 @@ $$ (eq:Absolute_inequality)
 
 
 $$
-|a+b|=\sqrt{a^2+b^2}
+\begin{align}
+|a+b|&=\sqrt{a^2+b^2}\\
+|a-b|&=\sqrt{a^2+(-b)^2}\\
+\end{align}
 $$ (eq:Absolute_sum)
 
 $$
