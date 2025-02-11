@@ -10,6 +10,7 @@ chapters:
   sections:
   - file: Useful_calculus/Taylor_Polynomials.md
   - file: Useful_calculus/Trigonometry.md
+  - file: Useful_calculus/Absolute_values.md
   - file: Useful_calculus/Complex_numbers.md
   - file: Useful_calculus/Euler_Formula.md
   - file: Useful_calculus/Fourier_transforms.md
