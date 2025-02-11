@@ -15,7 +15,7 @@ kernelspec:
 Until now, all schemes have time step limitations in the form of the CFL condition $c\Delta t/\Delta x \leq 1$. One way to overcome that limitation is to use *implicit* schemes, where the spatial derivatives are evaluated at $t^{n+1}$. One such scheme is the Crank-Nicholson scheme:
 
 $$
-  \frac{u_m^{n+1}-u_m^n}{\Delta t} = -\frac{c}{2}\left(\frac{u_{m+1}^{n+1}-u_{m-1}^{n+1}}{2\Delta x} + \frac{u_{m+1}^{n}-u_{m-1}^{n}}{2\Delta x}\right)
+  \frac{u_m^{n+1}-u_m^n}{\Delta t} = -\frac{a}{2\Delta x}\left(\frac{u_{m+1}^{n+1}-u_{m-1}^{n+1}}{2} + \frac{u_{m+1}^{n}-u_{m-1}^{n}}{2}\right)
 $$ (eq:schemeCrankNicholson)
 
 The scheme uses a forward approximation to the time derivative at $t^n$ and the average of the centred approximations of the space derivative at $t^n$ and $t^{n+1}$. 
@@ -28,7 +28,7 @@ We can expand {eq}`eq:schemeCrankNicholson` to obtain
 
 $$
   -\frac{\sigma}{4}u_{m-1}^{n+1}  + u_m^{n+1} + \frac{\sigma}{4}u_{m+1}^{n+1} =
-    \frac{\sigma}{4}u_{m-1}^{n}  + u_m^{n} - \frac{\sigma}{4}u_{m+1}^{n},\quad \sigma = c\frac{\Delta t}{\Delta x}   
+    \frac{\sigma}{4}u_{m-1}^{n}  + u_m^{n} - \frac{\sigma}{4}u_{m+1}^{n},\quad \sigma = a\frac{\Delta t}{\Delta x}   
 $$
 
 that is a linear system of equations 
@@ -68,23 +68,23 @@ In the case $A$ and $B$ are tridiagonal, as above, the solution of the linear sy
 ## Consistency, stability and convergence
 
 The scheme has a truncation error $O(\Delta t^2,\Delta x^2)$, since the spatial derivatives are approximated by a centred formula and the time derivative also, at $t^{n+1/2}$.
-The stability of the scheme can be determined by the usual method of assuming a solution of the form $B^n e^{i\lambda m \Delta x}$ and noting that
+The stability of the scheme can be determined by the usual method of assuming a solution of the form $B^n e^{ikm\Delta x}$ and noting that
 
 $$
-    u_{m+1}^{n}-u_{m-1}^{n} = (2i\sin\lambda \Delta x)u_{m}^{n}
+    u_{m+1}^{n}-u_{m-1}^{n} = (2i\sin k\Delta x)u_{m}^{n}
 $$
 
 we arrive at the following amplification factor:
 
 $$
-   G = \frac{u_{m}^{n+1}}{u_{m}^{n}} = \frac{1-(\sigma/2)i\sin\lambda \Delta x}{1+(\sigma/2)i\sin\lambda \Delta x},
+   G = \frac{u_{m}^{n+1}}{u_{m}^{n}} = \frac{1-(\sigma/2)i\sin k\Delta x}{1+(\sigma/2)i\sin k \Delta x},
 $$(eq:ampFactorCN)
 
 whose norm $|G|$ is
 
 $$
- |G| = \left| \frac{1-(\sigma/2)i\sin\lambda \Delta x}{1+(\sigma/2)i\sin\lambda \Delta x}\right| = 
-    \frac{ \left|1-(\sigma/2)i\sin\lambda \Delta x\right|}{ \left|1+(\sigma/2)i\sin\lambda \Delta x\right|} = 1.
+ |G| = \left| \frac{1-(\sigma/2)i\sin k \Delta x}{1+(\sigma/2)i\sin k \Delta x}\right| = 
+    \frac{ \left|1-(\sigma/2)i\sin k \Delta x\right|}{ \left|1+(\sigma/2)i\sin k \Delta x\right|} = 1.
 $$
 
 The scheme is, therefore, *unconditionally stable* and doesn't suffer from CFL limitations, unlike the previous explicit schemes.
@@ -108,13 +108,13 @@ The Crank-Nicholson scheme is implemented in the following Python function:
 ```{code-cell} ipython3
 :tags: ["hide-cell"]
 
-def crankNicholson(u0,c,dt,dx,N,M):
+def crankNicholson(u0,a,dt,dx,N,M):
 
     # Initial condition
     u=u0.copy()
 
     # CFL number
-    C = c*dt/dx
+    C = a*dt/dx
     
     # System of equations
     
@@ -150,7 +150,7 @@ from scipy.sparse import spdiags
 
 N     = 30       # Number of time steps
 M     = 100      # Number of grid points
-c     = 0.75     # Propagation speed
+a     = 0.75     # Propagation speed
 
 dt = 0.01
 dx = 1/M
@@ -165,7 +165,7 @@ print("CFL number = {:f}".format(c*dt/dx))
 X=np.linspace(0,1,M)
 
 # Integrate the initial condition N time steps
-U=crankNicholson(topHat(X),c,dt,dx,N,M)
+U=crankNicholson(topHat(X),a,dt,dx,N,M)
 
 ```
 
@@ -174,8 +174,8 @@ The solution at the end of the integration is shown below:
 ```{code-cell} ipython3
 :tags: ["hide-input"]
 
-# Shift the exact solution a distance equivalent to c*N*dt
-newX = np.mod(X-c*N*dt,1)
+# Shift the exact solution a distance equivalent to a*N*dt
+newX = np.mod(X-a*N*dt,1)
 
 fig, ax0 = plt.subplots()
 
@@ -212,16 +212,16 @@ $$
 Substituting {eq}`eq:ampFactorCN`, we obtain the following expression for the phase speed $c_F$ of the numerical solution
 
 $$
-  c_F = \frac{2\theta}{\lambda \Delta t}, \quad \theta = \tan^{-1}\left( \frac{\sigma}{2} \sin \lambda \Delta x \right)
+  c_F = \frac{2\theta}{k \Delta t}, \quad \theta = \tan^{-1}\left( \frac{\sigma}{2} \sin k \Delta x \right)
 $$
 
-For shortwaves in the numerical solution, e.g. the $2\Delta x$ wavelength, we have $\lambda = \pi/\Delta x$ and $\theta = \tan^{-1} (\sigma/2 \sin \pi)=0$, which means the shortwave is stationary. For large wavelength, we have $\lambda \Delta x \ll 1$ and
+For shortwaves in the numerical solution, e.g. the $2\Delta x$ wavelength, we have $k = \pi/\Delta x$ and $\theta = \tan^{-1} (\sigma/2 \sin \pi)=0$, which means the shortwave is stationary. For large wavelength, we have $k \Delta x \ll 1$ and
 
 $$
-  \theta = \tan^{-1} {\frac{\sigma}{2} \sin \lambda \Delta x} = \tan^{-1} (\frac{c\lambda \Delta t}{2})
+  \theta = \tan^{-1} {\frac{\sigma}{2} \sin k \Delta x} = \tan^{-1} (\frac{ak \Delta t}{2})
 $$
 
-For small $\Delta t$, we'll have $\theta = \frac{c\lambda \Delta t}{2} $ and $c_F = c$. But for large $\Delta t$, it will be $\theta = \pi/2$ and $c_F = \pi/\Delta t \lambda$, which is independent of $c$. 
+For small $\Delta t$, we'll have $\theta = \frac{ak \Delta t}{2} $ and $a_F = a$. But for large $\Delta t$, it will be $\theta = \pi/2$ and $a_F = \pi/\Delta t \lambda$, which is independent of $a$. 
 
 Therefore, either for shortwave components or long wavelengths we will have errors in the phase speed of the numerical solution that make the use of the Crank-Nicholson scheme dubious for the linear advection problem.
 

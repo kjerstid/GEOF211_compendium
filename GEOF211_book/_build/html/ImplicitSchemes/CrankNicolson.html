@@ -486,7 +486,7 @@ document.write(`
 <p>Until now, all schemes have time step limitations in the form of the CFL condition <span class="math notranslate nohighlight">\(c\Delta t/\Delta x \leq 1\)</span>. One way to overcome that limitation is to use <em>implicit</em> schemes, where the spatial derivatives are evaluated at <span class="math notranslate nohighlight">\(t^{n+1}\)</span>. One such scheme is the Crank-Nicholson scheme:</p>
 <div class="math notranslate nohighlight" id="equation-eq-schemecranknicholson">
 <span class="eqno">(4.3)<a class="headerlink" href="#equation-eq-schemecranknicholson" title="Link to this equation">#</a></span>\[
-  \frac{u_m^{n+1}-u_m^n}{\Delta t} = -\frac{c}{2}\left(\frac{u_{m+1}^{n+1}-u_{m-1}^{n+1}}{2\Delta x} + \frac{u_{m+1}^{n}-u_{m-1}^{n}}{2\Delta x}\right)
+  \frac{u_m^{n+1}-u_m^n}{\Delta t} = -\frac{a}{2\Delta x}\left(\frac{u_{m+1}^{n+1}-u_{m-1}^{n+1}}{2} + \frac{u_{m+1}^{n}-u_{m-1}^{n}}{2}\right)
 \]</div>
 <p>The scheme uses a forward approximation to the time derivative at <span class="math notranslate nohighlight">\(t^n\)</span> and the average of the centred approximations of the space derivative at <span class="math notranslate nohighlight">\(t^n\)</span> and <span class="math notranslate nohighlight">\(t^{n+1}\)</span>.</p>
 <p>Another way of looking at <a class="reference internal" href="#equation-eq-schemecranknicholson">(4.3)</a> is that the LHS is a centred approximation of the time derivative at <span class="math notranslate nohighlight">\(t^{n+1/2}\)</span> and the averaging of the spatial derivatives provides an estimate of the spatial derivative at <span class="math notranslate nohighlight">\(t^{n+1/2}\)</span>.</p>
@@ -495,7 +495,7 @@ document.write(`
 <div class="math notranslate nohighlight">
 \[
   -\frac{\sigma}{4}u_{m-1}^{n+1}  + u_m^{n+1} + \frac{\sigma}{4}u_{m+1}^{n+1} =
-    \frac{\sigma}{4}u_{m-1}^{n}  + u_m^{n} - \frac{\sigma}{4}u_{m+1}^{n},\quad \sigma = c\frac{\Delta t}{\Delta x}   
+    \frac{\sigma}{4}u_{m-1}^{n}  + u_m^{n} - \frac{\sigma}{4}u_{m+1}^{n},\quad \sigma = a\frac{\Delta t}{\Delta x}   
 \]</div>
 <p>that is a linear system of equations</p>
 <div class="math notranslate nohighlight" id="equation-eq-schemeab">
@@ -531,21 +531,21 @@ B =
 <section id="consistency-stability-and-convergence">
 <h2><span class="section-number">4.1.1. </span>Consistency, stability and convergence<a class="headerlink" href="#consistency-stability-and-convergence" title="Link to this heading">#</a></h2>
 <p>The scheme has a truncation error <span class="math notranslate nohighlight">\(O(\Delta t^2,\Delta x^2)\)</span>, since the spatial derivatives are approximated by a centred formula and the time derivative also, at <span class="math notranslate nohighlight">\(t^{n+1/2}\)</span>.
-The stability of the scheme can be determined by the usual method of assuming a solution of the form <span class="math notranslate nohighlight">\(B^n e^{i\lambda m \Delta x}\)</span> and noting that</p>
+The stability of the scheme can be determined by the usual method of assuming a solution of the form <span class="math notranslate nohighlight">\(B^n e^{ikm\Delta x}\)</span> and noting that</p>
 <div class="math notranslate nohighlight">
 \[
-    u_{m+1}^{n}-u_{m-1}^{n} = (2i\sin\lambda \Delta x)u_{m}^{n}
+    u_{m+1}^{n}-u_{m-1}^{n} = (2i\sin k\Delta x)u_{m}^{n}
 \]</div>
 <p>we arrive at the following amplification factor:</p>
 <div class="math notranslate nohighlight" id="equation-eq-ampfactorcn">
 <span class="eqno">(4.5)<a class="headerlink" href="#equation-eq-ampfactorcn" title="Link to this equation">#</a></span>\[
-   G = \frac{u_{m}^{n+1}}{u_{m}^{n}} = \frac{1-(\sigma/2)i\sin\lambda \Delta x}{1+(\sigma/2)i\sin\lambda \Delta x},
+   G = \frac{u_{m}^{n+1}}{u_{m}^{n}} = \frac{1-(\sigma/2)i\sin k\Delta x}{1+(\sigma/2)i\sin k \Delta x},
 \]</div>
 <p>whose norm <span class="math notranslate nohighlight">\(|G|\)</span> is</p>
 <div class="math notranslate nohighlight">
 \[
- |G| = \left| \frac{1-(\sigma/2)i\sin\lambda \Delta x}{1+(\sigma/2)i\sin\lambda \Delta x}\right| = 
-    \frac{ \left|1-(\sigma/2)i\sin\lambda \Delta x\right|}{ \left|1+(\sigma/2)i\sin\lambda \Delta x\right|} = 1.
+ |G| = \left| \frac{1-(\sigma/2)i\sin k \Delta x}{1+(\sigma/2)i\sin k \Delta x}\right| = 
+    \frac{ \left|1-(\sigma/2)i\sin k \Delta x\right|}{ \left|1+(\sigma/2)i\sin k \Delta x\right|} = 1.
 \]</div>
 <p>The scheme is, therefore, <em>unconditionally stable</em> and doesn’t suffer from CFL limitations, unlike the previous explicit schemes.</p>
 </section>
@@ -577,13 +577,13 @@ The stability of the scheme can be determined by the usual method of assuming a 
 <span class="expanded">Hide code cell content</span>
 </summary>
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">crankNicholson</span><span class="p">(</span><span class="n">u0</span><span class="p">,</span><span class="n">c</span><span class="p">,</span><span class="n">dt</span><span class="p">,</span><span class="n">dx</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">M</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">crankNicholson</span><span class="p">(</span><span class="n">u0</span><span class="p">,</span><span class="n">a</span><span class="p">,</span><span class="n">dt</span><span class="p">,</span><span class="n">dx</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">M</span><span class="p">):</span>
 
     <span class="c1"># Initial condition</span>
     <span class="n">u</span><span class="o">=</span><span class="n">u0</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 
     <span class="c1"># CFL number</span>
-    <span class="n">C</span> <span class="o">=</span> <span class="n">c</span><span class="o">*</span><span class="n">dt</span><span class="o">/</span><span class="n">dx</span>
+    <span class="n">C</span> <span class="o">=</span> <span class="n">a</span><span class="o">*</span><span class="n">dt</span><span class="o">/</span><span class="n">dx</span>
     
     <span class="c1"># System of equations</span>
     
@@ -625,7 +625,7 @@ The stability of the scheme can be determined by the usual method of assuming a 
 
 <span class="n">N</span>     <span class="o">=</span> <span class="mi">30</span>       <span class="c1"># Number of time steps</span>
 <span class="n">M</span>     <span class="o">=</span> <span class="mi">100</span>      <span class="c1"># Number of grid points</span>
-<span class="n">c</span>     <span class="o">=</span> <span class="mf">0.75</span>     <span class="c1"># Propagation speed</span>
+<span class="n">a</span>     <span class="o">=</span> <span class="mf">0.75</span>     <span class="c1"># Propagation speed</span>
 
 <span class="n">dt</span> <span class="o">=</span> <span class="mf">0.01</span>
 <span class="n">dx</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">M</span>
@@ -640,7 +640,7 @@ The stability of the scheme can be determined by the usual method of assuming a 
 <span class="n">X</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">M</span><span class="p">)</span>
 
 <span class="c1"># Integrate the initial condition N time steps</span>
-<span class="n">U</span><span class="o">=</span><span class="n">crankNicholson</span><span class="p">(</span><span class="n">topHat</span><span class="p">(</span><span class="n">X</span><span class="p">),</span><span class="n">c</span><span class="p">,</span><span class="n">dt</span><span class="p">,</span><span class="n">dx</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">M</span><span class="p">)</span>
+<span class="n">U</span><span class="o">=</span><span class="n">crankNicholson</span><span class="p">(</span><span class="n">topHat</span><span class="p">(</span><span class="n">X</span><span class="p">),</span><span class="n">a</span><span class="p">,</span><span class="n">dt</span><span class="p">,</span><span class="n">dx</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">M</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -650,7 +650,18 @@ The stability of the scheme can be determined by the usual method of assuming a 
 Number of grid points = 100
 Time step = 0.010000
 Grid size = 0.010000
-CFL number = 0.750000
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">line</span> <span class="mi">17</span>
+<span class="g g-Whitespace">     </span><span class="mi">15</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Time step = </span><span class="si">{:f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">dt</span><span class="p">))</span>
+<span class="g g-Whitespace">     </span><span class="mi">16</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Grid size = </span><span class="si">{:f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">dx</span><span class="p">))</span>
+<span class="ne">---&gt; </span><span class="mi">17</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;CFL number = </span><span class="si">{:f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">c</span><span class="o">*</span><span class="n">dt</span><span class="o">/</span><span class="n">dx</span><span class="p">))</span>
+<span class="g g-Whitespace">     </span><span class="mi">19</span> <span class="c1"># Grid points</span>
+<span class="g g-Whitespace">     </span><span class="mi">20</span> <span class="n">X</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">M</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;c&#39; is not defined
 </pre></div>
 </div>
 </div>
@@ -663,8 +674,8 @@ CFL number = 0.750000
 <span class="expanded">Hide code cell source</span>
 </summary>
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Shift the exact solution a distance equivalent to c*N*dt</span>
-<span class="n">newX</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mod</span><span class="p">(</span><span class="n">X</span><span class="o">-</span><span class="n">c</span><span class="o">*</span><span class="n">N</span><span class="o">*</span><span class="n">dt</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Shift the exact solution a distance equivalent to a*N*dt</span>
+<span class="n">newX</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mod</span><span class="p">(</span><span class="n">X</span><span class="o">-</span><span class="n">a</span><span class="o">*</span><span class="n">N</span><span class="o">*</span><span class="n">dt</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
 
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax0</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
 
@@ -682,9 +693,6 @@ CFL number = 0.750000
 </div>
 </div>
 </details>
-<div class="cell_output docutils container">
-<img alt="../_images/7f0121277231b66caf3de90e1ad466250a1e7af48e01f4a02ced9b1110141e24.png" src="../_images/7f0121277231b66caf3de90e1ad466250a1e7af48e01f4a02ced9b1110141e24.png" />
-</div>
 </div>
 <p>The unconditional stability of the implicit Crank-Nicholson scheme is its great advantage, but it’s use in the advection equation has unwanted consequences in the form of dispersion and errors in the phase speed. The comparison with the Leapfrog scheme shows that the scheme, although unconditionally stable still suffers from dispersive behaviour.</p>
 <p>From <a class="reference internal" href="#equation-eq-ampfactorcn">(4.5)</a>, we can write</p>
@@ -700,14 +708,14 @@ CFL number = 0.750000
 <p>Substituting <a class="reference internal" href="#equation-eq-ampfactorcn">(4.5)</a>, we obtain the following expression for the phase speed <span class="math notranslate nohighlight">\(c_F\)</span> of the numerical solution</p>
 <div class="math notranslate nohighlight">
 \[
-  c_F = \frac{2\theta}{\lambda \Delta t}, \quad \theta = \tan^{-1}\left( \frac{\sigma}{2} \sin \lambda \Delta x \right)
+  c_F = \frac{2\theta}{k \Delta t}, \quad \theta = \tan^{-1}\left( \frac{\sigma}{2} \sin k \Delta x \right)
 \]</div>
-<p>For shortwaves in the numerical solution, e.g. the <span class="math notranslate nohighlight">\(2\Delta x\)</span> wavelength, we have <span class="math notranslate nohighlight">\(\lambda = \pi/\Delta x\)</span> and <span class="math notranslate nohighlight">\(\theta = \tan^{-1} (\sigma/2 \sin \pi)=0\)</span>, which means the shortwave is stationary. For large wavelength, we have <span class="math notranslate nohighlight">\(\lambda \Delta x \ll 1\)</span> and</p>
+<p>For shortwaves in the numerical solution, e.g. the <span class="math notranslate nohighlight">\(2\Delta x\)</span> wavelength, we have <span class="math notranslate nohighlight">\(k = \pi/\Delta x\)</span> and <span class="math notranslate nohighlight">\(\theta = \tan^{-1} (\sigma/2 \sin \pi)=0\)</span>, which means the shortwave is stationary. For large wavelength, we have <span class="math notranslate nohighlight">\(k \Delta x \ll 1\)</span> and</p>
 <div class="math notranslate nohighlight">
 \[
-  \theta = \tan^{-1} {\frac{\sigma}{2} \sin \lambda \Delta x} = \tan^{-1} (\frac{c\lambda \Delta t}{2})
+  \theta = \tan^{-1} {\frac{\sigma}{2} \sin k \Delta x} = \tan^{-1} (\frac{ak \Delta t}{2})
 \]</div>
-<p>For small <span class="math notranslate nohighlight">\(\Delta t\)</span>, we’ll have <span class="math notranslate nohighlight">\(\theta = \frac{c\lambda \Delta t}{2} \)</span> and <span class="math notranslate nohighlight">\(c_F = c\)</span>. But for large <span class="math notranslate nohighlight">\(\Delta t\)</span>, it will be <span class="math notranslate nohighlight">\(\theta = \pi/2\)</span> and <span class="math notranslate nohighlight">\(c_F = \pi/\Delta t \lambda\)</span>, which is independent of <span class="math notranslate nohighlight">\(c\)</span>.</p>
+<p>For small <span class="math notranslate nohighlight">\(\Delta t\)</span>, we’ll have <span class="math notranslate nohighlight">\(\theta = \frac{ak \Delta t}{2} \)</span> and <span class="math notranslate nohighlight">\(a_F = a\)</span>. But for large <span class="math notranslate nohighlight">\(\Delta t\)</span>, it will be <span class="math notranslate nohighlight">\(\theta = \pi/2\)</span> and <span class="math notranslate nohighlight">\(a_F = \pi/\Delta t \lambda\)</span>, which is independent of <span class="math notranslate nohighlight">\(a\)</span>.</p>
 <p>Therefore, either for shortwave components or long wavelengths we will have errors in the phase speed of the numerical solution that make the use of the Crank-Nicholson scheme dubious for the linear advection problem.</p>
 </section>
 </section>
