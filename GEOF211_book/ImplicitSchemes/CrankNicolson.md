@@ -10,17 +10,17 @@ kernelspec:
   name: python3
 ---
 (scheme:crank-nicholson)=
-# The Crank-Nicholson Scheme
+# The Crank-Nicholson Scheme for linear advection
 
-Until now, all schemes have time step limitations in the form of the CFL condition $c\Delta t/\Delta x \leq 1$. One way to overcome that limitation is to use *implicit* schemes, where the spatial derivatives are evaluated at $t^{n+1}$. One such scheme is the Crank-Nicholson scheme:
+Until now, all schemes have time step limitations in the form of the CFL condition $c\Delta t/\Delta x \leq 1$. One way to overcome that limitation is to use *implicit* schemes, where the spatial derivatives are evaluated at $t^{n+1}$. One such scheme is the Crank-Nicholson scheme, which was, originally designed o solve the diffusion equation (heat conduction). Here, we show the Crank-Nicolson scheme for linear advection:
 
 $$
   \frac{u_m^{n+1}-u_m^n}{\Delta t} = -\frac{a}{2\Delta x}\left(\frac{u_{m+1}^{n+1}-u_{m-1}^{n+1}}{2} + \frac{u_{m+1}^{n}-u_{m-1}^{n}}{2}\right)
 $$ (eq:schemeCrankNicholson)
 
-The scheme uses a forward approximation to the time derivative at $t^n$ and the average of the centred approximations of the space derivative at $t^n$ and $t^{n+1}$. 
+The scheme is a modification of the FTCS (Forward in time, centered in space) scheme. It uses the forward approximation to the time derivative at $t^n$ and the average of the centred approximations of the space derivative at $t^n$ and $t^{n+1}$.
 
-Another way of looking at {eq}`eq:schemeCrankNicholson` is that the LHS is a centred approximation of the time derivative at $t^{n+1/2}$ and the averaging of the spatial derivatives provides an estimate of the spatial derivative at $t^{n+1/2}$.
+Another way of looking at {eq}`eq:schemeCrankNicholson` is that the left hand side (LHS) is a centred approximation of the time derivative at $t^{n+1/2}$ and the averaging of the spatial derivatives provides an estimate of the spatial derivative at $t^{n+1/2}$.
 
 The use of the terms at $t^{n+1}$ poses a complication because these are not known at time $t^n$. Therefore, the scheme is not an explicit time marching scheme as we have seen so far, but one where the solution is implicit in the scheme itself, hence the designation of *implicit* scheme. To obtain the unknown values at $t^{n+1}$, a linear system of equations must be solved. 
 
@@ -37,7 +37,7 @@ $$
   A\mathbf{u}^{n+1}=B\mathbf{u}^{n}.
 $$ (eq:schemeAB)
 
-The matrices $A$ and $B$, are in the case of Dirichlet boundary conditions $u(0,t)=u(L,t)=0$
+The matrices $A$ and $B$, are in the case of Dirichlet boundary conditions $u(0,t)=u(L,t)=0$. If you boundary conditions where $u(0,t)\neq 0$ and $u(L,t)\neq 0$, you will need to consider what value they take, and extend the matrices A and B with one column for $u(0,t)$ and one for $u(L,t)$ at either side of the matrices. 
 
 $$
 A = 
