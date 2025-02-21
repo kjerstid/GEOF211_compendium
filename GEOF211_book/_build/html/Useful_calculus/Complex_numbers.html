@@ -207,7 +207,7 @@
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../ImplicitSchemes/Introduction.html">4. Implicit schemes vs explicit schemes</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../ImplicitSchemes/CrankNicolson.html">4.1. The Crank-Nicholson Scheme</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ImplicitSchemes/CrankNicolson.html">4.1. The Crank-Nicholson Scheme for linear advection</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../ImplicitSchemes/Implicit_General.html">4.2. The Implicit Scheme</a></li>
 </ul>
 </details></li>
@@ -431,25 +431,29 @@ i=\sqrt{-1}
 \)</span>$ (eq:Complex_i)</p>
 <p>A complex number is and expression of the form:</p>
 <div class="math notranslate nohighlight" id="equation-eq-complex-def">
-<span class="eqno">(1.25)<a class="headerlink" href="#equation-eq-complex-def" title="Link to this equation">#</a></span>\[
+<span class="eqno">(1.26)<a class="headerlink" href="#equation-eq-complex-def" title="Link to this equation">#</a></span>\[
 z=x+iy
 \]</div>
-<p>The distance from origo, the the point (x,y) in the complex plane is called the modulus and is defined as:
-$<span class="math notranslate nohighlight">\(
+<p>The distance from origo, the the point (x,y) in the complex plane is called the modulus and is defined as:</p>
+<div class="math notranslate nohighlight" id="equation-eq-complex-modulus">
+<span class="eqno">(1.27)<a class="headerlink" href="#equation-eq-complex-modulus" title="Link to this equation">#</a></span>\[
 |z|=\sqrt{x^2+y^2}
-\)</span>$ (eq:Complex_modulus)</p>
-<p>The norm of a complex  number (equivalent of the vector length in the complex plane) is:
-$<span class="math notranslate nohighlight">\(
+\]</div>
+<p>The norm of a complex  number (equivalent of the vector length in the complex plane) is:</p>
+<div class="math notranslate nohighlight" id="equation-eq-complex-norm-squared">
+<span class="eqno">(1.28)<a class="headerlink" href="#equation-eq-complex-norm-squared" title="Link to this equation">#</a></span>\[
 |z|^2=x^2+y^2
-\)</span>$ (eq:Complex_norm_squared)</p>
-<p>The modulus of a product of two complex numbers <span class="math notranslate nohighlight">\(z\)</span> and <span class="math notranslate nohighlight">\(w\)</span> is:
-$<span class="math notranslate nohighlight">\(
+\]</div>
+<p>The modulus of a product of two complex numbers <span class="math notranslate nohighlight">\(z\)</span> and <span class="math notranslate nohighlight">\(w\)</span> is:</p>
+<div class="math notranslate nohighlight" id="equation-eq-complex-modulus-product">
+<span class="eqno">(1.29)<a class="headerlink" href="#equation-eq-complex-modulus-product" title="Link to this equation">#</a></span>\[
 |zw|=|z||w|
-\)</span>$ (eq:Complex_modulus_product)</p>
-<p>The modulus of the sum of two complex numbers, also called “The triangle inequality” is defined:
-$<span class="math notranslate nohighlight">\(
+\]</div>
+<p>The modulus of the sum of two complex numbers, also called “The triangle inequality” is defined:</p>
+<div class="math notranslate nohighlight" id="equation-eq-complex-triangle-identity">
+<span class="eqno">(1.30)<a class="headerlink" href="#equation-eq-complex-triangle-identity" title="Link to this equation">#</a></span>\[
 |z+w|&lt;|z|+|w|
-\)</span>$ (eq:Complex_triangle_identity)</p>
+\]</div>
 <p>You can read more about complex numbers in <span id="id1">Adams and Essex [<a class="reference internal" href="../markdown.html#id3" title="Robert A Adams and Christopher Essex. Calculus: a complete course. Pearson, 2018.">AE18</a>]</span>, Appendix 1.</p>
 </section>
 

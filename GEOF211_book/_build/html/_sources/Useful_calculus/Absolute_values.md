@@ -46,4 +46,10 @@ $$
 \end{align}
 $$ (eq:Absolute_fraction)
 
+The triangle inequality can be useful in some stabilty analyses:
+
+$$
+|x+y|\leq|x|+|y|
+$$ (eq:Triangle_identity)
+
 

@@ -30,6 +30,7 @@ chapters:
 - file: ImplicitSchemes/Introduction.md
   sections:
   - file: ImplicitSchemes/CrankNicolson.md
+  - file: ImplicitSchemes/CrankNicolson_diffusion.md
   - file: ImplicitSchemes/Implicit_General.md
 - file: LinearAdvectionEquation/Introduction.md
   sections:

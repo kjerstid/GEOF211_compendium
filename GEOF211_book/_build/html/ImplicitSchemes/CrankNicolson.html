@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>4.1. The Crank-Nicholson Scheme &#8212; GEOF211 resource pages</title>
+    <title>4.1. The Crank-Nicholson Scheme for linear advection &#8212; GEOF211 resource pages</title>
   
   
   
@@ -185,11 +185,12 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="../Useful_calculus/Introduction.html">1. Useful calculus</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Useful_calculus/Taylor_Polynomials.html">1.1. Taylor series</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Useful_calculus/Trigonometry.html">1.2. Trigonometry</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Useful_calculus/Complex_numbers.html">1.3. Complex numbers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Useful_calculus/Euler_Formula.html">1.4. The Euler formula</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Useful_calculus/Fourier_transforms.html">1.5. Fourier transforms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Useful_calculus/Absolute_values.html">1.3. Absolute values</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Useful_calculus/Complex_numbers.html">1.4. Complex numbers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Useful_calculus/Euler_Formula.html">1.5. The Euler formula</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Useful_calculus/Fourier_transforms.html">1.6. Fourier transforms</a></li>
 
-<li class="toctree-l2"><a class="reference internal" href="../Useful_calculus/Formal_def_derivative.html">1.7. The Formal definition of the derivative</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Useful_calculus/Formal_def_derivative.html">1.8. The Formal definition of the derivative</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../GFD/Introduction.html">2. Geophysical Fluid Dynamics (GFD)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -206,7 +207,7 @@
 </ul>
 </details></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="Introduction.html">4. Implicit schemes vs explicit schemes</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">4.1. The Crank-Nicholson Scheme</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">4.1. The Crank-Nicholson Scheme for linear advection</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Implicit_General.html">4.2. The Implicit Scheme</a></li>
 </ul>
 </details></li>
@@ -458,7 +459,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>The Crank-Nicholson Scheme</h1>
+    <h1>The Crank-Nicholson Scheme for linear advection</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -481,15 +482,15 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="the-crank-nicholson-scheme">
-<span id="scheme-crank-nicholson"></span><h1><span class="section-number">4.1. </span>The Crank-Nicholson Scheme<a class="headerlink" href="#the-crank-nicholson-scheme" title="Link to this heading">#</a></h1>
-<p>Until now, all schemes have time step limitations in the form of the CFL condition <span class="math notranslate nohighlight">\(c\Delta t/\Delta x \leq 1\)</span>. One way to overcome that limitation is to use <em>implicit</em> schemes, where the spatial derivatives are evaluated at <span class="math notranslate nohighlight">\(t^{n+1}\)</span>. One such scheme is the Crank-Nicholson scheme:</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="the-crank-nicholson-scheme-for-linear-advection">
+<span id="scheme-crank-nicholson"></span><h1><span class="section-number">4.1. </span>The Crank-Nicholson Scheme for linear advection<a class="headerlink" href="#the-crank-nicholson-scheme-for-linear-advection" title="Link to this heading">#</a></h1>
+<p>Until now, all schemes have time step limitations in the form of the CFL condition <span class="math notranslate nohighlight">\(c\Delta t/\Delta x \leq 1\)</span>. One way to overcome that limitation is to use <em>implicit</em> schemes, where the spatial derivatives are evaluated at <span class="math notranslate nohighlight">\(t^{n+1}\)</span>. One such scheme is the Crank-Nicholson scheme, which was, originally designed o solve the diffusion equation (heat conduction). Here, we show the Crank-Nicolson scheme for linear advection:</p>
 <div class="math notranslate nohighlight" id="equation-eq-schemecranknicholson">
 <span class="eqno">(4.3)<a class="headerlink" href="#equation-eq-schemecranknicholson" title="Link to this equation">#</a></span>\[
   \frac{u_m^{n+1}-u_m^n}{\Delta t} = -\frac{a}{2\Delta x}\left(\frac{u_{m+1}^{n+1}-u_{m-1}^{n+1}}{2} + \frac{u_{m+1}^{n}-u_{m-1}^{n}}{2}\right)
 \]</div>
-<p>The scheme uses a forward approximation to the time derivative at <span class="math notranslate nohighlight">\(t^n\)</span> and the average of the centred approximations of the space derivative at <span class="math notranslate nohighlight">\(t^n\)</span> and <span class="math notranslate nohighlight">\(t^{n+1}\)</span>.</p>
-<p>Another way of looking at <a class="reference internal" href="#equation-eq-schemecranknicholson">(4.3)</a> is that the LHS is a centred approximation of the time derivative at <span class="math notranslate nohighlight">\(t^{n+1/2}\)</span> and the averaging of the spatial derivatives provides an estimate of the spatial derivative at <span class="math notranslate nohighlight">\(t^{n+1/2}\)</span>.</p>
+<p>The scheme is a modification of the FTCS (Forward in time, centered in space) scheme. It uses the forward approximation to the time derivative at <span class="math notranslate nohighlight">\(t^n\)</span> and the average of the centred approximations of the space derivative at <span class="math notranslate nohighlight">\(t^n\)</span> and <span class="math notranslate nohighlight">\(t^{n+1}\)</span>.</p>
+<p>Another way of looking at <a class="reference internal" href="#equation-eq-schemecranknicholson">(4.3)</a> is that the left hand side (LHS) is a centred approximation of the time derivative at <span class="math notranslate nohighlight">\(t^{n+1/2}\)</span> and the averaging of the spatial derivatives provides an estimate of the spatial derivative at <span class="math notranslate nohighlight">\(t^{n+1/2}\)</span>.</p>
 <p>The use of the terms at <span class="math notranslate nohighlight">\(t^{n+1}\)</span> poses a complication because these are not known at time <span class="math notranslate nohighlight">\(t^n\)</span>. Therefore, the scheme is not an explicit time marching scheme as we have seen so far, but one where the solution is implicit in the scheme itself, hence the designation of <em>implicit</em> scheme. To obtain the unknown values at <span class="math notranslate nohighlight">\(t^{n+1}\)</span>, a linear system of equations must be solved.</p>
 <p>We can expand <a class="reference internal" href="#equation-eq-schemecranknicholson">(4.3)</a> to obtain</p>
 <div class="math notranslate nohighlight">
@@ -502,7 +503,7 @@ document.write(`
 <span class="eqno">(4.4)<a class="headerlink" href="#equation-eq-schemeab" title="Link to this equation">#</a></span>\[
   A\mathbf{u}^{n+1}=B\mathbf{u}^{n}.
 \]</div>
-<p>The matrices <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span>, are in the case of Dirichlet boundary conditions <span class="math notranslate nohighlight">\(u(0,t)=u(L,t)=0\)</span></p>
+<p>The matrices <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span>, are in the case of Dirichlet boundary conditions <span class="math notranslate nohighlight">\(u(0,t)=u(L,t)=0\)</span>. If you boundary conditions where <span class="math notranslate nohighlight">\(u(0,t)\neq 0\)</span> and <span class="math notranslate nohighlight">\(u(L,t)\neq 0\)</span>, you will need to consider what value they take, and extend the matrices A and B with one column for <span class="math notranslate nohighlight">\(u(0,t)\)</span> and one for <span class="math notranslate nohighlight">\(u(L,t)\)</span> at either side of the matrices.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 A = 
