@@ -3,7 +3,7 @@
 
 *Advection* is a process where a parameter like, e.g., salt, temperature, moisture, momentum, oxygen... is transported by the velocity field in a given direction. 
 
-From the Navier Stokes equation {eq}`eq:NavierStokes` we can look at a simplified case for advection of momentum, where changes in the local time derivative $\frac{\partial u}{\partial t} is only depending on the velocity field.
+From the Navier Stokes equation {eq}`eq:NavierStokes` we can look at a simplified case for advection of momentum, where changes in the local time derivative $\frac{\partial u}{\partial t}$ is only depending on the velocity field.
 
 $$
 \frac{\partial u}{\partial t}+u(t,x,y,z)\frac{\partial u}{\partial x}+v(t,x,y,z)\frac{\partial u}{\partial y}+w(t,x,y,z)\frac{\partial u}{\partial z}=0
