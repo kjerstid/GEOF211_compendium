@@ -27,8 +27,8 @@ chapters:
   - file: FiniteDifferences/estimatesTruncationError.md
   - file: FiniteDifferences/fdFormulasFirstDerivative.md
   - file: FiniteDifferences/evaluatingTruncationError.md
-  - file: schemeMacCormack.md
-  - file: schemeLaxWendroff-code.md
+  - file: FiniteDifferences/schemeMacCormack.md
+  - file: FiniteDifferences/schemeLaxWendroff-code.md
 - file: ImplicitSchemes/Introduction.md
   sections:
   - file: ImplicitSchemes/CrankNicolson.md

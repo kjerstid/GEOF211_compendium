@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>2.2. Advection equation &#8212; GEOF211 resource pages</title>
+    <title>The diffusion equation &#8212; GEOF211 resource pages</title>
   
   
   
@@ -59,11 +59,9 @@
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'GFD/Advection';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'GFD/Diffusion';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="3. The finite difference method (FDM)" href="../FiniteDifferences/Introduction.html" />
-    <link rel="prev" title="2.1. The Primitive equations" href="PrimitiveEquations.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -126,6 +124,8 @@
       
       
       
+        
+      
       <div class="bd-sidebar-primary bd-sidebar">
         
 
@@ -181,7 +181,7 @@
                 </a>
             </li>
         </ul>
-        <ul class="current nav bd-sidenav">
+        <ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../Useful_calculus/Introduction.html">1. Useful calculus</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Useful_calculus/Taylor_Polynomials.html">1.1. Taylor series</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Useful_calculus/Trigonometry.html">1.2. Trigonometry</a></li>
@@ -193,9 +193,9 @@
 <li class="toctree-l2"><a class="reference internal" href="../Useful_calculus/Formal_def_derivative.html">1.8. The Formal definition of the derivative</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="Introduction.html">2. Geophysical Fluid Dynamics (GFD)</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l1 has-children"><a class="reference internal" href="Introduction.html">2. Geophysical Fluid Dynamics (GFD)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="PrimitiveEquations.html">2.1. The Primitive equations</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">2.2. Advection equation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Advection.html">2.2. Advection equation</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../FiniteDifferences/Introduction.html">3. The finite difference method (FDM)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -298,7 +298,7 @@
       
       
       
-      <li><a href="https://kjerstid.github.io/GEOF211_compendium/intro.html/issues/new?title=Issue%20on%20page%20%2FGFD/Advection.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://kjerstid.github.io/GEOF211_compendium/intro.html/issues/new?title=Issue%20on%20page%20%2FGFD/Diffusion.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -328,7 +328,7 @@
       
       
       
-      <li><a href="../_sources/GFD/Advection.md" target="_blank"
+      <li><a href="../_sources/GFD/Diffusion.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -410,7 +410,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Advection equation</h1>
+    <h1>The diffusion equation</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -424,30 +424,14 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="advection-equation">
-<span id="gfd-advection"></span><h1><span class="section-number">2.2. </span>Advection equation<a class="headerlink" href="#advection-equation" title="Link to this heading">#</a></h1>
-<p><em>Advection</em> is a process where a parameter like, e.g., salt, temperature, moisture, momentum, oxygen… is transported by the velocity field in a given direction.</p>
-<p>From the Navier Stokes equation <a class="reference internal" href="PrimitiveEquations.html#equation-eq-navierstokes">(2.1)</a> we can look at a simplified case for advection of momentum, where changes in the local time derivative <span class="math notranslate nohighlight">\(\frac{\partial u}{\partial t}\)</span> is only depending on the velocity field.</p>
-<div class="math notranslate nohighlight" id="equation-eq-nonlinadvection-u-3d">
-<span class="eqno">(2.5)<a class="headerlink" href="#equation-eq-nonlinadvection-u-3d" title="Link to this equation">#</a></span>\[
-\frac{\partial u}{\partial t}+u(t,x,y,z)\frac{\partial u}{\partial x}+v(t,x,y,z)\frac{\partial u}{\partial y}+w(t,x,y,z)\frac{\partial u}{\partial z}=0
-\]</div>
-<p>If we disregard motion in the y, and z-direction (<span class="math notranslate nohighlight">\(v=0\)</span> and <span class="math notranslate nohighlight">\(w=0\)</span>), we obtain the one-dimensional non-linear advection equation for momentum:</p>
-<div class="math notranslate nohighlight" id="equation-eq-nonlinadvection-u-1d">
-<span class="eqno">(2.6)<a class="headerlink" href="#equation-eq-nonlinadvection-u-1d" title="Link to this equation">#</a></span>\[
-\frac{\partial u}{\partial t}+u(t,x)\frac{\partial u}{\partial x}=0
-\]</div>
-<p>For other parameters, like, e.g., temperature (<span class="math notranslate nohighlight">\(\theta\)</span>) the non-linear advection equation is written:</p>
-<div class="math notranslate nohighlight" id="equation-eq-nonlinadvection-t-1d">
-<span class="eqno">(2.7)<a class="headerlink" href="#equation-eq-nonlinadvection-t-1d" title="Link to this equation">#</a></span>\[
-\frac{\partial \theta}{\partial t}+u(t,x)\frac{\partial \theta}{\partial x}=0
-\]</div>
-<p>The first term of <a class="reference internal" href="#equation-eq-nonlinadvection-t-1d">(2.7)</a> is the local change with time. If we consider, e.g. temperature, we can use an example of changing the temperature in a room. If you turn on a heater, the temperature will rise, but the air inside the room stays the same. The heater is a heat source and represent a local change in temperature with time. If you instead open the window, air will flow through the window and change the temperature by replacing some of the air (as air flow in through the window, air will also leave the room through the window). This is the temperature change following advection (second term of <a class="reference internal" href="#equation-eq-nonlinadvection-t-1d">(2.7)</a>) .</p>
-<p>To obtain the <em>linear advection equation</em>, you can simply replace the velocity <span class="math notranslate nohighlight">\(u(t)\)</span>, with a constant velocity <span class="math notranslate nohighlight">\(a\)</span>. The linear, 1D equation for temperature, <span class="math notranslate nohighlight">\(\theta\)</span> then becomes:</p>
-<div class="math notranslate nohighlight" id="equation-eq-linadvection-theta-1d">
-<span class="eqno">(2.8)<a class="headerlink" href="#equation-eq-linadvection-theta-1d" title="Link to this equation">#</a></span>\[
-\frac{\partial \theta}{\partial t}+a\frac{\partial \theta}{\partial x}=0
-\]</div>
+  <section class="tex2jax_ignore mathjax_ignore" id="the-diffusion-equation">
+<span id="gfd-diffusion"></span><h1>The diffusion equation<a class="headerlink" href="#the-diffusion-equation" title="Link to this heading">#</a></h1>
+<p>The diffusion equation describes a molecular mixing process that, with time, distributes a parameter (e.g., salt, temperature, momentum) towards a state with smaller spatial gradients. If you wait long enough, the parameter is evenly distributed.</p>
+<p>The diffusion equation for momentum <span class="math notranslate nohighlight">\(u(x,t)\)</span> is expressed:</p>
+<p>$<span class="math notranslate nohighlight">\(
+\frac{\partial u}{\partial t}=\gamma\frac{\partial^2u}{\partial x^2}
+\)</span>$ (eq:NonLinAdvection_u_3d),</p>
+<p>where <span class="math notranslate nohighlight">\(\gamma&gt;0\)</span> represents a diffusion coefficient, referred to as viscosity.</p>
 </section>
 
     <script type="text/x-thebe-config">
@@ -480,24 +464,6 @@ document.write(`
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
-    <a class="left-prev"
-       href="PrimitiveEquations.html"
-       title="previous page">
-      <i class="fa-solid fa-angle-left"></i>
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">2.1. </span>The Primitive equations</p>
-      </div>
-    </a>
-    <a class="right-next"
-       href="../FiniteDifferences/Introduction.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">3. </span>The finite difference method (FDM)</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
-    </a>
 </div>
                 </footer>
               
