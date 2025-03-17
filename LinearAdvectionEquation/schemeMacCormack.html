@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>The MacCormack Scheme &#8212; GEOF211 resource pages</title>
+    <title>5.5. The MacCormack Scheme &#8212; GEOF211 resource pages</title>
   
   
   
@@ -62,6 +62,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'LinearAdvectionEquation/schemeMacCormack';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="5.6. The Lax-Wendroff Scheme" href="schemeLaxWendroff-code.html" />
+    <link rel="prev" title="5.4. Analysis of the solution of the difference equation" href="Analysis.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -124,8 +126,6 @@
       
       
       
-        
-      
       <div class="bd-sidebar-primary bd-sidebar">
         
 
@@ -181,7 +181,7 @@
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../Useful_calculus/Introduction.html">1. Useful calculus</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Useful_calculus/Taylor_Polynomials.html">1.1. Taylor series</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Useful_calculus/Trigonometry.html">1.2. Trigonometry</a></li>
@@ -212,11 +212,13 @@
 <li class="toctree-l2"><a class="reference internal" href="../ImplicitSchemes/Implicit_General.html">4.3. The Implicit Scheme</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="Introduction.html">5. The linear advection equation</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="Introduction.html">5. The linear advection equation</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="analyticSolution.html">5.1. The exact equation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="differenceEquation.html">5.2. The difference equation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="differenceSolution.html">5.3. Solution of the difference equation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Analysis.html">5.4. Analysis of the solution of the difference equation</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">5.5. The MacCormack Scheme</a></li>
+<li class="toctree-l2"><a class="reference internal" href="schemeLaxWendroff-code.html">5.6. The Lax-Wendroff Scheme</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../NumericalStability/Introduction.html">6. Stability of numerical schemes</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -422,8 +424,8 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#consistency-stability-and-convergence">Consistency, stability and convergence</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#application-propagation-of-top-hat-function">Application: propagation of top hat function</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#consistency-stability-and-convergence">5.5.1. Consistency, stability and convergence</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#application-propagation-of-top-hat-function">5.5.2. Application: propagation of top hat function</a></li>
 </ul>
             </nav>
         </div>
@@ -436,7 +438,7 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="the-maccormack-scheme">
-<span id="linearadvectionequation-schememaccormack"></span><h1>The MacCormack Scheme<a class="headerlink" href="#the-maccormack-scheme" title="Link to this heading">#</a></h1>
+<span id="linearadvectionequation-schememaccormack"></span><h1><span class="section-number">5.5. </span>The MacCormack Scheme<a class="headerlink" href="#the-maccormack-scheme" title="Link to this heading">#</a></h1>
 <p>The MacCormack scheme is another multi-step scheme. It is composed of a <em>predictor</em> step and a <em>corrector</em> step. It is one of the simplest of the <em>predictor-corrector</em> class of numerical schemes.</p>
 <p>The predictor step is used to obtain an estime <span class="math notranslate nohighlight">\(\tilde{u}\)</span> of the unknown function <span class="math notranslate nohighlight">\(u\)</span> at <span class="math notranslate nohighlight">\(t^{n+1}\)</span>:</p>
 <div class="math notranslate nohighlight">
@@ -465,11 +467,11 @@ u_k^{n+1}=u_k^n-\frac{C}{2}(u_{k+1}^n-u_{k-1}^n)+\frac{C^2}{2}(u_{k+1}^n-2u_k^n+
 \]</div>
 <p>where <span class="math notranslate nohighlight">\(C=\frac{a\Delta t}{\Delta x}\)</span> is the Courant number.</p>
 <section id="consistency-stability-and-convergence">
-<h2>Consistency, stability and convergence<a class="headerlink" href="#consistency-stability-and-convergence" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">5.5.1. </span>Consistency, stability and convergence<a class="headerlink" href="#consistency-stability-and-convergence" title="Link to this heading">#</a></h2>
 <p>For the linear advection equation, the MacCormack scheme is equivalent to the Lax-Wendroff scheme, so its properties are the same as those of the latter.</p>
 </section>
 <section id="application-propagation-of-top-hat-function">
-<h2>Application: propagation of top hat function<a class="headerlink" href="#application-propagation-of-top-hat-function" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">5.5.2. </span>Application: propagation of top hat function<a class="headerlink" href="#application-propagation-of-top-hat-function" title="Link to this heading">#</a></h2>
 <p>The MacCormack scheme applied to the top hat initial condition gives the same solution as the Lax-Wendroff scheme.</p>
 </section>
 </section>
@@ -504,6 +506,24 @@ u_k^{n+1}=u_k^n-\frac{C}{2}(u_{k+1}^n-u_{k-1}^n)+\frac{C^2}{2}(u_{k+1}^n-2u_k^n+
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="Analysis.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">5.4. </span>Analysis of the solution of the difference equation</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="schemeLaxWendroff-code.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">5.6. </span>The Lax-Wendroff Scheme</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               
@@ -520,8 +540,8 @@ u_k^{n+1}=u_k^n-\frac{C}{2}(u_{k+1}^n-u_{k-1}^n)+\frac{C^2}{2}(u_{k+1}^n-2u_k^n+
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#consistency-stability-and-convergence">Consistency, stability and convergence</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#application-propagation-of-top-hat-function">Application: propagation of top hat function</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#consistency-stability-and-convergence">5.5.1. Consistency, stability and convergence</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#application-propagation-of-top-hat-function">5.5.2. Application: propagation of top hat function</a></li>
 </ul>
   </nav></div>
 
