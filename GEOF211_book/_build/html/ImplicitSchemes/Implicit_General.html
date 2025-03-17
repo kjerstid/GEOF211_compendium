@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>4.2. The Implicit Scheme &#8212; GEOF211 resource pages</title>
+    <title>4.3. The Implicit Scheme &#8212; GEOF211 resource pages</title>
   
   
   
@@ -63,7 +63,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="5. The linear advection equation" href="../LinearAdvectionEquation/Introduction.html" />
-    <link rel="prev" title="4.1. The Crank-Nicholson Scheme" href="CrankNicolson.html" />
+    <link rel="prev" title="4.2. The Crank-Nicholson Scheme for diffusion" href="CrankNicolson_diffusion.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -185,11 +185,12 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="../Useful_calculus/Introduction.html">1. Useful calculus</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Useful_calculus/Taylor_Polynomials.html">1.1. Taylor series</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Useful_calculus/Trigonometry.html">1.2. Trigonometry</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Useful_calculus/Complex_numbers.html">1.3. Complex numbers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Useful_calculus/Euler_Formula.html">1.4. The Euler formula</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Useful_calculus/Fourier_transforms.html">1.5. Fourier transforms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Useful_calculus/Absolute_values.html">1.3. Absolute values</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Useful_calculus/Complex_numbers.html">1.4. Complex numbers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Useful_calculus/Euler_Formula.html">1.5. The Euler formula</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Useful_calculus/Fourier_transforms.html">1.6. Fourier transforms</a></li>
 
-<li class="toctree-l2"><a class="reference internal" href="../Useful_calculus/Formal_def_derivative.html">1.7. The Formal definition of the derivative</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Useful_calculus/Formal_def_derivative.html">1.8. The Formal definition of the derivative</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../GFD/Introduction.html">2. Geophysical Fluid Dynamics (GFD)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -206,8 +207,9 @@
 </ul>
 </details></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="Introduction.html">4. Implicit schemes vs explicit schemes</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="CrankNicolson.html">4.1. The Crank-Nicholson Scheme</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">4.2. The Implicit Scheme</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CrankNicolson.html">4.1. The Crank-Nicholson Scheme for linear advection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CrankNicolson_diffusion.html">4.2. The Crank-Nicholson Scheme for diffusion</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">4.3. The Implicit Scheme</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../LinearAdvectionEquation/Introduction.html">5. The linear advection equation</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -420,7 +422,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#consistency-stability-and-convergence">4.2.1. Consistency, stability and convergence</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#consistency-stability-and-convergence">4.3.1. Consistency, stability and convergence</a></li>
 </ul>
             </nav>
         </div>
@@ -433,24 +435,24 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="the-implicit-scheme">
-<h1><span class="section-number">4.2. </span>The Implicit Scheme<a class="headerlink" href="#the-implicit-scheme" title="Link to this heading">#</a></h1>
+<h1><span class="section-number">4.3. </span>The Implicit Scheme<a class="headerlink" href="#the-implicit-scheme" title="Link to this heading">#</a></h1>
 <p>We can derive a general implict scheme by noting that the Crank-Nicholson scheme has the spatial derivatives at <span class="math notranslate nohighlight">\(t^n\)</span> and <span class="math notranslate nohighlight">\(t^{n+1}\)</span> multiplied by <span class="math notranslate nohighlight">\(1/2\)</span>. We can generalize the formula in the following fashion:</p>
 <div class="math notranslate nohighlight" id="equation-schemegeneralimplicit">
-<span class="eqno">(4.6)<a class="headerlink" href="#equation-schemegeneralimplicit" title="Link to this equation">#</a></span>\[
+<span class="eqno">(4.9)<a class="headerlink" href="#equation-schemegeneralimplicit" title="Link to this equation">#</a></span>\[
   \frac{u_m^{n+1}-u_m^n}{\Delta t} = -\frac{c}{2}\left(\alpha\frac{u_{m+1}^{n+1}-u_{m-1}^{n+1}}{2\Delta x} + (1-\alpha)\frac{u_{m+1}^{n}-u_{m-1}^{n}}{2\Delta x}\right)
 \]</div>
 <p>The value of <span class="math notranslate nohighlight">\(\alpha\)</span> determines the nature of the scheme:</p>
 <div class="amsmath math notranslate nohighlight" id="equation-3e4a98cd-130a-41a3-bc62-9ebba6eac13b">
-<span class="eqno">(4.7)<a class="headerlink" href="#equation-3e4a98cd-130a-41a3-bc62-9ebba6eac13b" title="Permalink to this equation">#</a></span>\[\begin{align}
+<span class="eqno">(4.10)<a class="headerlink" href="#equation-3e4a98cd-130a-41a3-bc62-9ebba6eac13b" title="Permalink to this equation">#</a></span>\[\begin{align}
     \alpha &amp;= 0 \quad \text{Fully explicit scheme} \\
     \alpha &amp;= 0.5 \quad \text{Crank-Nicholson scheme} \\
     \alpha &amp;= 1 \quad \text{Fully implicit scheme}
 \end{align}\]</div>
 <section id="consistency-stability-and-convergence">
-<h2><span class="section-number">4.2.1. </span>Consistency, stability and convergence<a class="headerlink" href="#consistency-stability-and-convergence" title="Link to this heading">#</a></h2>
-<p>The formula of the amplification factor <a class="reference internal" href="CrankNicolson.html#equation-eq-ampfactorcn">(4.5)</a> can be generalized following <a class="reference internal" href="Introduction.html#equation-schemegeneralimplicit">(4.2)</a>:</p>
+<h2><span class="section-number">4.3.1. </span>Consistency, stability and convergence<a class="headerlink" href="#consistency-stability-and-convergence" title="Link to this heading">#</a></h2>
+<p>The formula of the amplification factor <a class="reference internal" href="CrankNicolson_diffusion.html#equation-eq-ampfactorcn">(4.8)</a> can be generalized following <a class="reference internal" href="Introduction.html#equation-schemegeneralimplicit">(4.2)</a>:</p>
 <div class="math notranslate nohighlight" id="equation-ampfactorcn">
-<span class="eqno">(4.8)<a class="headerlink" href="#equation-ampfactorcn" title="Link to this equation">#</a></span>\[
+<span class="eqno">(4.11)<a class="headerlink" href="#equation-ampfactorcn" title="Link to this equation">#</a></span>\[
    G = \frac{u_{m}^{n+1}}{u_{m}^{n}} = \frac{1-(1-\alpha)(\sigma/2)i\sin\lambda \Delta x}{1+\alpha(\sigma/2)i\sin\lambda \Delta x},
 \]</div>
 <p>The effect of varying <span class="math notranslate nohighlight">\(\alpha\)</span> in the stability is shown below:</p>
@@ -501,12 +503,12 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="CrankNicolson.html"
+       href="CrankNicolson_diffusion.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">4.1. </span>The Crank-Nicholson Scheme</p>
+        <p class="prev-next-title"><span class="section-number">4.2. </span>The Crank-Nicholson Scheme for diffusion</p>
       </div>
     </a>
     <a class="right-next"
@@ -534,7 +536,7 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#consistency-stability-and-convergence">4.2.1. Consistency, stability and convergence</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#consistency-stability-and-convergence">4.3.1. Consistency, stability and convergence</a></li>
 </ul>
   </nav></div>
 

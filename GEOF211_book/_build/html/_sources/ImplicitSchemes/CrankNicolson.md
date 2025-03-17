@@ -12,7 +12,7 @@ kernelspec:
 (scheme:crank-nicholson)=
 # The Crank-Nicholson Scheme for linear advection
 
-Until now, all schemes have time step limitations in the form of the CFL condition $c\Delta t/\Delta x \leq 1$. One way to overcome that limitation is to use *implicit* schemes, where the spatial derivatives are evaluated at $t^{n+1}$. One such scheme is the Crank-Nicholson scheme, which was, originally designed o solve the diffusion equation (heat conduction). Here, we show the Crank-Nicolson scheme for linear advection:
+Until now, all schemes have time step limitations in the form of the CFL condition $c\Delta t/\Delta x \leq 1$. One way to overcome that limitation is to use *implicit* schemes, where the spatial derivatives are evaluated at $t^{n+1}$. One such scheme is the Crank-Nicholson scheme, which was, originally designed to solve the diffusion equation (heat conduction). Here, we show the Crank-Nicolson scheme for linear advection:
 
 $$
   \frac{u_m^{n+1}-u_m^n}{\Delta t} = -\frac{a}{2\Delta x}\left(\frac{u_{m+1}^{n+1}-u_{m-1}^{n+1}}{2} + \frac{u_{m+1}^{n}-u_{m-1}^{n}}{2}\right)
@@ -37,7 +37,11 @@ $$
   A\mathbf{u}^{n+1}=B\mathbf{u}^{n}.
 $$ (eq:schemeAB)
 
-The matrices $A$ and $B$, are in the case of Dirichlet boundary conditions $u(0,t)=u(L,t)=0$. If you boundary conditions where $u(0,t)\neq 0$ and $u(L,t)\neq 0$, you will need to consider what value they take, and extend the matrices A and B with one column for $u(0,t)$ and one for $u(L,t)$ at either side of the matrices. 
+To find the matrices, you can first insert $m=0$ into the equation. This will give you the first row in $A$ and $B$, respectively. You will find the second row by inserting $m=1$ and so forth until the last row is found by inserting $m=L$. 
+
+The matrices $A$ and $B$ below, represents a case of Dirichlet boundary conditions, $u(0,t)=u_0^n=0$ and $u(L,t)=u_L^n=0$. This is why the matrices do not include a first column for $u_0^{n+1}$ or a last column for $u_L^{n+1}$.
+
+If you choose boundary conditions where $u(0,t)\neq 0$ and $u(L,t)\neq 0$, you will need to consider what value they take, and extend the matrices A and B with one column for $u_0$ and one for $u_L$ at either side of the matrices. 
 
 $$
 A = 
