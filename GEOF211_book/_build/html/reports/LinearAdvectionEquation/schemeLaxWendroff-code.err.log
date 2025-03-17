@@ -32,7 +32,7 @@ print("Number of time steps = {:d}".format(N))
 print("Number of grid points = {:d}".format(M))
 print("Time step = {:f}".format(dt))
 print("Grid size = {:f}".format(dx))
-print("CFL number = {:f}".format(c*dt/dx))
+print("CFL number = {:f}".format(a*dt/dx))
 
 # Grid points
 X=np.linspace(0,1,M)
@@ -46,16 +46,15 @@ Number of time steps = 30
 Number of grid points = 100
 Time step = 0.010000
 Grid size = 0.010000
+CFL number = 0.750000
 ------------------
 
 [1;31m---------------------------------------------------------------------------[0m
 [1;31mNameError[0m                                 Traceback (most recent call last)
-Cell [1;32mIn[3], line 15[0m
-[0;32m     13[0m [38;5;28mprint[39m([38;5;124m"[39m[38;5;124mTime step = [39m[38;5;132;01m{:f}[39;00m[38;5;124m"[39m[38;5;241m.[39mformat(dt))
-[0;32m     14[0m [38;5;28mprint[39m([38;5;124m"[39m[38;5;124mGrid size = [39m[38;5;132;01m{:f}[39;00m[38;5;124m"[39m[38;5;241m.[39mformat(dx))
-[1;32m---> 15[0m [38;5;28mprint[39m([38;5;124m"[39m[38;5;124mCFL number = [39m[38;5;132;01m{:f}[39;00m[38;5;124m"[39m[38;5;241m.[39mformat([43mc[49m[38;5;241m*[39mdt[38;5;241m/[39mdx))
-[0;32m     17[0m [38;5;66;03m# Grid points[39;00m
+Cell [1;32mIn[3], line 21[0m
 [0;32m     18[0m X[38;5;241m=[39mnp[38;5;241m.[39mlinspace([38;5;241m0[39m,[38;5;241m1[39m,M)
+[0;32m     20[0m [38;5;66;03m# Integrate the initial condition N time steps[39;00m
+[1;32m---> 21[0m U[38;5;241m=[39mLaxWendroff(topHat(X),[43mc[49m,dt,dx,N,M)
 
 [1;31mNameError[0m: name 'c' is not defined
 
