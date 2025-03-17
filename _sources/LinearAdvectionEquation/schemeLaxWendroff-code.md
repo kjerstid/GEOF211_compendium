@@ -150,7 +150,7 @@ print("CFL number = {:f}".format(a*dt/dx))
 X=np.linspace(0,1,M)
 
 # Integrate the initial condition N time steps
-U=LaxWendroff(topHat(X),c,dt,dx,N,M)
+U=LaxWendroff(topHat(X),a,dt,dx,N,M)
 
 ```
 
@@ -159,8 +159,8 @@ The solution at the end of the integration is shown below:
 ```{code-cell} ipython3
 :tags: ["hide-input"]
 
-# Shift the exact solution a distance equivalent to c*N*dt
-newX = np.mod(X-c*N*dt,1)
+# Shift the exact solution a distance equivalent to a*N*dt
+newX = np.mod(X-a*N*dt,1)
 
 fig, ax0 = plt.subplots()
 

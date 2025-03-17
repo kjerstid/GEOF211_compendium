@@ -520,8 +520,8 @@ document.write(`
 	u_k^{n+1} = \alpha u_{k-1}^n + \beta u_k^n + \gamma u_{k+1}^n
 \]</div>
 <p>with</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a4c7c071-539c-4001-94cb-ed869542dbc7">
-<span class="eqno">(5.19)<a class="headerlink" href="#equation-a4c7c071-539c-4001-94cb-ed869542dbc7" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-e0713b11-2344-44a8-8d43-899f73ab2ede">
+<span class="eqno">(5.19)<a class="headerlink" href="#equation-e0713b11-2344-44a8-8d43-899f73ab2ede" title="Permalink to this equation">#</a></span>\[\begin{align}
 	\alpha &amp;= \frac{\sigma}{2}(\sigma + 1),\\
 	\beta &amp;= 1- \sigma^2, \\
 	\gamma &amp;= \frac{\sigma}{2}(\sigma - 1)
@@ -632,7 +632,7 @@ document.write(`
 <span class="n">X</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">M</span><span class="p">)</span>
 
 <span class="c1"># Integrate the initial condition N time steps</span>
-<span class="n">U</span><span class="o">=</span><span class="n">LaxWendroff</span><span class="p">(</span><span class="n">topHat</span><span class="p">(</span><span class="n">X</span><span class="p">),</span><span class="n">c</span><span class="p">,</span><span class="n">dt</span><span class="p">,</span><span class="n">dx</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">M</span><span class="p">)</span>
+<span class="n">U</span><span class="o">=</span><span class="n">LaxWendroff</span><span class="p">(</span><span class="n">topHat</span><span class="p">(</span><span class="n">X</span><span class="p">),</span><span class="n">a</span><span class="p">,</span><span class="n">dt</span><span class="p">,</span><span class="n">dx</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">M</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -645,16 +645,6 @@ Grid size = 0.010000
 CFL number = 0.750000
 </pre></div>
 </div>
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">line</span> <span class="mi">21</span>
-<span class="g g-Whitespace">     </span><span class="mi">18</span> <span class="n">X</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">M</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">20</span> <span class="c1"># Integrate the initial condition N time steps</span>
-<span class="ne">---&gt; </span><span class="mi">21</span> <span class="n">U</span><span class="o">=</span><span class="n">LaxWendroff</span><span class="p">(</span><span class="n">topHat</span><span class="p">(</span><span class="n">X</span><span class="p">),</span><span class="n">c</span><span class="p">,</span><span class="n">dt</span><span class="p">,</span><span class="n">dx</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">M</span><span class="p">)</span>
-
-<span class="ne">NameError</span>: name &#39;c&#39; is not defined
-</pre></div>
-</div>
 </div>
 </div>
 <p>The solution at the end of the integration is shown below:</p>
@@ -665,8 +655,8 @@ CFL number = 0.750000
 <span class="expanded">Hide code cell source</span>
 </summary>
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Shift the exact solution a distance equivalent to c*N*dt</span>
-<span class="n">newX</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mod</span><span class="p">(</span><span class="n">X</span><span class="o">-</span><span class="n">c</span><span class="o">*</span><span class="n">N</span><span class="o">*</span><span class="n">dt</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Shift the exact solution a distance equivalent to a*N*dt</span>
+<span class="n">newX</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mod</span><span class="p">(</span><span class="n">X</span><span class="o">-</span><span class="n">a</span><span class="o">*</span><span class="n">N</span><span class="o">*</span><span class="n">dt</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
 
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax0</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
 
@@ -684,6 +674,9 @@ CFL number = 0.750000
 </div>
 </div>
 </details>
+<div class="cell_output docutils container">
+<img alt="../_images/7a2ed0c0230d8d823604739500a091ab929911ea943b9ffe8dc593a08797d8dc.png" src="../_images/7a2ed0c0230d8d823604739500a091ab929911ea943b9ffe8dc593a08797d8dc.png" />
+</div>
 </div>
 <p>The Lex-Wendroff scheme avoids the excessive numerical diffusion of the Upwind scheme, but oscillations are still visible at the sharp transitions of the top hat function. These oscillations are known as the Gibbs phenomenon.</p>
 </section>
