@@ -144,7 +144,7 @@ print("Number of time steps = {:d}".format(N))
 print("Number of grid points = {:d}".format(M))
 print("Time step = {:f}".format(dt))
 print("Grid size = {:f}".format(dx))
-print("CFL number = {:f}".format(c*dt/dx))
+print("CFL number = {:f}".format(a*dt/dx))
 
 # Grid points
 X=np.linspace(0,1,M)
