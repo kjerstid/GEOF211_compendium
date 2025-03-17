@@ -27,8 +27,6 @@ chapters:
   - file: FiniteDifferences/estimatesTruncationError.md
   - file: FiniteDifferences/fdFormulasFirstDerivative.md
   - file: FiniteDifferences/evaluatingTruncationError.md
-  - file: FiniteDifferences/schemeMacCormack.md
-  - file: FiniteDifferences/schemeLaxWendroff-code.md
 - file: ImplicitSchemes/Introduction.md
   sections:
   - file: ImplicitSchemes/CrankNicolson.md
@@ -40,6 +38,8 @@ chapters:
   - file: LinearAdvectionEquation/differenceEquation.md
   - file: LinearAdvectionEquation/differenceSolution.md
   - file: LinearAdvectionEquation/Analysis.md
+  - file: LinearAdvectionEquation/schemeMacCormack.md
+  - file: LinearAdvectionEquation/schemeLaxWendroff-code.md
 - file: NumericalStability/Introduction.md
   sections: 
   - file: NumericalStability/ConceptsDefinitions.md
