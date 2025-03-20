@@ -472,8 +472,10 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#consistency-stability-and-convergence">5.6.1. Consistency, stability and convergence</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#application-propagation-of-top-hat-function">5.6.2. Application: propagation of top hat function</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lax-wendroff-2-step-approach">5.6.1. Lax-Wendroff 2-step approach</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lax-wendroff-1-step-approach-from-taylor-expansions">5.6.2. Lax Wendroff 1-step approach from Taylor expansions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#consistency-stability-and-convergence">5.6.3. Consistency, stability and convergence</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#application-propagation-of-top-hat-function">5.6.4. Application: propagation of top hat function</a></li>
 </ul>
             </nav>
         </div>
@@ -487,7 +489,10 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="the-lax-wendroff-scheme">
 <span id="scheme-lax-wendroff"></span><h1><span class="section-number">5.6. </span>The Lax-Wendroff Scheme<a class="headerlink" href="#the-lax-wendroff-scheme" title="Link to this heading">#</a></h1>
-<p>The Lax-Wendroff scheme can be derived in several ways. We shall derive it from a <em>multi-step</em> perspective. The idea is to compute <span class="math notranslate nohighlight">\(u_k^{n+1}\)</span> using not the time derivative at <span class="math notranslate nohighlight">\(t=n\Delta t\)</span>, but that at the <em>half-step</em> <span class="math notranslate nohighlight">\(t=n\Delta t + \Delta t/2=(n+1/2)\Delta t\)</span></p>
+<p>The Lax-Wendroff scheme can be derived in several ways. We shall derive it from a <em>multi-step</em> perspective and from a Taylor expansion perspective.</p>
+<section id="lax-wendroff-2-step-approach">
+<h2><span class="section-number">5.6.1. </span>Lax-Wendroff 2-step approach<a class="headerlink" href="#lax-wendroff-2-step-approach" title="Link to this heading">#</a></h2>
+<p>The idea is to compute <span class="math notranslate nohighlight">\(u_k^{n+1}\)</span> using not the time derivative at <span class="math notranslate nohighlight">\(t=n\Delta t\)</span>, but that at the <em>half-step</em> <span class="math notranslate nohighlight">\(t=n\Delta t + \Delta t/2=(n+1/2)\Delta t\)</span></p>
 <div class="math notranslate nohighlight">
 \[
 	u_k^{n+1}=u_k^n+\Delta t\left(-c\frac{\partial u}{\partial x}\mid_{k,n+1/2}\right)
@@ -512,16 +517,21 @@ document.write(`
 \[
 	u_{k}^{n+1}=u_k^n-a\frac{\Delta t}{2\Delta x}(u_{k+1/2}^{n+1/2}-u_{k-1/2}^{n+1/2})
 \]</div>
+</section>
+<section id="lax-wendroff-1-step-approach-from-taylor-expansions">
+<h2><span class="section-number">5.6.2. </span>Lax Wendroff 1-step approach from Taylor expansions<a class="headerlink" href="#lax-wendroff-1-step-approach-from-taylor-expansions" title="Link to this heading">#</a></h2>
+<p>To be updated soon…</p>
+</section>
 <section id="consistency-stability-and-convergence">
-<h2><span class="section-number">5.6.1. </span>Consistency, stability and convergence<a class="headerlink" href="#consistency-stability-and-convergence" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">5.6.3. </span>Consistency, stability and convergence<a class="headerlink" href="#consistency-stability-and-convergence" title="Link to this heading">#</a></h2>
 <p>The scheme is 2nd order in time and space. To determine its stability we can express the scheme as:</p>
 <div class="math notranslate nohighlight">
 \[
 	u_k^{n+1} = \alpha u_{k-1}^n + \beta u_k^n + \gamma u_{k+1}^n
 \]</div>
 <p>with</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e0713b11-2344-44a8-8d43-899f73ab2ede">
-<span class="eqno">(5.19)<a class="headerlink" href="#equation-e0713b11-2344-44a8-8d43-899f73ab2ede" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-77d32390-f365-4f01-9f67-204059fda8f1">
+<span class="eqno">(5.19)<a class="headerlink" href="#equation-77d32390-f365-4f01-9f67-204059fda8f1" title="Permalink to this equation">#</a></span>\[\begin{align}
 	\alpha &amp;= \frac{\sigma}{2}(\sigma + 1),\\
 	\beta &amp;= 1- \sigma^2, \\
 	\gamma &amp;= \frac{\sigma}{2}(\sigma - 1)
@@ -544,7 +554,7 @@ document.write(`
 <p>which is the well-known CFL condition.</p>
 </section>
 <section id="application-propagation-of-top-hat-function">
-<h2><span class="section-number">5.6.2. </span>Application: propagation of top hat function<a class="headerlink" href="#application-propagation-of-top-hat-function" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">5.6.4. </span>Application: propagation of top hat function<a class="headerlink" href="#application-propagation-of-top-hat-function" title="Link to this heading">#</a></h2>
 <p>As before, we apply the Lax-Wendroff scheme to the top hat initial condition.</p>
 <div class="cell tag_hide-cell docutils container">
 <details class="hide above-input">
@@ -746,8 +756,10 @@ CFL number = 0.750000
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#consistency-stability-and-convergence">5.6.1. Consistency, stability and convergence</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#application-propagation-of-top-hat-function">5.6.2. Application: propagation of top hat function</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lax-wendroff-2-step-approach">5.6.1. Lax-Wendroff 2-step approach</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lax-wendroff-1-step-approach-from-taylor-expansions">5.6.2. Lax Wendroff 1-step approach from Taylor expansions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#consistency-stability-and-convergence">5.6.3. Consistency, stability and convergence</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#application-propagation-of-top-hat-function">5.6.4. Application: propagation of top hat function</a></li>
 </ul>
   </nav></div>
 
