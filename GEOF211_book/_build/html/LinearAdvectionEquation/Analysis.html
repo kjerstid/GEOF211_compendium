@@ -28,11 +28,11 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
   
@@ -62,7 +62,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'LinearAdvectionEquation/Analysis';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="6. Stability of numerical schemes" href="../NumericalStability/Introduction.html" />
+    <link rel="next" title="5.5. The MacCormack Scheme" href="schemeMacCormack.html" />
     <link rel="prev" title="5.3. Solution of the difference equation" href="differenceSolution.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -185,11 +185,12 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="../Useful_calculus/Introduction.html">1. Useful calculus</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Useful_calculus/Taylor_Polynomials.html">1.1. Taylor series</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Useful_calculus/Trigonometry.html">1.2. Trigonometry</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Useful_calculus/Complex_numbers.html">1.3. Complex numbers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Useful_calculus/Euler_Formula.html">1.4. The Euler formula</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Useful_calculus/Fourier_transforms.html">1.5. Fourier transforms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Useful_calculus/Absolute_values.html">1.3. Absolute values</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Useful_calculus/Complex_numbers.html">1.4. Complex numbers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Useful_calculus/Euler_Formula.html">1.5. The Euler formula</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Useful_calculus/Fourier_transforms.html">1.6. Fourier transforms</a></li>
 
-<li class="toctree-l2"><a class="reference internal" href="../Useful_calculus/Formal_def_derivative.html">1.7. The Formal definition of the derivative</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Useful_calculus/Formal_def_derivative.html">1.8. The Formal definition of the derivative</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../GFD/Introduction.html">2. Geophysical Fluid Dynamics (GFD)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -206,7 +207,9 @@
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../ImplicitSchemes/Introduction.html">4. Implicit schemes vs explicit schemes</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../ImplicitSchemes/Implicit_General.html">4.1. The Implicit Scheme</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ImplicitSchemes/CrankNicolson.html">4.1. The Crank-Nicholson Scheme for linear advection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ImplicitSchemes/CrankNicolson_diffusion.html">4.2. The Crank-Nicholson Scheme for diffusion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ImplicitSchemes/Implicit_General.html">4.3. The Implicit Scheme</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="Introduction.html">5. The linear advection equation</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
@@ -214,6 +217,8 @@
 <li class="toctree-l2"><a class="reference internal" href="differenceEquation.html">5.2. The difference equation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="differenceSolution.html">5.3. Solution of the difference equation</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">5.4. Analysis of the solution of the difference equation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="schemeMacCormack.html">5.5. The MacCormack Scheme</a></li>
+<li class="toctree-l2"><a class="reference internal" href="schemeLaxWendroff-code.html">5.6. The Lax-Wendroff Scheme</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../NumericalStability/Introduction.html">6. Stability of numerical schemes</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -486,8 +491,8 @@ document.write(`
 \]</div>
 <p>is the phase speed of the solution <a class="reference internal" href="differenceSolution.html#equation-eq-solutiondiffequation">(5.16)</a> of the difference equation. We shall now see how does <span class="math notranslate nohighlight">\(c^\prime\)</span> compares with the phase speed <span class="math notranslate nohighlight">\(c\)</span> of the true solution.</p>
 <p>First, if <span class="math notranslate nohighlight">\(c\Delta t/\Delta x = 1\)</span>, we’ll have <span class="math notranslate nohighlight">\(c^\prime/c = 1\)</span>, because</p>
-<div class="amsmath math notranslate nohighlight" id="equation-6df8ddee-84bb-419a-922a-d99fc2169644">
-<span class="eqno">(5.18)<a class="headerlink" href="#equation-6df8ddee-84bb-419a-922a-d99fc2169644" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-a0d8d2da-dbf1-40a5-8a87-ff600af2bd0a">
+<span class="eqno">(5.18)<a class="headerlink" href="#equation-a0d8d2da-dbf1-40a5-8a87-ff600af2bd0a" title="Permalink to this equation">#</a></span>\[\begin{equation}
 	c^\prime = \frac{\arcsin\left(\sin \mu\Delta x
 	  \right)}{\mu\Delta t} = \frac{\mu\Delta x}{\mu\Delta t} = \frac{\Delta x}{\Delta t} = c.
 \end{equation}\]</div>
@@ -588,11 +593,11 @@ document.write(`
       </div>
     </a>
     <a class="right-next"
-       href="../NumericalStability/Introduction.html"
+       href="schemeMacCormack.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">6. </span>Stability of numerical schemes</p>
+        <p class="prev-next-title"><span class="section-number">5.5. </span>The MacCormack Scheme</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

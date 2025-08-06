@@ -28,11 +28,11 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
   
@@ -472,8 +472,10 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#consistency-stability-and-convergence">5.6.1. Consistency, stability and convergence</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#application-propagation-of-top-hat-function">5.6.2. Application: propagation of top hat function</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lax-wendroff-2-step-approach">5.6.1. Lax-Wendroff 2-step approach</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lax-wendroff-1-step-approach-from-taylor-expansions">5.6.2. Lax Wendroff 1-step approach from Taylor expansions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#consistency-stability-and-convergence">5.6.3. Consistency, stability and convergence</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#application-propagation-of-top-hat-function">5.6.4. Application: propagation of top hat function</a></li>
 </ul>
             </nav>
         </div>
@@ -487,7 +489,10 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="the-lax-wendroff-scheme">
 <span id="scheme-lax-wendroff"></span><h1><span class="section-number">5.6. </span>The Lax-Wendroff Scheme<a class="headerlink" href="#the-lax-wendroff-scheme" title="Link to this heading">#</a></h1>
-<p>The Lax-Wendroff scheme can be derived in several ways. We shall derive it from a <em>multi-step</em> perspective. The idea is to compute <span class="math notranslate nohighlight">\(u_k^{n+1}\)</span> using not the time derivative at <span class="math notranslate nohighlight">\(t=n\Delta t\)</span>, but that at the <em>half-step</em> <span class="math notranslate nohighlight">\(t=n\Delta t + \Delta t/2=(n+1/2)\Delta t\)</span></p>
+<p>The Lax-Wendroff scheme can be derived in several ways. We shall derive it from a <em>multi-step</em> perspective and from a Taylor expansion perspective.</p>
+<section id="lax-wendroff-2-step-approach">
+<h2><span class="section-number">5.6.1. </span>Lax-Wendroff 2-step approach<a class="headerlink" href="#lax-wendroff-2-step-approach" title="Link to this heading">#</a></h2>
+<p>The idea is to compute <span class="math notranslate nohighlight">\(u_k^{n+1}\)</span> using not the time derivative at <span class="math notranslate nohighlight">\(t=n\Delta t\)</span>, but that at the <em>half-step</em> <span class="math notranslate nohighlight">\(t=n\Delta t + \Delta t/2=(n+1/2)\Delta t\)</span></p>
 <div class="math notranslate nohighlight">
 \[
 	u_k^{n+1}=u_k^n+\Delta t\left(-c\frac{\partial u}{\partial x}\mid_{k,n+1/2}\right)
@@ -512,16 +517,21 @@ document.write(`
 \[
 	u_{k}^{n+1}=u_k^n-a\frac{\Delta t}{2\Delta x}(u_{k+1/2}^{n+1/2}-u_{k-1/2}^{n+1/2})
 \]</div>
+</section>
+<section id="lax-wendroff-1-step-approach-from-taylor-expansions">
+<h2><span class="section-number">5.6.2. </span>Lax Wendroff 1-step approach from Taylor expansions<a class="headerlink" href="#lax-wendroff-1-step-approach-from-taylor-expansions" title="Link to this heading">#</a></h2>
+<p>To be updated soon…</p>
+</section>
 <section id="consistency-stability-and-convergence">
-<h2><span class="section-number">5.6.1. </span>Consistency, stability and convergence<a class="headerlink" href="#consistency-stability-and-convergence" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">5.6.3. </span>Consistency, stability and convergence<a class="headerlink" href="#consistency-stability-and-convergence" title="Link to this heading">#</a></h2>
 <p>The scheme is 2nd order in time and space. To determine its stability we can express the scheme as:</p>
 <div class="math notranslate nohighlight">
 \[
 	u_k^{n+1} = \alpha u_{k-1}^n + \beta u_k^n + \gamma u_{k+1}^n
 \]</div>
 <p>with</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e0713b11-2344-44a8-8d43-899f73ab2ede">
-<span class="eqno">(5.19)<a class="headerlink" href="#equation-e0713b11-2344-44a8-8d43-899f73ab2ede" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-90a5c1b5-3de2-4612-b81c-e595a8f9197b">
+<span class="eqno">(5.19)<a class="headerlink" href="#equation-90a5c1b5-3de2-4612-b81c-e595a8f9197b" title="Permalink to this equation">#</a></span>\[\begin{align}
 	\alpha &amp;= \frac{\sigma}{2}(\sigma + 1),\\
 	\beta &amp;= 1- \sigma^2, \\
 	\gamma &amp;= \frac{\sigma}{2}(\sigma - 1)
@@ -544,16 +554,16 @@ document.write(`
 <p>which is the well-known CFL condition.</p>
 </section>
 <section id="application-propagation-of-top-hat-function">
-<h2><span class="section-number">5.6.2. </span>Application: propagation of top hat function<a class="headerlink" href="#application-propagation-of-top-hat-function" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">5.6.4. </span>Application: propagation of top hat function<a class="headerlink" href="#application-propagation-of-top-hat-function" title="Link to this heading">#</a></h2>
 <p>As before, we apply the Lax-Wendroff scheme to the top hat initial condition.</p>
 <div class="cell tag_hide-cell docutils container">
-<details class="hide above-input">
+<details class="admonition hide above-input">
 <summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell content</span>
-<span class="expanded">Hide code cell content</span>
+<p class="collapsed admonition-title">Show code cell content</p>
+<p class="expanded admonition-title">Hide code cell content</p>
 </summary>
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">topHat</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">topHat</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
    <span class="n">f0</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
    <span class="n">f0</span><span class="p">[(</span><span class="n">x</span><span class="o">&gt;</span><span class="mf">0.45</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">x</span><span class="o">&lt;</span><span class="mf">0.55</span><span class="p">)]</span><span class="o">=</span><span class="mi">1</span>
 
@@ -565,13 +575,13 @@ document.write(`
 </div>
 <p>The Lax-Wendroff scheme is implemented in the following Python function:</p>
 <div class="cell tag_hide-cell docutils container">
-<details class="hide above-input">
+<details class="admonition hide above-input">
 <summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell content</span>
-<span class="expanded">Hide code cell content</span>
+<p class="collapsed admonition-title">Show code cell content</p>
+<p class="expanded admonition-title">Hide code cell content</p>
 </summary>
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">LaxWendroff</span><span class="p">(</span><span class="n">u0</span><span class="p">,</span><span class="n">a</span><span class="p">,</span><span class="n">dt</span><span class="p">,</span><span class="n">dx</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">M</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">LaxWendroff</span><span class="p">(</span><span class="n">u0</span><span class="p">,</span><span class="n">a</span><span class="p">,</span><span class="n">dt</span><span class="p">,</span><span class="n">dx</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">M</span><span class="p">):</span>
     
     <span class="c1"># Initial condition</span>
     <span class="n">u</span><span class="o">=</span><span class="n">u0</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
@@ -606,14 +616,14 @@ document.write(`
 </div>
 <p>In the next code snippet, we set the discretization parameters and integrate the initial condition with the Lax-Wendroff scheme:</p>
 <div class="cell tag_hide-input docutils container">
-<details class="hide above-input">
+<details class="admonition hide above-input">
 <summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell source</span>
-<span class="expanded">Hide code cell source</span>
+<p class="collapsed admonition-title">Show code cell source</p>
+<p class="expanded admonition-title">Hide code cell source</p>
 </summary>
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 
 <span class="n">N</span>     <span class="o">=</span> <span class="mi">30</span>       <span class="c1"># Number of time steps</span>
 <span class="n">M</span>     <span class="o">=</span> <span class="mi">100</span>      <span class="c1"># Number of grid points</span>
@@ -638,21 +648,24 @@ document.write(`
 </div>
 </details>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Number of time steps = 30
-Number of grid points = 100
-Time step = 0.010000
-Grid size = 0.010000
-CFL number = 0.750000
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">N</span>     <span class="o">=</span> <span class="mi">30</span>       <span class="c1"># Number of time steps</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;numpy&#39;
 </pre></div>
 </div>
 </div>
 </div>
 <p>The solution at the end of the integration is shown below:</p>
 <div class="cell tag_hide-input docutils container">
-<details class="hide above-input">
+<details class="admonition hide above-input">
 <summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell source</span>
-<span class="expanded">Hide code cell source</span>
+<p class="collapsed admonition-title">Show code cell source</p>
+<p class="expanded admonition-title">Hide code cell source</p>
 </summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Shift the exact solution a distance equivalent to a*N*dt</span>
@@ -674,9 +687,6 @@ CFL number = 0.750000
 </div>
 </div>
 </details>
-<div class="cell_output docutils container">
-<img alt="../_images/7a2ed0c0230d8d823604739500a091ab929911ea943b9ffe8dc593a08797d8dc.png" src="../_images/7a2ed0c0230d8d823604739500a091ab929911ea943b9ffe8dc593a08797d8dc.png" />
-</div>
 </div>
 <p>The Lex-Wendroff scheme avoids the excessive numerical diffusion of the Upwind scheme, but oscillations are still visible at the sharp transitions of the top hat function. These oscillations are known as the Gibbs phenomenon.</p>
 </section>
@@ -746,8 +756,10 @@ CFL number = 0.750000
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#consistency-stability-and-convergence">5.6.1. Consistency, stability and convergence</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#application-propagation-of-top-hat-function">5.6.2. Application: propagation of top hat function</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lax-wendroff-2-step-approach">5.6.1. Lax-Wendroff 2-step approach</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lax-wendroff-1-step-approach-from-taylor-expansions">5.6.2. Lax Wendroff 1-step approach from Taylor expansions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#consistency-stability-and-convergence">5.6.3. Consistency, stability and convergence</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#application-propagation-of-top-hat-function">5.6.4. Application: propagation of top hat function</a></li>
 </ul>
   </nav></div>
 

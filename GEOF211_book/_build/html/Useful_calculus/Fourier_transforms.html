@@ -28,11 +28,11 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
   
@@ -208,7 +208,8 @@
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../ImplicitSchemes/Introduction.html">4. Implicit schemes vs explicit schemes</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../ImplicitSchemes/CrankNicolson.html">4.1. The Crank-Nicholson Scheme for linear advection</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../ImplicitSchemes/Implicit_General.html">4.2. The Implicit Scheme</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ImplicitSchemes/CrankNicolson_diffusion.html">4.2. The Crank-Nicholson Scheme for diffusion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ImplicitSchemes/Implicit_General.html">4.3. The Implicit Scheme</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../LinearAdvectionEquation/Introduction.html">5. The linear advection equation</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -216,6 +217,8 @@
 <li class="toctree-l2"><a class="reference internal" href="../LinearAdvectionEquation/differenceEquation.html">5.2. The difference equation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../LinearAdvectionEquation/differenceSolution.html">5.3. Solution of the difference equation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../LinearAdvectionEquation/Analysis.html">5.4. Analysis of the solution of the difference equation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../LinearAdvectionEquation/schemeMacCormack.html">5.5. The MacCormack Scheme</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../LinearAdvectionEquation/schemeLaxWendroff-code.html">5.6. The Lax-Wendroff Scheme</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../NumericalStability/Introduction.html">6. Stability of numerical schemes</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -500,14 +503,14 @@ document.write(`
 <p>When looking at the ocean surface, the surface elevation can be regarded as the sum of (superposition) of many waves of different frequencies and phases.</p>
 <p>In the figure, you can see three individual sine waves with varying frequencies and amplitudes. The first wave (blue) has 2 oscillations per seconds, the second wave (orange) has 5 oscillations per second, and the third wave (green) has 10 oscillations per second. The black, bold line shows the superposition of the three waves. The amplitude at any point in time, is the sum of the amplitudes of the three individal waves.</p>
 <div class="cell tag_hide-input tag_thebe-init docutils container">
-<details class="hide above-input">
+<details class="admonition hide above-input">
 <summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell source</span>
-<span class="expanded">Hide code cell source</span>
+<p class="collapsed admonition-title">Show code cell source</p>
+<p class="expanded admonition-title">Hide code cell source</p>
 </summary>
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 
 <span class="c1"># Create time values</span>
 <span class="n">Fs</span><span class="o">=</span><span class="mi">100</span> <span class="c1"># sampling rate -. number of samples per second</span>
@@ -551,10 +554,16 @@ document.write(`
 </div>
 </details>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(-7.5, 7.5)
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="c1"># Create time values</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;numpy&#39;
 </pre></div>
 </div>
-<img alt="../_images/fa409c67a76b01f983a6a65fb375e46e18e8cab94b718ef8ee7ec49c4fb1c6f0.png" src="../_images/fa409c67a76b01f983a6a65fb375e46e18e8cab94b718ef8ee7ec49c4fb1c6f0.png" />
 </div>
 </div>
 </section>
@@ -610,14 +619,14 @@ Y(f)=\Delta t \sum_{-\infty}^\infty y_n e^{-i2\pi ft}
 \]</div>
 <p>Here, the function <span class="math notranslate nohighlight">\(Y(f)\)</span> represent energy as a function of the frequency <span class="math notranslate nohighlight">\(f\)</span>. If the signal consisted of just one pure sine wave, the graph of <span class="math notranslate nohighlight">\(Y(f)\)</span> would contain a single spike at the frequency of this sine wave. For the superposition of the three waves in the example above, we get one spike for each of the frequencies 2, 5, and 10 cycles per second.</p>
 <div class="cell tag_hide-input docutils container">
-<details class="hide above-input">
+<details class="admonition hide above-input">
 <summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell source</span>
-<span class="expanded">Hide code cell source</span>
+<p class="collapsed admonition-title">Show code cell source</p>
+<p class="expanded admonition-title">Hide code cell source</p>
 </summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#import fft package using only real numbers into the transform</span>
-<span class="kn">from</span> <span class="nn">scipy.fft</span> <span class="kn">import</span> <span class="n">rfft</span><span class="p">,</span> <span class="n">rfftfreq</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.fft</span><span class="w"> </span><span class="kn">import</span> <span class="n">rfft</span><span class="p">,</span> <span class="n">rfftfreq</span>
 
 <span class="c1"># Calculate N</span>
 <span class="n">N</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
@@ -646,26 +655,20 @@ Y(f)=\Delta t \sum_{-\infty}^\infty y_n e^{-i2\pi ft}
 </div>
 </div>
 </details>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Fourier Transform of superposition wave&#39;)
-</pre></div>
-</div>
-<img alt="../_images/096862ceece8b9975ef2ec2261407160be039092cbde2b452a1ab0096745a3d8.png" src="../_images/096862ceece8b9975ef2ec2261407160be039092cbde2b452a1ab0096745a3d8.png" />
-</div>
 </div>
 </section>
 <section id="gibbs-phenomenon">
 <h2><span class="section-number">1.6.4. </span>Gibbs phenomenon<a class="headerlink" href="#gibbs-phenomenon" title="Link to this heading">#</a></h2>
 <p>In practice, we typically cannot include an infinite number of terms in the Fourier series to represent a signal. using a limited number of components works fine for continuous signals, but will produce errors (overshoots and undershoots) near discontinuities and areas wih strong gradients. This is called the Gibbs phenomenon.</p>
 <div class="cell tag_hide-input docutils container">
-<details class="hide above-input">
+<details class="admonition hide above-input">
 <summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell source</span>
-<span class="expanded">Hide code cell source</span>
+<p class="collapsed admonition-title">Show code cell source</p>
+<p class="expanded admonition-title">Hide code cell source</p>
 </summary>
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 
 <span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mf">0.001</span><span class="p">)</span>
 
@@ -694,9 +697,6 @@ Y(f)=\Delta t \sum_{-\infty}^\infty y_n e^{-i2\pi ft}
 </div>
 </div>
 </details>
-<div class="cell_output docutils container">
-<img alt="../_images/1777e04dc3cd7f752de42f0f6705a2aa75017a970bcf927002d5b1996f2fa5de.png" src="../_images/1777e04dc3cd7f752de42f0f6705a2aa75017a970bcf927002d5b1996f2fa5de.png" />
-</div>
 </div>
 </section>
 </section>
@@ -712,11 +712,11 @@ The example used is of a step function, often used to illustrate Gibbs phenomeno
 <p>The first panel shows the magnitude of each Fourier component (A<span class="math notranslate nohighlight">\(_n\)</span> and B<span class="math notranslate nohighlight">\(_n\)</span>) up to the wavenumber 20 (or 19, counting from 0). Each of the 20 wavenumbers corresponds to waves with different wavelengths (n = 1 corresponds to one waveperiod within the domain, n=2 corresponds to two waveperiods within the domain, and so forth). In the next six panels, the waves corresponding to a wavenumber are shown (n=1 to n=6, red). The same waves are multiplied by the corresponding Fourier component (Teal). We note that all the A<span class="math notranslate nohighlight">\(_n\)</span>-components are zero, so these are not shown. Moreover, every other B<span class="math notranslate nohighlight">\(_n\)</span>-component is zero (seen in the top panel), resulting in no contribution to the superposition. The lowermost panel shows the superposition of the first 20 wavenumbers, which is reduced to include only every other B<span class="math notranslate nohighlight">\(_n\)</span> component.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">from</span> <span class="nn">scipy.signal</span> <span class="kn">import</span> <span class="n">square</span>
-<span class="kn">from</span> <span class="nn">scipy.integrate</span> <span class="kn">import</span> <span class="n">quad</span>
-<span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="o">*</span> 
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.signal</span><span class="w"> </span><span class="kn">import</span> <span class="n">square</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.integrate</span><span class="w"> </span><span class="kn">import</span> <span class="n">quad</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">math</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span> 
 
 <span class="c1"># initialize arrays</span>
 <span class="n">x</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span><span class="mf">0.001</span><span class="p">)</span> 
@@ -797,12 +797,6 @@ The example used is of a step function, often used to illustrate Gibbs phenomeno
 <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x2b1f27cade0&gt;
-</pre></div>
-</div>
-<img alt="../_images/48ad2d542a33abc524dd2a36ed69599fb2d79cb84f6445ac5881ba05d0adb952.png" src="../_images/48ad2d542a33abc524dd2a36ed69599fb2d79cb84f6445ac5881ba05d0adb952.png" />
 </div>
 </div>
 <p>You can read more about Fourier series and transforms in <span id="id1">Emery and Thompson [<a class="reference internal" href="../markdown.html#id11" title="Emery, WIlliam J. and Richard E. Thompson. Data Analysis Methods in Physical Oceanography. Elsevier B. V., 3rd ed edition, 1997. ISBN 0-444-50757 4.">ET97</a>]</span>.</p>

@@ -28,11 +28,11 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
   
@@ -217,6 +217,8 @@
 <li class="toctree-l2"><a class="reference internal" href="../LinearAdvectionEquation/differenceEquation.html">5.2. The difference equation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../LinearAdvectionEquation/differenceSolution.html">5.3. Solution of the difference equation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../LinearAdvectionEquation/Analysis.html">5.4. Analysis of the solution of the difference equation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../LinearAdvectionEquation/schemeMacCormack.html">5.5. The MacCormack Scheme</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../LinearAdvectionEquation/schemeLaxWendroff-code.html">5.6. The Lax-Wendroff Scheme</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../NumericalStability/Introduction.html">6. Stability of numerical schemes</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -531,7 +533,7 @@ B =
          0               &amp;              \cdots           &amp;        0                 &amp; 0                 &amp;\frac{\sigma}{4} &amp; 1                         \\
 \end{pmatrix}
 \end{split}\]</div>
-<p>In the case <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> are tridiagonal, as above, the solution of the linear system <a class="reference internal" href="#equation-eq-schemeab">(4.4)</a> is expedite. In other cases, iterative methods must be used.</p>
+<p>In the case <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> are tridiagonal, as above, the solution of the linear system <a class="reference internal" href="CrankNicolson_diffusion.html#equation-eq-schemeab">(4.7)</a> is expedite. In other cases, iterative methods must be used.</p>
 <section id="consistency-stability-and-convergence">
 <h2><span class="section-number">4.1.1. </span>Consistency, stability and convergence<a class="headerlink" href="#consistency-stability-and-convergence" title="Link to this heading">#</a></h2>
 <p>The scheme has a truncation error <span class="math notranslate nohighlight">\(O(\Delta t^2,\Delta x^2)\)</span>, since the spatial derivatives are approximated by a centred formula and the time derivative also, at <span class="math notranslate nohighlight">\(t^{n+1/2}\)</span>.
@@ -557,13 +559,13 @@ The stability of the scheme can be determined by the usual method of assuming a 
 <h2><span class="section-number">4.1.2. </span>Application: propagation of top hat function<a class="headerlink" href="#application-propagation-of-top-hat-function" title="Link to this heading">#</a></h2>
 <p>To test the scheme, we are going to apply it to the propagation of the top hat signal.</p>
 <div class="cell tag_hide-cell docutils container">
-<details class="hide above-input">
+<details class="admonition hide above-input">
 <summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell content</span>
-<span class="expanded">Hide code cell content</span>
+<p class="collapsed admonition-title">Show code cell content</p>
+<p class="expanded admonition-title">Hide code cell content</p>
 </summary>
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">topHat</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">topHat</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
    <span class="n">f0</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
    <span class="n">f0</span><span class="p">[(</span><span class="n">x</span><span class="o">&gt;</span><span class="mf">0.45</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">x</span><span class="o">&lt;</span><span class="mf">0.55</span><span class="p">)]</span><span class="o">=</span><span class="mi">1</span>
 
@@ -575,13 +577,13 @@ The stability of the scheme can be determined by the usual method of assuming a 
 </div>
 <p>The Crank-Nicholson scheme is implemented in the following Python function:</p>
 <div class="cell tag_hide-cell docutils container">
-<details class="hide above-input">
+<details class="admonition hide above-input">
 <summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell content</span>
-<span class="expanded">Hide code cell content</span>
+<p class="collapsed admonition-title">Show code cell content</p>
+<p class="expanded admonition-title">Hide code cell content</p>
 </summary>
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">crankNicholson</span><span class="p">(</span><span class="n">u0</span><span class="p">,</span><span class="n">a</span><span class="p">,</span><span class="n">dt</span><span class="p">,</span><span class="n">dx</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">M</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">crankNicholson</span><span class="p">(</span><span class="n">u0</span><span class="p">,</span><span class="n">a</span><span class="p">,</span><span class="n">dt</span><span class="p">,</span><span class="n">dx</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">M</span><span class="p">):</span>
 
     <span class="c1"># Initial condition</span>
     <span class="n">u</span><span class="o">=</span><span class="n">u0</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
@@ -616,16 +618,16 @@ The stability of the scheme can be determined by the usual method of assuming a 
 </div>
 <p>In the next code snippet, we set the discretization parameters and integrate the initial condition with the Crank-Nicholson scheme:</p>
 <div class="cell tag_hide-input docutils container">
-<details class="hide above-input">
+<details class="admonition hide above-input">
 <summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell source</span>
-<span class="expanded">Hide code cell source</span>
+<p class="collapsed admonition-title">Show code cell source</p>
+<p class="expanded admonition-title">Hide code cell source</p>
 </summary>
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">from</span> <span class="nn">scipy.sparse.linalg</span> <span class="kn">import</span> <span class="n">spsolve</span>
-<span class="kn">from</span> <span class="nn">scipy.sparse</span> <span class="kn">import</span> <span class="n">spdiags</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.sparse.linalg</span><span class="w"> </span><span class="kn">import</span> <span class="n">spsolve</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.sparse</span><span class="w"> </span><span class="kn">import</span> <span class="n">spdiags</span>
 
 <span class="n">N</span>     <span class="o">=</span> <span class="mi">30</span>       <span class="c1"># Number of time steps</span>
 <span class="n">M</span>     <span class="o">=</span> <span class="mi">100</span>      <span class="c1"># Number of grid points</span>
@@ -650,21 +652,24 @@ The stability of the scheme can be determined by the usual method of assuming a 
 </div>
 </details>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Number of time steps = 30
-Number of grid points = 100
-Time step = 0.010000
-Grid size = 0.010000
-CFL number = 0.750000
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">from</span><span class="w"> </span><span class="nn">scipy.sparse.linalg</span><span class="w"> </span><span class="kn">import</span> <span class="n">spsolve</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;numpy&#39;
 </pre></div>
 </div>
 </div>
 </div>
 <p>The solution at the end of the integration is shown below:</p>
 <div class="cell tag_hide-input docutils container">
-<details class="hide above-input">
+<details class="admonition hide above-input">
 <summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell source</span>
-<span class="expanded">Hide code cell source</span>
+<p class="collapsed admonition-title">Show code cell source</p>
+<p class="expanded admonition-title">Hide code cell source</p>
 </summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Shift the exact solution a distance equivalent to a*N*dt</span>
@@ -686,12 +691,9 @@ CFL number = 0.750000
 </div>
 </div>
 </details>
-<div class="cell_output docutils container">
-<img alt="../_images/7f0121277231b66caf3de90e1ad466250a1e7af48e01f4a02ced9b1110141e24.png" src="../_images/7f0121277231b66caf3de90e1ad466250a1e7af48e01f4a02ced9b1110141e24.png" />
-</div>
 </div>
 <p>The unconditional stability of the implicit Crank-Nicholson scheme is its great advantage, but it’s use in the advection equation has unwanted consequences in the form of dispersion and errors in the phase speed. The comparison with the Leapfrog scheme shows that the scheme, although unconditionally stable still suffers from dispersive behaviour.</p>
-<p>From <a class="reference internal" href="#equation-eq-ampfactorcn">(4.5)</a>, we can write</p>
+<p>From <a class="reference internal" href="CrankNicolson_diffusion.html#equation-eq-ampfactorcn">(4.8)</a>, we can write</p>
 <div class="math notranslate nohighlight">
 \[
    \mathbf{u}^n = G\mathbf{u}^{n-1}= \dotso = G^{(n)} \mathbf{u}^0
@@ -701,7 +703,7 @@ CFL number = 0.750000
 \[
    u_m^n = BG^{(n)} e^{i\lambda m\Delta x}
 \]</div>
-<p>Substituting <a class="reference internal" href="#equation-eq-ampfactorcn">(4.5)</a>, we obtain the following expression for the phase speed <span class="math notranslate nohighlight">\(c_F\)</span> of the numerical solution</p>
+<p>Substituting <a class="reference internal" href="CrankNicolson_diffusion.html#equation-eq-ampfactorcn">(4.8)</a>, we obtain the following expression for the phase speed <span class="math notranslate nohighlight">\(c_F\)</span> of the numerical solution</p>
 <div class="math notranslate nohighlight">
 \[
   c_F = \frac{2\theta}{k \Delta t}, \quad \theta = \tan^{-1}\left( \frac{\sigma}{2} \sin k \Delta x \right)

@@ -28,11 +28,11 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
   
@@ -424,8 +424,10 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#consistency-stability-and-convergence">5.5.1. Consistency, stability and convergence</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#application-propagation-of-top-hat-function">5.5.2. Application: propagation of top hat function</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-the-predictor-step">5.5.1. Step 1: The Predictor step</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-the-corrector-step">5.5.2. Step 2: the corrector step</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#consistency-stability-and-convergence">5.5.3. Consistency, stability and convergence</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#application-propagation-of-top-hat-function">5.5.4. Application: propagation of top hat function</a></li>
 </ul>
             </nav>
         </div>
@@ -440,12 +442,23 @@ document.write(`
   <section class="tex2jax_ignore mathjax_ignore" id="the-maccormack-scheme">
 <span id="linearadvectionequation-schememaccormack"></span><h1><span class="section-number">5.5. </span>The MacCormack Scheme<a class="headerlink" href="#the-maccormack-scheme" title="Link to this heading">#</a></h1>
 <p>The MacCormack scheme is another multi-step scheme. It is composed of a <em>predictor</em> step and a <em>corrector</em> step. It is one of the simplest of the <em>predictor-corrector</em> class of numerical schemes.</p>
+<section id="step-1-the-predictor-step">
+<h2><span class="section-number">5.5.1. </span>Step 1: The Predictor step<a class="headerlink" href="#step-1-the-predictor-step" title="Link to this heading">#</a></h2>
 <p>The predictor step is used to obtain an estime <span class="math notranslate nohighlight">\(\tilde{u}\)</span> of the unknown function <span class="math notranslate nohighlight">\(u\)</span> at <span class="math notranslate nohighlight">\(t^{n+1}\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[
    \tilde{u}_k^{n+1}=u_k^n - a\frac{\Delta t}{\Delta x}\left( u_{k+1}^n - u_k^n \right)
 \]</div>
-<p>Note the use of a <strong>forward</strong> formula to approximate the spatial derivative. The corrector step uses the estimates <span class="math notranslate nohighlight">\( \tilde{u}^{n+1}\)</span> to approximate the spatial derivative with a <strong>backward</strong> formula:</p>
+<p>We will also need the same FTFS step for <span class="math notranslate nohighlight">\(\tilde{u}_{k-1}^{n+1}\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+   \tilde{u}_{k-1}^{n+1}=u_{k-1}^n - a\frac{\Delta t}{\Delta x}\left( u_{k}^n - u_{k-1}^n \right).
+\]</div>
+<p>Note the use of a <strong>forward</strong> formula to approximate the spatial derivative.</p>
+</section>
+<section id="step-2-the-corrector-step">
+<h2><span class="section-number">5.5.2. </span>Step 2: the corrector step<a class="headerlink" href="#step-2-the-corrector-step" title="Link to this heading">#</a></h2>
+<p>The corrector step uses a FTBS scheme with a half-step in time from <span class="math notranslate nohighlight">\(u_k^{n+1/2}\)</span> to <span class="math notranslate nohighlight">\(u_k^{n+1}\)</span> and the estimates <span class="math notranslate nohighlight">\( \tilde{u}_k^{n+1}\)</span> and <span class="math notranslate nohighlight">\( \tilde{u}_{k-1}^{n+1}\)</span> to approximate the <strong>backward</strong> spatial derivative :</p>
 <div class="math notranslate nohighlight">
 \[
    u_k^{n+1}=u_k^{n+\frac{1}{2}} - a\frac{\Delta t}{2\Delta x}\left( \tilde{u}_{k}^{n+1} - \tilde{u}_{k-1}^{n+1} \right)
@@ -458,7 +471,7 @@ document.write(`
 <p>The final scheme is:</p>
 <div class="math notranslate nohighlight">
 \[
-u_k^{n+1} = \frac{u_k^{n} + \tilde{u}_k^{n+1}}{2} - a\frac{\Delta t}{2\Delta x}\left( \tilde{u}_{k}^n - \tilde{u}_{k-1}^n \right)
+u_k^{n+1} = \frac{u_k^{n} + \tilde{u}_k^{n+1}}{2} - a\frac{\Delta t}{2\Delta x}\left( \tilde{u}_{k}^{n+1} - \tilde{u}_{k-1}^{n+1} \right)
 \]</div>
 <p>For the linear advection equation, you can insert the expressions for <span class="math notranslate nohighlight">\(\tilde{u}_k^{n+1}\)</span>, <span class="math notranslate nohighlight">\(\tilde{u}_k^{n}\)</span> and <span class="math notranslate nohighlight">\(\tilde{u}_{k-1}^{n}\)</span> into the final scheme to get a 1-step solution, which gives the same result as the Lax-Wendroff approach:</p>
 <div class="math notranslate nohighlight">
@@ -466,12 +479,13 @@ u_k^{n+1} = \frac{u_k^{n} + \tilde{u}_k^{n+1}}{2} - a\frac{\Delta t}{2\Delta x}\
 u_k^{n+1}=u_k^n-\frac{C}{2}(u_{k+1}^n-u_{k-1}^n)+\frac{C^2}{2}(u_{k+1}^n-2u_k^n+u_{k-1}^n),
 \]</div>
 <p>where <span class="math notranslate nohighlight">\(C=\frac{a\Delta t}{\Delta x}\)</span> is the Courant number.</p>
+</section>
 <section id="consistency-stability-and-convergence">
-<h2><span class="section-number">5.5.1. </span>Consistency, stability and convergence<a class="headerlink" href="#consistency-stability-and-convergence" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">5.5.3. </span>Consistency, stability and convergence<a class="headerlink" href="#consistency-stability-and-convergence" title="Link to this heading">#</a></h2>
 <p>For the linear advection equation, the MacCormack scheme is equivalent to the Lax-Wendroff scheme, so its properties are the same as those of the latter.</p>
 </section>
 <section id="application-propagation-of-top-hat-function">
-<h2><span class="section-number">5.5.2. </span>Application: propagation of top hat function<a class="headerlink" href="#application-propagation-of-top-hat-function" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">5.5.4. </span>Application: propagation of top hat function<a class="headerlink" href="#application-propagation-of-top-hat-function" title="Link to this heading">#</a></h2>
 <p>The MacCormack scheme applied to the top hat initial condition gives the same solution as the Lax-Wendroff scheme.</p>
 </section>
 </section>
@@ -540,8 +554,10 @@ u_k^{n+1}=u_k^n-\frac{C}{2}(u_{k+1}^n-u_{k-1}^n)+\frac{C^2}{2}(u_{k+1}^n-2u_k^n+
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#consistency-stability-and-convergence">5.5.1. Consistency, stability and convergence</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#application-propagation-of-top-hat-function">5.5.2. Application: propagation of top hat function</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-the-predictor-step">5.5.1. Step 1: The Predictor step</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-the-corrector-step">5.5.2. Step 2: the corrector step</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#consistency-stability-and-convergence">5.5.3. Consistency, stability and convergence</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#application-propagation-of-top-hat-function">5.5.4. Application: propagation of top hat function</a></li>
 </ul>
   </nav></div>
 

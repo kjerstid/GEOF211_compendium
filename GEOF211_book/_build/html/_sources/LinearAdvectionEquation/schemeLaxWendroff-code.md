@@ -12,7 +12,11 @@ kernelspec:
 (scheme:lax-wendroff)=
 # The Lax-Wendroff Scheme
 
-The Lax-Wendroff scheme can be derived in several ways. We shall derive it from a *multi-step* perspective. The idea is to compute $u_k^{n+1}$ using not the time derivative at $t=n\Delta t$, but that at the *half-step* $t=n\Delta t + \Delta t/2=(n+1/2)\Delta t$
+The Lax-Wendroff scheme can be derived in several ways. We shall derive it from a *multi-step* perspective and from a Taylor expansion perspective. 
+
+## Lax-Wendroff 2-step approach
+
+The idea is to compute $u_k^{n+1}$ using not the time derivative at $t=n\Delta t$, but that at the *half-step* $t=n\Delta t + \Delta t/2=(n+1/2)\Delta t$
 
 $$
 	u_k^{n+1}=u_k^n+\Delta t\left(-c\frac{\partial u}{\partial x}\mid_{k,n+1/2}\right)
@@ -39,6 +43,10 @@ $$
 $$
 	u_{k}^{n+1}=u_k^n-a\frac{\Delta t}{2\Delta x}(u_{k+1/2}^{n+1/2}-u_{k-1/2}^{n+1/2})
 $$
+
+## Lax Wendroff 1-step approach from Taylor expansions
+
+To be updated soon...
 
 ## Consistency, stability and convergence
 

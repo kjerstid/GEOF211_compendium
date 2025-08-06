@@ -28,11 +28,11 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
   
@@ -217,6 +217,8 @@
 <li class="toctree-l2"><a class="reference internal" href="../LinearAdvectionEquation/differenceEquation.html">5.2. The difference equation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../LinearAdvectionEquation/differenceSolution.html">5.3. Solution of the difference equation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../LinearAdvectionEquation/Analysis.html">5.4. Analysis of the solution of the difference equation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../LinearAdvectionEquation/schemeMacCormack.html">5.5. The MacCormack Scheme</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../LinearAdvectionEquation/schemeLaxWendroff-code.html">5.6. The Lax-Wendroff Scheme</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../NumericalStability/Introduction.html">6. Stability of numerical schemes</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -442,8 +444,8 @@ document.write(`
   \frac{u_m^{n+1}-u_m^n}{\Delta t} = -\frac{c}{2}\left(\alpha\frac{u_{m+1}^{n+1}-u_{m-1}^{n+1}}{2\Delta x} + (1-\alpha)\frac{u_{m+1}^{n}-u_{m-1}^{n}}{2\Delta x}\right)
 \]</div>
 <p>The value of <span class="math notranslate nohighlight">\(\alpha\)</span> determines the nature of the scheme:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-3e4a98cd-130a-41a3-bc62-9ebba6eac13b">
-<span class="eqno">(4.10)<a class="headerlink" href="#equation-3e4a98cd-130a-41a3-bc62-9ebba6eac13b" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-471fe7f7-46d9-4660-9073-683a238ede6c">
+<span class="eqno">(4.10)<a class="headerlink" href="#equation-471fe7f7-46d9-4660-9073-683a238ede6c" title="Permalink to this equation">#</a></span>\[\begin{align}
     \alpha &amp;= 0 \quad \text{Fully explicit scheme} \\
     \alpha &amp;= 0.5 \quad \text{Crank-Nicholson scheme} \\
     \alpha &amp;= 1 \quad \text{Fully implicit scheme}
@@ -457,14 +459,16 @@ document.write(`
 \]</div>
 <p>The effect of varying <span class="math notranslate nohighlight">\(\alpha\)</span> in the stability is shown below:</p>
 <figure class="align-default" id="implicitstabilitydiagram">
-<a class="reference internal image-reference" href="../_images/Implicit_Stability_Diagram.png"><img alt="../_images/Implicit_Stability_Diagram.png" src="../_images/Implicit_Stability_Diagram.png" style="height: 400px;" /></a>
+<a class="reference internal image-reference" href="../_images/Implicit_Stability_Diagram.png"><img alt="../_images/Implicit_Stability_Diagram.png" src="../_images/Implicit_Stability_Diagram.png" style="height: 400px;" />
+</a>
 <figcaption>
 <p><span class="caption-number">Fig. 4.1 </span><span class="caption-text">The amplification factor of the general implicit scheme, for a range of CFL numbers and <span class="math notranslate nohighlight">\(\alpha\)</span>.</span><a class="headerlink" href="#implicitstabilitydiagram" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>The implicit scheme <span class="math notranslate nohighlight">\(\alpha &gt; 0.5\)</span> is damping and for <span class="math notranslate nohighlight">\(\alpha &lt; 0.5\)</span>, the scheme is unconditionally unstable. The damping effect of the numerical diffusion of the implicit scheme increases as the CFL number increases.</p>
 <figure class="align-default" id="implicitschemesolution">
-<a class="reference internal image-reference" href="../_images/ImplicitScheme_Solution.png"><img alt="../_images/ImplicitScheme_Solution.png" src="../_images/ImplicitScheme_Solution.png" style="height: 400px;" /></a>
+<a class="reference internal image-reference" href="../_images/ImplicitScheme_Solution.png"><img alt="../_images/ImplicitScheme_Solution.png" src="../_images/ImplicitScheme_Solution.png" style="height: 400px;" />
+</a>
 <figcaption>
 <p><span class="caption-number">Fig. 4.2 </span><span class="caption-text">The solution of the implicit scheme after 10 time steps for a <em>top hat</em> initial condition, for CFL numbers of 1.9 and <span class="math notranslate nohighlight">\(\alpha=0.5, 0.7, 0.9, 0.99\)</span>, with <span class="math notranslate nohighlight">\(\Delta t=2\)</span> and <span class="math notranslate nohighlight">\(\Delta x=1\)</span>.</span><a class="headerlink" href="#implicitschemesolution" title="Link to this image">#</a></p>
 </figcaption>
