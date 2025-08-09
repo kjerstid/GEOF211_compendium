@@ -1,6 +1,6 @@
 # Resource pages for GEOF211 - Numerical Modeling
 
-Testing book on new computer! This is going well!
+Testing book publishing on new computer! This is going well - I'm sure!
 
 This is a compendium for use in in the course GEOF211 at the Geophysical Institute, University of Bergen. 
 
