@@ -28,7 +28,10 @@ jobs:
       - name: Build Jupyter Book
         run: uv run jupyter-book build GEOF211_book 
 
+      - name: Upload GitHub Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: 'GEOF211_book/_build/html'
+
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v4
-        with:
-          artifact_path: 'GEOF211_book/_build/html' 
