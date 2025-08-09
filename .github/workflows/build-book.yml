@@ -21,9 +21,9 @@ jobs:
           uv sync            # Installs dependencies from pyproject.toml or uv.lock
 
       - name: Build Jupyter Book
-        run: uv run jupyter-book build GEOF211_Book 
+        run: uv run jupyter-book build GEOF211_book 
 
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v4
         with:
-          artifact_path: 'GEOF211_Book/_build/html' 
+          artifact_path: 'GEOF211_book/_build/html' 
