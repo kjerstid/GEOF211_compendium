@@ -43,6 +43,7 @@ chapters:
 - file: BoundaryConditions/Introduction.md
   sections:
   - file: BoundaryConditions/Mathematical_BC.md
+  - file: BoundaryConditions/Physical_BC.md
 - file: NumericalStability/Introduction.md
   sections: 
   - file: NumericalStability/ConceptsDefinitions.md
