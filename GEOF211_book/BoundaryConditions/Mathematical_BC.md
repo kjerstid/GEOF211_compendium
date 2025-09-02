@@ -1,4 +1,4 @@
-(BoundaryCondtitions:Mathematical_BC:labels)=
+(BoundaryCondtitions:Mathematical_BC)=
 # Mathematical descriptions of boundary conditions
 
 
