@@ -40,6 +40,9 @@ chapters:
   - file: LinearAdvectionEquation/Analysis.md
   - file: LinearAdvectionEquation/schemeMacCormack.md
   - file: LinearAdvectionEquation/schemeLaxWendroff-code.md
+- file: BoundaryConditions/Introduction.md
+  sections:
+  - file: BoundaryConditions/Mathematical_BC.md
 - file: NumericalStability/Introduction.md
   sections: 
   - file: NumericalStability/ConceptsDefinitions.md
