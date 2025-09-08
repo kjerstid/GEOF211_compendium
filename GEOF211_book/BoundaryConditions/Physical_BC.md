@@ -14,6 +14,13 @@ $$ (eq:Leapfrog)
 
 Here, we will define the homogenous wall Dirichlet conditions as:
 
+```{math}
+:label: eq:BC_wall
+u_0^{n+1} = 0
+```
+
+se equation {@eq:BC_wall}.
+
 $$
 \begin{align}
 u_0^{n+1} = 0\\
