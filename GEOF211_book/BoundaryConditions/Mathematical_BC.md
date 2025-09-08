@@ -43,3 +43,5 @@ Robin boundary conditions is a mix of von Neuman and Dirichlet boundary conditio
 \frac{\partial u(x_{L},t)}{\partial x}+u(x_{L},t)=f_2(t)
 \end{aligned}
 ```
+
+You can read more about this in, e.g., {cite:ts}`Strauss1982`.
