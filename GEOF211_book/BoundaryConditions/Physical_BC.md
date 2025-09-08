@@ -3,8 +3,8 @@
 
 Physical descriptions of boundary conditions means that we design the type of boundary conditions (the mathematical ones described in section {ref}'BoundaryCondtitions:Mathematical_BC') to match a desired physical behavior at the boundary. Most of the considerations discussed below, relates to boundary conditions of momentum, $\bar u(x,y,t)=\begin{bmatrix} u(x,y,z,t) \\ v(x,y,z,t)\\w(x,y,z,t)\end{bmatrix}$, where viscous forces may become important close to wall boundary conditions, or where you must consider how the flow may pass through an open boundary. For other parameters, such as temperature, salinity, moisture, etc., you are more free to set the boundary conditions in various ways, depending on your types of boundaries.
 
-## Wall boundary conditions
-In geophysical fluid dynamic models, we sometimes encounter boundaries that should act like walls. In ocean models, we typically have coastlines, or in low-altitude atmospheric models we may tall mountain ranges. When we have a wall boundary condition, we must ensure that the fluid velocity normal to the boundary is zero. This means that we have a homogenous Dirichlet condition for flow normal to the wall. 
+## Closed boundary conditions
+In geophysical fluid dynamic models, we sometimes encounter boundaries that should be closed and act like walls. In ocean models, we typically have coastlines, or in low-altitude atmospheric models we may tall mountain ranges. When we have a wall boundary condition, we must ensure that the fluid velocity normal to the boundary is zero. This means that we have a homogenous Dirichlet condition for flow normal to the wall. 
 
 Let us consider an example with a 1D model for advection and a forward in time, centered in space (FTCS) scheme, on a model domain $x\in[0,L]$:
 
@@ -37,7 +37,7 @@ A no-slip boundary condition is valid for viscous fluids, where the flow is not 
 
 If you, for example, consider flow along a channel or a river, the flow will be slower near the walls, and in a thin layer next to the walls, it will be zero. The no-slip conditions is therefore typically a homogenous Dirichlet boundary condition for flow both normal to, an parallell with the boundary.
 
-For a 2D extension of the advection equation (Eq~\ref{eq:NonLinAdvection_u_3d}), we get that both u and v are zero in all grid cells touching the boundaries. Let our model domain be defined in the region $x\in[0_x,L_x]$ and $y\in[0_y,L_y]$. Then
+For a 2D extension of the advection equation ({ref}'eq:NonLinAdvection_u_3d'), we get that both u and v are zero in all grid cells touching the boundaries. Let our model domain be defined in the region $x\in[0_x,L_x]$ and $y\in[0_y,L_y]$. Then
 
 $$
 \begin{equation}
