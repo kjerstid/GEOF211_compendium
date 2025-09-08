@@ -16,7 +16,6 @@ u(t)=u^n+\frac{u'(t^n)}{1!}(t-t^n)+\frac{u''(t^n)}{2!}(t-t^n)^2+\sum_{p=3}^{\inf
 From {eq}`eq:fdExpansion`, we have
 
 ```{math}
-:label: eq:formulaForward
 \frac{du}{dt}=\frac{u^{n+1}-u^n}{\Delta t}+O(\Delta t).
 ```
 
@@ -50,7 +49,7 @@ $$ (eq:backward_taylorSeries_c)
 We finally rearrange the terms to isolate $\frac{du}{dt}$ and obtain the *backward* difference formula for the 1st derivative:
 
 ```{math}
-:label: eq:formularBackward
+:label: eq:formulaBackward
 \frac{du}{dt}=\frac{u^{n}-u^{n-1}}{\Delta t} + O\left( \Delta t\right),
 ```
  
@@ -60,7 +59,7 @@ which uses the $u^{n-1}$ and the $u^{n}$ values and is also a first order approx
 We can combine the forward and backward difference formulas to achieve a centered formula. we can, for example sum the forward (eq. {eq}`eq:formulaForward`) and backward (eq. {eq}`eq:formulaBackward`) Taylor expansions and dividing by 2, to obtain the simplest centered difference formula:
 
 ```{math}
-:label: eq:formularCentered
+:label: eq:formulaCentered
 \frac{du}{dt}=\frac{u^{n+1}-u^{n-1}}{2\Delta t} + O\left( \Delta t^2\right),
 ```
 

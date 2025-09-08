@@ -1,7 +1,7 @@
 (finite-differences:algebraic-derivative)=
 # Algebraic approximation of the first derivative
 
-Let us consider a function $u(t)$ that depends continously on $t$. The derivative of $u(t)$ is:
+Let us consider a function $u(t)$ that depends continuously on $t$. The derivative of $u(t)$ is:
 
 ```{math}
 :label: eq:exactDerivative
