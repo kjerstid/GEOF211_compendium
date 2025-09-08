@@ -20,7 +20,7 @@ If we disregard motion in the y, and z-direction ($v=0$ and $w=0$), we obtain th
 For other parameters, like, e.g., temperature ($\theta$) the non-linear advection equation is written:
 
 ```{math}
-:label: eq:NonLinAdvection_ut_1d
+:label: eq:NonLinAdvection_t_1d
 \frac{\partial \theta}{\partial t}+u(t,x)\frac{\partial \theta}{\partial x}=0
 ```
 
