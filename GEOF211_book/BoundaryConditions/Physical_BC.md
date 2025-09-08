@@ -15,10 +15,10 @@ $$ (eq:Leapfrog)
 Here, we will define the homogenous wall Dirichlet conditions as:
 
 $$
-\begin{gather}
+\begin{align}
 u_0^{n+1} = 0\\
 u_{L}^{n+1} = 0
-\end{gather}
+\end{align}
 $$ (eq:BC_wall)
 
 
@@ -108,10 +108,10 @@ We now, use the same scheme for each of the two boundaries, $x=0$ an $x=L$ and a
 
 $$
 
-\begin{gather}
+\begin{align}
 u_{0}^{n+1} &= u_{0}^{n-1} - c\frac{\Delta t}{\Delta x}(u_{1}^{n}-u_{L}^{n})&\\
 u_{L}^{n+1} &= u_{L}^{n-1} - c\frac{\Delta t}{\Delta x}(u_{0}^{n}-u_{L-1}^{n})&
-\end{gather}
+\end{align}
 $$ (eq:BC_periodic)
 
 
