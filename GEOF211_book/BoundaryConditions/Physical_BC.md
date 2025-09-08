@@ -14,12 +14,13 @@ $$ (eq:Leapfrog)
 
 Here, we will define the homogenous wall Dirichlet conditions as:
 
-$$
-\begin{align}
+```{math}
+:label: eq:BC_wall
+\begin{aligned}
 u_0^{n+1} = 0\\
 u_{L}^{n+1} = 0
-\end{align}
-$$ (eq:BC_wall)
+\end{aligned}
+```
 
 
 In 2 dimensions, we must also consifer flow tangential to the boundary. here, we typically choose from no-slip or slip boundary conditions. 
@@ -45,14 +46,15 @@ u_{\parallel,L_y}^{n+1} = 0
 
 and the boundary condition for the northward velocity becomes: 
 
-$$
-\begin{align}
+```{math}
+:label: eq:BC_no_slip_v
+\begin{aligned}
 v_{0_x,\parallel}^{n+1} &= 0&
 v_{L_x,\parallel}^{n+1} = 0\\
 v_{\perp,0_y}^{n+1} &= 0&
 v_{\perp,L_y}^{n+1} = 0,
-\end{align}
-$$ (eq:BC_no_slip_v)
+\end{aligned}
+```
 
 where $\parallel$ and $\perp$ refer to flow parallel to and perpendicular to the boundary, respectively.
 
@@ -64,25 +66,27 @@ If you consider the same example as for no-slip boundaries, it means that the ri
 
 Fo a 2D advection example as above, $u=0$ at the eastern and western boundaries, but are non-zero at the northern and southern boundaries, meaning there is flow along the boundary. Similarly, $v=0$ at the norhtern and southern boundary, but is non-zero along the eastern and western boundaries. For the flow along the boundaries, we must ensure a homogenous von Neuman condition. This gives Dirchlet boundary conditions for flow normal to the boundaries:
 
-$$
-\begin{align}
+```{math}
+:label: eq:BC_no_slip_normal
+\begin{aligned}
 u_{0_x,\perp}^{n+1} &= 0&
 u_{L_x,\perp}^{n+1} = 0\\
 v_{\perp,0_y}^{n+1} &= 0&
 v_{\perp,L_y}^{n+1} = 0\\
-\end{align}
-$$ (eq:BC_no_slip_normal)
+\end{aligned}
+```
 
 and homogenous Neumann boundary conditions for flow parallel to the boundaries
 
-$$
-\begin{align}
+```{math}
+:label: eq:BC_no_slip_parallel
+\begin{aligned}
 \frac{\partial u_{\parallel,0_y}^{n+1}}{\partial y} &= 0&
 \frac{\partial u_{\parallel,L_y}^{n+1}}{\partial y} = 0\\
 \frac{\partial v_{0_x,\parallel}^{n+1}}{\partial x} &= 0&
 \frac{\partial v_{L_x,\parallel}^{n+1}}{\partial x} = 0\\
-\end{align}
-$$ (eq:BC_no_slip_parallel)
+\end{aligned}
+```
 
 ## Open boundary conditions
 
@@ -108,13 +112,13 @@ $$ (eq:Leapfrog)
 
 We now, use the same scheme for each of the two boundaries, $x=0$ an $x=L$ and adjust the index $m$ to match a boundary taped together. Here you can think of the coninuos indices at the border to be $(\ldots, L-2,L-2,L,0,1,2,\ldots)$
 
-$$
-
-\begin{align}
+```{math}
+:label: eq:BC_periodic
+\begin{aligned}
 u_{0}^{n+1} &= u_{0}^{n-1} - c\frac{\Delta t}{\Delta x}(u_{1}^{n}-u_{L}^{n})&\\
 u_{L}^{n+1} &= u_{L}^{n-1} - c\frac{\Delta t}{\Delta x}(u_{0}^{n}-u_{L-1}^{n})&
-\end{align}
-$$ (eq:BC_periodic)
+\end{aligned}
+```
 
 
 ```{note}
