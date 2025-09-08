@@ -32,14 +32,16 @@ If you, for example, consider flow along a channel or a river, the flow will be 
 
 For a 2D extension of the advection equation ({eq}`eq:NonLinAdvection_u_3d), we get that both u and v are zero in all grid cells touching the boundaries. Let our model domain be defined in the region $x\in[0_x,L_x]$ and $y\in[0_y,L_y]$. Then the boundary conditions for the eastward velocity becomes:
 
-$$
-\begin{align}
+
+```{math}
+:label: eq:BC_no_slip_u
+\begin{aligned}
 u_{0_x,\perp}^{n+1} &= 0&
 u_{L_x,\perp}^{n+1} = 0\\
 u_{\parallel,0_y}^{n+1} &= 0&
 u_{\parallel,L_y}^{n+1} = 0
-\end{align}
-$$ (eq:BC_no_slip_u)
+\end{aligned}
+```
 
 and the boundary condition for the northward velocity becomes: 
 
