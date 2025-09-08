@@ -18,7 +18,7 @@ We observe that over time interval $T$, the signal shows a variation of size $U$
 Since the derivative of $u(t)$ is the variation $\Delta u$ that occurs over time interval $\Delta t$, we can say that $U$ and $T$ are characteristic values of $\Delta u$ and $\Delta t$ and write
 
 ```{math}
-:label: eq:eorderDuDt
+:label: eq:orderDuDt
 \frac{du}{dt} \approx \frac{U}{T}.
 ```
 

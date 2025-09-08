@@ -68,7 +68,7 @@ Since the backward and forward Taylor expansions have opposite signs for every s
 (finite-differences:formulas-1stderivative-higherorder)=
 ## Higher order formulas
 
-The 1st and 2nd order formulas {eq}`eq:formulaForward`, {eq}`eq:formulaBackward`, {eq}`eq:formulaCentred` were obtained by manipulation of the Taylor series expansions of $u(t)$ but for higher order approximations, this soon becomes unpractical. However, there is a more expedite method to find higher order formulas. 
+The 1st and 2nd order formulas {eq}`eq:formulaForward`, {eq}`eq:formulaBackward`, {eq}`eq:formulaCentered` were obtained by manipulation of the Taylor series expansions of $u(t)$ but for higher order approximations, this soon becomes unpractical. However, there is a more expedite method to find higher order formulas. 
 
 As the 2nd order formula needed more information about $u$ than the 1st order formulas, i.e. it needed more data points, we expect that higher order formulas will require even more data points. Let us consider the values of $u$ at $n-2$, $n-1$, $n$, $n+1$, $n+2$, and form an expression for the time derivative using the function values at these time steps:
 
