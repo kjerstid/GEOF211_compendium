@@ -73,36 +73,41 @@ The time domain represents how the signal (for example air temperature) is chang
 
 To get a meaningful interpretation of the frequency domain, we must first approximate our signal by the sum of the mean value of our signal, $\bar{y(t)}$, and a superposition of many waves with different frequencies, amplitudes, and phases, $T$. The more frequencies, $\omega_n$ with unit [radians per time], we include in the superposition, the better the approximation is. The approximation is typoically valid within a certain time period, $T$. The frequencies are related to the time period, through $\omega_n=2\pi/T$.
 
-$$
+```{math}
+:label: eq:Fourier_series
 y(t)=\bar{y(t)}+\sum_n[A_ncos(\omega_n t)+B_nsin(\omega_n t)]
-$$ (eq:Fourier_series)
+```
 
 The number of frequencies we can reolve in a time series, depend on the time interval and the sampling frequency. To resolve a wave signal, we need at least 2 datapoints per wavelength. The highest resolveable frequency, will therefore be $f_N=(N/2)/N\Delta t=1/2\Delta t$. This is called the Nyquist frequency.
 
 Another way of representing the function $y(t)$ as a Fourier series, is to note that $\bar{y(t)}$ can be written as $A_n/2$:
 
-$$
+```{math}
+:label: eq:Fourier_series_b
 y(t)=\frac{A_0}{2}+\sum_n[A_ncos(\omega_n t)+B_nsin(\omega_n t)]
-$$ (eq:Fourier_series)
+```
 
 The amplitude of each wave in the superposition, can be derived from the following equations:
 
-$$
+```{math}
+:label: eq:Fourier_series_amplitude
 A_n=\frac{2}{T}\int_{0}^{T}f(t)cos(\omega_n t)dt, n=0,1,2,...\\
 B_n=\frac{2}{T}\int_{0}^{T}f(t)sin(\omega_n t)dt, n=1,2,...
-$$ (eq:Fourier_series_amplitude)
+```
 
 We can also construct the Fourier series using complex notation for currents, e.g., by stating that $U(t)=u(t)+iv(t)$, when $u(t)$ and $v(t)$ are velocities in east and north direction, respectively:
 
-$$
+```{math}
+:label: eq:Fourier_series_complex_euler
 U(t)=\sum_{n=0}^\infty c_n e^{i 2\pi\frac{n}{T}t}
-$$ (eq:Fourier_series_complex_euler)
+```
 
 , where
 
-$$
+```{math}
+:label: eq:Fourier_series_amplitude_b
 c_n=\frac{1}{T}\int_{0}^{T}U(t)e^{-i\frac{2\pi}{T}t}dt
-$$ (eq:Fourier_series_amplitude)
+```
 
 ## The Fourier transform pair
 
@@ -110,20 +115,23 @@ When we have created our approximated signal, we can calculate the amount of ene
 
 For a continuous functions, $y(t)$ the Fourier transform pair is  defined:
 
-$$
-\begin{align}
+```{math}
+:label: eq:Fourier_transform_continuos
+\begin{aligned}
 Y(f)&=\int_{-\infty}^\infty y(t)e^{-i2\pi ft}dt\\
 y(t)&=\int_{-\infty}^\infty Y(f)e^{i2\pi ft}df\\
 &=\frac{1}{2\pi}\int_{-\infty}^\infty Y(f)e^{i\omega t}d\omega
-\end{align}
-$$ (eq:Fourier_transform_continuous)
+\end{aligned}
+````
+
 ,where $\omega=2\pi f$. The functions are inverse set of functions.
 
 For discrete data series (in time or space), the Fourier transform is:
 
-$$
+```{math}
+:label: eq:Fourier_transform
 Y(f)=\Delta t \sum_{-\infty}^\infty y_n e^{-i2\pi ft}
-$$ (eq:Fourier_transform)
+```
 
 Here, the function $Y(f)$ represent energy as a function of the frequency $f$. If the signal consisted of just one pure sine wave, the graph of $Y(f)$ would contain a single spike at the frequency of this sine wave. For the superposition of the three waves in the example above, we get one spike for each of the frequencies 2, 5, and 10 cycles per second.
 

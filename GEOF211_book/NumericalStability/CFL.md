@@ -5,9 +5,9 @@ The CFL criterion is named after the mathematicians Richard Courant, Kurt Otto F
 
 To understand where the CFL criterion comes from, we can, for example, look at the FTBS scheme for the linear advection equation:
 
-$$
+```{math}
 q_m^{n+1}=q_m^n-a\frac{\Delta t}{\Delta x}(q_m^n-q_{m-1}^n)
-$$
+```
 
 (definition:CFL)=
 :::{admonition} Definition
@@ -25,9 +25,9 @@ $C=a\frac{\Delta t}{\Delta x}\leq C_{max}$ is the CFL criterion for stability of
 When examining the CFL number, we compare  the size of the displacement during one time step ($a\Delta t$) to the grid cell size $\Delta x$. For most numerical schemes, $C\leq 1$ is a necessary (but not sufficient!) condition for stability. If the displacement is much larger than the grid cell size, $C>>1$, the signal travels many grid cells in just one time step. This means that we cannot calculate the next time step based on the few neighboring grid points like we do in the simple Finite Difference schemes. 
 
 For the two-dimensional non-linear advection equation,
-$$
+```{math}
 \frac{\partial q}{\partial t}+u\frac{\partial u}{\partial x}+v\frac{\partial u}{\partial y},
-$$
+```
 
 the CFL criterion looks similar:
 

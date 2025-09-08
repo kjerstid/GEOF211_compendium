@@ -7,9 +7,9 @@
 :class: important
 A function $f$ defined on a set $X$ with real or complex values is called **bounded** if there exists a real number $M$ such that
 
-$$
+```{math}
 |f(x)|\le M
-$$
+```
 
 for all $x$ in $X$.
 :::
@@ -62,9 +62,9 @@ A difference equation is **consistent** when it approaches the corresponding PDE
 
 The truncation error of the leapfrog scheme applied to the linear advection equation is:
 
-$$
+```{math}
 Tr = \frac{\Delta t^2}{3!}\frac{\partial^3 q}{\partial t^3} + c\frac{\Delta x^2}{3!}\frac{\partial^3 q}{\partial x^3} + \dots
-$$
+```
 
 or $Tr = O(\Delta t^2)+O(\Delta x^2)$, which clearly converges to zero as $\Delta t, \Delta x \to 0$. Thus the leapfrog discretization of the linear advection equation is consistent.
 

@@ -7,9 +7,10 @@ The total variation is a measure of the amount of oscillation in the field:
 (definition:Total Variation)=
 :::{admonition} Definition
 :class: important
-$$
+```{math}
+:label: eq:TotalVariation
 TV(q^n)=\sum_{m=2}^J|(q_m^n-q_{m-1}^n)|
-$$ (eq:TotalVariation)
+```
 :::
 
 The change in total variation with time, can tell you much about the behaviour of the numerical solution. Schemes that give unwanted oscillations will typically have large variation in Total variation, although the Total Variation may still vary within bounds.
@@ -26,9 +27,10 @@ When you calculate the Total Variation, you must carefully consider your boundar
 :::{admonition} Definition
 :class: important
 A numerical scheme is total variation diminishing if:
-$$
+```{math}
+:label: eq:TotalVariation_b
 TV(q^{n+1})\leq TV(q^n)
-$$ (eq:TotalVariation)
+```
 :::
 
 For TVD schemes, the amount of oscillation does not increase with time. The FTBS scheme for linear advection is an example of a TVD scheme, as long as we don't break the CFL criterion. The scheme smoothes out the original signal and reduce the Total Variation with time. 
@@ -44,9 +46,10 @@ However, discontinuities may still be smoothed in TVD schemes, as is the case fo
 
 Consider a general method of the form:
 
-$$
+```{math}
+:label: eq:HartenGeneral
 q_m^{n+1}=q_m^n-C_{m-1}^n(q_m^n-q_{m-1}^n)+D_m^n(q_{m+1}^n-q_m^n)
-$$ (eq:HartenGeneral)
+```
 
 where the coefficients $C$ and $D$ are arbitrary values that may depend on $q$. (Note that
 these coefficients are displaced half a grid length to the right, so that, e.g., $D_m^n$ is valid
@@ -56,17 +59,17 @@ at $j+\frac{1}{2}$.) Then it has been shown {cite:p}`Harten1983` that
 :::{admonition} Harten's Theorem
 :class: important
 Consider a method on the general form (`eq:HartenGeneral`). Then
-$$
+```{math}
 TV(q^{n+1})\leq TV(q^n)
-$$
+```
 if $A_m^n+B_m^n\leq 1$ and $A_m^n\geq 0$, $B_m^n \geq 0\,\, \forall\,m$
 :::
 
 We can now verify that the FTBS scheme for linear advection is TVD.
 The FTBS scheme for linear advection is written:
-$$
+```{math}
 q_m^{n+1}=q_m^n-a\frac{\Delta t}{\Delta x}(q_m^n-q_{m-1}^n)
-$$
+```
 
 If we compare this scheme with the general form (eq. `eq:HartenGeneral`), we find that $A_{m-1}^n=a\frac{\Delta t}{\Delta x}$ and $B_m^n=0$. The coefficient $A_{m-1}$ is positive as long as the advection speed $a$ is positive. We also find that the requirement $A_{m-1}+B_m^n<1$ holds as long as $A=a\frac{\Delta t}{\Delta x}\leq 1$, which is the same requirement as the CFL criterion. The FTBS scheme for linear advection is, therefore, TVD as along as $A=a\frac{\Delta t}{\Delta x}\leq 1$.
 

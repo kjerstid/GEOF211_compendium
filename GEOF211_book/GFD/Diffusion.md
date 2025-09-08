@@ -5,8 +5,9 @@ The diffusion equation describes a molecular mixing process that, with time, dis
 
 The diffusion equation for momentum $u(x,t)$ is expressed:
 
-$$
-\frac{\partial u}{\partial t}=\gamma\frac{\partial^2u}{\partial x^2}
-$$ (eq:NonLinAdvection_u_3d),
+```{math}
+:label: eq:Diffusion
+\frac{\partial u}{\partial t}=\gamma\frac{\partial^2u}{\partial x^2},
+```
 
 where $\gamma>0$ represents a diffusion coefficient, referred to as viscosity. 

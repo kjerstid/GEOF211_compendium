@@ -14,28 +14,30 @@ kernelspec:
 
 Until now, all schemes have time step limitations in the form of the CFL condition $c\Delta t/\Delta x \leq 1$. One way to overcome that limitation is to use *implicit* schemes, where the spatial derivatives are evaluated at $t^{n+1}$. One such scheme is the Crank-Nicholson scheme, which was, originally designed to solve the diffusion equation (heat conduction). Here, we show the Crank-Nicolson scheme for linear advection:
 
-$$
+```{math}
+:label: eq:schemeCrankNicolson
   \frac{u_m^{n+1}-u_m^n}{\Delta t} = -\frac{a}{2\Delta x}\left(\frac{u_{m+1}^{n+1}-u_{m-1}^{n+1}}{2} + \frac{u_{m+1}^{n}-u_{m-1}^{n}}{2}\right)
-$$ (eq:schemeCrankNicholson)
+```
 
 The scheme is a modification of the FTCS (Forward in time, centered in space) scheme. It uses the forward approximation to the time derivative at $t^n$ and the average of the centred approximations of the space derivative at $t^n$ and $t^{n+1}$.
 
-Another way of looking at {eq}`eq:schemeCrankNicholson` is that the left hand side (LHS) is a centred approximation of the time derivative at $t^{n+1/2}$ and the averaging of the spatial derivatives provides an estimate of the spatial derivative at $t^{n+1/2}$.
+Another way of looking at {eq}`eq:schemeCrankNicolson` is that the left hand side (LHS) is a centred approximation of the time derivative at $t^{n+1/2}$ and the averaging of the spatial derivatives provides an estimate of the spatial derivative at $t^{n+1/2}$.
 
 The use of the terms at $t^{n+1}$ poses a complication because these are not known at time $t^n$. Therefore, the scheme is not an explicit time marching scheme as we have seen so far, but one where the solution is implicit in the scheme itself, hence the designation of *implicit* scheme. To obtain the unknown values at $t^{n+1}$, a linear system of equations must be solved. 
 
-We can expand {eq}`eq:schemeCrankNicholson` to obtain 
+We can expand {eq}`eq:schemeCrankNicolson` to obtain 
 
-$$
+```{math}
   -\frac{\sigma}{4}u_{m-1}^{n+1}  + u_m^{n+1} + \frac{\sigma}{4}u_{m+1}^{n+1} =
     \frac{\sigma}{4}u_{m-1}^{n}  + u_m^{n} - \frac{\sigma}{4}u_{m+1}^{n},\quad \sigma = a\frac{\Delta t}{\Delta x}   
-$$
+```
 
 that is a linear system of equations 
 
-$$
+```{math}
+:label: eq:schemeAB
   A\mathbf{u}^{n+1}=B\mathbf{u}^{n}.
-$$ (eq:schemeAB)
+```
 
 To find the matrices, you can first insert $m=0$ into the equation. This will give you the first row in $A$ and $B$, respectively. You will find the second row by inserting $m=1$ and so forth until the last row is found by inserting $m=L$. 
 
@@ -43,7 +45,7 @@ The matrices $A$ and $B$ below, represents a case of Dirichlet boundary conditio
 
 If you choose boundary conditions where $u(0,t)\neq 0$ and $u(L,t)\neq 0$, you will need to consider what value they take, and extend the matrices A and B with one column for $u_0$ and one for $u_L$ at either side of the matrices. 
 
-$$
+```{math}
 A = 
 \begin{pmatrix}
   1                        & \frac{\sigma}{4}   & 0                             &         0                & \cdots & 0\\
@@ -53,9 +55,9 @@ A =
             0               &              \cdots           &            0             & -\frac{\sigma}{4} & 1                         & \frac{\sigma}{4} \\
          0               &              \cdots           &        0                 & 0                 &-\frac{\sigma}{4} & 1                         \\
 \end{pmatrix}
-$$
+```
 
-$$
+```{math}
 B = 
 \begin{pmatrix}
   1                        & -\frac{\sigma}{4}   & 0                             &         0                & \cdots & 0\\
@@ -65,7 +67,7 @@ B =
             0               &              \cdots           &            0             & \frac{\sigma}{4} & 1                         & -\frac{\sigma}{4} \\
          0               &              \cdots           &        0                 & 0                 &\frac{\sigma}{4} & 1                         \\
 \end{pmatrix}
-$$
+```
 
 In the case $A$ and $B$ are tridiagonal, as above, the solution of the linear system {eq}`eq:schemeAB` is expedite. In other cases, iterative methods must be used.
 
@@ -74,22 +76,23 @@ In the case $A$ and $B$ are tridiagonal, as above, the solution of the linear sy
 The scheme has a truncation error $O(\Delta t^2,\Delta x^2)$, since the spatial derivatives are approximated by a centred formula and the time derivative also, at $t^{n+1/2}$.
 The stability of the scheme can be determined by the usual method of assuming a solution of the form $B^n e^{ikm\Delta x}$ and noting that
 
-$$
+```{math}
     u_{m+1}^{n}-u_{m-1}^{n} = (2i\sin k\Delta x)u_{m}^{n}
-$$
+```
 
 we arrive at the following amplification factor:
 
-$$
+```{math}
+:label: eq:ampFactorCN
    G = \frac{u_{m}^{n+1}}{u_{m}^{n}} = \frac{1-(\sigma/2)i\sin k\Delta x}{1+(\sigma/2)i\sin k \Delta x},
-$$(eq:ampFactorCN)
+```
 
 whose norm $|G|$ is
 
-$$
+```{math}
  |G| = \left| \frac{1-(\sigma/2)i\sin k \Delta x}{1+(\sigma/2)i\sin k \Delta x}\right| = 
     \frac{ \left|1-(\sigma/2)i\sin k \Delta x\right|}{ \left|1+(\sigma/2)i\sin k \Delta x\right|} = 1.
-$$
+```
 
 The scheme is, therefore, *unconditionally stable* and doesn't suffer from CFL limitations, unlike the previous explicit schemes.
 
@@ -203,27 +206,27 @@ The unconditional stability of the implicit Crank-Nicholson scheme is its great 
 
 From {eq}`eq:ampFactorCN`, we can write
 
-$$
+```{math}
    \mathbf{u}^n = G\mathbf{u}^{n-1}= \dotso = G^{(n)} \mathbf{u}^0
-$$
+```
 
 or
 
-$$
+```{math}
    u_m^n = BG^{(n)} e^{i\lambda m\Delta x}
-$$
+```
 
 Substituting {eq}`eq:ampFactorCN`, we obtain the following expression for the phase speed $c_F$ of the numerical solution
 
-$$
+```{math}
   c_F = \frac{2\theta}{k \Delta t}, \quad \theta = \tan^{-1}\left( \frac{\sigma}{2} \sin k \Delta x \right)
-$$
+```
 
 For shortwaves in the numerical solution, e.g. the $2\Delta x$ wavelength, we have $k = \pi/\Delta x$ and $\theta = \tan^{-1} (\sigma/2 \sin \pi)=0$, which means the shortwave is stationary. For large wavelength, we have $k \Delta x \ll 1$ and
 
-$$
+```{math}
   \theta = \tan^{-1} {\frac{\sigma}{2} \sin k \Delta x} = \tan^{-1} (\frac{ak \Delta t}{2})
-$$
+```
 
 For small $\Delta t$, we'll have $\theta = \frac{ak \Delta t}{2} $ and $a_F = a$. But for large $\Delta t$, it will be $\theta = \pi/2$ and $a_F = \pi/\Delta t \lambda$, which is independent of $a$. 
 

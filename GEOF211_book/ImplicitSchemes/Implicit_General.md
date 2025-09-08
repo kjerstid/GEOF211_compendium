@@ -2,25 +2,29 @@
 
 We can derive a general implict scheme by noting that the Crank-Nicholson scheme has the spatial derivatives at $t^n$ and $t^{n+1}$ multiplied by $1/2$. We can generalize the formula in the following fashion:
 
-$$
+```{math}
+:label: eq:schemeGeneralImplicit
   \frac{u_m^{n+1}-u_m^n}{\Delta t} = -\frac{c}{2}\left(\alpha\frac{u_{m+1}^{n+1}-u_{m-1}^{n+1}}{2\Delta x} + (1-\alpha)\frac{u_{m+1}^{n}-u_{m-1}^{n}}{2\Delta x}\right)
-$$ (schemeGeneralImplicit)
+```
 
 The value of $\alpha$ determines the nature of the scheme:
 
-\begin{align}
+```{math}
+\begin{aligned}
     \alpha &= 0 \quad \text{Fully explicit scheme} \\
     \alpha &= 0.5 \quad \text{Crank-Nicholson scheme} \\
     \alpha &= 1 \quad \text{Fully implicit scheme}
-\end{align}
+\end{aligned}
+```
 
 ## Consistency, stability and convergence
 
 The formula of the amplification factor {eq}`eq:ampFactorCN` can be generalized following {eq}`schemeGeneralImplicit`:
 
-$$
+```{math}
+:label: eq:ampFactorCN
    G = \frac{u_{m}^{n+1}}{u_{m}^{n}} = \frac{1-(1-\alpha)(\sigma/2)i\sin\lambda \Delta x}{1+\alpha(\sigma/2)i\sin\lambda \Delta x},
-$$(ampFactorCN)
+```
 
 The effect of varying $\alpha$ in the stability is shown below:
 

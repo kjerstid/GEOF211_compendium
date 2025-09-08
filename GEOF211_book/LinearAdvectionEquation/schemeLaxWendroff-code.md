@@ -18,31 +18,31 @@ The Lax-Wendroff scheme can be derived in several ways. We shall derive it from 
 
 The idea is to compute $u_k^{n+1}$ using not the time derivative at $t=n\Delta t$, but that at the *half-step* $t=n\Delta t + \Delta t/2=(n+1/2)\Delta t$
 
-$$
+```{math}
 	u_k^{n+1}=u_k^n+\Delta t\left(-c\frac{\partial u}{\partial x}\mid_{k,n+1/2}\right)
-$$
+```
 
 To obtain the spatial derivative at the half-time step, we must have the function values at $t^{n+1/2}$, or
 
-$$
+```{math}
 	u_k^{n+1/2}=u_k^n+\frac{\Delta t}{2}\left(-a\frac{\partial u}{\partial x}\mid_{k,n}\right).
-$$
+```
 
 The Lax-Wendroff method thus involves two steps:
 
  **1:** First, compute $\frac{\partial u}{\partial x}\mid_{k,n+1/2}$ using central differences, that involve the *mid-points* $k+1/2$ and $k-1/2$:
 
-$$
+```{math}
 	u_{k-1/2}^{n+1/2}=\frac{1}{2}(u_k^n+u_{k-1}^n)-a\frac{\Delta t}{2\Delta x}(u_k^n-u_{k-1}^n)
-$$
-$$
+```
+```{math}
 	u_{k+1/2}^{n+1/2}=\frac{1}{2}(u_{k+1}^n+u_{k}^n)-a\frac{\Delta t}{2\Delta x}(u_{k+1}^n-u_{k}^n)
-$$
+```
  **2:** Compute $u_k^{n+1}$ using the spatial derivative at $n+1/2$:
 
-$$
+```{math}
 	u_{k}^{n+1}=u_k^n-a\frac{\Delta t}{2\Delta x}(u_{k+1/2}^{n+1/2}-u_{k-1/2}^{n+1/2})
-$$
+```
 
 ## Lax Wendroff 1-step approach from Taylor expansions
 
@@ -58,29 +58,31 @@ $$
 
 with 
 
-\begin{align}
+```{math}
+\begin{aligned}
 	\alpha &= \frac{\sigma}{2}(\sigma + 1),\\
 	\beta &= 1- \sigma^2, \\
 	\gamma &= \frac{\sigma}{2}(\sigma - 1)
-\end{align}
+\end{aligned}
+```
 
 Assuming a solution of the type $B^n e^{i\lambda k \Delta x}$, the amplification factor is 
 
-$$
+```{math}
 	G=(1+\sigma^2(\cos \lambda \Delta x - 1)) - i\sigma \sin \lambda \Delta x
-$$
+```
 
 which has a norm 
 
-$$
+```{math}
 	|G|^2 = 1-\sigma^2(1-\sigma^2)(1 - \cos \lambda \Delta x)^2.
-$$
+```
 
 For the method to be stable, the condition is $|G|^2 \leq 1$ which provides the following stability condition
 
-$$
+```{math}
 	1-\sigma^2 \ge 0 \Leftrightarrow \sigma = \frac{a\Delta t}{\Delta x} \leq 1.
-$$
+```
 
 which is the well-known CFL condition.
 

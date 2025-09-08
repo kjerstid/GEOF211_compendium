@@ -14,9 +14,10 @@ since $\lim_{\Delta x\to0}\frac{\sin (\mu \Delta x)}{\mu \Delta x}=1$. Then, con
 \end{align*}
 and we recover the waveform {eq}`eq:anaSolution`, written in the discrete grid positions $m\Delta x$ and time steps $n \Delta t$. Furthermore, if we allow $\Delta t \to 0$, we will have $\alpha = 0$ and
 
-$$
+```{math}
+:label: eq:amplitude
 	\frac{1+\cos \alpha}{2\cos \alpha} = 1, \frac{1-\cos \alpha}{2\cos \alpha} = 0,
-$$ (eq:amplitude)
+```
 
 which means that in the limit of $\Delta t, \Delta x \to 0$ we recover the true solution as the second waveform of {eq}`eq:solutionDiffEquation` vanishes.
 
@@ -46,16 +47,16 @@ Since $\Delta t$ and $\Delta x$ are choices of the numerical modeler, we can alw
 
 With respect to the phase speed $c$, if we compare the exact solution of {eq}`eq:Advection` with the solution {eq}`eq:solutionDiffEquation` of the difference equation, we observe that the counterpart of $ct$ is $n\alpha/\mu$. This quantity is:
 
-$$
+```{math}
 	\frac{n\alpha}{\mu} = \frac{n\alpha\Delta t}{\mu\Delta t} =  \frac{\alpha t}{\mu\Delta t} = c^\prime t,
-$$
+```
 
 where:
 
-$$
+```{math}
 	c^\prime = \frac{\alpha}{\mu\Delta t} = \frac{\arcsin\left[ \left( c\Delta t/\Delta x \right) \sin \mu\Delta x
 	  \right]}{\mu\Delta t}
-$$
+```
 
 is the phase speed of the solution {eq}`eq:solutionDiffEquation` of the difference equation. We shall now see how does $c^\prime$ compares with the phase speed $c$ of the true solution.
 
@@ -68,9 +69,9 @@ This means that when $c\Delta t/\Delta x = 1$ there are no errors in the phase s
 
 In the general case, we'll have
 
-$$
+```{math}
 \frac{c'}{c}=1-\frac{1}{6}\left[ \Delta x^2 -c \Delta t\right]\mu^2.
-$$
+```
 
 So larger $\Delta t$ will increase $c'/c$ and larger $\Delta x$ will make $c'/c$ decrease, with this later effect dominating. In whichever case, $c'/c < 1$, and $c'<c$ so the speed of the finite difference wave is always less than the speed of the exact wave. 
 
@@ -80,33 +81,33 @@ In addition, as $\Delta x/L \to 0$, $c' \to c$. This means that waves with large
 
 The group velocity is the velocity at which energy propagates. It is given by
 
-$$
+```{math}
 \nu=\frac{d(\mu c)}{d\mu}=-L^2\frac{d}{dL}\left(\frac{c}{L}\right).
-$$
+```
 
 In the linear advection equation, $c$ is constant so
 
-$$
+```{math}
 \nu=-L^2\frac{d}{dL}\left(\frac{c}{L}\right)=-cL^2\frac{d}{dL}\left(\frac{1}{L}\right)=-cL^2\left(-\frac{1}{L^2}\right)=c.
-$$
+```
 
 and the energy propagates at the same speed as the waveform. For {eq}`eq:solutionDiffEquation`, we have
 
-$$
+```{math}
 \nu'=\frac{d(\mu c')}{d\mu}=\frac{d}{d\mu}\left\{\frac{\mu \sin^{-1}\left[ c\frac{\Delta t}{\Delta x} \sin \mu\Delta x\right]}{\mu\Delta t} \right\},
-$$
+```
 
 which gives
 
-$$
+```{math}
 \nu'=c \frac{\cos\mu\Delta x}{\left[1-\left( c\frac{\Delta t}{\Delta x} \sin\mu\Delta x\right)^2\right]^{1/2}}.
-$$
+```
 
 First, lets look at the case when $c\Delta t/\Delta x = 1$. In this case, we have
 
-$$
+```{math}
 \nu'=c \frac{\cos\mu\Delta x}{\left[1-\sin^2\mu\Delta x\right]^{1/2}}=c \frac{\cos\mu\Delta x}{\cos\mu\Delta x}=c,
-$$
+```
 
 and {eq}`eq:solutionDiffEquation` has the same group velocity as the exact solution. 
 
@@ -116,14 +117,14 @@ If $\mu$ is large however (short wavelengths), we shall have large errors in the
 
 1. $L=4\Delta x$: $\mu\Delta x=\pi/2$ and
 
-$$
+```{math}
 \nu'=c \frac{\cos \pi/2}{\left[1-\left( c\frac{\Delta t}{\Delta x} \sin(\pi/2) \right)^2\right]^{1/2}}=0.
-$$ 
+```
 
 2. $L=2\Delta x$: $\mu\Delta x=\pi$ and
 
-$$
+```{math}
 \nu'=c \frac{\cos \pi}{\left[1-\left( c\frac{\Delta t}{\Delta x} \sin\pi\right)^2\right]^{1/2}}=-c.
-$$ 
+```
 
 Therefore, the energy of the $4\Delta x$ wavelength becomes stationary and the energy of the $2\Delta x$ wavelength travels *upstream*. Since we should have $\Delta x \ll \mathbf{L}$ in our model, these wavelengths will most likely be noise in our model.
