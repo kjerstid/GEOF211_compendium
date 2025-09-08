@@ -16,7 +16,7 @@ Here, we will define the homogenous wall Dirichlet conditions as:
 
 $$
 \begin{align}
-u_{0}^{n+1} = 0\\
+u_0^{n+1} = 0\\
 u_{L}^{n+1} = 0
 \end{align}
 $$ (eq:BC_wall)
@@ -30,7 +30,26 @@ A no-slip boundary condition is valid for viscous fluids, where the flow is not 
 
 If you, for example, consider flow along a channel or a river, the flow will be slower near the walls, and in a thin layer next to the walls, it will be zero. The no-slip conditions is therefore typically a homogenous Dirichlet boundary condition for flow both normal to, an parallell with the boundary.
 
-For a 2D vextension of the advection equation ({ref}'eq:NonLinAdvection_u_3d'), we get that both u and v are zero in all grid cells touching the boundaries.
+For a 2D extension of the advection equation ({ref}'eq:NonLinAdvection_u_3d'), we get that both u and v are zero in all grid cells touching the boundaries. Let our model domain be defined in the region $x\in[0_x,L_x]$ and $y\in[0_y,L_y]$. Then
+
+$$
+\begin{equation}
+\begin{aligned}
+u_{0_x,\perp}^{n+1} = 0\\
+u_{L_x,\perp}^{n+1} = 0\\
+u_{\parallel,0_y}^{n+1} = 0\\
+u_{\parallel,L_y}^{n+1} = 0\\
+\\
+v_{0_x,\parallel}^{n+1} = 0\\
+v_{L_x,\parallel}^{n+1} = 0\\
+v_{\perp,0_y}^{n+1} = 0\\
+v_{\perp,L_y}^{n+1} = 0\\
+\end{aligned}
+\end{equation}
+(eq:BC_no_slip)
+$$
+
+, where $\parallel$ and $\perp$ refer to flow parallel to and perpendicular to the boundary, respectively.
 
 **Slip boundary condition**
 
@@ -38,8 +57,33 @@ A slip boundary condition is also a type of wall boundary condition, but here yo
 
 If you consider the same example as for no-slip boundaries, it means that the river flows with the same velocity in all grid cells, including the grid cell closest to the boundaries.
 
-Fo a 2D advection example as above, $u=0$ at the eastern and western boundaries, but are non-zero at the northern and southern boundaries, meaning there is flow along the boundnary. Similarly, $v=0$ at the norhtern and southern boundary, but is non-zero along the eastern and western boundaries. For the flow along the boundaries, we must ensure a homogenous von Neuman condition.
+Fo a 2D advection example as above, $u=0$ at the eastern and western boundaries, but are non-zero at the northern and southern boundaries, meaning there is flow along the boundary. Similarly, $v=0$ at the norhtern and southern boundary, but is non-zero along the eastern and western boundaries. For the flow along the boundaries, we must ensure a homogenous von Neuman condition. This gives Dirchlet boundary conditions for flow normal to the boundaries:
 
+$$
+\begin{equation}
+\begin{aligned}
+u_{0_x,\perp}^{n+1} = 0\\
+u_{L_x,\perp}^{n+1} = 0\\
+v_{\perp,0_y}^{n+1} = 0\\
+v_{\perp,L_y}^{n+1} = 0\\
+\end{aligned}
+\end{equation}
+(eq:BC_no_slip_normal)
+$$
+
+and homogenous Neumann boundary conditions for flow parallel to the boundaries
+
+$$
+\begin{equation}
+\begin{aligned}
+\frac{\partial u_{\parallel,0_y}^{n+1}}{\partial y} = 0\\
+\frac{\partial u_{\parallel,L_y}^{n+1}}{\partial y} = 0\\
+\frac{\partial v_{0_x,\parallel}^{n+1}}{\partial x} = 0\\
+\frac{\partial v_{L_x,\parallel}^{n+1}}{\partial x} = 0\\
+\end{aligned}
+\end{equation}
+(eq:BC_no_slip_parallel)
+$$
 
 ## Open boundary conditions
 
@@ -84,7 +128,7 @@ For paramters like temperature, salinity, moisture, etc., you can use Dirichlet 
 
 ### Radiation boundary conditions
 
-A slightly more advanced version of the gradient condition, is to let the flow radiate out of the model with a calculated flow floe speed. Here you can use either the shallow-water wave speed $\sqrt(gH)$, where $g$ is the gravitational constant and $H$ is the fluid hight/depth (*Chapman* condition), the external gravity wave speed (*Flather* condition), or the local phase speed normal to the boundary (*Orlanski* conditions).
+A slightly more advanced version of the gradient condition, is to let the flow radiate out of the model with a calculated flow speed. There are various choices for the flow speed. Excamples include, using the shallow-water wave speed $\sqrt{gH}$, where $g$ is the gravitational constant and $H$ is the fluid hight/depth (*Chapman* condition), the external gravity wave speed (*Flather* condition), or the local phase speed normal to the boundary (*Orlanski* conditions).
 
 ### Nudging conditions
 
