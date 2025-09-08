@@ -8,12 +8,6 @@ In geophysical fluid dynamic models, we sometimes encounter boundaries that shou
 
 Let us consider an example with a 1D model for advection and a forward in time, centered in space (FTCS) scheme, on a model domain $x\in[0,L]$:
 
-```{math}
-:label: Leapfrog
-u_{m}^{n+1} = u_{m}^{n-1} - c\frac{\Delta t}{\Delta x}(u_{m+1}^{n}-u_{m-1}^{n}).
-```
-se test example {eq}`Leapfrog
-
 $$
 u_{m}^{n+1} = u_{m}^{n-1} - c\frac{\Delta t}{\Delta x}(u_{m+1}^{n}-u_{m-1}^{n}).
 $$ (eq:Leapfrog)
@@ -21,10 +15,10 @@ $$ (eq:Leapfrog)
 Here, we will define the homogenous wall Dirichlet conditions as:
 
 $$
-\begin{align}
+\begin{gather}
 u_0^{n+1} = 0\\
 u_{L}^{n+1} = 0
-\end{align}
+\end{gather}
 $$ (eq:BC_wall)
 
 
@@ -36,25 +30,29 @@ A no-slip boundary condition is valid for viscous fluids, where the flow is not 
 
 If you, for example, consider flow along a channel or a river, the flow will be slower near the walls, and in a thin layer next to the walls, it will be zero. The no-slip conditions is therefore typically a homogenous Dirichlet boundary condition for flow both normal to, an parallell with the boundary.
 
-For a 2D extension of the advection equation ({eq}`eq:NonLinAdvection_u_3d), we get that both u and v are zero in all grid cells touching the boundaries. Let our model domain be defined in the region $x\in[0_x,L_x]$ and $y\in[0_y,L_y]$. Then
+For a 2D extension of the advection equation ({eq}`eq:NonLinAdvection_u_3d), we get that both u and v are zero in all grid cells touching the boundaries. Let our model domain be defined in the region $x\in[0_x,L_x]$ and $y\in[0_y,L_y]$. Then the boundary conditions for the eastward velocity becomes:
 
 $$
-\begin{equation}
-\begin{aligned}
-u_{0_x,\perp}^{n+1} = 0\\
+\begin{align}
+u_{0_x,\perp}^{n+1} &= 0&
 u_{L_x,\perp}^{n+1} = 0\\
-u_{\parallel,0_y}^{n+1} = 0\\
-u_{\parallel,L_y}^{n+1} = 0\\
-\\
-v_{0_x,\parallel}^{n+1} = 0\\
+u_{\parallel,0_y}^{n+1} &= 0&
+u_{\parallel,L_y}^{n+1} = 0
+\end{align}
+$$ (eq:BC_no_slip_u)
+
+and the boundary condition for the northward velocity becomes: 
+
+$$
+\begin{align}
+v_{0_x,\parallel}^{n+1} &= 0&
 v_{L_x,\parallel}^{n+1} = 0\\
-v_{\perp,0_y}^{n+1} = 0\\
-v_{\perp,L_y}^{n+1} = 0\\
-\end{aligned}
-\end{equation}
-$$ (eq:BC_no_slip)
-`
-, where $\parallel$ and $\perp$ refer to flow parallel to and perpendicular to the boundary, respectively.
+v_{\perp,0_y}^{n+1} &= 0&
+v_{\perp,L_y}^{n+1} = 0,
+\end{align}
+$$ (eq:BC_no_slip_v)
+
+where $\parallel$ and $\perp$ refer to flow parallel to and perpendicular to the boundary, respectively.
 
 **Slip boundary condition**
 
@@ -65,27 +63,23 @@ If you consider the same example as for no-slip boundaries, it means that the ri
 Fo a 2D advection example as above, $u=0$ at the eastern and western boundaries, but are non-zero at the northern and southern boundaries, meaning there is flow along the boundary. Similarly, $v=0$ at the norhtern and southern boundary, but is non-zero along the eastern and western boundaries. For the flow along the boundaries, we must ensure a homogenous von Neuman condition. This gives Dirchlet boundary conditions for flow normal to the boundaries:
 
 $$
-\begin{equation}
-\begin{aligned}
-u_{0_x,\perp}^{n+1} = 0\\
+\begin{align}
+u_{0_x,\perp}^{n+1} &= 0&
 u_{L_x,\perp}^{n+1} = 0\\
-v_{\perp,0_y}^{n+1} = 0\\
+v_{\perp,0_y}^{n+1} &= 0&
 v_{\perp,L_y}^{n+1} = 0\\
-\end{aligned}
-\end{equation}
+\end{align}
 $$ (eq:BC_no_slip_normal)
 
 and homogenous Neumann boundary conditions for flow parallel to the boundaries
 
 $$
-\begin{equation}
-\begin{aligned}
-\frac{\partial u_{\parallel,0_y}^{n+1}}{\partial y} = 0\\
+\begin{align}
+\frac{\partial u_{\parallel,0_y}^{n+1}}{\partial y} &= 0&
 \frac{\partial u_{\parallel,L_y}^{n+1}}{\partial y} = 0\\
-\frac{\partial v_{0_x,\parallel}^{n+1}}{\partial x} = 0\\
+\frac{\partial v_{0_x,\parallel}^{n+1}}{\partial x} &= 0&
 \frac{\partial v_{L_x,\parallel}^{n+1}}{\partial x} = 0\\
-\end{aligned}
-\end{equation}
+\end{align}
 $$ (eq:BC_no_slip_parallel)
 
 ## Open boundary conditions
@@ -113,11 +107,13 @@ $$ (eq:Leapfrog)
 We now, use the same scheme for each of the two boundaries, $x=0$ an $x=L$ and adjust the index $m$ to match a boundary taped together. Here you can think of the coninuos indices at the border to be $(\ldots, L-2,L-2,L,0,1,2,\ldots)$
 
 $$
-\begin{align}
-u_{0}^{n+1} = u_{0}^{n-1} - c\frac{\Delta t}{\Delta x}(u_{1}^{n}-u_{L}^{n}),\\
-u_{L}^{n+1} = u_{L}^{n-1} - c\frac{\Delta t}{\Delta x}(u_{0}^{n}-u_{L-1}^{n})
-\end{align}
+
+\begin{gather}
+u_{0}^{n+1} &= u_{0}^{n-1} - c\frac{\Delta t}{\Delta x}(u_{1}^{n}-u_{L}^{n})&\\
+u_{L}^{n+1} &= u_{L}^{n-1} - c\frac{\Delta t}{\Delta x}(u_{0}^{n}-u_{L-1}^{n})&
+\end{gather}
 $$ (eq:BC_periodic)
+
 
 ```{note}
 Python has periodic boundary conditions build-in at the left hand side (lower end) of your domain. If you provide a python array with a negative index, it will start counting backward from the right hand side. Make sure that you always check how you define your boundaries, and make a comment in your code if you are deliberately taking advantage of this feature. There is no periodic boundary built-in at the right boundary. If you try to parse and index that is larger than $L$, you will get an error message.
