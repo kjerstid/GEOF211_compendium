@@ -45,6 +45,7 @@ sphinx:
       logo:
         image_light: logo-light.png
         image_dark: logo-dark.png
+      
 #    mathjax_path: https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
 
 parse:
@@ -52,6 +53,7 @@ parse:
     - amsmath
     - dollarmath
     - colon_fence
+    - ref
     
 
 
