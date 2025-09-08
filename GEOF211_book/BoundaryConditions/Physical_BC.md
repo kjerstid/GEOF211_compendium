@@ -8,6 +8,12 @@ In geophysical fluid dynamic models, we sometimes encounter boundaries that shou
 
 Let us consider an example with a 1D model for advection and a forward in time, centered in space (FTCS) scheme, on a model domain $x\in[0,L]$:
 
+```{math}
+:label: Leapfrog
+u_{m}^{n+1} = u_{m}^{n-1} - c\frac{\Delta t}{\Delta x}(u_{m+1}^{n}-u_{m-1}^{n}).
+```
+se test example {eq}`Leapfrog
+
 $$
 u_{m}^{n+1} = u_{m}^{n-1} - c\frac{\Delta t}{\Delta x}(u_{m+1}^{n}-u_{m-1}^{n}).
 $$ (eq:Leapfrog)
@@ -30,7 +36,7 @@ A no-slip boundary condition is valid for viscous fluids, where the flow is not 
 
 If you, for example, consider flow along a channel or a river, the flow will be slower near the walls, and in a thin layer next to the walls, it will be zero. The no-slip conditions is therefore typically a homogenous Dirichlet boundary condition for flow both normal to, an parallell with the boundary.
 
-For a 2D extension of the advection equation ({eq}`eq:NonLinAdvection_u_3d`), we get that both u and v are zero in all grid cells touching the boundaries. Let our model domain be defined in the region $x\in[0_x,L_x]$ and $y\in[0_y,L_y]$. Then
+For a 2D extension of the advection equation ({eq}`eq:NonLinAdvection_u_3d), we get that both u and v are zero in all grid cells touching the boundaries. Let our model domain be defined in the region $x\in[0_x,L_x]$ and $y\in[0_y,L_y]$. Then
 
 $$
 \begin{equation}
@@ -47,7 +53,7 @@ v_{\perp,L_y}^{n+1} = 0\\
 \end{aligned}
 \end{equation}
 $$ (eq:BC_no_slip)
-
+`
 , where $\parallel$ and $\perp$ refer to flow parallel to and perpendicular to the boundary, respectively.
 
 **Slip boundary condition**
