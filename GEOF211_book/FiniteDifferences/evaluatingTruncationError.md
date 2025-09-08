@@ -3,9 +3,9 @@
 
 To evaluate the effect of the truncation error, we consider the following sinusoidal function
 
-$$
+```{math}
 u(t)=U\sin\left( 2\pi\frac{t}{T} \right) = U\sin(\omega t), \quad \omega=\frac{2\pi}{T},
-$$
+```
 
 whose first derivative is $U\omega \cos(\omega t)$. In {numref}`figErrors1stDerivative`, the error of the first derivative is shown for the forward, backward, centred and 4th order difference formulas.
 
