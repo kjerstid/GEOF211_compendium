@@ -6,11 +6,11 @@ Physical descriptions of boundary conditions means that we design the type of bo
 ## Closed boundary conditions
 In geophysical fluid dynamic models, we sometimes encounter boundaries that should be closed and act like walls. In ocean models, we typically have coastlines, or in low-altitude atmospheric models we may tall mountain ranges. When we have a wall boundary condition, we must ensure that the fluid velocity normal to the boundary is zero. This means that we have a homogenous Dirichlet condition for flow normal to the wall. 
 
-Let us consider an example with a 1D model for advection and a forward in time, centered in space (FTCS) scheme, on a model domain $x\in[0,L]$:
+Let us consider an example with a 1D model for advection and a forward in time, centered in space (FTCS) scheme (equation {eq}`eq:Leapfrog` included below), on a model domain $x\in[0,L]$:
 
-$$
+```{math}
 u_{m}^{n+1} = u_{m}^{n-1} - c\frac{\Delta t}{\Delta x}(u_{m+1}^{n}-u_{m-1}^{n}).
-$$ (eq:Leapfrog)
+``` 
 
 Here, we will define the homogenous wall Dirichlet conditions as:
 
@@ -104,11 +104,11 @@ Consider a 1D domain for a simple 1D advection model. Imagine that the domain is
 
 When you view the model as 1D plots, it will appear as the signal is leaving the domain at one end/boundary and re-enter at the end. You can use periodic boundary conditions for 2D and 3D models as well, but is becomes harder to imagine how the doian looks like if you tape it together at the boundaries.
 
-Let us consider an example with a 1D model for advection and a forward in time, centered in space (FTCS) scheme:
+Let us consider an example with a 1D model for advection and a forward in time, centered in space (FTCS) scheme (equation {eq}`eq:Leapfrog`):
 
-$$
+```{math}
 u_{m}^{n+1} = u_{m}^{n-1} - c\frac{\Delta t}{\Delta x}(u_{m+1}^{n}-u_{m-1}^{n}),
-$$ (eq:Leapfrog)
+```
 
 We now, use the same scheme for each of the two boundaries, $x=0$ an $x=L$ and adjust the index $m$ to match a boundary taped together. Here you can think of the coninuos indices at the border to be $(\ldots, L-2,L-2,L,0,1,2,\ldots)$
 
