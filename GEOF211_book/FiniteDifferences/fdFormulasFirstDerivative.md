@@ -16,6 +16,7 @@ u(t)=u^n+\frac{u'(t^n)}{1!}(t-t^n)+\frac{u''(t^n)}{2!}(t-t^n)^2+\sum_{p=3}^{\inf
 From {eq}`eq:fdExpansion`, we have
 
 ```{math}
+:label: eq:formulaForward
 \frac{du}{dt}=\frac{u^{n+1}-u^n}{\Delta t}+O(\Delta t).
 ```
 
