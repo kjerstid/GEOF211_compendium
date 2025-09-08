@@ -1,7 +1,7 @@
 (BoundaryCondtitions:Physical_BC)=
 # Physical descriptions of boundary conditions
 
-Physical descriptions of bounary conditions means that we design the type of boundary conditions (the mathematical ones described in section {ref}'BoundaryCondtitions:Mathematical_BC') to match a desired physical behavior at the boundary.
+Physical descriptions of boundary conditions means that we design the type of boundary conditions (the mathematical ones described in section {ref}'BoundaryCondtitions:Mathematical_BC') to match a desired physical behavior at the boundary. Most of the considerations discussed below, relates to boundary conditions of momentum, $\bar u(x,y,t)=\begin{bmatrix} u(x,y,z,t) \\ v(x,y,z,t)\\w(x,y,z,t)\end{bmatrix}$, where viscous forces may become important close to wall boundary conditions, or where you must consider how the flow may pass through an open boundary. For other parameters, such as temperature, salinity, moisture, etc., you are more free to set the boundary conditions in various ways, depending on your types of boundaries.
 
 ## Wall boundary conditions
 In geophysical fluid dynamic models, we sometimes encounter boundaries that should act like walls. In ocean models, we typically have coastlines, or in low-altitude atmospheric models we may tall mountain ranges. When we have a wall boundary condition, we must ensure that the fluid velocity normal to the boundary is zero. This means that we have a homogenous Dirichlet condition for flow normal to the wall. 
@@ -26,7 +26,7 @@ In 2 dimensions, we must also consifer flow tangential to the boundary. here, we
 
 **No-slip boundary conditions**
 
-A no-slip boundary condition is valid for viscous fluids and fixes the fluid velocity to zero on the walls. It implies that the fluid sticks to the boundary/wall with no relative movement between the fluid and the wall.
+A no-slip boundary condition is valid for viscous fluids, where the flow is not too strong and the viscosity is more important than kinetic effects. Non-slip conditions fixes the fluid velocity to zero on the walls. It implies that the fluid sticks to the boundary/wall with no relative movement between the fluid and the wall.
 
 If you, for example, consider flow along a channel or a river, the flow will be slower near the walls, and in a thin layer next to the walls, it will be zero. The no-slip conditions is therefore typically a homogenous Dirichlet boundary condition for flow both normal to, an parallell with the boundary.
 
@@ -40,11 +40,22 @@ If you consider the same example as for no-slip boundaries, it means that the ri
 
 Fo a 2D advection example as above, $u=0$ at the eastern and western boundaries, but are non-zero at the northern and southern boundaries, meaning there is flow along the boundnary. Similarly, $v=0$ at the norhtern and southern boundary, but is non-zero along the eastern and western boundaries. For the flow along the boundaries, we must ensure a homogenous von Neuman condition.
 
-## Periodic boundary conditions
 
-Consider a 1D domain for a simple 1D advection model. Imagine that the domain is a strip of paper that you bend into a circle and tape the two ends together. This will give you a circular domain, where the signal is smoothly flowing around and around. When you view as 1D plot, it will appear as the signal is leaving the domain at one end/boundary and re-enter at the end. You can use periodic boundary conditions for 2D and 3D models as well, but is becomes harder to imagine how the doian looks like if you tape it together at the boundaries.
+## Open boundary conditions
 
-Periodic boundaries are often used in regional models, where the topography and properties of the flow does not change much while passing the model domain. One of the biggest advangates of this boundary condition, is that you effectively avoid boundaries. You do not need to make any physical decisions for what happens at the boundaries. Instead, you use the same numerical scheme as for the iternal gri points, and make sure that the indices wrap around the periodic boundary.
+Let's say you run a regional model for the west coast of Norway. The model will naturally have a coastline (or a wall) along the eastern boundary, but the other boundaries will cut through open water to keep the model restricted and exclude the rest of the world. This means that you much make decisions on what happens along the open boundaries. The NorKyst800, a regional 800 m model for the Norwegian coast is a great example of a model with three open boundaries.
+
+```{note}
+Ideally, we want the currents to pass smoothly across the open boundary. Although this may sound simple, open boundaries are hard to get right. Sometimes we must make compromises and accept a solution that is not fully desireable. And sometimes, we even set up model domains that are much larger than we need, just to avoid using output data from the area close to the boundaries ...
+```
+
+### Periodic boundary conditions
+
+Periodic boundaries are often used in regional models, where the topography and properties of the flow does not change much while passing the model domain. One of the biggest advangates of this boundary condition, is that you effectively avoid boundaries.
+
+Consider a 1D domain for a simple 1D advection model. Imagine that the domain is a strip of paper that you bend into a circle and tape the two ends together. This will give you a circular domain, where the signal is smoothly flowing around and around.  You, therefore, do not need to make any physical decisions for what happens at the open boundaries. Instead, you use the same numerical scheme as for the internal grid points, and make sure that the indices wrap around the periodic boundary.
+
+When you view the model as 1D plots, it will appear as the signal is leaving the domain at one end/boundary and re-enter at the end. You can use periodic boundary conditions for 2D and 3D models as well, but is becomes harder to imagine how the doian looks like if you tape it together at the boundaries.
 
 Let us consider an example with a 1D model for advection and a forward in time, centered in space (FTCS) scheme:
 
@@ -64,3 +75,31 @@ $$ (eq:BC_periodic)
 ```{note}
 Python has periodic boundary conditions build-in at the left hand side (lower end) of your domain. If you provide a python array with a negative index, it will start counting backward from the right hand side. Make sure that you always check how you define your boundaries, and make a comment in your code if you are deliberately taking advantage of this feature. There is no periodic boundary built-in at the right boundary. If you try to parse and index that is larger than $L$, you will get an error message.
 ```
+
+### Gradient boundary conditions (Neumann)
+
+One simple approach for transporting fluids smoothly out (let the signal radiate out) of an open boundary, is to use the Neuman condition, and require that flow rate normal to the open boundary, e.g., $\partial u /\partial x$ along an open western boundary is zero. The flow rate could be derived from the two grid points closest to the boundary, or over a region close to the boundary. For flow parallell to the open boundary, you will typically use Dirichlet conditions, such as, for example $v=0$.
+
+For paramters like temperature, salinity, moisture, etc., you can use Dirichlet or Neumann conditions, depending on the physics you are trying to replicate.
+
+### Radiation boundary conditions
+
+A slightly more advanced version of the gradient condition, is to let the flow radiate out of the model with a calculated flow floe speed. Here you can use either the shallow-water wave speed $\sqrt(gH)$, where $g$ is the gravitational constant and $H$ is the fluid hight/depth (*Chapman* condition), the external gravity wave speed (*Flather* condition), or the local phase speed normal to the boundary (*Orlanski* conditions).
+
+### Nudging conditions
+
+Above, we explained how you can use the radiation condition to allow flow to leave your model domain. However, we said nothing about how flow can enter the model domain. A common way to do this, is to apply nudging, also called restoring. This means that you set a Dirichlet condition along the boundary, which may include a positive velocity into your model domain. If you, for example have a regional Norwegian coastal model, you may want to ensure that the relatively fixed northward-flowing coastal current is represented in your model. Here, you may force the current to enter through the southern boundary, and you can make decisions for how the current varies with times, or stays fixed. 
+
+Wehen using nudging conditions, it is common to modify a region close to the boundary to avoid abrupt property changes within the model, and allow the model a region to adjust to the fixed values provided at the boundaries.
+
+### Clamped conditions
+
+This is a Dirichlet conditions, similar to the nudging condition, but without including adjustment over a region. This can lead to strong gradients in the vicinity of the boundary.
+
+### Combined conditions
+
+It is possible to combine open boundary conditions, either by using different types for different parameters, or by adjusting the outgoing/incoming fluid velocity. You can, for example, use radiation conditions for flow leaving the model, and nudging conditions for flow entereing the model.
+
+
+
+
