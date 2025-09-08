@@ -126,7 +126,7 @@ which provides two necessary conditions, there remaining three parameters to cho
 Conditions c1 to c5 provide five equations for five unknowns whose solution is:
 
 ```{math}
-:label: eq:fcoefficients
+:label: eq:coefficients
 a_{-2}=\frac{1}{12\Delta t}, \quad a_{-1}=-\frac{8}{12\Delta t}, \quad a_{0}=0, \quad a_{1}=\frac{8}{12\Delta t}, \quad a_{2}=-\frac{1}{12\Delta t}.
 ```
 
