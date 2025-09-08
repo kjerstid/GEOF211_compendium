@@ -14,13 +14,6 @@ $$ (eq:Leapfrog)
 
 Here, we will define the homogenous wall Dirichlet conditions as:
 
-```{math}
-:label: eq:BC_wall
-u_0^{n+1} = 0
-```
-
-se equation {eq}'BC_wall'.
-
 $$
 \begin{align}
 u_0^{n+1} = 0\\
@@ -37,7 +30,7 @@ A no-slip boundary condition is valid for viscous fluids, where the flow is not 
 
 If you, for example, consider flow along a channel or a river, the flow will be slower near the walls, and in a thin layer next to the walls, it will be zero. The no-slip conditions is therefore typically a homogenous Dirichlet boundary condition for flow both normal to, an parallell with the boundary.
 
-For a 2D extension of the advection equation ({eq}'NonLinAdvection_u_3d'), we get that both u and v are zero in all grid cells touching the boundaries. Let our model domain be defined in the region $x\in[0_x,L_x]$ and $y\in[0_y,L_y]$. Then
+For a 2D extension of the advection equation ({eq}`NonLinAdvection_u_3d`), we get that both u and v are zero in all grid cells touching the boundaries. Let our model domain be defined in the region $x\in[0_x,L_x]$ and $y\in[0_y,L_y]$. Then
 
 $$
 \begin{equation}
