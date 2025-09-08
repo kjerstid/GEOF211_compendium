@@ -21,7 +21,7 @@ u^{n+1}=u^n+\Delta t\frac{du}{dt}|_{t^n}+\frac{\Delta t^2}{2!}\frac{d^2u}{dt^2}|
 Rearranging for $du/dt$, we obtain:
 
 ```{math}
-:label: eq:ffdExpansion
+:label: eq:fdExpansion
 \frac{du}{dt}|_{t^n}=\frac{u^{n+1}-u^n}{\Delta t}-\displaystyle\sum_{p=2}^{\infty} \frac{\Delta t^{p-1}}{p!}\frac{d^pu}{dt^p}|_{t^n}
 ```
 

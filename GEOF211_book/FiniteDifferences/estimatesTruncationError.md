@@ -42,7 +42,7 @@ For small $\Delta t$, we can retain the leading order error term in {eq}`eq:magT
 
 ```{math}
 \frac{du}{dt}=\frac{u^{n+1}-u^n}{\Delta t} + O\left( \frac{\Delta t}{T}\frac{U}{T}\right).
-``$$``
+```
 
 Now we see that the *order* of the relative error $\varepsilon$, i.e. the difference between the exact derivative and the approximation divided by the magnitude of the derivative, is
 
@@ -54,6 +54,6 @@ This implies that to have an acceptable approximation to the derivative $du/dt$,
 
 ```{math}
 \frac{\Delta t}{T} \ll 1 \implies \Delta t \ll T.
-```$$```
+```
 
 This condition carries over easily to spatial derivatives, where the equivalent condition is $\Delta x \ll L$, where $L$ is the characteristic length, or *length scale* of the signal. 
