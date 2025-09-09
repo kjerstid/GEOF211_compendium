@@ -27,6 +27,13 @@ chapters:
   - file: FiniteDifferences/estimatesTruncationError.md
   - file: FiniteDifferences/fdFormulasFirstDerivative.md
   - file: FiniteDifferences/evaluatingTruncationError.md
+- file: NumericalStability/Introduction.md
+  sections: 
+  - file: NumericalStability/ConceptsDefinitions.md
+  - file: NumericalStability/DomainDep.md
+  - file: NumericalStability/CFL.md
+  - file: NumericalStability/Total_variation.md
+  - file: NumericalStability/vonNeumannStability.md
 - file: ImplicitSchemes/Introduction.md
   sections:
   - file: ImplicitSchemes/CrankNicolson.md
@@ -44,13 +51,10 @@ chapters:
   sections:
   - file: BoundaryConditions/Mathematical_BC.md
   - file: BoundaryConditions/Physical_BC.md
-- file: NumericalStability/Introduction.md
-  sections: 
-  - file: NumericalStability/ConceptsDefinitions.md
-  - file: NumericalStability/DomainDep.md
-  - file: NumericalStability/CFL.md
-  - file: NumericalStability/Total_variation.md
-  - file: NumericalStability/vonNeumannStability.md
+- file: AdvancesSchemes/Introduction.md
+  sections:
+  - file: AdvancedSchemes/Godunov.md
+
   
 #  - file: Advection/
 #- file: markdown
