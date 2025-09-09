@@ -9,7 +9,7 @@ The Godunov scheme is a numerical method that aligns with the conservation laws 
 2. Use the reconstructed solution as the initial condition to integrate the advection equation over the next time step.
 3. Compute the new cell-averaged values at the updated time level $t^{n+1}$.
 
-**Step 1:**
+## Godunov Step 1
 
 The simplest type of polynomial reconstruction is a linear expression such as:
 ```{math}
@@ -30,7 +30,7 @@ Figure XXX illustrates how the reconstructed signals look like.
 You can use a ruler to make this an exercise on paper. To find the reconstructed signal for the downwind slop (Forward scheme), you can place the ruler so it touches the functional values $q_{k+1}^n$ and $q_k^n$. Then you draw a line that covers the grid cell $k$, from the left border at $k-1/2$ to the right cell border at $k+1/2$. If you make the exercise for the centered scheme, you must first find the slope by placing the ruler from $q_{k-1}^n$ to $q_{k+1}^n$ and then sliding the ruler vertically until it passes through your point $q_k^n$.
 ```
 
-**Step 2:**
+## Godunov Step 2
 
 The first part of step 2, is to advect the reconstructed signal using the characteristics $x-at$, and track inflow and outflow of cell $q_k^n$. 
 
@@ -77,7 +77,7 @@ We finally substitute $\tilde{q}_{k-1}^n$ and $\tilde{q}_{k}^n$ into {eq}`eq:God
 q_k^{n+1} = q_k^n - a \frac{\Delta t}{\Delta x} \left( q_k^n - q_{k-1}^n \right) - \frac{a \Delta t}{2} \left( 1 - \frac{a \Delta t}{\Delta x} \right) \left( \sigma_k^n - \sigma_{k-1}^n \right)
 ```
 
-**Step3:**
+## Godunov Step 3
 
 The final step, is to choose which scheme you want to use for the slope $\sigma_k^n$ determines the specific variant of the scheme. 
 

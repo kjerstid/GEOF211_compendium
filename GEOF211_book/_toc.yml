@@ -51,7 +51,7 @@ chapters:
   sections:
   - file: BoundaryConditions/Mathematical_BC.md
   - file: BoundaryConditions/Physical_BC.md
-- file: AdvancesSchemes/Introduction.md
+- file: AdvancedSchemes/Introduction.md
   sections:
   - file: AdvancedSchemes/Godunov.md
 
