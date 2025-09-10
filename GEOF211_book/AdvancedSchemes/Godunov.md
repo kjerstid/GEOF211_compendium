@@ -46,7 +46,17 @@ The first part of step 2, is to advect the reconstructed signal using the charac
 
 Figure XX illustrates how this will look in terms of grid cells. Let's say we look at an advection equation where $a>0$, so that the signal is moving towards the right. Flow will then enter the grid cell at the left border $k-1/2$ and exit at the right border at $k+1/2$.
 
-We use the charachteristics of the advection equation $x-at$, since the solution of the advection equation lies along these charachteristics. The charactheristcs are linear, with a slope $a$. 
+We use the charachteristics of the advection equation $x-at$, since the solution of the advection equation lies along these charachteristics. The charactheristcs are linear, with a slope $a$, seen in Figure {fig}`fig:Godunov_inflow_outflow`.
+
+```{figure} ./Godunov_2.png
+---
+:label: fig:Godunov_inflow_outflow
+:width: 50%
+:align: center
+name: Godunov inflow and outflow
+---
+<!-- Illustration of a the characteristics of the linear advection equation $x-at$. For grid cell $k$m there is an infow from the $k-1$ cell at cell border location $k-1/2$ ($\color{teal}{\text{teal color}}$) and outflow from the $k$ grid cell at $k+1/2$ ($\color{teal}{\text{salmon color}}$).  -->
+```
 
 *Outflow*:
 For the flow out of the box at $k+1/2$, we insert $\color{salmon}{x=x_{k+1/2}-a(t-t^n)}$ into equation {eq}`eq:Godunov_step1` from step 1. Note that for the outflow, the $k$-cell is the mother cell of the flow. We can therefore keep all the $k$'s in equation {eq}`eq:Godunov_step1` as they appear.
