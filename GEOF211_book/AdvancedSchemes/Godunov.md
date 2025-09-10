@@ -29,12 +29,11 @@ We can decide how we want to express this slope numerically. We could, for examp
 :label: fig:Godunov_reconstruction
 :width: 50%
 :align: center
-name: Godunov reconstruction
 ---
 Illustration of a linear reconstruction $\tilde{q}$ (purple line segments) for a set of functional values $q$ (blue markers). The reconstruction is based on the downwind slope (forward differencing). If you, for example, extend the purple line segment at grid cell $k$ on the right hand side, you will notice that it pass through the functional value of the grid cell to the right - i.e., a forward differencing.
 ```
 
-Figure {numref}`Godunov reconstruction` shows an example of an upwind slope, using a forward differencing for $\sigma_k^n$.
+Figure {numref}`Godunov_reconstruction` shows an example of an upwind slope, using a forward differencing for $\sigma_k^n$.
 
 ```{note}
 You can use a ruler to practice finding the reconstructed signal on a piece of paper. Sketch two axes and some functional values, $q_k^n$. To find the reconstructed signal for the downwind slop (Forward scheme), you can place the ruler so it touches the functional values $q_{k+1}^n$ and $q_k^n$. Then you draw a line that covers the grid cell $k$, from the left border at $k-1/2$ to the right cell border at $k+1/2$. If you want to find the upwind slope, you must repeat the exercise by placing the ruler through $q_{k-1}^n$ and $q_k^n$. If you make the exercise for the centered scheme, you must first find the slope by placing the ruler from $q_{k-1}^n$ to $q_{k+1}^n$ and then sliding the ruler vertically until it passes through your point $q_k^n$.
@@ -44,16 +43,15 @@ You can use a ruler to practice finding the reconstructed signal on a piece of p
 
 The first part of step 2, is to advect the reconstructed signal using the characteristics $x-at$, and track inflow and outflow of cell $q_k^n$. 
 
-Figure XX illustrates how this will look in terms of grid cells. Let's say we look at an advection equation where $a>0$, so that the signal is moving towards the right. Flow will then enter the grid cell at the left border $k-1/2$ and exit at the right border at $k+1/2$.
+Figure {numref}`fig:Godunov inflow and outflow` illustrates how this will look in terms of grid cells. Let's say we look at an advection equation where $a>0$, so that the signal is moving towards the right. Flow will then enter the grid cell at the left border $k-1/2$ and exit at the right border at $k+1/2$.
 
-We use the charachteristics of the advection equation $x-at$, since the solution of the advection equation lies along these charachteristics. The charactheristcs are linear, with a slope $a$, seen in Figure {numref}`fig:Godunov inflow and outflow`.
+We use the charachteristics of the advection equation $x-at$, since the solution of the advection equation lies along these charachteristics. The charactheristcs are linear, with a slope $a$, seen in Figure {numref}`fig:Godunov_inflow_ outflow`.
 
 ```{figure} ./Godunov_2.png
 ---
 :label: fig:Godunov_inflow_outflow
 :width: 50%
 :align: center
-name: Godunov inflow and outflow
 ---
 Illustration of a the characteristics of the linear advection equation $x-at$. For grid cell $k$m there is an infow from the $k-1$ cell at cell border location $k-1/2$ ($\color{teal}{\text{teal color}}$) and outflow from the $k$ grid cell at $k+1/2$ ($\color{salmon}{\text{salmon color}}$).  
 ```
@@ -120,7 +118,7 @@ Although it may be tempting calculate the one-step solution before coding, it wi
 
 If we study the upwind and downwind slopes in an area close to grid cell $k$, we can make som intentional choices of which slope to use where. A steep slope indicates a strong gradient, while a mild slope indicates a weak gradient. It is often benefitial to choose the mildest of the two slopes.
 
-In places where the signal undulates (i.e., going up and down), the upwind and downwind slopes will have opposite signs. Here, we risk getting overshoots and undershoots from our Godunov approach. To reduce this problem, we can define a minmod limiter. You can regard a limiter as a rule for what slope, %\sigma_k^n% to choose at a given grid cell.
+In places where the signal undulates (i.e., going up and down), the upwind and downwind slopes will have opposite signs. Here, we risk getting overshoots and undershoots from our Godunov approach. To reduce this problem, we can define a minmod limiter. You can regard a limiter as a rule for what slope, $\sigma_k^n$ to choose at a given grid cell.
 
 ```{math}
 :label: eq:minmod_limiter
