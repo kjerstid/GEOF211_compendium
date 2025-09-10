@@ -45,6 +45,7 @@ sphinx:
       logo:
         image_light: logo-light.png
         image_dark: logo-dark.png
+    numfig: true
   myst_enable_extensions:
     - amsmath
     - dollarmath
