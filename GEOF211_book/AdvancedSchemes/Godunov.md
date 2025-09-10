@@ -33,7 +33,7 @@ We can decide how we want to express this slope numerically. We could, for examp
 Illustration of a linear reconstruction $\tilde{q}$ (purple line segments) for a set of functional values $q$ (blue markers). The reconstruction is based on the downwind slope (forward differencing). If you, for example, extend the purple line segment at grid cell $k$ on the right hand side, you will notice that it pass through the functional value of the grid cell to the right - i.e., a forward differencing.
 ```
 
-Figure {numref}`fig:Godunov-reconstruction` shows an example of an upwind slope, using a forward differencing for $\sigma_k^n$.
+Figure {numref}`fig:Godunov-reconstruction` shows an example of an upwind slope, using a forward differencing for $\sigma_k^n$. {numref}`fig:Godunov-inflow-outflow`
 
 ```{note}
 You can use a ruler to practice finding the reconstructed signal on a piece of paper. Sketch two axes and some functional values, $q_k^n$. To find the reconstructed signal for the downwind slop (Forward scheme), you can place the ruler so it touches the functional values $q_{k+1}^n$ and $q_k^n$. Then you draw a line that covers the grid cell $k$, from the left border at $k-1/2$ to the right cell border at $k+1/2$. If you want to find the upwind slope, you must repeat the exercise by placing the ruler through $q_{k-1}^n$ and $q_k^n$. If you make the exercise for the centered scheme, you must first find the slope by placing the ruler from $q_{k-1}^n$ to $q_{k+1}^n$ and then sliding the ruler vertically until it passes through your point $q_k^n$.
@@ -49,7 +49,7 @@ We use the charachteristics of the advection equation $x-at$, since the solution
 
 ```{figure} ./Godunov_2.png
 ---
-:name: fig:Godunov-inflow_-utflow
+:name: fig:Godunov-inflow-utflow
 :width: 50%
 :align: center
 ---
