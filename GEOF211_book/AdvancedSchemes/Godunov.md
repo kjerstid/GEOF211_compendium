@@ -1,7 +1,7 @@
 (AdvancedSchemes:Godunov)=
 # Godunov's method
 
-*This chapter is co-written with Sigrid Chistine Pedersen (student in GEOF211 spring 2025)*
+*This chapter is co-written with Sigrid Christine Pedersen (student in GEOF211 spring 2025)*
 
 The Godunov scheme is a numerical method that aligns with the conservation laws for hyperbolic partial differential equations. It computes the solution at the next time step through the following three-step process:
 
@@ -17,17 +17,26 @@ The simplest type of polynomial reconstruction is a linear expression such as:
 \tilde{q}_k^t(x,t^n)=q_k^n+(x-x_k)\sigma_k^n,
 ```
 
-where $\sigma_k^n=\frac{{\partial q}}{\partial x}\rvert_k^n$ is the slope of the reconstructed linear $\tilde{q}$. Note that the full reconstructed signal is made up of many linear segments - one segment per grid cell. The reconstructed signal is, therefore, not a continuous function.
+where $\sigma_k^n=\frac{{\partial q}}{\partial x}\rvert_k^n$ is the slope of the reconstructed linear $\tilde{q}$. Note that the full reconstructed signal is made up of many linear segments - one segment per grid cell. The reconstructed signal is, therefore, not a continuous function. Figure {fig}`fig:Godunov_reconstruction` shows an example of a reconstructed signal, $\tilde{q}$, consisting of linear segments (purple lines). The segments extend over one grid cell each, and passes through the functional values $q_k^n$, but are not connected at the grid cell edges.
 
 We can decide how we want to express this slope numerically. We could, for example, use a:
 * Forward scheme, also called a downwind slope: $\sigma_k^n = \frac{q_{k+1}^n - q_k^n}{\Delta x}$
 * Backward scheme, also called an upwind slope: $\sigma_k^n = \frac{q_k^n - q_{k-1}^n}{\Delta x}$
 * Centered scheme:$\sigma_k^n = \frac{q_{k+1}^n - q_{k-1}^n}{2 \Delta x}$
 
-Figure XXX illustrates how the reconstructed signals look like. 
+```{figure} ./tGodunov_1.png
+---
+:label: fig:Godunov_reconstruction
+height: 600px
+name: txDiagram
+---
+Illustration of a linear reconstruction $\tilde{q}$ (purple line segments) for a set of functional values $q$ (blue markers). The reconstruction is based on the downwind slope (forward differencing). If you, for example, extend the purple line segment at grid cell $k$ on the right hand side, you will notice that it pass through the functional value of the grid cell to the right - i.e., a forward differencing.
+```
+
+Figure {fig}`fig:Godunov_reconstruction` shows an example of an upwind slope, using a forward differencing for $\sigma_k^n$.
 
 ```{note}
-You can use a ruler to make this an exercise on paper. To find the reconstructed signal for the downwind slop (Forward scheme), you can place the ruler so it touches the functional values $q_{k+1}^n$ and $q_k^n$. Then you draw a line that covers the grid cell $k$, from the left border at $k-1/2$ to the right cell border at $k+1/2$. If you make the exercise for the centered scheme, you must first find the slope by placing the ruler from $q_{k-1}^n$ to $q_{k+1}^n$ and then sliding the ruler vertically until it passes through your point $q_k^n$.
+You can use a ruler to practice finding the reconstructed signal on a piece of paper. Sketch two axes and some functional values, $q_k^n$. To find the reconstructed signal for the downwind slop (Forward scheme), you can place the ruler so it touches the functional values $q_{k+1}^n$ and $q_k^n$. Then you draw a line that covers the grid cell $k$, from the left border at $k-1/2$ to the right cell border at $k+1/2$. If you want to find the upwind slope, you must repeat the exercise by placing the ruler through $q_{k-1}^n$ and $q_k^n$. If you make the exercise for the centered scheme, you must first find the slope by placing the ruler from $q_{k-1}^n$ to $q_{k+1}^n$ and then sliding the ruler vertically until it passes through your point $q_k^n$.
 ```
 
 ## Godunov Step 2
