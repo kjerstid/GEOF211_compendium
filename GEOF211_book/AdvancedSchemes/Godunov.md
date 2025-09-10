@@ -115,3 +115,24 @@ The Godunov method is not only applicable to the advection equation. However, yo
 ```{note}
 Although it may be tempting calculate the one-step solution before coding, it will be useful to calculate the slope $(\sigma_k^n-\sigma_{k-1}^n)$ separately. We will learn how to make wise choices based on slope characteristics, and keeping these calculations tidy will be essential!
 ```
+
+## Min-mod limiters
+
+If we study the upwind and downwind slopes in an area close to grid cell $k$, we can make som intentional choices of which slope to use where. A steep slope indicates a strong gradient, while a mild slope indicates a weak gradient. It is often benefitial to choose the mildest of the two slopes.
+
+In places where the signal undulates (i.e., going up and down), the upwind and downwind slopes will have opposite signs. Here, we risk getting overshoots and undershoots from our Godunov approach. To reduce this problem, we can define a minmod limiter. You can regard a limiter as a rule for what slope, %\sigma_k^n% to choose at a given grid cell.
+
+```{math}
+:label: eq:minmod_limiter
+\sigma_k^n=\text{minmod} \left (\frac{q_k^n-q_{k-1}^n}{\Delta x},\frac{q_{k+1}^n-q_{k}^n}{\Delta x}\right)
+```
+, where minmod is defined as: 
+
+```{math}
+:label: eq:minmod
+\text{minmod}(a,b)\begin{cases}
+a\,\, \text{if  } |a|&<|b|\,\text{and } ab > 0 \\
+b\,\, \text{if  } |a|&>|b|\,\text{and } ab > 0 \\
+0\,\, \text{if  } ab& \leq 0
+\end{cases}
+```
