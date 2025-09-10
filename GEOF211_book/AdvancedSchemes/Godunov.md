@@ -34,7 +34,7 @@ name: Godunov reconstruction
 Illustration of a linear reconstruction $\tilde{q}$ (purple line segments) for a set of functional values $q$ (blue markers). The reconstruction is based on the downwind slope (forward differencing). If you, for example, extend the purple line segment at grid cell $k$ on the right hand side, you will notice that it pass through the functional value of the grid cell to the right - i.e., a forward differencing.
 ```
 
-Figure {ref}`fig:Godunov_reconstruction` shows an example of an upwind slope, using a forward differencing for $\sigma_k^n$.
+Figure {numref}`Godunov reconstruction` shows an example of an upwind slope, using a forward differencing for $\sigma_k^n$.
 
 ```{note}
 You can use a ruler to practice finding the reconstructed signal on a piece of paper. Sketch two axes and some functional values, $q_k^n$. To find the reconstructed signal for the downwind slop (Forward scheme), you can place the ruler so it touches the functional values $q_{k+1}^n$ and $q_k^n$. Then you draw a line that covers the grid cell $k$, from the left border at $k-1/2$ to the right cell border at $k+1/2$. If you want to find the upwind slope, you must repeat the exercise by placing the ruler through $q_{k-1}^n$ and $q_k^n$. If you make the exercise for the centered scheme, you must first find the slope by placing the ruler from $q_{k-1}^n$ to $q_{k+1}^n$ and then sliding the ruler vertically until it passes through your point $q_k^n$.
@@ -46,7 +46,7 @@ The first part of step 2, is to advect the reconstructed signal using the charac
 
 Figure XX illustrates how this will look in terms of grid cells. Let's say we look at an advection equation where $a>0$, so that the signal is moving towards the right. Flow will then enter the grid cell at the left border $k-1/2$ and exit at the right border at $k+1/2$.
 
-We use the charachteristics of the advection equation $x-at$, since the solution of the advection equation lies along these charachteristics. The charactheristcs are linear, with a slope $a$, seen in Figure {ref}`fig:Godunov_inflow_outflow`.
+We use the charachteristics of the advection equation $x-at$, since the solution of the advection equation lies along these charachteristics. The charactheristcs are linear, with a slope $a$, seen in Figure {numref}`fig:Godunov inflow and outflow`.
 
 ```{figure} ./Godunov_2.png
 ---
