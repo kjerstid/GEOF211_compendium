@@ -55,7 +55,7 @@ We use the charachteristics of the advection equation $x-at$, since the solution
 :align: center
 name: Godunov inflow and outflow
 ---
-Illustration of a the characteristics of the linear advection equation $x-at$. For grid cell $k$m there is an infow from the $k-1$ cell at cell border location $k-1/2$ ($\color{teal}{\text{teal color}}$) and outflow from the $k$ grid cell at $k+1/2$ ($\color{teal}{\text{salmon color}}$).  
+Illustration of a the characteristics of the linear advection equation $x-at$. For grid cell $k$m there is an infow from the $k-1$ cell at cell border location $k-1/2$ ($\color{teal}{\text{teal color}}$) and outflow from the $k$ grid cell at $k+1/2$ ($\color{salmon}{\text{salmon color}}$).  
 ```
 
 *Outflow*:
