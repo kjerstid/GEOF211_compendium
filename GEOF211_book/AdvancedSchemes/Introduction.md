@@ -1,7 +1,7 @@
 (AdvancedSchemes:Introduction)=
 # Advanced schemes and approaches
 
-All schemes have pros and cons. If we, for example, look into the linear advection equation {eq}`Advection`, repeated here,
+All schemes have pros and cons. If we, for example, look into the linear advection equation {eq}`eq:Advection`, repeated here,
 
 ```{math}
 \frac{\partial u}{\partial t} + a \frac{\partial u}{\partial x} = 0, a>0,

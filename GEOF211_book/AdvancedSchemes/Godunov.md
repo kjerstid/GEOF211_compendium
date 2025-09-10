@@ -24,7 +24,7 @@ We can decide how we want to express this slope numerically. We could, for examp
 * Backward scheme, also called an upwind slope: $\sigma_k^n = \frac{q_k^n - q_{k-1}^n}{\Delta x}$
 * Centered scheme:$\sigma_k^n = \frac{q_{k+1}^n - q_{k-1}^n}{2 \Delta x}$
 
-```{figure} ./tGodunov_1.png
+```{figure} ./Godunov_1.png
 ---
 :label: fig:Godunov_reconstruction
 height: 600px
