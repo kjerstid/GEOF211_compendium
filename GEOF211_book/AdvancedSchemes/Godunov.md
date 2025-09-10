@@ -43,9 +43,9 @@ You can use a ruler to practice finding the reconstructed signal on a piece of p
 
 The first part of step 2, is to advect the reconstructed signal using the characteristics $x-at$, and track inflow and outflow of cell $q_k^n$. 
 
-Figure {ref}`fig:Godunov inflow and outflow` illustrates how this will look in terms of grid cells. Let's say we look at an advection equation where $a>0$, so that the signal is moving towards the right. Flow will then enter the grid cell at the left border $k-1/2$ and exit at the right border at $k+1/2$.
+Figure {ref}`fig:Godunov_inflow_outflow` illustrates how this will look in terms of grid cells. Let's say we look at an advection equation where $a>0$, so that the signal is moving towards the right. Flow will then enter the grid cell at the left border $k-1/2$ and exit at the right border at $k+1/2$.
 
-We use the charachteristics of the advection equation $x-at$, since the solution of the advection equation lies along these charachteristics. The charactheristcs are linear, with a slope $a$, seen in Figure {ref}`fig:Godunov_inflow_ outflow`.
+We use the charachteristics of the advection equation $x-at$, since the solution of the advection equation lies along these charachteristics. The charactheristcs are linear, with a slope $a$, seen in Figure {ref}`fig:Godunov_inflow_outflow`.
 
 ```{figure} ./Godunov_2.png
 ---
