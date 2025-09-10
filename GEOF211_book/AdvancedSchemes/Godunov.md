@@ -27,8 +27,9 @@ We can decide how we want to express this slope numerically. We could, for examp
 ```{figure} ./Godunov_1.png
 ---
 :label: fig:Godunov_reconstruction
-height: 600px
-name: txDiagram
+:width: 50%
+:align: center
+name: Godunov reconstruction
 ---
 Illustration of a linear reconstruction $\tilde{q}$ (purple line segments) for a set of functional values $q$ (blue markers). The reconstruction is based on the downwind slope (forward differencing). If you, for example, extend the purple line segment at grid cell $k$ on the right hand side, you will notice that it pass through the functional value of the grid cell to the right - i.e., a forward differencing.
 ```
