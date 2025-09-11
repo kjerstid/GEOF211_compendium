@@ -58,7 +58,7 @@ at $j+\frac{1}{2}$.) Then it has been shown {cite:p}`Harten1983` that
 (theorem:HartenTheorem)=
 :::{admonition} Harten's Theorem
 :class: important
-Consider a method on the general form (`eq:HartenGeneral`). Then
+Consider a method on the general form ({eq}`eq:HartenGeneral`). Then
 ```{math}
 TV(q^{n+1})\leq TV(q^n)
 ```
@@ -71,6 +71,6 @@ The FTBS scheme for linear advection is written:
 q_m^{n+1}=q_m^n-a\frac{\Delta t}{\Delta x}(q_m^n-q_{m-1}^n)
 ```
 
-If we compare this scheme with the general form (eq. `eq:HartenGeneral`), we find that $A_{m-1}^n=a\frac{\Delta t}{\Delta x}$ and $B_m^n=0$. The coefficient $A_{m-1}$ is positive as long as the advection speed $a$ is positive. We also find that the requirement $A_{m-1}+B_m^n<1$ holds as long as $A=a\frac{\Delta t}{\Delta x}\leq 1$, which is the same requirement as the CFL criterion. The FTBS scheme for linear advection is, therefore, TVD as along as $A=a\frac{\Delta t}{\Delta x}\leq 1$.
+If we compare this scheme with the general form (eq. {eq}`eq:HartenGeneral`), we find that $A_{m-1}^n=a\frac{\Delta t}{\Delta x}$ and $B_m^n=0$. The coefficient $A_{m-1}$ is positive as long as the advection speed $a$ is positive. We also find that the requirement $A_{m-1}+B_m^n<1$ holds as long as $A=a\frac{\Delta t}{\Delta x}\leq 1$, which is the same requirement as the CFL criterion. The FTBS scheme for linear advection is, therefore, TVD as along as $A=a\frac{\Delta t}{\Delta x}\leq 1$.
 
 Try for yourself to write the CTCS schgeme for linear advection on the general form, and check if the scheme is TVD.

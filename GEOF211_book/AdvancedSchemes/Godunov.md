@@ -33,7 +33,7 @@ We can decide how we want to express this slope numerically. We could, for examp
 Illustration of a linear reconstruction $\tilde{q}$ (purple line segments) for a set of functional values $q$ (blue markers). The reconstruction is based on the downwind slope (forward differencing). If you, for example, extend the purple line segment at grid cell $k$ on the right hand side, you will notice that it pass through the functional value of the grid cell to the right - i.e., a forward differencing.
 ```
 
-Figure {numref}`fig:Godunov-reconstruction` shows an example of an upwind slope, using a forward differencing for $\sigma_k^n$. {numref}`fig:Godunov-inflow-outflow`
+Figure {numref}`fig:Godunov-reconstruction` shows an example of an upwind slope, using a forward differencing for $\sigma_k^n$. 
 
 ```{note}
 You can use a ruler to practice finding the reconstructed signal on a piece of paper. Sketch two axes and some functional values, $q_k^n$. To find the reconstructed signal for the downwind slop (Forward scheme), you can place the ruler so it touches the functional values $q_{k+1}^n$ and $q_k^n$. Then you draw a line that covers the grid cell $k$, from the left border at $k-1/2$ to the right cell border at $k+1/2$. If you want to find the upwind slope, you must repeat the exercise by placing the ruler through $q_{k-1}^n$ and $q_k^n$. If you make the exercise for the centered scheme, you must first find the slope by placing the ruler from $q_{k-1}^n$ to $q_{k+1}^n$ and then sliding the ruler vertically until it passes through your point $q_k^n$.
@@ -111,10 +111,11 @@ To improve the solution further, overshoots and undershoots need to be addressed
 The Godunov method is not only applicable to the advection equation. However, you must adapt the charachteristics in **step 2** to the equation you are considering.
 
 ```{note}
-Although it may be tempting calculate the one-step solution before coding, it will be useful to calculate the slope $(\sigma_k^n-\sigma_{k-1}^n)$ separately. We will learn how to make wise choices based on slope characteristics, and keeping these calculations tidy will be essential!
+Although it may be tempting to insert the choice of $\sigma_k^n$ into Equation {eq}`eq:Godunov` the one-step solution before coding, it will be useful to calculate the slope $(\sigma_k^n-\sigma_{k-1}^n)$ separately. We will learn how to make wise choices based on slope characteristics, and keeping these calculations tidy will be essential!
 ```
 
 ## Min-mod limiters
+:name :chap:minmod
 
 If we study the upwind and downwind slopes in an area close to grid cell $k$, we can make som intentional choices of which slope to use where. A steep slope indicates a strong gradient, while a mild slope indicates a weak gradient. It is often benefitial to choose the mildest of the two slopes.
 

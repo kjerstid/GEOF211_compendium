@@ -54,6 +54,7 @@ chapters:
 - file: AdvancedSchemes/Introduction.md
   sections:
   - file: AdvancedSchemes/Godunov.md
+  - file: AdvancedSchemes/FluxLimiters.md
 
   
 #  - file: Advection/
