@@ -7,9 +7,8 @@
 The minmod limiter, described in chapter {ref}`chap:minmod` is useful to avoid strong slopes for the reconstructed signal. Using flux limiters, is another approach to gain controll over the model behaviour near strong gradients. To understand the flux limiters, we must first look into how numerical schemes can be written in a flux form:
 
 (definition:Flux form)=
-:::{admonition} Flux form
+:::{admonition} The flux form of the advection scheme can be written:
 :class: important
-The flux form of the advection scheme can be written:
 ```{math}
 :label: eq:fluxform
 q_k^{n+1}=q_k^n+\frac{\Delta t}{\Delta x}[F_{k-1/2}^n-F_{k+1/2}^n]
@@ -26,12 +25,12 @@ We can write the Godunov scheme on Flux form by identifying terms related to gri
 
 ```{math}
 :label: eq:Godunov_color
-q_k^{n+1} = {\color{purple}{q_k^n}} - a {\color{purple}{\frac{\Delta t}{\Delta x}}} \left( {\color{teal}{q_k^n}} - {\color{salmon}{q_{k-1}^n}} \right) - \frac{a \Delta t}{2} \left( 1 - \frac{a \Delta t}{\Delta x} \right) \left( \color{teal}{\sigma_k^n} - {\color{salmon}{\sigma_{k-1}^n}} \right)
+q_k^{n+1} = {\color{cyan}{q_k^n}} - a {\color{cyan}{\frac{\Delta t}{\Delta x}}} \left( {\color{teal}{q_k^n}} - {\color{salmon}{q_{k-1}^n}} \right) - \frac{a \Delta t}{2} \left( 1 - \frac{a \Delta t}{\Delta x} \right) \left( \color{teal}{\sigma_k^n} - {\color{salmon}{\sigma_{k-1}^n}} \right)
 ```
 
 ```{math}
 :label: eq:Godunov_fluxform
-{\color{purple}{q_k^{n+1}}}={\color{purple}{q_k^n}}+\frac{\Delta t}{\Delta x}[F_{k-1/2}^n-F_{k+1/2}^n],
+{\color{cyan}{q_k^{n+1}}}={\color{cyan}{q_k^n}}+\frac{\Delta t}{\Delta x}[F_{k-1/2}^n-F_{k+1/2}^n],
 ```
 where
 
@@ -40,6 +39,7 @@ where
 \begin{aligned}
 {\color{salmon}{F_{k-1/2}^n}}&=a{\color{salmon}{q_{k-1}^n}}+\left(\frac{\Delta x}{2}-a\frac{\Delta t}{2}\right)a{\color{salmon}{\sigma_{k-1}^n}}\\
 {\color{teal}{F_{k+1/2}^n}}&=a{\color{teal}{q_{k+1}^n}}+\left(\frac{\Delta x}{2}-a\frac{\Delta t}{2}\right)a{\color{teal}{\sigma_{k+1}^n}}
+\end{aligned}
 ```
 
 Now that we have the advection equation on the flux form, we can define a flux limiter $\phi(\theta)$ to avid overshoots and undershoots near strong gradients or local maxima and minima of the signal $q(x,t)$. Here, $\theta$ is a smoothness indicator, defined as 
@@ -60,7 +60,7 @@ From equation {eq}`eq:smoothness_theta`, we can note a few details:
 The flux limiter $\phi(\theta)$ takes on a value for each grid cell, based on the value of $\theta$. 
 
 ```{note}
-You can think of the flux limiter as some kind of switch, or an *if* statement in coding. When you code up a flux limiter, you check the value of $\theta$ for each grid cell, and then define a value $\pho(\theta)$ for each grid cell.
+You can think of the flux limiter as some kind of switch, or an *if* statement in coding. When you code up a flux limiter, you check the value of $\theta$ for each grid cell, and then define a value $\phi(\theta)$ for each grid cell.
 ```
 
 The Godunov fluxes from {eq}`eq:Godunov_fluxes` with limiters, will now look like:
@@ -73,11 +73,11 @@ F_{k+1/2}^n&=aq_{k+1}^n+\left(\frac{\Delta x}{2}-a\frac{\Delta t}{2}\right)a\sig
 \end{aligned}
 ```
 
-Figure XXX illustrates what this means. The figure is showing the $\theta$-$\phi$ space, with the smoothness indicator on the x-axis and our choice of flux limiter value on the y-axis. If we define $\phi(\theta)\equiv0$ for all values of $\theta$ we are only left with the first terms on the right hand sides of the fluxes $F_{k\pm1/2}$. You can try yourself to insert these fluxces into equation {eq}`eq:Godunov_fluxform` and see if you recognize that this is is the FTBS scheme. 
+Figure {numref}`fig:TVD_theta_phi` illustrates what this means. The figure is showing the $\theta$-$\phi$ space, with the smoothness indicator on the x-axis and our choice of flux limiter value on the y-axis. If we define $\phi(\theta)\equiv0$ for all values of $\theta$ we are only left with the first terms on the right hand sides of the fluxes $F_{k\pm1/2}$. You can try yourself to insert these fluxces into equation {eq}`eq:Godunov_fluxform` and see if you recognize that this is is the FTBS scheme. 
 
 ```{figure} ./TVD1.png
 ---
-:name: fig:Godunov-inflow-utflow
+:name: fig:TVD_theta_phi
 :width: 40%
 :align: center
 ---
