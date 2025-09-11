@@ -25,12 +25,12 @@ We can write the Godunov scheme on Flux form by identifying terms related to gri
 
 ```{math}
 :label: eq:Godunov_color
-q_k^{n+1} = {\color{cyan}{q_k^n}} - a {\color{cyan}{\frac{\Delta t}{\Delta x}}} \left( {\color{teal}{q_k^n}} - {\color{salmon}{q_{k-1}^n}} \right) - \frac{a \Delta t}{2} \left( 1 - \frac{a \Delta t}{\Delta x} \right) \left( {\color{teal}{\sigma_k^n}} - {\color{salmon}{\sigma_{k-1}^n}} \right)
+q_k^{n+1} = {\color{periwinkle}{q_k^n}} - a {\color{periwinkle}{\frac{\Delta t}{\Delta x}}} \left( {\color{teal}{q_k^n}} - {\color{salmon}{q_{k-1}^n}} \right) - \frac{a \Delta t}{2} \left( 1 - \frac{a \Delta t}{\Delta x} \right) \left( {\color{teal}{\sigma_k^n}} - {\color{salmon}{\sigma_{k-1}^n}} \right)
 ```
 
 ```{math}
 :label: eq:Godunov_fluxform
-{\color{cyan}{q_k^{n+1}}}={\color{cyan}{q_k^n}}+\frac{\Delta t}{\Delta x}[F_{k-1/2}^n-F_{k+1/2}^n],
+{\color{periwinkle}{q_k^{n+1}}}={\color{periwinkle}{q_k^n}}+\frac{\Delta t}{\Delta x}[F_{k-1/2}^n-F_{k+1/2}^n],
 ```
 where
 
