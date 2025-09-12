@@ -86,11 +86,11 @@ F_{k+1/2}^n & =aq_{k+1}^n+\left(\frac{\Delta x}{2}-a\frac{\Delta t}{2}\right)a\f
 \end{aligned}
 ```
 
-```{div} sticky-margin
-```{note}
+```{margin} 
+**Note:**
 $C=a\frac{\Delta t}{\Delta x}$ <br>
 $\theta_{k+1/2}^n=\frac{q_k^n-q_{k-1}^n}{q_{k+1}^n-q_k^n}$
-```
+
 ```
 
 If we insert $C=a\frac{\Delta t}{\Delta x}$, and massage the expression, we end up with:
