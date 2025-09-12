@@ -99,7 +99,7 @@ If we insert $C=a\frac{\Delta t}{\Delta x}$, and massage the expression, we end 
 :::{admonition} Godunov Flux form with downwind slope and limiters:
 :class: important
 
-```{math}
+```{div} sticky-margin
 :label: eq:Godunov_fluxform_downwind_massaged
 \begin{aligned}
 q_k^{n+1}& =q_k^n+\frac{\Delta t}{\Delta x}[F_{k-1/2}^n-F_{k+1/2}^n]\\
