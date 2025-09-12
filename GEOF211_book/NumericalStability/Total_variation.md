@@ -1,5 +1,6 @@
 (NumericalStability:Total_variation)=
 # Total Variation (TV) and Total Variation Diminishing (TVD) schemes (part 1)
+:label: sec:TVD1
 
 ## Total variation (TV)
 The total variation is a measure of the amount of oscillation in the field:
@@ -48,11 +49,11 @@ Consider a general method of the form:
 
 ```{math}
 :label: eq:HartenGeneral
-q_m^{n+1}=q_m^n-C_{m-1}^n(q_m^n-q_{m-1}^n)+D_m^n(q_{m+1}^n-q_m^n)
+q_m^{n+1}=q_m^n-A_{m-1}^n(q_m^n-q_{m-1}^n)+B_m^n(q_{m+1}^n-q_m^n)
 ```
 
-where the coefficients $C$ and $D$ are arbitrary values that may depend on $q$. (Note that
-these coefficients are displaced half a grid length to the right, so that, e.g., $D_m^n$ is valid
+where the coefficients $A$ and $B$ are arbitrary values that may depend on $q$. (Note that
+these coefficients are displaced half a grid length to the right, so that, e.g., $B_m^n$ is valid
 at $j+\frac{1}{2}$.) Then it has been shown {cite:p}`Harten1983` that 
 
 (theorem:HartenTheorem)=
@@ -60,6 +61,7 @@ at $j+\frac{1}{2}$.) Then it has been shown {cite:p}`Harten1983` that
 :class: important
 Consider a method on the general form ({eq}`eq:HartenGeneral`). Then
 ```{math}
+:label: eq:Harten
 TV(q^{n+1})\leq TV(q^n)
 ```
 if $A_m^n+B_m^n\leq 1$ and $A_m^n\geq 0$, $B_m^n \geq 0\,\, \forall\,m$
