@@ -86,8 +86,8 @@ F_{k+1/2}^n & =aq_{k+1}^n+\left(\frac{\Delta x}{2}-a\frac{\Delta t}{2}\right)a\f
 \end{aligned}
 ```
 
-```{margin} 
-```{Note}
+```{div} sticky-margin
+```{note}
 $C=a\frac{\Delta t}{\Delta x}$ <br>
 $\theta_{k+1/2}^n=\frac{q_k^n-q_{k-1}^n}{q_{k+1}^n-q_k^n}$
 ```
@@ -99,7 +99,7 @@ If we insert $C=a\frac{\Delta t}{\Delta x}$, and massage the expression, we end 
 :::{admonition} Godunov Flux form with downwind slope and limiters:
 :class: important
 
-```{div} sticky-margin
+```{math} 
 :label: eq:Godunov_fluxform_downwind_massaged
 \begin{aligned}
 q_k^{n+1}& =q_k^n+\frac{\Delta t}{\Delta x}[F_{k-1/2}^n-F_{k+1/2}^n]\\
