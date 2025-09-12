@@ -1,11 +1,10 @@
-```css
 .sticky-margin {
   position: sticky;
-  top: 100px; /* Adjust based on your header height */
+  top: 100px;
   float: right;
   width: 250px;
   margin-left: 20px;
-  background-color: var(--jp-layout-color1); /* Optional: theme-aware background */
+  background-color: var(--jp-layout-color1);
   padding: 10px;
   border-left: 2px solid var(--jp-border-color2);
 }
