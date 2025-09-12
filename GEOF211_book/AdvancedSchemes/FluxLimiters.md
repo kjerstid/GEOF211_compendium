@@ -80,9 +80,9 @@ If we, as an example, choose the downwind slope $\sigma_k^n = \frac{q_{k+1}^n - 
 ```{math}
 :label: eq:Godunov_fluxform_downwind
 \begin{aligned}
-q_k^{n+1}&=q_k^n+\frac{\Delta t}{\Delta x}[F_{k-1/2}^n-F_{k+1/2}^n]\\
-F_{k-1/2}^n&=aq_{k-1}^n+\left(\frac{\Delta x}{2}-a\frac{\Delta t}{2}\right)a\frac{q_{k}^n - q_{k-1}^n}^n\phi(\theta_{k-1/2}^n)\\
-F_{k+1/2}^n&=aq_{k+1}^n+\left(\frac{\Delta x}{2}-a\frac{\Delta t}{2}\right)a\frac{q_{k+1}^n - q_k^n}^n\phi(\theta_{k+1/2}^n)
+q_k^{n+1}& =q_k^n+\frac{\Delta t}{\Delta x}[F_{k-1/2}^n-F_{k+1/2}^n]\\
+F_{k-1/2}^n& =aq_{k-1}^n+\left(\frac{\Delta x}{2}-a\frac{\Delta t}{2}\right)a\frac{q_{k}^n - q_{k-1}^n}^n\phi(\theta_{k-1/2}^n)\\
+F_{k+1/2}^n& =aq_{k+1}^n+\left(\frac{\Delta x}{2}-a\frac{\Delta t}{2}\right)a\frac{q_{k+1}^n - q_k^n}^n\phi(\theta_{k+1/2}^n)
 \end{aligned}
 ```
 
