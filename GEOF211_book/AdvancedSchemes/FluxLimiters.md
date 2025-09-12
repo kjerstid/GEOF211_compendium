@@ -174,13 +174,13 @@ if $A_k^n+B_k^n\leq 1$ and $A_k^n\geq 0$, $B_k^n \geq 0\,\, \forall\,k$
 
 We can now verify that the Godunov scheme with flux limiters for linear advection is TVD. To do so, requires a nit of math. We must first find an expression for the scheme on the general for (Equation {eq}`eq:HartenGeneral`), and then find restrictions for $A$ and $B$.
 
-**Step 1: Inserting the fluxes into the equation fo $q_k^{n+1}$ from Equation {eq}`eq:Godunov_fluxform_downwind_massaged`**
+**Step 1: Inserting the fluxes into the equation fo $q_k^{n+1}$ from Equation {eq}`eq:Godunov_fluxform_downwind_massaged` to find the General form**
 
 ```{math}
 \begin{aligned}
 q_k^{n+1}& =q_k^n+\frac{\Delta t}{\Delta x}\left[ {\color{salmon}{aq_{k-1}^n}+\frac{a}{2}(1-C)}{\color{teal}{(q_k^n-q_{k-1}^n)\phi(\theta_{k-1/2}^n)}}- {\color{salmon}{aq_k^n}}+\frac{a}{2}(1-C){\color{ForestGreen}{(q_{k+1}^n-q_k^n)\phi(\theta_{k+1/2}^n)}}  \right]\\
 
-$ & =q_k^n- {\color{salmon}{C(q_{k-1}^n-q_{k-1}^n)}} -\frac{C}{2}(1-C)\left[ {\color{ForestGreen}{\phi(\theta_{k+1/2}^n)(q_{k+1}^n-q_k^n)}} - {\color{teal}{\phi(\theta_{k-1/2}^n)(q_k^n-q_{k-1}^n)}} \right ]
+ & =q_k^n- {\color{salmon}{C(q_{k-1}^n-q_{k-1}^n)}} -\frac{C}{2}(1-C)\left[ {\color{ForestGreen}{\phi(\theta_{k+1/2}^n)(q_{k+1}^n-q_k^n)}} - {\color{teal}{\phi(\theta_{k-1/2}^n)(q_k^n-q_{k-1}^n)}} \right ]
 
 \end{aligned}
 ```
