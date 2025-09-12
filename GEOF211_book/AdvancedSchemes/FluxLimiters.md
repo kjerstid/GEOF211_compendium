@@ -78,7 +78,7 @@ F_{k+1/2}^n&=aq_{k+1}^n+\left(\frac{\Delta x}{2}-a\frac{\Delta t}{2}\right)a\sig
 If we, as an example, choose the downwind slope $\sigma_k^n = \frac{q_{k+1}^n - q_k^n}{\Delta x}$, the full set of equtions for the Godunov advection scheme on flux form with limiters become:
 
 ```{math}
-:label: eq:Godunov_luxform_downwind
+:label: eq:Godunov_fluxform_downwind
 \begin{aligned}
 q_k^{n+1}&=q_k^n+\frac{\Delta t}{\Delta x}[F_{k-1/2}^n-F_{k+1/2}^n]\\
 F_{k-1/2}^n&=aq_{k-1}^n+\left(\frac{\Delta x}{2}-a\frac{\Delta t}{2}\right)a\frac{q_{k}^n - q_{k-1}^n}^n\phi(\theta_{k-1/2}^n)\\
@@ -86,9 +86,11 @@ F_{k+1/2}^n&=aq_{k+1}^n+\left(\frac{\Delta x}{2}-a\frac{\Delta t}{2}\right)a\fra
 \end{aligned}
 ```
 
-```{margin} Note
+```{margin} 
+```{Note}
 $C=a\frac{\Delta t}{\Delta x}$\\
 $\theta_{k+1/2}^n=\frac{q_k^n-q_{k-1}^n}{q_{k+1}^n-q_k^n}$
+```
 ```
 
 If we insert $C=a\frac{\Delta t}{\Delta x}$, and massage the expression, we end up with:
@@ -96,13 +98,13 @@ If we insert $C=a\frac{\Delta t}{\Delta x}$, and massage the expression, we end 
 (definition:Godunov Flux form)=
 :::{admonition} The Godunov scheme on flux form with downwind slope and limiters:
 :class: important
-```{math}
-:label: eq:Godunov_luxform_downwind_massaged
-\begin{aligned}
-q_k^{n+1}&=q_k^n+\frac{\Delta t}{\Delta x}[F_{k-1/2}^n-F_{k+1/2}^n]\\
-F_{k-1/2}^n&=aq_{k-1}^n+\frac{a}{2}(1-C)(q_{k}^n - q_{k-1}^n)\phi(\theta_{k-1/2}^n)\\
-F_{k+1/2}^n&=aq_{k}^n+\frac{a}{2}(1-C)(q_{k+1}^n - q_{k}^n)\phi(\theta_{k+1/2}^n)
 
+```{math}
+:label: eq:Godunov_fluxform_downwind_massaged
+\begin{aligned}
+q_k^{n+1}& =q_k^n+\frac{\Delta t}{\Delta x}[F_{k-1/2}^n-F_{k+1/2}^n]\\
+F_{k-1/2}^n& =aq_{k-1}^n+\frac{a}{2}(1-C)(q_{k}^n - q_{k-1}^n)\phi(\theta_{k-1/2}^n)\\
+F_{k+1/2}^n& =aq_{k}^n+\frac{a}{2}(1-C)(q_{k+1}^n - q_{k}^n)\phi(\theta_{k+1/2}^n)
 \end{aligned}
 ```
 :::
