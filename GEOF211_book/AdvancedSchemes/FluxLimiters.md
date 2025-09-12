@@ -21,6 +21,8 @@ The flux form means that we split up what is entering the grid cell $k$ from the
 The Advection equation on the flux form looks very similar to the simple schemes, such as the FTBS, FTBS, or FTCS. But, note that the sign in front of $\frac{\Delta t}{\Delta x}$ is positive and that the advection speed $a$ is included in the fluxes. The sign is positive, since we do the flux from the left minus the flux from the right inside the paranthesis.
 ```
 
+## Godunov on Flux form
+
 We can write the Godunov scheme on Flux form by identifying terms related to grid cell $k-1$ and grid cell $k$. If we repeat the Godunov step 2 equation with colors to help us separate the terms, we get:
 
 ```{math}
@@ -73,6 +75,40 @@ F_{k+1/2}^n&=aq_{k+1}^n+\left(\frac{\Delta x}{2}-a\frac{\Delta t}{2}\right)a\sig
 \end{aligned}
 ```
 
+If we, as an example, choose the downwind slope $\sigma_k^n = \frac{q_{k+1}^n - q_k^n}{\Delta x}$, the full set of equtions for the Godunov advection scheme on flux form with limiters become:
+
+```{math}
+:label: eq:Godunov_luxform_downwind
+\begin{aligned}
+q_k^{n+1}&=q_k^n+\frac{\Delta t}{\Delta x}[F_{k-1/2}^n-F_{k+1/2}^n]\\
+F_{k-1/2}^n&=aq_{k-1}^n+\left(\frac{\Delta x}{2}-a\frac{\Delta t}{2}\right)a\frac{q_{k}^n - q_{k-1}^n}^n\phi(\theta_{k-1/2}^n)\\
+F_{k+1/2}^n&=aq_{k+1}^n+\left(\frac{\Delta x}{2}-a\frac{\Delta t}{2}\right)a\frac{q_{k+1}^n - q_k^n}^n\phi(\theta_{k+1/2}^n)
+\end{aligned}
+```
+
+```{margin} Note
+$C=a\frac{\Delta t}{\Delta x}$\\
+$\theta_{k+1/2}^n=\frac{q_k^n-q_{k-1}^n}{q_{k+1}^n-q_k^n}$
+```
+
+If we insert $C=a\frac{\Delta t}{\Delta x}$, and massage the expression, we end up with:
+
+(definition:Godunov Flux form)=
+:::{admonition} The Godunov scheme on flux form with downwind slope and limiters:
+:class: important
+```{math}
+:label: eq:Godunov_luxform_downwind_massaged
+\begin{aligned}
+q_k^{n+1}&=q_k^n+\frac{\Delta t}{\Delta x}[F_{k-1/2}^n-F_{k+1/2}^n]\\
+F_{k-1/2}^n&=aq_{k-1}^n+\frac{a}{2}(1-C)(q_{k}^n - q_{k-1}^n)\phi(\theta_{k-1/2}^n)\\
+F_{k+1/2}^n&=aq_{k}^n+\frac{a}{2}(1-C)(q_{k+1}^n - q_{k}^n)\phi(\theta_{k+1/2}^n)
+
+\end{aligned}
+```
+:::
+
+
+
 Figure {numref}`fig:TVD_theta_phi` illustrates what this means. The figure is showing the $\theta$-$\phi$ space, with the smoothness indicator on the x-axis and our choice of flux limiter value on the y-axis. If we define $\phi(\theta)\equiv0$ for all values of $\theta$ we are only left with the first terms on the right hand sides of the fluxes $F_{k\pm1/2}$. You can try yourself to insert these fluxces into equation {eq}`eq:Godunov_fluxform` and see if you recognize that this is is the FTBS scheme. 
 
 ```{figure} ./TVD1.png
@@ -83,4 +119,6 @@ Figure {numref}`fig:TVD_theta_phi` illustrates what this means. The figure is sh
 ---
 $\theta$-$\phi$ space for visualizing flux limieters. Two simple flux limiters,$\phi\equiv0$ (blue) and $\phi\equiv1$ (red) are sketched. These corresond with the FTBS and the Lax-Wendroff scheme. You can confirm this by inserting the fluxes into the Godunov equation on flux form, and massage the mathematical expression.
 ```
+
+## Total Variation Diminishing (TVD) schemes
 
