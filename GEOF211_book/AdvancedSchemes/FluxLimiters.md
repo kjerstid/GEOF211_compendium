@@ -180,7 +180,7 @@ We can now verify that the Godunov scheme with flux limiters for linear advectio
 \begin{aligned}
 q_k^{n+1}& =q_k^n+\frac{\Delta t}{\Delta x}\left[ {\color{salmon}{aq_{k-1}^n}+\frac{a}{2}(1-C)}{\color{teal}{(q_k^n-q_{k-1}^n)\phi(\theta_{k-1/2}^n)}}- {\color{salmon}{aq_k^n}}+\frac{a}{2}(1-C){\color{ForestGreen}{(q_{k+1}^n-q_k^n)\phi(\theta_{k+1/2}^n)}}  \right]\\
 
-$ =q_k^n- {\color{salmon}{C(q_{k-1}^n-q_{k-1}^n)}} -\frac{C}{2}(1-C)\left[ {\color{ForestGreen}{\phi(\theta_{k+1/2}^n)(q_{k+1}^n-q_k^n)}} - {\color{teal}{\phi(\theta_{k-1/2}^n)(q_k^n-q_{k-1}^n)}} \right ]
+$ & =q_k^n- {\color{salmon}{C(q_{k-1}^n-q_{k-1}^n)}} -\frac{C}{2}(1-C)\left[ {\color{ForestGreen}{\phi(\theta_{k+1/2}^n)(q_{k+1}^n-q_k^n)}} - {\color{teal}{\phi(\theta_{k-1/2}^n)(q_k^n-q_{k-1}^n)}} \right ]
 
 \end{aligned}
 ```
