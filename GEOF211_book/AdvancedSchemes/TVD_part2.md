@@ -65,7 +65,7 @@ This is not yet on the general form. To get there, we must factorize the scheme 
 
 ```{math}
 :label: eq:Godunov_pregeneral
-q_k^{n+1}=q_k^n-C {\color{violet}{(q_{k-1}^n-q_{k-1}^n)}} -\frac{C}{2}(1-C)\left[ \phi(\theta_{k+1/2}^n)\frac{(q_{k+1}^n-q_k^n)}{{\color{violet}{(q_{k-1}^n-q_{k-1}^n)}}} - \phi(\theta_{k-1/2}^n){\color{violet}{(q_k^n-q_{k-1}^n)}} \right]
+q_k^{n+1}=q_k^n-C {\color{violet}{(s_{k-1}^n-q_{k-1}^n)}} -\frac{C}{2}(1-C)\left[ \phi(\theta_{k+1/2}^n)\frac{(q_{k+1}^n-q_k^n)}{{\color{violet}{(q_{k-1}^n-q_{k-1}^n)}}} - \phi(\theta_{k-1/2}^n){\color{violet}{(q_k^n-q_{k-1}^n)}} \right]
 ```
 
 Noting that the term $\frac{(q_{k+1}^n-q_k^n)}{{\color{violet}{(q_{k-1}^n-q_{k-1}^n)}}}$ is the same as ${1}/{\theta_{k+1/2}^n}$, we can replace this in equation {eq}`eq:Godunov_pregeneral`, and complete the factorizing of ${\color{violet}{(q_k^n-q_{k-1}^n)}}$ to get the scheme on the general form:
@@ -75,7 +75,7 @@ Noting that the term $\frac{(q_{k+1}^n-q_k^n)}{{\color{violet}{(q_{k-1}^n-q_{k-1
 :class: important
 ```{math}
 \begin{aligned}
-q_k^{n+1} & =q_k^n- \left(C+\frac{C}{2}(1-C)\left[ \frac{\phi(\theta_{k+1/2}^n)}{\theta_{k+1/2}^n}-\phi(\theta_{k-1/2}^n) \right]\right){\color{violet}{(q_k^n-q_{k-1}^n)}}   \\
+q_k^{n+1} & =q_k^n - A_{k-1/2}{\color{violet}{(q_k^n-q_{k-1}^n)}}   \\
 A_{k-1/2} & =\left(C+\frac{C}{2}(1-C)\left[ \frac{\phi(\theta_{k+1/2}^n)}{\theta_{k+1/2}^n}-\phi(\theta_{k-1/2}^n) \right]\right)\\
 B_{k+1/2} & =0
 \end{aligned}
