@@ -204,4 +204,58 @@ B_{k+1/2} & =0
 ```
 :::
 
-We can now check what conditions yield $A\ge0$ and $A+B\le1\,\,\rightarrow\,\,0\le A \le 1$
+We can now check what conditions yield $A\ge0$ and $A+B\le1\,\,\rightarrow\,\,0\le A \le 1$. The calculations are not straightforward, since the expression for $A$ is more coplicated than for, e.g., the FTBS scheme we looked at before. It is usefulto start by summarizing some properties of $\theta_{k+1/2}^n$:
+* If q varies linearly, then $\theta_{k+1/2}^1$ (the same slope between neighboring grid points)
+* If there is a local extrema $\theta_{k+1/2}^n\le$ (opposite signs of the slope at either side of a grid point $k$)
+* To avoid problems at a local extrema, we can require $\theta$ to be zero in these extrema. This means that we require  $\phi(\theta_{k+1/2}^n\le)<0$ whenever $\theta_{k+1/2}^n<0$
+
+We can first insert  $\phi(\theta_{k+1/2}^n\le)=0$ to find one criteria for $A$. Then we can insert  $\phi(\theta_{k-1/2}^n\le)=0$ to find a second criteria for $A$. Both of these criteria must hold to ensure a TVD scheme. Since we have $B=0$, we must have $0\le A\le B$:
+
+If $\phi(\theta_{k+1/2}^n\le)=0$, we have:
+
+```{math}
+:label: eq:A_right
+\begin{aligned}
+0 & \le C-\frac{C}{2}(1-C)\phi(\theta_{k-1/2}^n) & \le 1 \,\,\,\,\,,\text{subtract } C\\
+-C & \le -\frac{C}{2}(1-C)\phi(\theta_{k-1/2}^n) & \le 1-C \,\,\,\,\,,\text{mulitply by } \frac{2}{C(1-C)}\\
+-C(\frac{2}{C(1-C)}) & \le -\phi(\theta_{k-1/2}^n) & \le (1-C)\frac{2}{C(1-C)} \,\,\,\,\,,\text{cancel terms } \\
+-\frac{2}{(1-C)} & \le -\phi(\theta_{k-1/2}^n)& \le \frac{2}{C} \,\,\,\,\,,\text{mulitply by }-1 \text{and swap sides, ensuring correct signs} \\
+-\frac{2}{C} & \le \phi(\theta_{k-1/2}^n) & \le \frac{2}{(1-C)}
+\end{aligned}
+```
+
+Similarly, if $\phi(\theta_{k-1/2}^n\le)=0$, we have:
+```{math}
+:label: eq:A_left
+\begin{aligned}
+0 & \le C-\frac{C}{2}(1-C)\frac{\phi(\theta_{k+1/2}^n)}{\theta_{k+1/2}^n} & \le 1\\
+-C & \le \frac{C}{2}(1-C)\frac{\phi(\theta_{k+1/2}^n)}{\theta_{k+1/2}^n} & \le 1-C\\
+-C(\frac{2}{C(1-C)}) & \le \frac{\phi(\theta_{k+1/2}^n)}{\theta_{k+1/2}^n} & \le (1-C)\frac{2}{C(1-C)}\\
+-\frac{2}{(1-C)} & \le \frac{\phi(\theta_{k+1/2}^n)}{\theta_{k+1/2}^n} & \le \frac{2}{C}\\
+\end{aligned}
+```
+
+We must have $0\le A \le 1$ for all grid cells to ensure TVD. The maximum value of $A$ gives the strictest constraint. We, therefore, continue looking only at the right hand sides of the inequalities. From Equation {eq}`eq:A_right`, we must have: $\phi(\theta_{k-1/2}^n) \le \frac{2}{(1-C)}$ and from Equation {eq}`eq:A_left`, we must have $\frac{\phi(\theta_{k+1/2}^n)}{\theta_{k+1/2}^n} \le \frac{2}{C}$. From CFL considerations, we can assume we must have $C<1$. Our conditions must therefore take on their strictest (smallest)  values when $\phi(\theta_{k-1/2}^n) \le 2$ (for $C=0$) and $\frac{\phi(\theta_{k+1/2}^n)}{\theta_{k+1/2}^n} \le 2$ for $C=1$.
+
+(definition:TVD criteria)=
+:::{admonition} The Godunov scheme is TVD if:
+:class: important
+```{math}
+:label: eq:TVD_crit
+\begin{aligned}
+\phi(\theta) & \le \text{minmod}(2,2\theta)\,\,\,\,\, & \forall \theta \ge 0\\
+\phi(\theta) & =0\,\,\,\,\, & \forall \theta \le 0\\
+\end{aligned}
+```
+:::
+
+```{figure} ./TVD2.png
+---
+:name: fig:TVD_theta_phi_TVDcrit
+:width: 40%
+:align: center
+---
+$\theta$-$\phi$ space for visualizing flux limieters. Two simple flux limiters,$\phi\equiv0$ (blue) and $\phi\equiv1$ (red) are sketched. These corresond with the FTBS and the Lax-Wendroff scheme. The hatched area shows the area where the TVD criteria from Equation {eq}`eq:TVD_crit` holds.  
+```
+
+Figure {ref}`fig:TVD_theta_phi_TVDcrit` shows the $\theta$-$\phi$ space, where the area that ensures TVD is hatched. The area is bounded by the lines $\phi(\theta)\le 2$ and $\phi(\theta)\le 2\theta$.  We can now better understand where the oscillations in the Lax-Wendroff scheme comes from. As long as the slope $\theta \ge\frac{1}{2}$, the scheme is inside the TVD regime. However, for negative or small values of $\theta$ ($\theta\le \frac{1}{2}$), the red line, representing Lax Wendroff, is outside the hatched area that ensures TVD. It is for these small $\theta$ that the oscillations start to grow.
