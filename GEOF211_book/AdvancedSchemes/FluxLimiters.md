@@ -216,11 +216,11 @@ If $\phi(\theta_{k+1/2}^n\le)=0$, we have:
 ```{math}
 :label: eq:A_right
 \begin{aligned}
-0 & \le C-\frac{C}{2}(1-C)\phi(\theta_{k-1/2}^n) & \le 1 \,\,\,\,\,,\text{subtract } C\\
--C & \le -\frac{C}{2}(1-C)\phi(\theta_{k-1/2}^n) & \le 1-C \,\,\,\,\,,\text{mulitply by } \frac{2}{C(1-C)}\\
--C(\frac{2}{C(1-C)}) & \le -\phi(\theta_{k-1/2}^n) & \le (1-C)\frac{2}{C(1-C)} \,\,\,\,\,,\text{cancel terms } \\
--\frac{2}{(1-C)} & \le -\phi(\theta_{k-1/2}^n)& \le \frac{2}{C} \,\,\,\,\,,\text{mulitply by }-1 \text{and swap sides, ensuring correct signs} \\
--\frac{2}{C} & \le \phi(\theta_{k-1/2}^n) & \le \frac{2}{(1-C)}
+0 & \le C-\frac{C}{2}(1-C)\phi(\theta_{k-1/2}^n) & \le 1 & \,\,\,\,\,,\text{subtract } C\\
+-C & \le -\frac{C}{2}(1-C)\phi(\theta_{k-1/2}^n) & \le 1-C & \,\,\,\,\,,\text{mulitply by } \frac{2}{C(1-C)}\\
+-C(\frac{2}{C(1-C)}) & \le -\phi(\theta_{k-1/2}^n) & \le (1-C)\frac{2}{C(1-C)} &  \,\,\,\,\,,\text{cancel terms } \\
+-\frac{2}{(1-C)} & \le -\phi(\theta_{k-1/2}^n)& \le \frac{2}{C} & \,\,\,\,\,,\text{mulitply by }-1 \text{and swap sides, ensuring correct signs} \\
+-\frac{2}{C} & \le \phi(\theta_{k-1/2}^n) & \le \frac{2}{(1-C)} &
 \end{aligned}
 ```
 
@@ -251,7 +251,7 @@ We must have $0\le A \le 1$ for all grid cells to ensure TVD. The maximum value 
 
 ```{figure} ./TVD2.png
 ---
-:name: fig:TVD_theta_phi_TVDcrit
+:name: `fig:TVD_theta_phi_TVDcrit`
 :width: 40%
 :align: center
 ---
