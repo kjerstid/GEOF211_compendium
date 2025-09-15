@@ -216,11 +216,11 @@ If $\phi(\theta_{k+1/2}^n\le)=0$, we have:
 ```{math}
 :label: eq:A_right
 \begin{aligned}
-0 & \le C-\frac{C}{2}(1-C)\phi(\theta_{k-1/2}^n) && \le 1 & \quad & ,\text{subtract } C\\
--C & \le -\frac{C}{2}(1-C)\phi(\theta_{k-1/2}^n) && \le 1-C & \quad &,\text{mulitply by } \frac{2}{C(1-C)}\\
--C(\frac{2}{C(1-C)}) & \le -\phi(\theta_{k-1/2}^n) && \le (1-C)\frac{2}{C(1-C)} & \quad &,\text{cancel terms } \\
--\frac{2}{(1-C)} & \le -\phi(\theta_{k-1/2}^n)  && \le \frac{2}{C} & \quad &,\text{mulitply by }-1 \text{and swap sides, ensuring correct signs} \\
--\frac{2}{C} & \le \phi(\theta_{k-1/2}^n) && \le \frac{2}{(1-C)} & \quad &
+0 & \le C-\frac{C}{2}(1-C)\phi(\theta_{k-1/2}^n) && \le 1 & \: & ,\text{subtract } C\\
+-C & \le -\frac{C}{2}(1-C)\phi(\theta_{k-1/2}^n) && \le 1-C & \: &,\text{mulitply by } \frac{2}{C(1-C)}\\
+-C(\frac{2}{C(1-C)}) & \le -\phi(\theta_{k-1/2}^n) && \le (1-C)\frac{2}{C(1-C)} & \: &,\text{cancel terms } \\
+-\frac{2}{(1-C)} & \le -\phi(\theta_{k-1/2}^n)  && \le \frac{2}{C} & \: &,\text{mulitply by }-1 \text{ and swap sides, ensuring correct signs} \\
+-\frac{2}{C} & \le \phi(\theta_{k-1/2}^n) && \le \frac{2}{(1-C)} & \: &
 \end{aligned}
 ```
 
@@ -230,14 +230,16 @@ Similarly, if $\phi(\theta_{k-1/2}^n\le)=0$, we have:
 ```{math}
 :label: eq:A_left
 \begin{aligned}
-0 & \le C-\frac{C}{2}(1-C)\frac{\phi(\theta_{k+1/2}^n)}{\theta_{k+1/2}^n} & \le 1\\
--C & \le \frac{C}{2}(1-C)\frac{\phi(\theta_{k+1/2}^n)}{\theta_{k+1/2}^n} & \le 1-C\\
--C(\frac{2}{C(1-C)}) & \le \frac{\phi(\theta_{k+1/2}^n)}{\theta_{k+1/2}^n} & \le (1-C)\frac{2}{C(1-C)}\\
--\frac{2}{(1-C)} & \le \frac{\phi(\theta_{k+1/2}^n)}{\theta_{k+1/2}^n} & \le \frac{2}{C}\\
+0 & \le C-\frac{C}{2}(1-C)\frac{\phi(\theta_{k+1/2}^n)}{\theta_{k+1/2}^n} && \le 1\\
+-C & \le \frac{C}{2}(1-C)\frac{\phi(\theta_{k+1/2}^n)}{\theta_{k+1/2}^n} && \le 1-C\\
+-C(\frac{2}{C(1-C)}) & \le \frac{\phi(\theta_{k+1/2}^n)}{\theta_{k+1/2}^n} && \le (1-C)\frac{2}{C(1-C)}\\
+-\frac{2}{(1-C)} & \le \frac{\phi(\theta_{k+1/2}^n)}{\theta_{k+1/2}^n} && \le \frac{2}{C}\\
 \end{aligned}
 ```
 
-We must have $0\le A \le 1$ for all grid cells to ensure TVD. The maximum value of $A$ gives the strictest constraint. We, therefore, continue looking only at the right hand sides of the inequalities. From Equation {eq}`eq:A_right`, we must have: $\phi(\theta_{k-1/2}^n) \le \frac{2}{(1-C)}$ and from Equation {eq}`eq:A_left`, we must have $\frac{\phi(\theta_{k+1/2}^n)}{\theta_{k+1/2}^n} \le \frac{2}{C}$. From CFL considerations, we can assume we must have $C<1$. Our conditions must therefore take on their strictest (smallest)  values when $\phi(\theta_{k-1/2}^n) \le 2$ (for $C=0$) and $\frac{\phi(\theta_{k+1/2}^n)}{\theta_{k+1/2}^n} \le 2$ for $C=1$.
+We must have $0\le A \le 1$ for all grid cells to ensure TVD. The left hand side inequalities of Equations {eq}`eq:A_right` and {eq}`eq:A_left` are not problematic since these only give lower bounds that are easy to fulfill. Instead, we much pay attention to the right hand sides of the inequalitites, which give the upper bound and the strictest constraints for $\phi(\theta_{k-1/2}^n)$.
+
+From Equation {eq}`eq:A_right`, we must have: $\phi(\theta_{k-1/2}^n) \le \frac{2}{(1-C)}$ and from Equation {eq}`eq:A_left`, we must have $\frac{\phi(\theta_{k+1/2}^n)}{\theta_{k+1/2}^n} \le \frac{2}{C}$. From here, let us consider a classical CFL constraint where $C<1$. The two expressions take on their smallest (strictest) values when $\phi(\theta_{k-1/2}^n) \le 2$ (for $C=0$) and $\frac{\phi(\theta_{k+1/2}^n)}{\theta_{k+1/2}^n} \le 2$ for $C=1$. To ensure TVD, we must, therefore, require that $\phi(\theta_{k-1/2}^n\le2)$ and also $\phi(\theta_{k-1/2}^n\le2\theta)$. We can express this double requirement as a minmod:
 
 (definition:TVD criteria)=
 :::{admonition} The Godunov scheme is TVD if:
@@ -260,4 +262,6 @@ We must have $0\le A \le 1$ for all grid cells to ensure TVD. The maximum value 
 $\theta$-$\phi$ space for visualizing flux limieters. Two simple flux limiters,$\phi\equiv0$ (blue) and $\phi\equiv1$ (red) are sketched. These corresond with the FTBS and the Lax-Wendroff scheme. The hatched area shows the area where the TVD criteria from Equation {eq}`eq:TVD_crit` holds.  
 ```
 
-Figure {ref}`fig:TVD_theta_phi_TVDcrit` shows the $\theta$-$\phi$ space, where the area that ensures TVD is hatched. The area is bounded by the lines $\phi(\theta)\le 2$ and $\phi(\theta)\le 2\theta$.  We can now better understand where the oscillations in the Lax-Wendroff scheme comes from. As long as the slope $\theta \ge\frac{1}{2}$, the scheme is inside the TVD regime. However, for negative or small values of $\theta$ ($\theta\le \frac{1}{2}$), the red line, representing Lax Wendroff, is outside the hatched area that ensures TVD. It is for these small $\theta$ that the oscillations start to grow.
+Figure {ref}`fig:TVD_theta_phi_TVDcrit` shows the $\theta$-$\phi$ space, where the area that ensures TVD is hatched. The area is bounded by the lines $\phi(\theta)= 2$ and $\phi(\theta)= 2\theta$.  
+
+We can now better understand where the oscillations in the Lax-Wendroff scheme comes from. As long as the slope $\theta \ge\frac{1}{2}$, the scheme is inside the TVD regime. However, for negative or small values of $\theta$ ($\theta\le \frac{1}{2}$), the red line, representing Lax Wendroff, is outside the hatched area that ensures TVD. It is for these small $\theta$ that the oscillations start to grow.
