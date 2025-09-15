@@ -55,6 +55,7 @@ chapters:
   sections:
   - file: AdvancedSchemes/Godunov.md
   - file: AdvancedSchemes/FluxLimiters.md
+  - file: AdvancedSchemes/TVD_part2.md
 
   
 #  - file: Advection/
