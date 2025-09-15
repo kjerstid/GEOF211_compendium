@@ -237,19 +237,20 @@ Similarly, if $\phi(\theta_{k-1/2}^n\le)=0$, we have:
 \end{aligned}
 ```
 
-We must have $0\le A \le 1$ for all grid cells to ensure TVD. The left hand side inequalities of Equations {eq}`eq:A_right` and {eq}`eq:A_left` are not problematic since these only give lower bounds that are easy to fulfill. Instead, we much pay attention to the right hand sides of the inequalitites, which give the upper bound and the strictest constraints for $\phi(\theta_{k-1/2}^n)$.
+We must have $0\le A \le 1$ for all grid cells to ensure TVD. The left hand side inequalities of Equations {eq}`eq:A_right` and {eq}`eq:A_left` are not problematic, since these only give lower bounds that are easy to fulfill. Instead, we much pay attention to the right hand sides of the inequalitites, which give the upper bound and the strictest constraints for $\phi(\theta_{k-1/2}^n)$.
 
-From Equation {eq}`eq:A_right`, we must have: $\phi(\theta_{k-1/2}^n) \le \frac{2}{(1-C)}$ and from Equation {eq}`eq:A_left`, we must have $\frac{\phi(\theta_{k+1/2}^n)}{\theta_{k+1/2}^n} \le \frac{2}{C}$. From here, let us consider a classical CFL constraint where $C<1$. The two expressions take on their smallest (strictest) values when $\phi(\theta_{k-1/2}^n) \le 2$ (for $C=0$) and $\frac{\phi(\theta_{k+1/2}^n)}{\theta_{k+1/2}^n} \le 2$ for $C=1$. To ensure TVD, we must, therefore, require that $\phi(\theta_{k-1/2}^n\le2)$ and also $\phi(\theta_{k-1/2}^n\le2\theta)$. We can express this double requirement as a minmod:
+From Equation {eq}`eq:A_right`, we must have: $\phi(\theta_{k-1/2}^n) \le \frac{2}{(1-C)}$ and from Equation {eq}`eq:A_left`, we must have $\frac{\phi(\theta_{k+1/2}^n)}{\theta_{k+1/2}^n} \le \frac{2}{C}$. From here, let us consider a classical CFL constraint where $C<1$. The two expressions take on their smallest (strictest) values when $\phi(\theta_{k-1/2}^n) \le 2$ (for $C=0$) and $\frac{\phi(\theta_{k+1/2}^n)}{\theta_{k+1/2}^n} \le 2$ for $C=1$. To ensure TVD, we must, therefore, require that $\phi(\theta_{k-1/2}^n)\le2$ and also $\phi(\theta_{k-1/2}^n)\le2\theta$. We can express this double requirement as a minmod:
 
 (definition:TVD criteria)=
 :::{admonition} The Godunov scheme is TVD if:
 :class: important
 ```{math}
 :label: eq:TVD_crit
-\begin{aligned}
-\phi(\theta) & \le \text{minmod}(2,2\theta)\,\,\,\,\, & \forall \theta \ge 0\\
-\phi(\theta) & =0\,\,\,\,\, & \forall \theta \le 0\\
-\end{aligned}
+\phi(\theta) 
+\begin{cases} 
+\leq \text{minmod}(2,2\theta) & \forall \theta \ge 0\\
+=0 & \forall \theta \le 0
+\end{cases} 
 ```
 :::
 
