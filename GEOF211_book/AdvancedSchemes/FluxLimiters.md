@@ -216,24 +216,15 @@ If $\phi(\theta_{k+1/2}^n\le)=0$, we have:
 ```{math}
 :label: eq:A_right
 \begin{aligned}
-0 & \le C-\frac{C}{2}(1-C)\phi(\theta_{k-1/2}^n) & \le 1 & \quad & ,\text{subtract } C\\
--C & \le -\frac{C}{2}(1-C)\phi(\theta_{k-1/2}^n) & \le 1-C & \quad &,\text{mulitply by } \frac{2}{C(1-C)}\\
--C(\frac{2}{C(1-C)}) & \le -\phi(\theta_{k-1/2}^n) & \le (1-C)\frac{2}{C(1-C)} & \quad &,\text{cancel terms } \\
--\frac{2}{(1-C)} & \le -\phi(\theta_{k-1/2}^n)  & \le \frac{2}{C} & \quad &,\text{mulitply by }-1 \text{and swap sides, ensuring correct signs} \\
--\frac{2}{C} & \le \phi(\theta_{k-1/2}^n) & \le \frac{2}{(1-C)} & \quad &
+0 & \le C-\frac{C}{2}(1-C)\phi(\theta_{k-1/2}^n) && \le 1 & \quad & ,\text{subtract } C\\
+-C & \le -\frac{C}{2}(1-C)\phi(\theta_{k-1/2}^n) && \le 1-C & \quad &,\text{mulitply by } \frac{2}{C(1-C)}\\
+-C(\frac{2}{C(1-C)}) & \le -\phi(\theta_{k-1/2}^n) && \le (1-C)\frac{2}{C(1-C)} & \quad &,\text{cancel terms } \\
+-\frac{2}{(1-C)} & \le -\phi(\theta_{k-1/2}^n)  && \le \frac{2}{C} & \quad &,\text{mulitply by }-1 \text{and swap sides, ensuring correct signs} \\
+-\frac{2}{C} & \le \phi(\theta_{k-1/2}^n) && \le \frac{2}{(1-C)} & \quad &
 \end{aligned}
 ```
 
 
-
-```{math} :label: eq:A_right
-\begin{aligned}
-0 &\le C-\frac{C}{2}(1-C)\phi(\theta_{k-1/2}^n) &&\le 1 &&,\text{subtract } C \\
--C &\le -\frac{C}{2}(1-C)\phi(\theta_{k-1/2}^n) &&\le 1-C &&,\text{multiply by } \frac{2}{C(1-C)} \\
--C\left(\frac{2}{C(1-C)}\right) &\le -\phi(\theta_{k-1/2}^n) &&\le (1-C)\frac{2}{C(1-C)} &&,\text{cancel terms} \\
--\frac{2}{(1-C)} &\le -\phi(\theta_{k-1/2}^n) &&\le \frac{2}{C} &&,\text{multiply by } -1 \text{ and swap sides} \\ -\frac{2}{C} &\le \phi(\theta_{k-1/2}^n) &&\le \frac{2}{(1-C)} & \end{aligned}
-\end{aligned}
-```
 
 Similarly, if $\phi(\theta_{k-1/2}^n\le)=0$, we have:
 ```{math}
