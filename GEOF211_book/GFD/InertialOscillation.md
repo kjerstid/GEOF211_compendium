@@ -36,14 +36,19 @@ U=U_0e^{ift} = U_0(cos(ft)-isin(ft))
 **Try it!:**
 Try for yourself to set $U_0=i$ and find the $u$ and $v$ at timesteps $0, \frac{\pi}{4f}, \frac{\pi}{2f}, \frac{3\pi}{4f}, \frac{\pi}{f}$. Does these values match the sketch below?
 
-Insert figure here...
+The inertial oscillations do not move in space like the advection or diffusion equations did (we have no $\partial/\partial x$-terms). The solutions provide a change of current/wind direction with time only. The solution will be a circular movement that is stationary with time (see Figure {ref}`fig:InertialOscillationsArrows`). 
 
+```{figure} ./InertialOscillationsArrows.png
+---
+:name: `fig:InertialOscillationsArrows`
+:width: 40%
+:align: center
+---
+Illustration of the velocity vectors for the inertial oscillation at various times steps. Herre, the initial condition is set to $U_0=iv$. The velocity vectors rotate clockwise with time. 
+```
 
-The inertial oscillations do not move in space like the advection or diffusion equations did (we have no $\partial/\partial x$-terms). The solutions provide a change of current/wind direction with time only. The result is a circular rotation in the ...
+In real life, there is seldom/never a pure inertial balance, and the inertial oscillations will be advected by the background current as depicted in Figure {ref}`fig:InertialOscillation`. These inertial oscillations were observed during a drifter campaign in the northeast Pacific furing an October storm. 
 
- and we can plot the solutions as functions of time. The solution will be a circular movement that is stationary with time. In real life, there is seldom/never a pure inertial balance, and the inertial oscillations will be advected by the background current as depicted in Figure {ref}`fig:InertialOscillation`.
-
-Figure {ref}`fig:InertialOscillation` shows observed inertial oscillations from drifter buoys deployed during an October storm 
 
 ```{figure} ./inertial_oscillations.jpg
 ---
