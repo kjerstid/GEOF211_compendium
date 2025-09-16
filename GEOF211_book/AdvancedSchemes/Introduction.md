@@ -1,5 +1,5 @@
 (AdvancedSchemes:Introduction)=
-# Advanced schemes and approaches
+# Total Variation Diminishing schemes
 
 All schemes have pros and cons. If we, for example, look into the linear advection equation {eq}`eq:Advection`, repeated here,
 
@@ -7,7 +7,7 @@ All schemes have pros and cons. If we, for example, look into the linear advecti
 \frac{\partial u}{\partial t} + a \frac{\partial u}{\partial x} = 0, a>0,
 ```
 
-we have found:
+we have established:
 
 * FTCS provides stable solutions as long as we do not violate the CFL condition and $a>0$. There is much numerical diffusivity in this scheme, and a given signal will die out when we run the model over a long time period
 * CTCS is unstable!
