@@ -19,7 +19,7 @@ chapters:
   sections:
   - file: GFD/PrimitiveEquations.md
   - file: GFD/Advection.md
-  - file: GFD/Inertial_oscillations.md
+  - file: GFD/InertialOscillation.md
 - file: FiniteDifferences/Introduction.md
   sections:
   - file: FiniteDifferences/algebraicDerivative.md
