@@ -1,5 +1,5 @@
 (AdvancedSchemes:TVD2)=
-# Total Variation Diminishing (TVD) schemes (part 2)
+# Godunov schemes with TVD flux limiters 
 We know that FTBS has severe dnumerical diffusion, and that Lax-Wendroff can give solutions where oscillations grow near strong gradients. Making a flux limiter that just switch between these two schemes is not necessarily sufficient to provide a good numerical model for the advection equation.
 
 To improve our numerical scheme even further, we can try to ensure that the scheme does not introdue oscillations. Chapter {ref}`sec:TVD1` introduced the concept of Total Variation and Total Variation Diminishing (TVD) schemes. We will expand on this concept here, to design improved numerical schemes for advection based on the Godunov approach with flux limiters. This boils down to finding clever values of $\phi(\theta)$.
