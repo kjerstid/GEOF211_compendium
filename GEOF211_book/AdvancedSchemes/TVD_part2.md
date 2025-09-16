@@ -27,6 +27,9 @@ TV(q^{n+1})\leq TV(q^n)
 ```
 :::
 
+## The Godunov scheme on the general form
+
+
 So - how can we ensure that the Godunov scheme on flux form is TVD? 
 
 Do you remember the Harten theorem fro Equation {eq}`eq:Harten`?
@@ -82,6 +85,8 @@ B_{k+1/2} & =0
 ```
 :::
 
+## A criterion for TVD 
+
 We can now check what conditions yield $A\ge0$ and $A+B\le1\,\,\rightarrow\,\,0\le A \le 1$. The calculations are not straightforward, since the expression for $A$ is more coplicated than for, e.g., the FTBS scheme we looked at before. It is usefulto start by summarizing some properties of $\theta_{k+1/2}^n$:
 * If q varies linearly, then $\theta_{k+1/2}^1$ (the same slope between neighboring grid points)
 * If there is a local extrema $\theta_{k+1/2}^n\le$ (opposite signs of the slope at either side of a grid point $k$)
@@ -101,8 +106,6 @@ If $\phi(\theta_{k+1/2}^n\le)=0$, we have:
 -\frac{2}{C} & \le \phi(\theta_{k-1/2}^n) && \le \frac{2}{(1-C)} & \: &
 \end{aligned}
 ```
-
-
 
 Similarly, if $\phi(\theta_{k-1/2}^n\le)=0$, we have:
 ```{math}
@@ -144,3 +147,70 @@ $\theta$-$\phi$ space for visualizing flux limieters. Two simple flux limiters,$
 Figure {ref}`fig:TVD_theta_phi_TVDcrit` shows the $\theta$-$\phi$ space, where the area that ensures TVD is hatched. The area is bounded by the lines $\phi(\theta)= 2$ and $\phi(\theta)= 2\theta$.  
 
 We can now better understand where the oscillations in the Lax-Wendroff scheme comes from. As long as the slope $\theta \ge\frac{1}{2}$, the scheme is inside the TVD regime. However, for negative or small values of $\theta$ ($\theta\le \frac{1}{2}$), the red line, representing Lax Wendroff, is outside the hatched area that ensures TVD. It is for these small $\theta$ that the oscillations start to grow.
+
+A numerical scheme that has low values of $\phi(\theta)$ will typically yield large numerical diffusion. The FTBS, where $\phi(\theta)\equiv 0$, is one such example. If a numerical scheme is close to, or above the upper limit for TVD, the solution will, typically generate oscillations, such as in the Lax Wendroff scheme for small $\theta$.
+
+## Classical TVD schemes
+There exist many flux limiters that ensures $\phi(\theta)$ falls within the area that guarantees TVD. The flux limiters characteristics depend on where in the TVD area they are located. A numerical scheme that has low values of $\phi(\theta)$ will typically yield large numerical diffusion. The FTBS, where $\phi(\theta)\equiv 0$, is one such example. If a numerical scheme is close to, or above the upper limit for TVD and have small values of $\theta$ (i.e., steep slopes), the solution will, typically generate oscillations, such as in the Lax Wendroff scheme for small $\theta$.
+
+### Sveby restricted TVD and Sveby flux limiter
+
+To avoid large diffusion and risk of oscillations, Sveby restricted the TVD area by excluding the lower part and the upper left corner, as illustrated in figure {ref}`fig:TVD_Sveby`. The yellow area is the Sveby restricted TVD area. 
+
+```{figure} ./TVD3.png
+---
+:name: fig:TVD_Sveby
+:width: 40%
+:align: center
+---
+$\theta$-$\phi$ space for visualizing flux limiters. Two simple flux limiters,$\phi\equiv0$ (blue) and $\phi\equiv1$ (red) are sketched. These corresond with the FTBS and the Lax-Wendroff scheme. The hatched area shows the area where the TVD criteria from Equation {eq}`eq:TVD_crit` holds, and the yellow area represent the Sveby restricted TVD area.
+```
+
+The associated Sveby flux limiter follows the lower boundary of the Sveby restricted TVD area:
+
+(definition:stability)=
+:::{admonition} Sveby flux limiter
+:class: important
+```{math}
+:label: eq:Sveby
+\phi(\theta)=\text{minmod}(1,\theta)
+```
+:::
+
+### Superbee flux limiter
+
+The superbee flux limiter follows the upper boundary of the Sveby restricted TVD area:
+
+(definition:stability)=
+:::{admonition} Superbe flux limiter
+:class: important
+```{math}
+:label: eq:Superbee
+\phi(\theta)=\text{max}[0,\text{min}(1,2\theta),\text{min}(2,\theta)]
+```
+:::
+
+The superbee flux limiter is commonly used in ocean and atmospheric models, providing a scheme that has limited numerical diffusion. However, it can sometimes amplify gradients through anti-diffusion.
+
+
+### van Leer flux limiter
+
+The van Leer flux limiter is designed to be roughly in the center of the Sveby restricted TVD area:
+
+(definition:stability)=
+:::{admonition} van Leer flux limiter
+:class: important
+```{math}
+:label: eq:SvanLeer
+\phi(\theta)=\frac{\theta+|\theta|}{1+|\theta|}
+```
+:::
+
+```{figure} ./TVD4.png
+---
+:name: fig:TVD_all_limiters
+:width: 40%
+:align: center
+---
+$\theta$-$\phi$ space for visualizing flux limiters. The colored lines represent the flux limieters: FTBS (blue), Lax-Wendroff (red), Superbee (green), and van Leer (orange). The hatched area shows the area where the TVD criteria from Equation {eq}`eq:TVD_crit` holds, and the yellow area represent the Sveby restricted TVD area.
+```

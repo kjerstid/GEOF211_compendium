@@ -7,7 +7,7 @@ The Navier-Stokes equation, also known as the equation of motion, describes how 
 ```{math}
 :label: eq:NavierStokes
 \begin{aligned}
-x:&\frac{\partial u}{\partial t}+u\frac{\partial u}{\partial x}+v\frac{\partial u}{\partial y}+w\frac{\partial u}{\partial z}&-fv&=-\frac{1}{\rho_0}\frac{\partial p}{\partial x}+\frac{\partial}{\partial x}(A_H\frac{\partial u}{\partial x})+\frac{\partial}{\partial y}(A_H\frac{\partial u}{\partial y})+\frac{\partial}{\partial z}(A_v\frac{\partial u}{\partial z})\\
+x:&\frac{\partial u}{\partial t}+u\frac{\partial u}{\partial x}+v\frac{\partial u}{\partial y}+w\frac{\partial u}{\partial z}&-fv&=-\frac{1}{\rho_0}\frac{\partial p}{\partial x}+\frac{\partial}{\partial x}(\mathscr{A}_H\frac{\partial u}{\partial x})+\frac{\partial}{\partial y}(\mathscr{A}_H\frac{\partial u}{\partial y})+\frac{\partial}{\partial z}(\mathscr{A}_v\frac{\partial u}{\partial z})\\
 y:&\,\,\frac{\partial v}{\partial t}+u\frac{\partial v}{\partial x}+v\frac{\partial v}{\partial y}+w\frac{\partial v}{\partial z}&+fu&=-\frac{1}{\rho_0}\frac{\partial p}{\partial y}+\frac{\partial}{\partial x}(\mathscr{A}_H\frac{\partial v}{\partial x})+\frac{\partial}{\partial y}(\mathscr{A}_H\frac{\partial v}{\partial y})+\frac{\partial}{\partial z}(\mathscr{A}_v\frac{\partial v}{\partial z})\\
 z:& &0&=-\frac{\partial p}{\partial z}-\rho g
 \end{aligned} 
