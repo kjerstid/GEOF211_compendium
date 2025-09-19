@@ -31,7 +31,7 @@ When differentiating $\phi$ and $\psi$ with respect to $x$, they are bot zero, w
 ```
 
 
-```{math}
+<!-- ```{math}
 :label: eq:WavesSolution_proof_a
 \begin{aligned}
 
@@ -45,7 +45,7 @@ When differentiating $\phi$ and $\psi$ with respect to $x$, they are bot zero, w
 
 \eta(x,t) & =f(x+ct)+g(x-ct) 
 \end{aligned}
-```
+``` -->
 
 
 ```{math}
@@ -57,13 +57,14 @@ When differentiating $\phi$ and $\psi$ with respect to $x$, they are bot zero, w
 \frac{\partial^2 \eta}{\partial t^2} &= c^2\frac{\partial^2 f}{\partial \phi^2} + (-c)^2\frac{\partial^2 g}{\partial \psi^2} \\
 \eta(x,t) &= f(x+ct) + g(x-ct)
 \end{aligned}
+```
 
 
 Inserting these expressions into the wave equation yields:
 ```{math}
 :label: eq:WavesSolution_proof
 
-\frac{\partial^2 eta}{\partial t^2} =c^2\frac{\partial^2 f}{\partial u^2}+(-c)^2\frac{\partial^2 g}{\partial v^2}=c^2(\frac{\partial^2 f}{\partial u^2}+\frac{\partial^2 g}{\partial v^2})=c^2\frac{\partial^2 eta}{\partial x^2}
+\frac{\partial^2 \eta}{\partial t^2} =c^2\frac{\partial^2 f}{\partial \phi^2}+(-c)^2\frac{\partial^2 g}{\partial \psi^2}=c^2(\frac{\partial^2 f}{\partial \phi^2}+\frac{\partial^2 g}{\partial \psi^2})=c^2\frac{\partial^2 \eta}{\partial x^2}
 
 ```
 
