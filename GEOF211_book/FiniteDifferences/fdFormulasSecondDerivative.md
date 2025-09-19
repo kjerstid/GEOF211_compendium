@@ -77,8 +77,3 @@ To end up with an expression that cancels out the first derivatives, we can take
 This is a forst order three-point forward formula for the second derivative. It is less used than the centered formula, since the error is typically higher for a first order formula.
 :::
 
-
-
-$
-
-$
