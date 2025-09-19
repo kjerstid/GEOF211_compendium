@@ -14,10 +14,8 @@ We now insert $t=n+1$ to achieve the Taylor expansion for $u^{n+1}$ and insert $
 ```{math}
 :label: eq:Taylor_n_pm1
 \begin{aligned}
-u^{n+1}&=u^n+\Delta t\frac{\partial u}{\partial t}|_{t^n}+\frac{\Delta t^2}{2!}\frac{\partial^2 u}{\partial t^2}|_{t^n}+\frac{\Delta t^2}{3!}\frac{\partial^3 u}{\partial t^3}|_{t^n}+\frac{\Delta t^4}{4!}\frac{\partial^4 u}{\partial t^4}|_{t^n}&+h.o.t\\
-
-u^{n-1}&=u^n+\Delta t\frac{\partial u}{\partial t}|_{t^n}-\frac{\Delta t^2}{2!}\frac{\partial^2 u}{\partial t^2}|_{t^n}+\frac{\Delta t^2}{3!}\frac{\partial^3 u}{\partial t^3}|_{t^n}-\frac{\Delta t^4}{4!}\frac{\partial^4 u}{\partial t^4}|_{t^n}&+h.o.t
-
+u^{n+1} & =u^n+\Delta t\frac{\partial u}{\partial t}|_{t^n}+\frac{\Delta t^2}{2!}\frac{\partial^2 u}{\partial t^2}|_{t^n}+\frac{\Delta t^2}{3!}\frac{\partial^3 u}{\partial t^3}|_{t^n}+\frac{\Delta t^4}{4!}\frac{\partial^4 u}{\partial t^4}|_{t^n} & +h.o.t\\
+u^{n-1} & =u^n+\Delta t\frac{\partial u}{\partial t}|_{t^n}-\frac{\Delta t^2}{2!}\frac{\partial^2 u}{\partial t^2}|_{t^n}+\frac{\Delta t^2}{3!}\frac{\partial^3 u}{\partial t^3}|_{t^n}-\frac{\Delta t^4}{4!}\frac{\partial^4 u}{\partial t^4}|_{t^n} & +h.o.t
 \end{aligned}
 ```
 
@@ -60,10 +58,8 @@ The factors 2, 4, 8, 16, comes from the term $(t^{n+2}-t^n)$ which equals $2\Del
 ```{math}
 :label: eq:Taylor_n_p12
 \begin{aligned}
-u^{n+1}&=u^n+\Delta t\frac{\partial u}{\partial t}|_{t^n}+\frac{\Delta t^2}{2!}\frac{\partial^2 u}{\partial t^2}|_{t^n}+\frac{\Delta t^2}{3!}\frac{\partial^3 u}{\partial t^3}|_{t^n}+\frac{\Delta t^4}{4!}\frac{\partial^4 u}{\partial t^4}|_{t^n}&+h.o.t\\
-
-u^{n+2}&=u^n+2\Delta t\frac{\partial u}{\partial t}|_{t^n}+4\frac{\Delta t^2}{2!}\frac{\partial^2 u}{\partial t^2}|_{t^n}+8\frac{\Delta t^2}{3!}\frac{\partial^3 u}{\partial t^3}|_{t^n}+16\frac{\Delta t^4}{4!}\frac{\partial^4 u}{\partial t^4}|_{t^n}+&h.o.t
-
+u^{n+1} & =u^n+\Delta t\frac{\partial u}{\partial t}|_{t^n}+\frac{\Delta t^2}{2!}\frac{\partial^2 u}{\partial t^2}|_{t^n}+\frac{\Delta t^2}{3!}\frac{\partial^3 u}{\partial t^3}|_{t^n}+\frac{\Delta t^4}{4!}\frac{\partial^4 u}{\partial t^4}|_{t^n} & +h.o.t\\
+u^{n+2}&=u^n+2\Delta t\frac{\partial u}{\partial t}|_{t^n}+4\frac{\Delta t^2}{2!}\frac{\partial^2 u}{\partial t^2}|_{t^n}+8\frac{\Delta t^2}{3!}\frac{\partial^3 u}{\partial t^3}|_{t^n}+16\frac{\Delta t^4}{4!}\frac{\partial^4 u}{\partial t^4}|_{t^n} & +h.o.t
 \end{aligned}
 ```
 
@@ -84,5 +80,5 @@ This is a forst order three-point forward formula for the second derivative. It 
 
 
 $
-u^{n+2}=u^n+2\Delta t\frac{\partial u}{\partial t}|_{t^n}+4\frac{\Delta t^2}{2!}\frac{\partial^2 u}{\partial t^2}|_{t^n}+8\frac{\Delta t^2}{3!}\frac{\partial^3 u}{\partial t^3}|_{t^n}+16\frac{\Delta t^4}{4!}\frac{\partial^4 u}{\partial t^4}|_{t^n}+h.o.t
+
 $
