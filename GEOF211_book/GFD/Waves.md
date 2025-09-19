@@ -28,7 +28,6 @@ We can prove that this solution is correct, by differentiating the solution twic
 ```{note}
 When differentiating $\phi$ and $\psi$ with respect to $x$, they are bot zero, while differentiating them with respect to $t$, gives either $+c$ or $-c$. 
 ```
-```
 
 
 ```{math}
@@ -46,8 +45,6 @@ When differentiating $\phi$ and $\psi$ with respect to $x$, they are bot zero, w
 Inserting these expressions into the wave equation yields:
 ```{math}
 :label: eq:WavesSolution_proof
-
 \frac{\partial^2 \eta}{\partial t^2} =c^2\frac{\partial^2 f}{\partial \phi^2}+(-c)^2\frac{\partial^2 g}{\partial \psi^2}=c^2(\frac{\partial^2 f}{\partial \phi^2}+\frac{\partial^2 g}{\partial \psi^2})=c^2\frac{\partial^2 \eta}{\partial x^2}
-
 ```
 
