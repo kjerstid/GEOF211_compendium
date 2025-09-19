@@ -51,8 +51,9 @@ This is a second order three-point centered formula for the second derivative.
 You can obtain a forward formula using the same procedure as for the centered formula. To do so, we must start with the Taylor expansions for $u^{n+1}$ and $u^{n+2}$:
 
 ```{margin} 
+```{note}
 The factors 2, 4, 8, 16, comes from the term $(t^{n+2}-t^n)$ which equals $2\Delta t$.
-
+```
 ```
 
 ```{math}

@@ -34,16 +34,11 @@ Here, $u,v$ are names of the variable transformations, and does not indicate vel
 :label: eq:WavesSolution_proof_a
 \begin{aligned}
 
-\frac{\partial \eta}{\partial x} & =\frac{\partial f}{\partial u}\frac{\partial u}{\partial x}+\frac{\partial g}{\partial x}\frac{\partial v}{\partial x} & =\frac{\partial f}{\partial u}+\frac{\partial g}{\partial x} \\
-
-\frac{\partial^2 \eta}{\partial x^2} & =\frac{\partial^2 f}{\partial u^2}\frac{\partial u}{\partial x}+\frac{\partial^2 g}{\partial v^2}\frac{\partial v}{\partial x} & =\frac{\partial^2 f}{\partial u^2}+\frac{\partial^2 g}{\partial x^2} \\
-
-
-\frac{\partial \eta}{\partial t} & =\frac{\partial f}{\partial u}\frac{\partial u}{\partial t}+\frac{\partial g}{\partial t}\frac{\partial v}{\partial t} & =\frac{\partial f}{\partial u}c+\frac{\partial g}{\partial t}(-c) \\
-
+\frac{\partial \eta}{\partial x} & =\frac{\partial f}{\partial u}\frac{\partial u}{\partial x}+\frac{\partial g}{\partial x}\frac{\partial v}{\partial x} & =\frac{\partial f}{\partial u}+\frac{\partial g}{\partial x}\\
+\frac{\partial^2 \eta}{\partial x^2} & =\frac{\partial^2 f}{\partial u^2}\frac{\partial u}{\partial x}+\frac{\partial^2 g}{\partial v^2}\frac{\partial v}{\partial x} & =\frac{\partial^2 f}{\partial u^2}+\frac{\partial^2 g}{\partial x^2}\\
+\frac{\partial \eta}{\partial t} & =\frac{\partial f}{\partial u}\frac{\partial u}{\partial t}+\frac{\partial g}{\partial t}\frac{\partial v}{\partial t} & =\frac{\partial f}{\partial u}c+\frac{\partial g}{\partial t}(-c)\\
 \frac{\partial^2 \eta}{\partial t^2} & =c\frac{\partial^2 f}{\partial u^2}\frac{\partial u}{\partial x}-c\frac{\partial^2 g}{\partial t^2}\frac{\partial v}{\partial t} & =c^2\frac{\partial^2 f}{\partial u^2}+(-c)^2\frac{\partial^2 g}{\partial v^2}\\
-
-\eta(x,t) & =f(x+ct)+g(x-ct) &
+\eta(x,t) & =f(x+ct)+g(x-ct) & 
 \end{aligned}
 ```
 
