@@ -19,7 +19,9 @@ chapters:
   sections:
   - file: GFD/PrimitiveEquations.md
   - file: GFD/Advection.md
+  - file: GFD/Diffusion.md
   - file: GFD/InertialOscillation.md
+  - file: GFD/Waves.md
 - file: FiniteDifferences/Introduction.md
   sections:
   - file: FiniteDifferences/algebraicDerivative.md
@@ -27,6 +29,7 @@ chapters:
   - file: FiniteDifferences/estimatesTruncationError.md
   - file: FiniteDifferences/fdFormulasFirstDerivative.md
   - file: FiniteDifferences/evaluatingTruncationError.md
+  - file: FiniteDifferences/fdFormulasSecondDerivative.md
 - file: NumericalStability/Introduction.md
   sections: 
   - file: NumericalStability/ConceptsDefinitions.md

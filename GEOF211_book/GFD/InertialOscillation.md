@@ -3,7 +3,7 @@
 
 Inertial oscillations is a special phenomenon occuring when Earth´s rotation (coriolis)  is the only force that cause local acceleration
 
-Starting with the 2D Navier Stokes equation {eq}`eq:NavierStokes` and removiong all terms except local acellaration and coriolis, we are left with:
+Starting with the 2D Navier Stokes equation {eq}`eq:NavierStokes` and removing all terms except local acellaration and coriolis, we are left with:
 
 ```{math}
 :label: eq:InertialOscillatios
@@ -12,6 +12,11 @@ Starting with the 2D Navier Stokes equation {eq}`eq:NavierStokes` and removiong 
 \frac{\partial v}{\partial t}+fu&=0&\quad (ii)
 \end{aligned} 
 ```
+
+```{note}
+Equation {eq}`eq:InertialOscillatios` is an example of coupled differential equations. When we use the term 'coupled', we mean that the two equations are connected, with one or more parameters appearing in both equations. Here, you can see that the first equation, which is an expression for $\frac{\partial u)(\partial t)$, contains the variable $v$, and vice versa. We must therefore solve these equations together, since we cannot solve first one an then the other. This is true both for the analytical and the numerical solution. However, for the analytical solution, we may solve them sequentially for each time step.
+```
+
 We can combine these equations, by expressing the as $U=u+iv \quad(iii)$. By differentiating $(iii)$ with respect to time, and inserting the  expressions from $(i)$ and $(ii)$, we get:
 
 ```{math}
