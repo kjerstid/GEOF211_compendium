@@ -34,15 +34,15 @@ When differentiating $\phi$ and $\psi$ with respect to $x$, they are bot zero, w
 :label: eq:WavesSolution_proof_a
 \begin{aligned}
 
-\frac{\partial \eta}{\partial x} & =\frac{\partial f}{\partial \phi}\frac{\partial \phi}{\partial x}+\frac{\partial g}{\partial \psi}\frac{\partial \psi}{\partial x}  =\frac{\partial f}{\partial \phi}+\frac{\partial g}{\partial \psi}\\
+\frac{\partial \eta}{\partial x} & =\frac{\partial f}{\partial \phi}\frac{\partial \phi}{\partial x}+\frac{\partial g}{\partial \psi}\frac{\partial \psi}{\partial x} & =\frac{\partial f}{\partial \phi}+\frac{\partial g}{\partial \psi}\\
 
-\frac{\partial^2 \eta}{\partial x^2} & =\frac{\partial^2 f}{\partial \phi^2}\frac{\partial \phi}{\partial x}+\frac{\partial^2 g}{\partial \psi^2}\frac{\partial \psi}{\partial x}  =\frac{\partial^2 f}{\partial \phi^2}+\frac{\partial^2 g}{\partial \psi^2}\\
+\frac{\partial^2 \eta}{\partial x^2} & =\frac{\partial^2 f}{\partial \phi^2}\frac{\partial \phi}{\partial x}+\frac{\partial^2 g}{\partial \psi^2}\frac{\partial \psi}{\partial x} & =\frac{\partial^2 f}{\partial \phi^2}+\frac{\partial^2 g}{\partial \psi^2}\\
 
-\frac{\partial \eta}{\partial t} & =\frac{\partial f}{\partial \phi}\frac{\partial \phi}{\partial t}+\frac{\partial g}{\partial \psi}\frac{\partial \psi}{\partial t}  =\frac{\partial f}{\partial \phi}c+\frac{\partial g}{\partial \psi}(-c)\\
+\frac{\partial \eta}{\partial t} & =\frac{\partial f}{\partial \phi}\frac{\partial \phi}{\partial t}+\frac{\partial g}{\partial \psi}\frac{\partial \psi}{\partial t} & =\frac{\partial f}{\partial \phi}c+\frac{\partial g}{\partial \psi}(-c)\\
 
-\frac{\partial^2 \eta}{\partial t^2} & =c\frac{\partial^2 f}{\partial \phi^2}\frac{\partial \phi}{\partial x}-c\frac{\partial^2 g}{\partial \psi^2}\frac{\partial \psi}{\partial t} &=c^2\frac{\partial^2 f}{\partial \phi^2}+(-c)^2\frac{\partial^2 g}{\partial \psi^2}\\
+\frac{\partial^2 \eta}{\partial t^2} & =c\frac{\partial^2 f}{\partial \phi^2}\frac{\partial \phi}{\partial x}-c\frac{\partial^2 g}{\partial \psi^2}\frac{\partial \psi}{\partial t} &v=c^2\frac{\partial^2 f}{\partial \phi^2}+(-c)^2\frac{\partial^2 g}{\partial \psi^2}\\
 
-\eta(x,t) & =f(x+ct)+g(x-ct) 
+\eta(x,t) & =f(x+ct)+g(x-ct) &
 \end{aligned}
 ```
 
