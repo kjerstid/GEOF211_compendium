@@ -26,7 +26,7 @@ We can prove that this solution is correct, by differentiating the solution twic
 
 ```{margin}
 ```{note}
-When differentiating $\phi$ and $\psi$ with respect to $x$, they are bot zero, while differentiating them with respect to $t$, gives either $+c$ or $-c$. 
+When differentiating $\phi$ and $\psi$ with respect to $x$, they are both zero, while differentiating them with respect to $t$, gives either $+c$ or $-c$. 
 ```
 
 

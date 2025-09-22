@@ -7,11 +7,15 @@ The Navier-Stokes equation, also known as the equation of motion, describes how 
 ```{math}
 :label: eq:NavierStokes
 \begin{aligned}
-x:&\frac{\partial u}{\partial t}+u\frac{\partial u}{\partial x}+v\frac{\partial u}{\partial y}+w\frac{\partial u}{\partial z}&-fv&=-\frac{1}{\rho_0}\frac{\partial p}{\partial x}+\frac{\partial}{\partial x}(\mathscr{A}_H\frac{\partial u}{\partial x})+\frac{\partial}{\partial y}(\mathscr{A}_H\frac{\partial u}{\partial y})+\frac{\partial}{\partial z}(\mathscr{A}_v\frac{\partial u}{\partial z})\\
-y:&\,\,\frac{\partial v}{\partial t}+u\frac{\partial v}{\partial x}+v\frac{\partial v}{\partial y}+w\frac{\partial v}{\partial z}&+fu&=-\frac{1}{\rho_0}\frac{\partial p}{\partial y}+\frac{\partial}{\partial x}(\mathscr{A}_H\frac{\partial v}{\partial x})+\frac{\partial}{\partial y}(\mathscr{A}_H\frac{\partial v}{\partial y})+\frac{\partial}{\partial z}(\mathscr{A}_v\frac{\partial v}{\partial z})\\
-z:& &0&=-\frac{\partial p}{\partial z}-\rho g
+x:\frac{\partial u}{\partial t}+u\frac{\partial u}{\partial x}+v\frac{\partial u}{\partial y}+w\frac{\partial u}{\partial z}&-fv&=-\frac{1}{\rho_0}\frac{\partial p}{\partial x}+\frac{\partial}{\partial x}(\mathscr{A}_H\frac{\partial u}{\partial x})+\frac{\partial}{\partial y}(\mathscr{A}_H\frac{\partial u}{\partial y})+\frac{\partial}{\partial z}(\mathscr{A}_v\frac{\partial u}{\partial z})\\
+y:\,\,\underbrace{\frac{\partial v}{\partial t}_{\text{Local change}}+\underbrace{u\frac{\partial v}{\partial x}+v\frac{\partial v}{\partial y}+w\frac{\partial v}{\partial z}}_{\text{Advection}}&+\underbrace{fu}_{\text{Coriolis}}&=-\underbrace{\frac{1}{\rho_0}\frac{\partial p}{\partial y}_{\text{Pressure gradient}}+\underbrace{\frac{\partial}{\partial x}(\mathscr{A}_H\frac{\partial v}{\partial x})+\frac{\partial}{\partial y}(\mathscr{A}_H\frac{\partial v}{\partial y})+\frac{\partial}{\partial z}(\mathscr{A}_v\frac{\partial v}{\partial z})}_{\text{Friction}}\\
+z: &0&=-\frac{\partial p}{\partial z}-\rho g
 \end{aligned} 
 ```
+
+$
+x:\underbrace{\frac{\partial u}{\partial t}}_{\text{Local change}}+\underbrace{u\frac{\partial u}{\partial x}+v\frac{\partial u}{\partial y}+w\frac{\partial u}{\partial z}}_{\text{Advection}}-fv=-\frac{1}{\rho_0}\frac{\partial p}{\partial x}+\frac{\partial}{\partial x}(\mathscr{A}_H\frac{\partial u}{\partial x})+\frac{\partial}{\partial y}(\mathscr{A}_H\frac{\partial u}{\partial y})+\frac{\partial}{\partial z}(\mathscr{A}_v\frac{\partial u}{\partial z})
+$
 
 ,$\rho_0$ is a refernce density, $g$ is the gravitational acceleration, $f=2\Omega sin\phi$ is the Coriolis parameter, $\phi$ is the latitude, and $\mathscr{A}_H$ and $\mathscr{A}_V$ are the horizontal viscosity and vertical eddy diffusivities, respectively.
 
