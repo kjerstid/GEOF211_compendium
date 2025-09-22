@@ -21,8 +21,20 @@ The Navier-Stokes equation, also known as the equation of motion, describes how 
 ```{math}
 :label: eq:NavierStokes
 \begin{aligned}
-x:&\overbrace{\frac{\partial u}{\partial t}}^{\text{Local change}}&+\overbrace{u\frac{\partial u}{\partial x}+v\frac{\partial u}{\partial y}+w\frac{\partial u}{\partial z}}^{\text{Advection}}&-\overbrace{fv}^{\text{Coriolis}}&=\overbrace{-\frac{1}{\rho_0}\frac{\partial p}{\partial x}}^{\text{Pressure gradient}}&+\overbrace{0}^{\text{gravity}}+\overbrace{\frac{\partial}{\partial x}(\mathscr{A}_H\frac{\partial u}{\partial x})+\frac{\partial}{\partial y}(\mathscr{A}_H\frac{\partial u}{\partial y})+\frac{\partial}{\partial z}(\mathscr{A}_v\frac{\partial u}{\partial z})}^{\text{Friction}}\\
-y:&\quad\frac{\partial v}{\partial t}&+u\frac{\partial v}{\partial x}+v\frac{\partial v}{\partial y}+w\frac{\partial v}{\partial z}&+fu&=-\frac{1}{\rho_0}\frac{\partial p}{\partial y}&+0+\frac{\partial}{\partial x}(\mathscr{A}_H\frac{\partial v}{\partial x})+\frac{\partial}{\partial y}(\mathscr{A}_H\frac{\partial v}{\partial y})+\frac{\partial}{\partial z}(\mathscr{A}_v\frac{\partial v}{\partial z})\\
+x:&\overbrace{\frac{\partial u}{\partial t}}^{\text{Local change}}
++\overbrace{u\frac{\partial u}{\partial x}+v\frac{\partial u}{\partial y}+w\frac{\partial u}{\partial z}}^{\text{Advection}}
+-\overbrace{fv}^{\text{Coriolis}}
+&=\overbrace{-\frac{1}{\rho_0}\frac{\partial p}{\partial x}}^{\text{Pressure gradient}}
++\overbrace{0}^{\text{gravity}}
++\overbrace{\frac{\partial}{\partial x}(\mathscr{A}_H\frac{\partial u}{\partial x})z+\frac{\partial}{\partial y}(\mathscr{A}_H\frac{\partial u}{\partial y})+\frac{\partial}{\partial z}(\mathscr{A}_v\frac{\partial u}{\partial z})}^{\text{Friction}}\\
+
+y:&\quad\frac{\partial v}{\partial t}
++u\frac{\partial v}{\partial x}+v\frac{\partial v}{\partial y}+w\frac{\partial v}{\partial z}
++fu
+&=-\frac{1}{\rho_0}\frac{\partial p}{\partial y}
++0
++\frac{\partial}{\partial x}(\mathscr{A}_H\frac{\partial v}{\partial x})+\frac{\partial}{\partial y}(\mathscr{A}_H\frac{\partial v}{\partial y})+\frac{\partial}{\partial z}(\mathscr{A}_v\frac{\partial v}{\partial z})\\
+
 z:& 0&=-\frac{\partial p}{\partial z}&-\rho g
 \end{aligned} 
 ```
