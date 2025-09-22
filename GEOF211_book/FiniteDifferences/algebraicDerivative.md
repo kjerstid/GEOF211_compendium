@@ -1,7 +1,18 @@
 (finite-differences:algebraic-derivative)=
 # Algebraic approximation of the first derivative
 
-Let us consider a function $u(t)$ that depends continuously on $t$. The derivative of $u(t)$ is:
+Let us consider a function $u(t)$ that depends continuously on $t$. 
+
+```{figure} ./Differentiate.png
+---
+:name: fig:Differentiate
+:width: 50%
+:align: center
+---
+A continuous function $u(t)$. Two points $t$ and $t+\Delta t$ are indicated alont the horizontal axis, and their functional values are indicated on the vertical axis. The slope between the two points is an approximation for the derivative at the point $t$.
+```
+
+The slope between the two point $t$ and $\Delta t$ is an approximation of the derivative of $u(t)$ in the point $t$. By reducing the time step $\Delta t$, i.e., shifting the rightmost point closer to the point $t$,  provide an improved approximation for the derivatice. The exact derivative, is found by letting $\Delta t$ approah zero:
 
 ```{math}
 :label: eq:exactDerivative
