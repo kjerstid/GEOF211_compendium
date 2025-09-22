@@ -42,9 +42,9 @@ Solving Equation {eq}`eq:Taylor_n_pm1_b` for the second derivative, we get:
 :label: eq:Centered2derivative
 \frac{\partial^2 u}{\partial t^2}|_{t^n}=\frac{u^{n+1}-2u^n+u^{n-1}}{\Delta t^2} + \frac{\Delta t^4}{12}\frac{\partial^4 u}{\partial t^4} + h.o.t
 ```
+This is a second order three-point centered formula for the second derivative.
 :::
 
-This is a second order three-point centered formula for the second derivative.
 
 ## Forward formula
 
@@ -55,6 +55,7 @@ You can obtain a forward formula using the same procedure as for the centered fo
 The factors 2, 4, 8, 16, comes from the term $(t^{n+2}-t^n)$ which equals $2\Delta t$.
 ```
 ```
+
 
 ```{math}
 :label: eq:Taylor_n_p12
