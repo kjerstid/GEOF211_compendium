@@ -59,10 +59,27 @@ The factors 2, 4, 8, 16, comes from the term $(t^{n+2}-t^n)$ which equals $2\Del
 ```{math}
 :label: eq:Taylor_n_p12
 \begin{aligned}
-u^{n+1}=u^n+\Delta t\frac{\partial u}{\partial t}|_{t^n}+\frac{\Delta t^2}{2!}\frac{\partial^2 u}{\partial t^2}|_{t^n}+\frac{\Delta t^2}{3!}\frac{\partial^3 u}{\partial t^3}|_{t^n}+\frac{\Delta t^4}{4!}\frac{\partial^4 u}{\partial t^4}|_{t^n} +h.o.t\\
-u^{n+2}=u^n+2\Delta t\frac{\partial u}{\partial t}|_{t^n}+4\frac{\Delta t^2}{2!}\frac{\partial^2 u}{\partial t^2}|_{t^n}+8\frac{\Delta t^2}{3!}\frac{\partial^3 u}{\partial t^3}|_{t^n}+16\frac{\Delta t^4}{4!}\frac{\partial^4 u}{\partial t^4}|_{t^n} +h.o.t
+u^{n+1}=u^n+\Delta t\frac{\partial u}{\partial t}|_{t^n}+\frac{\Delta t^2}{2!}\frac{\partial^2 u}{\partial t^2}|_{t^n}+\frac{\Delta t^2}{3!}\frac{\partial^3 u}{\partial t^3}|_{t^n}+\frac{\Delta t^4}{4!}\frac{\partial^4 u}{\partial t^4}|_{t^n} +\text{h.o.t}\\
+u^{n+2}=u^n+2\Delta t\frac{\partial u}{\partial t}|_{t^n}+4\frac{\Delta t^2}{2!}\frac{\partial^2 u}{\partial t^2}|_{t^n}+8\frac{\Delta t^3}{3!}\frac{\partial^3 u}{\partial t^3}|_{t^n}+16\frac{\Delta t^4}{4!}\frac{\partial^4 u}{\partial t^4}|_{t^n} +\text{h.o.t}
 \end{aligned}
 ```
+
+
+```{math}
+:label: eq:Taylor_n_p12
+\begin{aligned}
+u^{n+1} &= u^n + \Delta t \left.\frac{\partial u}{\partial t}\right|_{t^n}
++ \frac{\Delta t^2}{2!} \left.\frac{\partial^2 u}{\partial t^2}\right|_{t^n}
++ \frac{\Delta t^3}{3!} \left.\frac{\partial^3 u}{\partial t^3}\right|_{t^n}
++ \frac{\Delta t^4}{4!} \left.\frac{\partial^4 u}{\partial t^4}\right|_{t^n}
++ \text{h.o.t.} \\
+u^{n+2} &= u^n + 2\Delta t \left.\frac{\partial u}{\partial t}\right|_{t^n}
++ 2^2\frac{\Delta t^2}{2!} \left.\frac{\partial^2 u}{\partial t^2}\right|_{t^n}
++ 2^3\frac{\Delta t^3}{3!} \left.\frac{\partial^3 u}{\partial t^3}\right|_{t^n}
++ 2^4\frac{\Delta t^4}{4!} \left.\frac{\partial^4 u}{\partial t^4}\right|_{t^n}
++ \text{h.o.t.}
+\end{aligned}
+
 
 
 To end up with an expression that cancels out the first derivatives, we can take the expression for $u^{n+2}$ and subract 2 times the expression for $u^{n+1}$. Solving for the second derivative, we obtain:
