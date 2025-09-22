@@ -60,16 +60,16 @@ The factors 2, 4, 8, 16, comes from the term $(t^{n+2}-t^n)$ which equals $2\Del
 ```{math}
 :label: eq:Taylor_n_p12
 \begin{aligned}
-u^{n+1} &= u^n + \quad\Delta t \left.\frac{\partial u}{\partial t}\right|_{t^n}
-+ \frac{\Delta t^2}{2!} \left.\frac{\partial^2 u}{\partial t^2}\right|_{t^n}
-+ \frac{\Delta t^3}{3!} \left.\frac{\partial^3 u}{\partial t^3}\right|_{t^n}
-+ \frac{\Delta t^4}{4!} \left.\frac{\partial^4 u}{\partial t^4}\right|_{t^n}
-+ \text{h.o.t.} \\
-u^{n+2} &= u^n + 2\Delta t \left.\frac{\partial u}{\partial t}\right|_{t^n}
-+ 2^2\frac{\Delta t^2}{2!} \left.\frac{\partial^2 u}{\partial t^2}\right|_{t^n}
-+ 2^3\frac{\Delta t^3}{3!} \left.\frac{\partial^3 u}{\partial t^3}\right|_{t^n}
-+ 2^4\frac{\Delta t^4}{4!} \left.\frac{\partial^4 u}{\partial t^4}\right|_{t^n}
-+ \text{h.o.t.}
+u^{n+1} &= u^n &+ \quad\Delta t \left.\frac{\partial u}{\partial t}\right|_{t^n}
+&+ \frac{\Delta t^2}{2!} \left.\frac{\partial^2 u}{\partial t^2}\right|_{t^n}
+&+ \frac{\Delta t^3}{3!} \left.\frac{\partial^3 u}{\partial t^3}\right|_{t^n}
+&+ \frac{\Delta t^4}{4!} \left.\frac{\partial^4 u}{\partial t^4}\right|_{t^n}
+&+ \text{h.o.t.} \\
+u^{n+2} &= u^n &+ 2\Delta t \left.\frac{\partial u}{\partial t}\right|_{t^n}
+&+ 2^2\frac{\Delta t^2}{2!} \left.\frac{\partial^2 u}{\partial t^2}\right|_{t^n}
+&+ 2^3\frac{\Delta t^3}{3!} \left.\frac{\partial^3 u}{\partial t^3}\right|_{t^n}
+&+ 2^4\frac{\Delta t^4}{4!} \left.\frac{\partial^4 u}{\partial t^4}\right|_{t^n}
+&+ \text{h.o.t.}
 \end{aligned}
 ```
 
