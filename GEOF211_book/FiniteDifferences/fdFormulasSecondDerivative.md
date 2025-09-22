@@ -55,10 +55,7 @@ You can obtain a forward formula using the same procedure as for the centered fo
 ```{note}
 The factors 2, 4, 8, 16, comes from the term $(t^{n+2}-t^n)$ which equals $2\Delta t$.
 ```
-```
-````
 
-some text for testing
 
 ```{math}
 :label: eq:Taylor_n_p12
