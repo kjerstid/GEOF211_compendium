@@ -79,7 +79,7 @@ u^{n+2} &= u^n + 2\Delta t \left.\frac{\partial u}{\partial t}\right|_{t^n}
 + 2^4\frac{\Delta t^4}{4!} \left.\frac{\partial^4 u}{\partial t^4}\right|_{t^n}
 + \text{h.o.t.}
 \end{aligned}
-
+```
 
 
 To end up with an expression that cancels out the first derivatives, we can take the expression for $u^{n+2}$ and subract 2 times the expression for $u^{n+1}$. Solving for the second derivative, we obtain:
