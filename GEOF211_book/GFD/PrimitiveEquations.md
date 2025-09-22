@@ -8,7 +8,7 @@ The Navier-Stokes equation, also known as the equation of motion, describes how 
 :label: eq:NavierStokes
 \begin{aligned}
 x:\frac{\partial u}{\partial t}+u\frac{\partial u}{\partial x}+v\frac{\partial u}{\partial y}+w\frac{\partial u}{\partial z}&-fv&=-\frac{1}{\rho_0}\frac{\partial p}{\partial x}+\frac{\partial}{\partial x}(\mathscr{A}_H\frac{\partial u}{\partial x})+\frac{\partial}{\partial y}(\mathscr{A}_H\frac{\partial u}{\partial y})+\frac{\partial}{\partial z}(\mathscr{A}_v\frac{\partial u}{\partial z})\\
-y:\,\,\underbrace{\frac{\partial v}{\partial t}_{\text{Local change}}+\underbrace{u\frac{\partial v}{\partial x}+v\frac{\partial v}{\partial y}+w\frac{\partial v}{\partial z}}_{\text{Advection}}&+\underbrace{fu}_{\text{Coriolis}}&=-\underbrace{\frac{1}{\rho_0}\frac{\partial p}{\partial y}_{\text{Pressure gradient}}+\underbrace{\frac{\partial}{\partial x}(\mathscr{A}_H\frac{\partial v}{\partial x})+\frac{\partial}{\partial y}(\mathscr{A}_H\frac{\partial v}{\partial y})+\frac{\partial}{\partial z}(\mathscr{A}_v\frac{\partial v}{\partial z})}_{\text{Friction}}\\
+y:\,\,\underbrace{\frac{\partial v}{\partial t}}_{\text{Local change}}+\underbrace{u\frac{\partial v}{\partial x}+v\frac{\partial v}{\partial y}+w\frac{\partial v}{\partial z}}_{\text{Advection}}&+\underbrace{fu}_{\text{Coriolis}}&=-\underbrace{\frac{1}{\rho_0}\frac{\partial p}{\partial y}}_{\text{Pressure gradient}}+\underbrace{\frac{\partial}{\partial x}(\mathscr{A}_H\frac{\partial v}{\partial x})+\frac{\partial}{\partial y}(\mathscr{A}_H\frac{\partial v}{\partial y})+\frac{\partial}{\partial z}(\mathscr{A}_v\frac{\partial v}{\partial z})}_{\text{Friction}}\\
 z: &0&=-\frac{\partial p}{\partial z}-\rho g
 \end{aligned} 
 ```
