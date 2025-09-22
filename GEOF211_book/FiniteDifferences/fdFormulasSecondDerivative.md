@@ -25,14 +25,14 @@ It is also possible to invoke more values of $u$ at earlier or later time step.
 (finite-differences:formulas-2ndderivative)=
 ## Centered formula
 
-If you compare the two expressions in Equation {eq}`eq:tTaylor_n_pm1`, you may. notice that all the terms are the same. The only thing that separates the two expressions, are the signs in front of every second term. We are interested in finding a scheme for the second order derivative, which we find in the third term on the right hand side. We would also like to get rid of the term with the first derivative (second term on the right hand side). The trick now is to add these two equations together. Then we cancel out the first derivative terms, and keep the second derivative. We can collect the remaining terms on either side of the equals sign.
+If you compare the two expressions in Equation {eq}`eq:Taylor_n_pm1`, you may. notice that all the terms are the same. The only thing that separates the two expressions, are the signs in front of every second term. We are interested in finding a scheme for the second order derivative, which we find in the third term on the right hand side. We would also like to get rid of the term with the first derivative (second term on the right hand side). The trick now is to add these two equations together. Then we cancel out the first derivative terms, and keep the second derivative. We can collect the remaining terms on either side of the equals sign.
 
 ```{math}
 :label: eq:Taylor_n_pm1_b
 u^{n+1}+u^{n-1}=2u^n+2\frac{\Delta t^2}{2!}\frac{\partial^2 u}{\partial t^2}|_{t^n}+2\frac{\Delta t^4}{4!}\frac{\partial^4 u}{\partial t^4}|_{t^n}+h.o.t
 ```
 
-Solving Equation {eq}`eq:tTaylor_n_pm1_b` for the second derivative, we get:
+Solving Equation {eq}`eq:Taylor_n_pm1_b` for the second derivative, we get:
 
 (definition:Centered2derivative)=
 :::{admonition} Centered scheme for the 2nd derivative:
@@ -59,8 +59,8 @@ The factors 2, 4, 8, 16, comes from the term $(t^{n+2}-t^n)$ which equals $2\Del
 ```{math}
 :label: eq:Taylor_n_p12
 \begin{aligned}
-u^{n+1} & =u^n+\Delta t\frac{\partial u}{\partial t}|_{t^n}+\frac{\Delta t^2}{2!}\frac{\partial^2 u}{\partial t^2}|_{t^n}+\frac{\Delta t^2}{3!}\frac{\partial^3 u}{\partial t^3}|_{t^n}+\frac{\Delta t^4}{4!}\frac{\partial^4 u}{\partial t^4}|_{t^n} & +h.o.t\\
-u^{n+2}&=u^n+2\Delta t\frac{\partial u}{\partial t}|_{t^n}+4\frac{\Delta t^2}{2!}\frac{\partial^2 u}{\partial t^2}|_{t^n}+8\frac{\Delta t^2}{3!}\frac{\partial^3 u}{\partial t^3}|_{t^n}+16\frac{\Delta t^4}{4!}\frac{\partial^4 u}{\partial t^4}|_{t^n} & +h.o.t
+u^{n+1}=u^n+\Delta t\frac{\partial u}{\partial t}|_{t^n}+\frac{\Delta t^2}{2!}\frac{\partial^2 u}{\partial t^2}|_{t^n}+\frac{\Delta t^2}{3!}\frac{\partial^3 u}{\partial t^3}|_{t^n}+\frac{\Delta t^4}{4!}\frac{\partial^4 u}{\partial t^4}|_{t^n} & +h.o.t\\
+u^{n+2}=u^n+2\Delta t\frac{\partial u}{\partial t}|_{t^n}+4\frac{\Delta t^2}{2!}\frac{\partial^2 u}{\partial t^2}|_{t^n}+8\frac{\Delta t^2}{3!}\frac{\partial^3 u}{\partial t^3}|_{t^n}+16\frac{\Delta t^4}{4!}\frac{\partial^4 u}{\partial t^4}|_{t^n} & +h.o.t
 \end{aligned}
 ```
 
