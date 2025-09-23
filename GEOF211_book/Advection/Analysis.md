@@ -3,15 +3,24 @@
 In our study of the finite difference approximations to the derivative, we found that in general, when $\Delta t$ and $\Delta x$ approach zero, the errors in the approximations of the derivatives also approach zero. Therefore, since our difference equation is written with the finite difference approximations, we can ask ourselves if we will have the error of the difference equation, i.e. the difference between {eq}`eq:solutionDiffEquation` and {eq}`eq:anaSolution`, also approach zero when $\Delta t, \Delta x \to 0$.
 
 First, let $\Delta x \to 0$. We will have:
-\begin{align*}%\label{eqn:anaSol2}
+```{math}
+:label: eq:anaSol2
+\begin{aligned}
 	\sigma & = c\frac{\Delta t}{\Delta x} \sin (\mu \Delta x) \\
 	& = c\mu \Delta t \frac{\sin (\mu \Delta x)}{\mu \Delta x} \\
 	& = c\mu \Delta t,
-\end{align*}
+\end{aligned}
+````
+
 since $\lim_{\Delta x\to0}\frac{\sin (\mu \Delta x)}{\mu \Delta x}=1$. Then, consider that $\Delta t$ is small, so that $\alpha=\arcsin c\mu\Delta t \approx c\mu\Delta t$. Thus in the limit of small $\Delta t$ and $\Delta x$, we will have
-\begin{align*}%\label{eqn:anaSol2}
+
+```{math}
+:label: eq:anaSol2
+\begin{aligned}
 	A \frac{1+\cos \alpha}{2\cos \alpha}e^{i\mu (m\Delta x - \alpha n/ \mu)}  &= A \frac{1+\cos \alpha}{2\cos \alpha}e^{i\mu (m\Delta x -  n c\mu\Delta t/ \mu)} \\ &= A \frac{1+\cos \alpha}{2\cos \alpha}e^{i\mu (m\Delta x -  cn \Delta t)},
-\end{align*}
+\end{aligned}
+````
+
 and we recover the waveform {eq}`eq:anaSolution`, written in the discrete grid positions $m\Delta x$ and time steps $n \Delta t$. Furthermore, if we allow $\Delta t \to 0$, we will have $\alpha = 0$ and
 
 ```{math}
