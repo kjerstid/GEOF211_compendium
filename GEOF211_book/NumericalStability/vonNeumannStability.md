@@ -133,7 +133,7 @@ B^{n+1}&=2B^𝑛−B^{n−1}+r^2 B^n e^{ik\Delta 𝑥}−2r^2 B^n+r^2 B^n 𝑒^{
 B^{n+1}&=2(1−r^2)B^n−B^{n−1}+r^2 B^n \underbrace{(e^{ik\Delta x}+e^{−ik\Delta x})}_{2cos(k\Delta x)}\\
 B^{n+1}&=2(1−𝑟^2)B^n−B^{n−1}+2r^2 B^n cos(k\Delta x) \qquad \text{:Factorize}\\
 B^{n+1}&=2\left (1−2𝑟^2 \left (\frac{1−cos⁡(𝑘Δ𝑥)}{2}\right )\right )B^n−B^{n−1}
-\qquad \text{use:Use} $sin^2\frac{\theta}{2}=\frac{1-cos\theta}{2}$\\
+\qquad \text{use:Use } sin^2\frac{\theta}{2}=\frac{1-cos\theta}{2}\\
 B^{n+1}&=2(\underbrace{1−2𝑟^2sin^2\frac{k\Delta x}{2}}_{\gamma})B^n−B^{n−1} \\
 B^{n+1}&=2\gamma B^n−B^{n−1}             
 \end{aligned}
