@@ -128,7 +128,6 @@ Substituting a solution like {eq}`eq:vonNeumannSolution`,$\eta_m^n\sim B^ne^{ikm
 
 ```{math}
 \begin{aligned}
-
 B^{n+1} e^{ikm\Delta 𝑥}&=2𝐵^𝑛 e^{ikm\Delta 𝑥} −B^{n−1} 𝑒^{ikm\Delta x}+𝑟^2 (B^n e^{ik(m+1)\Delta x}−2B^n e^{ikm\Delta x}+B^n e^{ik(m−1)\Delta x}) \quad \text{:Divide by }$e^{ikm\Delta x}\\ 
 B^{n+1}&=2B^𝑛−B^{n−1}+r^2 B^n e^{ik\Delta 𝑥}−2r^2 B^n+r^2 B^n 𝑒^{−ik\Delta x} \qquad Factorize \\
 B^{n+1}&=2(1−r^2)B^n−B^{n−1}+r^2 B^n \underbrace{(e^{ik\Delta x}+e^{−ik\Delta x})}_{2cos(k\Delta x)}\\
