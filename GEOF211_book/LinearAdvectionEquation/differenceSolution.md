@@ -1,7 +1,7 @@
 (LinearAdvectionEquation:differenceSolution)=
 # Solution of the difference equation
 
-We shall solve {eq}`eq:diffEquation` analytically to illustrate some aspects of the numerical solution of {eq}`eq:Advection` by the leapfrog scheme {eq}`eq:Leapfrog`. Indeed, while it is equation {eq}`eq:Advection` that we ultimately want to solve, the time marching scheme will effectively solve {eq}`eq:diffEquation`. Thus, by studying the exact solution to {eq}`eq:diffEquation` and how close it is to {eq}`eq:anaSolution`, the exact solution of {eq}`eqAdvection`, we shall be able to say whether or not our time marching method is suitable to the task. 
+We shall solve {eq}`eq:diffEquation` analytically to illustrate some aspects of the numerical solution of {eq}`eq:Advection` by the leapfrog scheme {eq}`eq:Leapfrog`. Indeed, while it is equation {eq}`eq:Advection` that we ultimately want to solve, the time marching scheme will effectively solve {eq}`eq:diffEquation`. Thus, by studying the exact solution to {eq}`eq:diffEquation` and how close it is to {eq}`eq:anaSolution`, the exact solution of {eq}`eq:Advection`, we shall be able to say whether or not our time marching method is suitable to the task. 
 
 We assume an exponential solution to {eq}`eq:diffEquation`:
 
@@ -82,7 +82,7 @@ With the roots of $B^{\Delta t}$, we can return to {eq}`eq:diffSolution` and wri
 	u_{m}^{n} =\left[ De^{-i\alpha n} + Ee^{-i(\alpha+\pi) n} \right]e^{i\mu m\Delta x} 
 ```
 
-as the sum of the solutions for each root of $B^{\Delta t}$, since {eq}`eqAdvection` is linear. The constants $D$ and $E$ are to be found through the initial condition. 
+as the sum of the solutions for each root of $B^{\Delta t}$, since {eq}`eq:Advection` is linear. The constants $D$ and $E$ are to be found through the initial condition. 
 
 At the initial time, $n=0$, and {eq}`eq:diffSolution2` becomes
 
@@ -100,7 +100,7 @@ from which we conclude that $A=D+E$. For subsequent times ($n\ge1$), we have:
 \end{aligned}
 ```
 
-The solution of {eq}`eq:diffEquation` can thus be seen to have two waves, whereas the solution to the exact equation {eq}`eqAdvection` had only one wave. 
+The solution of {eq}`eq:diffEquation` can thus be seen to have two waves, whereas the solution to the exact equation {eq}`eq:Advection` had only one wave. 
 
 ```{note}
 The two waves arise from the two roots $B^{\Delta t}_\pm$. In general, a $p$-th order scheme will introduce additional wave solutions when it is applied to a $(p-1)$-th order equation. 
@@ -158,6 +158,6 @@ When we compare with {eq}`eq:anaSolution`, that we write below in a discrete ver
 ```
 
 we see that the first waveform is similar to the exact solution, while the second waveform travels in the opposite direction of the exact 
-solution. This second waveform is clearly an artifact introduced by the discretization of {eq}`eqAdvection` and is a source of errors.
+solution. This second waveform is clearly an artifact introduced by the discretization of {eq}`eq:Advection` and is a source of errors.
 
 <!-- ### Case 2: $|\mu| \gt 1$ -->
