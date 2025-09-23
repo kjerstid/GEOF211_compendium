@@ -3,7 +3,7 @@
 
 *Advection* is a process where a parameter like, e.g., salt, temperature, moisture, momentum, oxygen... is transported by the velocity field in a given direction. 
 
-## Non-linear advection
+** Non-linear advection **
 
 From the Navier Stokes equation {eq}`eq:NavierStokes` we can look at a simplified case for advection of momentum, where changes in the local time derivative $\frac{\partial u}{\partial t}$ is only depending on the velocity field.
 
@@ -28,7 +28,7 @@ For other parameters, like, e.g., temperature ($\theta$) the non-linear advectio
 
 The first term of {eq}`eq:NonLinAdvection_t_1d` is the local change with time. If we consider, e.g. temperature, we can use an example of changing the temperature in a room. If you turn on a heater, the temperature will rise, but the air inside the room stays the same. The heater is a heat source and represent a local change in temperature with time. If you instead open the window, air will flow through the window and change the temperature by replacing some of the air (as air flow in through the window, air will also leave the room through the window). This is the temperature change following advection (second term of {eq}`eq:NonLinAdvection_t_1d`) .
 
-## Linear advection
+** Linear advection **
 
 To obtain the *linear advection equation*, you can simply replace the velocity $u(t)$, with a constant velocity $a$. The linear, 1D equation for temperature, $\theta$ then becomes:
 
