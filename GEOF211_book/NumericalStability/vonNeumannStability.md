@@ -110,7 +110,7 @@ The one-dimensional wave equation (equation {eq}`eq:Waves`), repeated here is :
 ```{math}
 \frac{\partial^2 \eta}{\partial t^2}=c^2\frac{\partial^2 \eta}{\partial x^2}
 ```
-,where $\eta$ is the fluid surface, $c=\sqrt{gH}$, $g\sim9.81\text{ms}^-1$ is the gravitational constant and $H$ is the depth of the fluid.
+, where $\eta$ is the fluid surface, $c=\sqrt{gH}$, $g\sim9.81\text{ms}^-1$ is the gravitational constant and $H$ is the depth of the fluid.
 
 The CTCS scheme for the wave equation can be found using the centered formula (Eq. {eq}`eq:Centered2derivative`) for the second derivative on either side of the equation and reordering the expression:
 

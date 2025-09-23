@@ -173,3 +173,23 @@ We thus obtain a system of $p+1$ equations for the $2m+1$ coefficients $a_q$. Re
 
 If there are more points than needed, we used them to cancel the next few terms in the truncation error. We can use $2m+1$ points to cancel up to order $2m-p+1$.
 
+## Evaluating the truncation error for 1st derivative formulas
+
+To evaluate the effect of the truncation error, we consider the following sinusoidal function
+
+```{math}
+u(t)=U\sin\left( 2\pi\frac{t}{T} \right) = U\sin(\omega t), \quad \omega=\frac{2\pi}{T},
+```
+
+whose first derivative is $U\omega \cos(\omega t)$. In {numref}`figErrors1stDerivative`, the error of the first derivative is shown for the forward, backward, centred and 4th order difference formulas.
+
+
+```{figure} Errors_FDfirstDerivative_w4th.png
+---
+height: 400px
+name: figErrors1stDerivative
+---
+Error of the first derivative formulas.
+```
+
+As $\omega \Delta t \to 0$, the error of the 4th order formula decreases much faster than those of the centred (2nd order) and forward/backward (1st order) formulas. 
