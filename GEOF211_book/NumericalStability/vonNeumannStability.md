@@ -129,14 +129,14 @@ Substituting a solution like {eq}`eq:vonNeumannSolution`,$\eta_m^n\sim B^ne^{ikm
 ```{math}
 \begin{aligned}
 
-𝐵^{𝑛+1} 𝑒^{𝑖𝑘𝑚\Delta 𝑥}&=2𝐵^𝑛 𝑒^{𝑖𝑘𝑚\Delta 𝑥} −𝐵^{𝑛−1} 𝑒^{𝑖𝑘𝑚\Delta 𝑥}+𝑟^2 (𝐵^𝑛 𝑒^{𝑖𝑘(𝑚+1)\Delta 𝑥}−2𝐵^𝑛 𝑒^{𝑖𝑘𝑚\Delta 𝑥}+𝐵^𝑛 𝑒^{𝑖𝑘(𝑚−1)\Delta 𝑥}) \quad \text{:Divide by }$e^{ikm\Delta x}\\ 
-𝐵^{𝑛+1}&=2𝐵^𝑛−𝐵^{𝑛−1}+𝑟^2 𝐵^𝑛 𝑒^{𝑖𝑘\Delta 𝑥}−2𝑟^2 𝐵^𝑛+𝑟^2 𝐵^𝑛 𝑒^{−𝑖𝑘\Delta 𝑥} \qquad Factorize \\
-𝐵^{𝑛+1}&=2(1−𝑟^2)𝐵^𝑛−𝐵^{𝑛−1}+𝑟^2 𝐵^𝑛 \underbrace{(𝑒^{𝑖𝑘\Delta 𝑥}+𝑒^{−𝑖𝑘\Delta 𝑥})}_{2cos(k\Delta x)}\\
-𝐵^{𝑛+1}&=2(1−𝑟^2)𝐵^𝑛−𝐵^{𝑛−1}+2𝑟^2 𝐵^𝑛 cos(k\Delta x) \qquad :Factorize\\
-𝐵^{𝑛+1}&=2\left (1−2𝑟^2 \left (\frac{1−cos⁡(𝑘Δ𝑥)}{2}\right )\right )𝐵^𝑛−𝐵^{𝑛−1}
+B^{n+1} e^{ikm\Delta 𝑥}&=2𝐵^𝑛 e^{ikm\Delta 𝑥} −B^{n−1} 𝑒^{ikm\Delta x}+𝑟^2 (B^n e^{ik(m+1)\Delta x}−2B^n e^{ikm\Delta x}+B^n e^{ik(m−1)\Delta x}) \quad \text{:Divide by }$e^{ikm\Delta x}\\ 
+B^{n+1}&=2B^𝑛−B^{n−1}+r^2 B^n e^{ik\Delta 𝑥}−2r^2 B^n+r^2 B^n 𝑒^{−ik\Delta x} \qquad Factorize \\
+B^{n+1}&=2(1−r^2)B^n−B^{n−1}+r^2 B^n \underbrace{(e^{ik\Delta x}+e^{−ik\Delta x})}_{2cos(k\Delta x)}\\
+B^{n+1}&=2(1−𝑟^2)B^n−B^{n−1}+2r^2 B^n cos(k\Delta x) \qquad :Factorize\\
+B^{n+1}&=2\left (1−2𝑟^2 \left (\frac{1−cos⁡(𝑘Δ𝑥)}{2}\right )\right )B^n−B^{n−1}
 \qquad :Use $sin^2\frac{\theta}{2}=\frac{1-cos\theta}{2}$\\
-𝐵^{𝑛+1}&=2(\underbrace{1−2𝑟^2𝑠𝑖𝑛^2\frac{𝑘Δ𝑥}{2}}_{\gamma})𝐵^𝑛−𝐵^{𝑛−1} \\
-𝐵^{𝑛+1}&=2\gamma 𝐵^𝑛−𝐵^{𝑛−1}             
+B^{n+1}&=2(\underbrace{1−2𝑟^2sin^2\frac{k\Deltam x}{2}}_{\gamma})B^n−B^{n−1} \\
+B^{n+1}&=2\gamma B^n−B^{n−1}             
 \end{aligned}
 ```
 
