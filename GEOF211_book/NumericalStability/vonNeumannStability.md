@@ -70,11 +70,11 @@ The FTCS scheme applied to {eq}`eq:diffusion` is:
 u_m^{n+1} = u_m^{n} + D\frac{\Delta t}{\Delta x^2}(u_{m+1}^n-2u_{m}^n+u_{m-1}^n)
 ```
 
-Substituting a solution like {eq}`eq:vonNeumanSolution` in {eq}`eq:FTCSDiffusion`, we have
+Substituting a solution like {eq}`eq:vonNeumannSolution` in {eq}`eq:FTCSDiffusion`, we have
 
 ```{math}
-B^{n+1}e^{ikm\Delta x}=B^ne^{ikm\Delta x}+ D\frac{\Delta t}{\Delta x^2}(B^{n} e^{ik(m+1)\Delta x}\\
-    -2B^{n} e^{ikm\Delta x}+(B^{n} e^{ik(m-1)\Delta x})
+B^{n+1}e^{ikm\Delta x}=B^ne^{ikm\Delta x}+ D\frac{\Delta t}{\Delta x^2}B^{n} e^{ik(m+1)\Delta x}\\
+    -2B^{n} e^{ikm\Delta x}+B^{n} e^{ik(m-1)\Delta x}
 ```
 
 which, after some manipulation, allows to obtain the following expression for the amplification factor:
@@ -129,20 +129,20 @@ Substituting a solution like {eq}`eq:vonNeumannSolution`,$\eta_m^n\sim B^ne^{ikm
 ```{math}
 \begin{aligned}
 
-𝐵^{𝑛+1} 𝑒^{𝑖𝑘𝑚\Delta 𝑥}&=2𝐵^𝑛 𝑒^{𝑖𝑘𝑚\Delta 𝑥} −𝐵^{𝑛−1} 𝑒^{𝑖𝑘𝑚\Delta 𝑥}+𝑟^2 (𝐵^𝑛 𝑒^{𝑖𝑘(𝑚+1)\Delta 𝑥}−2𝐵^𝑛 𝑒^{𝑖𝑘𝑚\Delta 𝑥}+𝐵^𝑛 𝑒^{𝑖𝑘(𝑚−1)\Delta 𝑥}) &\quad text{:Divide by }$e^{ikm\Delta x}\\ 
+𝐵^{𝑛+1} 𝑒^{𝑖𝑘𝑚\Delta 𝑥}&&=2𝐵^𝑛 𝑒^{𝑖𝑘𝑚\Delta 𝑥} −𝐵^{𝑛−1} 𝑒^{𝑖𝑘𝑚\Delta 𝑥}+𝑟^2 (𝐵^𝑛 𝑒^{𝑖𝑘(𝑚+1)\Delta 𝑥}−2𝐵^𝑛 𝑒^{𝑖𝑘𝑚\Delta 𝑥}+𝐵^𝑛 𝑒^{𝑖𝑘(𝑚−1)\Delta 𝑥}) &\quad text{:Divide by }$e^{ikm\Delta x}\\ 
 
-𝐵^{𝑛+1}&=2𝐵^𝑛−𝐵^{𝑛−1}+𝑟^2 𝐵^𝑛 𝑒^{𝑖𝑘\Delta 𝑥}−2𝑟^2 𝐵^𝑛+𝑟^2 𝐵^𝑛 𝑒^{−𝑖𝑘\Delta 𝑥} &\quad Factorize \\
+𝐵^{𝑛+1}&&=2𝐵^𝑛−𝐵^{𝑛−1}+𝑟^2 𝐵^𝑛 𝑒^{𝑖𝑘\Delta 𝑥}−2𝑟^2 𝐵^𝑛+𝑟^2 𝐵^𝑛 𝑒^{−𝑖𝑘\Delta 𝑥} &\quad Factorize \\
 
-𝐵^{𝑛+1}&=2(1−𝑟^2)𝐵^𝑛−𝐵^{𝑛−1}+𝑟^2 𝐵^𝑛 \underbrace{(𝑒^{𝑖𝑘\Delta 𝑥}+𝑒^{−𝑖𝑘\Delta 𝑥})}_{2cos(k\Delta x)} &\quad \\
+𝐵^{𝑛+1}&&=2(1−𝑟^2)𝐵^𝑛−𝐵^{𝑛−1}+𝑟^2 𝐵^𝑛 \underbrace{(𝑒^{𝑖𝑘\Delta 𝑥}+𝑒^{−𝑖𝑘\Delta 𝑥})}_{2cos(k\Delta x)} &\quad \\
 
-𝐵^{𝑛+1}&=2(1−𝑟^2)𝐵^𝑛−𝐵^{𝑛−1}+2𝑟^2 𝐵^𝑛 cos(k\Delta x) &\quad :Factorize\\
+𝐵^{𝑛+1}&&=2(1−𝑟^2)𝐵^𝑛−𝐵^{𝑛−1}+2𝑟^2 𝐵^𝑛 cos(k\Delta x) &\quad :Factorize\\
 
-𝐵^{𝑛+1}&=2\left (1−2𝑟^2 \left (\frac{1−cos⁡(𝑘Δ𝑥)}{2}\right )\right )𝐵^𝑛−𝐵^{𝑛−1}
+𝐵^{𝑛+1}&&=2\left (1−2𝑟^2 \left (\frac{1−cos⁡(𝑘Δ𝑥)}{2}\right )\right )𝐵^𝑛−𝐵^{𝑛−1}
 &\quad :Use $sin^2\frac{\theta}{2}=\frac{1-cos\theta}{2}$\\
 
-𝐵^{𝑛+1}&2(\underbrace{1−2𝑟^2𝑠𝑖𝑛^2\frac{𝑘Δ𝑥}{2}}_{\gamma})𝐵^𝑛−𝐵^{𝑛−1} &\quad\\
+𝐵^{𝑛+1}&&=2(\underbrace{1−2𝑟^2𝑠𝑖𝑛^2\frac{𝑘Δ𝑥}{2}}_{\gamma})𝐵^𝑛−𝐵^{𝑛−1} &\quad\\
 
-𝐵^{𝑛+1}&=2\gamma 𝐵^𝑛−𝐵^{𝑛−1} &             
+𝐵^{𝑛+1}&&=2\gamma 𝐵^𝑛−𝐵^{𝑛−1} &             
 
 \end{aligned}
 ```
@@ -164,7 +164,7 @@ We must have $|B_{1,2}|<1$. If $\gamma >1$, $B_1$ willl also be $>1$. We must, t
 ```{math}
 \begin{aligned}
 |\gamma|&=\left|1−2𝑟^2𝑠𝑖𝑛^2\frac{𝑘Δ𝑥}{2}\right|\le1\\
--1&\le1−2𝑟^2𝑠𝑖𝑛^2\frac{𝑘Δ𝑥}{2}\le1 \qquad: \text{Subtract }$1$ \text{everywhere}\\
+-1&\le1−2𝑟^2𝑠𝑖𝑛^2\frac{𝑘Δ𝑥}{2}\le1 \qquad:\text{Subtract 1 everywhere}\\
 -2&\le−2𝑟^2𝑠𝑖𝑛^2\frac{𝑘Δ𝑥}{2}\le0
 \end{aligned}
 ```
