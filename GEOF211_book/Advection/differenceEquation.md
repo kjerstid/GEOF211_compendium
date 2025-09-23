@@ -19,7 +19,7 @@ name: txDiagram
 The discrete time-space domain represented as a t-x diagram. The numerical solution at time $t^n$ and position $x_m$ is $u_m^n$ and is represented in the diagram in the position ($x_m$,$t^n$).  
 ```
 
-Using the 2nd order centered formula {eq}`eq:formulaCentred` to replace the exact derivatives in {eq}`eq:Advection`, we get:
+Using the 2nd order centered formula {eq}`eq:formulaCentered` to replace the exact derivatives in {eq}`eq:Advection`, we get a Centered in Time, Centered in Space (CTCS) scheme:
 
 ```{math}
 :label: eq:diffEquation
@@ -33,4 +33,11 @@ We call {eq}`eq:diffEquation` the *difference equation* resulting from the discr
 u_{m}^{n+1} = u_{m}^{n-1} - c\frac{\Delta t}{\Delta x}(u_{m+1}^{n}-u_{m-1}^{n}),
 ```
 
-known as the *leapfrog* scheme, which is a three-level scheme, because it employs information at time levels $n-1$, $n$ and $n+1$. Since the discretization of {eq}`eq:Advection` was done with 2nd order formulas, the scheme {eq}`eq:Leapfrog` is of 2nd order.
+The CTCS scheme is also known as the *leapfrog* scheme, which is a three-level scheme, because it employs information at time levels $n-1$, $n$ and $n+1$. Since the discretization of {eq}`eq:Advection` was done with 2nd order formulas, the scheme {eq}`eq:Leapfrog` is of 2nd order.
+
+Similarly, we can obtain schems with other combination of formulas for the space and time derivative. The Forward in Tie, Backward in space (FTBS) scheme would look like:
+
+```{math}
+:label: eq:FTBS_Advection
+u_m^{n+1}=u_m^n-\frac{a\Delta t}{\Delta x}(u_{m+1}^n-u_m^n)
+```

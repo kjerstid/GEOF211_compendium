@@ -120,13 +120,13 @@ Instead, we have to use a two-time level like the forward scheme (Euler), that a
 Using the initial condition $u_{m}^{0}=A e^{i \mu m\Delta x}$, we have:
 
 ```{math}
-\begin{aligned*}
+\begin{aligned}
 	u_{m}^{1} &= Ae^{i \mu m\Delta x} - c\frac{\Delta t}{2\Delta x}A e^{i \mu m\Delta x}(e^{i \mu \Delta x}-e^{-i \mu m\Delta x}) \\
 	&= Ae^{i \mu m\Delta x} \left[1 - c\frac{\Delta t}{2\Delta x}(e^{i \mu \Delta x}-e^{-i \mu m\Delta x})\right] \\
 	&= A \left[1 - ic\frac{\Delta t}{2\Delta x}\sin \mu\Delta x \right]e^{i \mu m\Delta x}\\
 	&= A \left[1 - i\mu \right]e^{i \mu m\Delta x}\\
 	&=A \left[1 - i\sin \alpha \right]e^{i \mu m\Delta x},
-\end{aligned*}
+\end{aligned}
 ```
 
 which is the solution at $n=1$. Now we can solve for $E$:
