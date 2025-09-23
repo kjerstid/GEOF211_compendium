@@ -103,4 +103,90 @@ Therefore, the FTCS scheme apllied to the linear diffusion equation {eq}`eq:diff
 D\frac{\Delta t}{\Delta x^2} \leq \frac{1}{2}.
 ```
 
+### The wave equation
 
+The one-dimensional wave equation (equation {eq}`eq:Waves`), repeated here is :
+
+```{math}
+\frac{\partial^2 \eta}{\partial t^2}=c^2\frac{\partial^2 \eta}{\partial x^2}
+```
+,where $\eta$ is the fluid surface, $c=\sqrt{gH}$, $g\sim9.81\text{ms}^-1$ is the gravitational constant and $H$ is the depth of the fluid.
+
+The CTCS scheme for the wave equation can be found using the centered formula (Eq. {eq}`eq:Centered2derivative`) for the second derivative on either side of the equation and reordering the expression:
+
+```{margin}
+$r^2=\frac{c^2\Delta t^2}{\Delta x^2}$
+```
+
+```{math}
+:label: eq:Waves_CTCS
+\eta_m^{n+1}=2\eta_m^{n}-\eta_m^{n-1}+r^2(n_{m+1}^n-2n_{m}^n+n_{m-1}^n)
+```
+
+Substituting a solution like {eq}`eq:vonNeumanSolution`,$\eta_m^n\sim B^ne^{ikm\Delta x}$, in {eq}`eq:Waves_CTCS`, we have:
+
+```{math}
+\begin{aligned}
+
+𝐵^{𝑛+1} 𝑒^{𝑖𝑘𝑚\Delta 𝑥}&=2𝐵^𝑛 𝑒^{𝑖𝑘𝑚\Delta 𝑥} −𝐵^{𝑛−1} 𝑒^{𝑖𝑘𝑚\Delta 𝑥}+𝑟^2 (𝐵^𝑛 𝑒^{𝑖𝑘(𝑚+1)\Delta 𝑥}−2𝐵^𝑛 𝑒^{𝑖𝑘𝑚\Delta 𝑥}+𝐵^𝑛 𝑒^{𝑖𝑘(𝑚−1)\Delta 𝑥}) &\quad :Divide by $e^{ikm\Delta x}\\
+
+𝐵^{𝑛+1}&=2𝐵^𝑛−𝐵^{𝑛−1}+𝑟^2 𝐵^𝑛 𝑒^{𝑖𝑘\Delta 𝑥}−2𝑟^2 𝐵^𝑛+𝑟^2 𝐵^𝑛 𝑒^{−𝑖𝑘\Delta 𝑥} &\quad Factorize \\
+
+𝐵^{𝑛+1}&=2(1−𝑟^2)𝐵^𝑛−𝐵^{𝑛−1}+𝑟^2 𝐵^𝑛 \underbrace{(𝑒^{𝑖𝑘\Delta 𝑥}+𝑒^{−𝑖𝑘\Delta 𝑥})}_{2cos(k\Delta x)} &\quad \\
+
+𝐵^{𝑛+1}&=2(1−𝑟^2)𝐵^𝑛−𝐵^{𝑛−1}+2𝑟^2 𝐵^𝑛 cos(k\Delta x) &\quad :Factorize\\
+
+𝐵^{𝑛+1}&=2\left (1−2𝑟^2 \left (\frac{1−cos⁡(𝑘Δ𝑥)}{2}\right )\right )𝐵^𝑛−𝐵^{𝑛−1}
+&\quad :Use $sin^2\frac{\theta}{2}=\frac{1-cos\theta}{2}$\\
+
+𝐵^{𝑛+1}&2(\underbrace{1−2𝑟^2𝑠𝑖𝑛^2\frac{𝑘Δ𝑥}{2}}_{\gamma})𝐵^𝑛−𝐵^{𝑛−1} &\quad\\
+
+𝐵^{𝑛+1}&=2\gamma 𝐵^𝑛−𝐵^{𝑛−1} &             
+
+\end{aligned}
+```
+
+This expression contains three timesteps of $B$. To solve from here, we could use a recurrence matrix, or we can check for specific timesteps. The condition $|\frac{B^{n+1}}{B^n}|<1$ only holds if it holds for any three concurrent timesteps. We can test the conditions with, e.g., inserting $n=1$, which yields:
+
+```{math}
+\begin{aligned}
+B^2$=2\gamma B-B^0
+
+B^2-2\gamma B+1&=0
+
+B_{1,2}&=\gamma\pm\sqrt{\gamma^2-1}
+\end{aligned}
+```
+
+We must have $|B_{1,2}|<1$. If $\gamma >1$, $B_1$ willl also be $>1$. We must, therefore, require $|\gamma|\le1$.
+
+```{math}
+\begin{aligned}
+|\gamma|&=\left|1−2𝑟^2𝑠𝑖𝑛^2\frac{𝑘Δ𝑥}{2}\right|\le1\\
+
+-1&\le1−2𝑟^2𝑠𝑖𝑛^2\frac{𝑘Δ𝑥}{2}\le1 \qquad: \text{Subtract }$1$ \text{everywhere}\\
+
+-2&\le−2𝑟^2𝑠𝑖𝑛^2\frac{𝑘Δ𝑥}{2}\le0
+
+\end{aligned}
+```
+
+The right inequality always holds. We must look more closely at the left inequality. Dividing by $-2$ and flipping the inequality, we have:
+
+```{math}
+\begin{aligned}
+
+1&\ge𝑟^2𝑠𝑖𝑛^2\frac{𝑘Δ𝑥}{2}\\
+
+𝑟^2𝑠𝑖𝑛^2\frac{𝑘Δ𝑥}{2}&\le1
+
+\end{aligned}
+```
+
+Since the sine squared is always positive and $\le1$, we must have $𝑟^2≤1$:
+
+```{math}
+r^2=\frac{c^2\Delta t^2}{\Delta x^2}\le1
+```
+
+which yields $r=\frac{c\Delta t}{\Delta x}\le1$. We, therefore, end up with the same CFL criterion as for the advection equation. 

@@ -13,32 +13,32 @@ We assume an exponential solution to {eq}`eq:diffEquation`:
 where $B$ can be complex. Substituting in {eq}`eq:diffEquation`, we have:
 
 ```{math}
-\begin{aligned*}
+\begin{aligned}
         (B^{(n+1)\Delta t} - B^{(n-1)\Delta t})e^{i\mu m\Delta x} &= -c\frac{\Delta t}{\Delta x} B^{n\Delta t}(e^{i\mu (m+1)\Delta x}-e^{i\mu (m-1)\Delta x}) \Leftrightarrow \\
         (B^{\Delta t} - B^{-\Delta t})B^{n\Delta t} e^{i\mu m\Delta x} &= -c\frac{\Delta t}{\Delta x} B^{n\Delta t}e^{i\mu m\Delta x}(e^{i\mu \Delta x}-e^{-i\mu \Delta x}) \Leftrightarrow \\
         (B^{\Delta t} - B^{-\Delta t}) &= -c\frac{\Delta t}{\Delta x} (e^{i\mu \Delta x}-e^{-i\mu \Delta x}). 
-\end{aligned*}
+\end{aligned}
 ```
 
 Expanding the circular exponentials, we can write:
 
 ```{math}
-\begin{aligned*}
+\begin{aligned}
         (B^{\Delta t} - B^{-\Delta t}) &= -c\frac{\Delta t}{\Delta x} (\cos (\mu \Delta x) +  i\sin (\mu \Delta x) -
         \cos (\mu \Delta x) +  i\sin (\mu \Delta x)) \Leftrightarrow \\
         (B^{\Delta t} - B^{-\Delta t}) &= -c\frac{\Delta t}{\Delta x} (2i\sin (\mu \Delta x))
-\end{aligned*}
+\end{aligned}
 ```
 
 and then multiply by $B^{\Delta t}$ to get:
 
 ```{math}
-\begin{aligned*}
+\begin{aligned}
         B^{2\Delta t} - 1 &= -c\frac{\Delta t}{\Delta x} (\cos (\mu \Delta x) +  i\sin (\mu \Delta x) -
         \cos (\mu \Delta x) +  i\sin (\mu \Delta x)) \Leftrightarrow \\
         B^{2\Delta t} - 1 &= -2iB^{\Delta t} c\frac{\Delta t}{\Delta x} (\sin (\mu \Delta x))  \Leftrightarrow \\
         B^{2\Delta t}  + & 2i\mu B^{\Delta t} -1 =  0,
-\end{aligned*}
+\end{aligned}
 ```
 
 with $\mu = c\frac{\Delta t}{\Delta x} \sin (k \Delta x)$. Solving for $B^{\Delta t}$, we obtain:
@@ -60,13 +60,13 @@ The polar form of a complex number $z=a+ib$ is $(a^2+b^2)^{1/2}\exp (i\arctan \f
  For $B^{\Delta t}_+$, we have:
 
 ```{math}
-\begin{aligned*}
+\begin{aligned}
 	B^{\Delta t}_+ &= \left[ (\sqrt{1-\mu^2})^2+(-\mu)^2\right]^{1/2}\exp (i\arctan \frac{-\mu}{\sqrt{1-\mu^2}}) \\
 	&= \left[1-\mu^2+\mu^2\right]^{1/2}\exp (i\arctan \frac{-\mu}{\sqrt{1-\mu^2}}) \\
 	&= \exp (i\arctan \frac{-\mu}{\sqrt{1-\mu^2}}) \\
 	&= \exp (-i\arcsin \mu) \\
 	&= e^{-i\alpha},
-\end{aligned*}	
+\end{aligned}	
 ```
 
 with $\alpha = \arcsin \mu$, while for $B^{\Delta t}_{-}$, we obtain a similar expression:
@@ -132,14 +132,14 @@ Using the initial condition $u_{m}^{0}=A e^{i \mu m\Delta x}$, we have:
 which is the solution at $n=1$. Now we can solve for $E$:
 
 ```{math}
-\begin{aligned*}
+\begin{aligned}
 	A \left[1 - i\sin \alpha \right]e^{i \mu m\Delta x} &= (A-E)e^{i\mu (\Delta x - \alpha/ \mu)} - Ee^{i\mu (\Delta x + \alpha/ \mu)}\Leftrightarrow \\
 	A \left[1 - i\sin \alpha \right]e^{i \mu m\Delta x} &= e^{i \mu m\Delta x} \left[(A-E)e^{-i\alpha} - Ee^{i\alpha}\right]\Leftrightarrow \\
 	A \left[1 - i\sin \alpha \right] &=  (A-E)e^{-i\alpha} - Ee^{i\alpha} \Leftrightarrow \\
 	A \left[1 - i\sin \alpha \right] &=  (A-E)e^{-i\alpha} - Ee^{i\alpha} \Leftrightarrow \\
 	A - A\cos \alpha &= -E (2\cos \alpha) \Leftrightarrow \\
 	E &= \frac{A(\cos \alpha -1)}{2\cos \alpha}.
-\end{aligned*}
+\end{aligned}
 ```
 
 We can now write the full solution of the difference equation {eq}`eq:diffEquation` as: 
@@ -160,4 +160,4 @@ When we compare with {eq}`eq:anaSolution`, that we write below in a discrete ver
 we see that the first waveform is similar to the exact solution, while the second waveform travels in the opposite direction of the exact 
 solution. This second waveform is clearly an artifact introduced by the discretization of {eq}`eqAdvection` and is a source of errors.
 
-### Case 2: $|\mu| \gt 1$
+<!-- ### Case 2: $|\mu| \gt 1$ -->
