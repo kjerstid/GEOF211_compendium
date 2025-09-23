@@ -25,7 +25,7 @@ To apply the Von Neumann stability analysis method we assume a solution of the f
 u_m^n=B^n e^{ikm\Delta x}. 
 ```
 
-Substituing in {eq}`eqFTCSAdvection`, we get
+Substituing in {eq}`eq:FTCSAdvection`, we get
 
 ```{math}
 B^{n+1} e^{ikm\Delta x} &= B^{n} e^{ikm\Delta x} - c\frac{\Delta t}{2\Delta x}(B^{n} e^{ik(m+1)\Delta x}-B^{n} e^{ik(m-1)\Delta x}) \\
@@ -115,6 +115,7 @@ The one-dimensional wave equation (equation {eq}`eq:Waves`), repeated here is :
 The CTCS scheme for the wave equation can be found using the centered formula (Eq. {eq}`eq:Centered2derivative`) for the second derivative on either side of the equation and reordering the expression:
 
 ```{margin}
+```{note}
 $r^2=\frac{c^2\Delta t^2}{\Delta x^2}$
 ```
 
@@ -123,12 +124,12 @@ $r^2=\frac{c^2\Delta t^2}{\Delta x^2}$
 \eta_m^{n+1}=2\eta_m^{n}-\eta_m^{n-1}+r^2(n_{m+1}^n-2n_{m}^n+n_{m-1}^n)
 ```
 
-Substituting a solution like {eq}`eq:vonNeumanSolution`,$\eta_m^n\sim B^ne^{ikm\Delta x}$, in {eq}`eq:Waves_CTCS`, we have:
+Substituting a solution like {eq}`eq:vonNeumannSolution`,$\eta_m^n\sim B^ne^{ikm\Delta x}$, in {eq}`eq:Waves_CTCS`, we have:
 
 ```{math}
 \begin{aligned}
 
-𝐵^{𝑛+1} 𝑒^{𝑖𝑘𝑚\Delta 𝑥}&=2𝐵^𝑛 𝑒^{𝑖𝑘𝑚\Delta 𝑥} −𝐵^{𝑛−1} 𝑒^{𝑖𝑘𝑚\Delta 𝑥}+𝑟^2 (𝐵^𝑛 𝑒^{𝑖𝑘(𝑚+1)\Delta 𝑥}−2𝐵^𝑛 𝑒^{𝑖𝑘𝑚\Delta 𝑥}+𝐵^𝑛 𝑒^{𝑖𝑘(𝑚−1)\Delta 𝑥}) &\quad :Divide by $e^{ikm\Delta x}\\
+𝐵^{𝑛+1} 𝑒^{𝑖𝑘𝑚\Delta 𝑥}&=2𝐵^𝑛 𝑒^{𝑖𝑘𝑚\Delta 𝑥} −𝐵^{𝑛−1} 𝑒^{𝑖𝑘𝑚\Delta 𝑥}+𝑟^2 (𝐵^𝑛 𝑒^{𝑖𝑘(𝑚+1)\Delta 𝑥}−2𝐵^𝑛 𝑒^{𝑖𝑘𝑚\Delta 𝑥}+𝐵^𝑛 𝑒^{𝑖𝑘(𝑚−1)\Delta 𝑥}) &\quad text{:Divide by }$e^{ikm\Delta x}\\ 
 
 𝐵^{𝑛+1}&=2𝐵^𝑛−𝐵^{𝑛−1}+𝑟^2 𝐵^𝑛 𝑒^{𝑖𝑘\Delta 𝑥}−2𝑟^2 𝐵^𝑛+𝑟^2 𝐵^𝑛 𝑒^{−𝑖𝑘\Delta 𝑥} &\quad Factorize \\
 
@@ -150,7 +151,7 @@ This expression contains three timesteps of $B$. To solve from here, we could us
 
 ```{math}
 \begin{aligned}
-B^2$=2\gamma B-B^0
+B^2&=2\gamma B-B^0
 
 B^2-2\gamma B+1&=0
 
@@ -163,11 +164,8 @@ We must have $|B_{1,2}|<1$. If $\gamma >1$, $B_1$ willl also be $>1$. We must, t
 ```{math}
 \begin{aligned}
 |\gamma|&=\left|1−2𝑟^2𝑠𝑖𝑛^2\frac{𝑘Δ𝑥}{2}\right|\le1\\
-
 -1&\le1−2𝑟^2𝑠𝑖𝑛^2\frac{𝑘Δ𝑥}{2}\le1 \qquad: \text{Subtract }$1$ \text{everywhere}\\
-
 -2&\le−2𝑟^2𝑠𝑖𝑛^2\frac{𝑘Δ𝑥}{2}\le0
-
 \end{aligned}
 ```
 
@@ -175,11 +173,8 @@ The right inequality always holds. We must look more closely at the left inequal
 
 ```{math}
 \begin{aligned}
-
 1&\ge𝑟^2𝑠𝑖𝑛^2\frac{𝑘Δ𝑥}{2}\\
-
 𝑟^2𝑠𝑖𝑛^2\frac{𝑘Δ𝑥}{2}&\le1
-
 \end{aligned}
 ```
 
