@@ -19,7 +19,7 @@ The value of $\alpha$ determines the nature of the scheme:
 
 ## Consistency, stability and convergence
 
-The formula of the amplification factor {eq}`eq:ampFactorCN` can be generalized following {eq}`schemeGeneralImplicit`:
+The formula of the amplification factor {eq}`eq:ampFactorCN` can be generalized following {eq}`eq:schemeGeneralImplicit`:
 
 ```{math}
 :label: eq:ampFactorCN

@@ -19,9 +19,9 @@ chapters:
   sections:
   - file: GFD/PrimitiveEquations.md
   - file: GFD/Advection.md
-  - file: GFD/Diffusion.md
+  - file: GFD/DiffusionEq.md
   - file: GFD/InertialOscillation.md
-  - file: GFD/Waves.md
+  - file: GFD/WaveEq.md
 - file: FiniteDifferences/Introduction.md
   sections:
   - file: FiniteDifferences/algebraicDerivative.md
@@ -39,7 +39,6 @@ chapters:
 - file: ImplicitSchemes/Introduction.md
   sections:
   - file: ImplicitSchemes/CrankNicolson.md
-  - file: ImplicitSchemes/CrankNicolson_diffusion.md
   - file: ImplicitSchemes/Implicit_General.md
 - file: BoundaryConditions/Introduction.md
   sections:
@@ -53,12 +52,20 @@ chapters:
   - file: Advection/Analysis.md
   - file: Advection/schemeMacCormack.md
   - file: Advection/schemeLaxWendroff-code.md
-
 - file: AdvancedSchemes/Introduction.md
   sections:
   - file: AdvancedSchemes/Godunov.md
   - file: AdvancedSchemes/FluxLimiters.md
   - file: AdvancedSchemes/TVD_part2.md
+- file: Diffusion/Introduction.md
+  sections:
+  - file: Diffusion/Diffusion.md
+  - file: Diffusion/CrankNicolson_Diffusion.md
+  - file: Diffusion/vonNeumann_Diffusion.md
+- file: Waves/Introduction.md
+  sections:
+  - file: Waves/Waves.md
+  - file: Waves/vonNeumannWaves.md
 
   
 #  - file: Advection/
