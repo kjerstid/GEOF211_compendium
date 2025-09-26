@@ -60,6 +60,7 @@ We can use the centered scheme for second deriatives (Equation {eq}`eq:Centered2
 ```{note}
 $r=\frac{c^2\Delta t^2}{\Delta x^2}$
 ```
+```
 
 ```{math}
 :label: eq:CTCS_Waves
