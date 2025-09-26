@@ -107,7 +107,7 @@ Now, we can add Equation {eq}`eq:ini_wave_Neumann`   and {eq}`eq:CTCS_Waves_n0` 
 
 ```{margin}
 ```{note}
-Here we use $\eta_m^0$ with $f(x_m)$ from the first equation into the second.
+Here we insert $\eta_m^0$ with $f(x_m)$ from the first equation into the second.
 ```
 
 ```{math}
