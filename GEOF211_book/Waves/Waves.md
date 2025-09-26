@@ -65,8 +65,8 @@ $r=\frac{c^2\Delta t^2}{\Delta x^2}$
 ```{math}
 :label: eq:CTCS_Waves
 \begin{aligned}
-\frac{\eta_m^{n+1}-2\eta_m^n+\eta_m^{n-1}}{2\Delta t^2}=c^2\frac{\eta_{m+1}^n-2\eta_m^n+\eta_{-1}^n}{2\Delta x^2}
-\eta_m^{n+1}=2(1-r^2)\eta_m^n+r^2(\eta_{m+1}^n+\eta{m-1}^n)-\eta_m^{n-1}
+\frac{\eta_m^{n+1}-2\eta_m^n+\eta_m^{n-1}}{2\Delta t^2}=c^2\frac{\eta_{m+1}^n-2\eta_m^n+\eta_{-1}^n}{2\Delta x^2}\\
+\eta_m^{n+1}=2(1-r^2)\eta_m^n+r^2(\eta_{m+1}^n+\eta_{m-1}^n)-\eta_m^{n-1}
 \end{aligned}
 ```
 
@@ -103,4 +103,13 @@ We can rearrang the numerical shceme of our CTSC model and insert $n=0$ (Equatio
 \eta_m^1+\eta_m^{-1}=2(1-r^2)\eta_m^0+r^2(\eta_{m+1}^0+\eta_{m-1}^0)
 ```
 
-Now, we can Equation {eq}`eq:ini_wave_Neumann`  
+Now, we can add Equation {eq}`eq:ini_wave_Neumann`   and {eq}`eq:CTCS_Waves_n0` to obtain an equation for $\eta_m^1$. Together with the Dirichlet booundary condition, we now have:
+
+```{math}
+:label: eq:CTCS_Waves_ini
+\begin{aligned}
+\eta_m^0&=f(x_m)\\
+\eta_m^1=\frac{r^2(f(x_{m+1}-f(x_{m-1}^0)}{2}.  2(1-r^2)\eta_m^0+
+end{aligned}
+```
+
