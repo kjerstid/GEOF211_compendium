@@ -65,8 +65,8 @@ $r=\frac{c^2\Delta t^2}{\Delta x^2}$
 ```{math}
 :label: eq:CTCS_Waves
 \begin{aligned}
-\frac{\eta_m^{n+1}-2\eta_m^n+\eta_m^{n-1}}{2\Delta t^2}=c^2\frac{\eta_{m+1}^n-2\eta_m^n+\eta_{-1}^n}{2\Delta x^2}\qquad\text{Solving for }\eta_m^{n+1}\\
-\eta_m^{n+1}=2(1-r^2)\eta_m^n+r^2(\eta_{m+1}^n+\eta_{m-1}^n)-\eta_m^{n-1}
+\frac{\eta_m^{n+1}-2\eta_m^n+\eta_m^{n-1}}{2\Delta t^2}&=c^2\frac{\eta_{m+1}^n-2\eta_m^n+\eta_{-1}^n}{2\Delta x^2}\qquad\text{:Solving for }\eta_m^{n+1}\\
+\eta_m^{n+1}&=2(1-r^2)\eta_m^n+r^2(\eta_{m+1}^n+\eta_{m-1}^n)-\eta_m^{n-1}
 \end{aligned}
 ```
 
@@ -116,6 +116,6 @@ Here we use $\eta_m^0$ with $f(x_m)$ from the first equation into the second.
 \eta_m^0&=f(x_m)\\
 \eta_m^1&=\frac{r^2(\eta_{m+1}^0+\eta_{m-1}^0)}{2} +(1-r^2)\eta_m^0+\Delta t g(x_m)\\
  &=\frac{r^2(f(x_{m+1})+f(x_{m-1}^0))}{2} +(1-r^2)f(x_m)+\Delta t g(x_m)
-end{aligned}
+\end{aligned}
 ```
 
