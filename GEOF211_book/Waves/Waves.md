@@ -115,7 +115,7 @@ Here we use $\eta_m^0$ with $f(x_m)$ from the first equation into the second.
 \begin{aligned}
 \eta_m^0&=f(x_m)\\
 \eta_m^1&=\frac{r^2(\eta_{m+1}^0+\eta_{m-1}^0)}{2} +(1-r^2)\eta_m^0+\Delta t g(x_m)\\
- &=\frac{r^2(f(x_{m+1})+f(x_{m-1}^0))}{2} +(1-r^2)f(x_m)+\Delta t g(x_m)
+ &=\frac{r^2}{2}(f(x_{m+1})+f(x_{m-1}^0)) +(1-r^2)f(x_m)+\Delta t g(x_m)
 \end{aligned}
 ```
 
