@@ -103,7 +103,7 @@ We can rearrange the numerical scheme of our CTSC model and insert $n=0$ (Equati
 \eta_m^1+\eta_m^{-1}=2(1-r^2)\eta_m^0+r^2(\eta_{m+1}^0+\eta_{m-1}^0)
 ```
 
-Now, we can add Equation {eq}`eq:ini_wave_Neumann_C`   and {eq}`eq:CTCS_Waves_n0` to obtain an equation for $\eta_m^1$. Together with the Dirichlet booundary condition, we now have:
+Now, we can add Equation {eq}`eq:ini_wave_Neumann_C`   and {eq}`eq:CTCS_Waves_n0` to obtain an equation for $\eta_m^1$ (The $\eta_m^{-1}$ terms will cancel out). Together with the Dirichlet booundary condition, we now have:
 
 ```{margin}
 ```{note}
