@@ -60,7 +60,7 @@ We can use the centered scheme for second deriatives (Equation {eq}`eq:Centered2
 ```{note}
 $r=\frac{c^2\Delta t^2}{\Delta x^2}$
 ```
-```
+
 
 ```{math}
 :label: eq:CTCS_Waves
@@ -98,7 +98,7 @@ Equation {eq}`eq:ini_wave_Neumann`can be expressed through a second order center
 
 We can rearrang the numerical shceme of our CTSC model and insert $n=0$ (Equation {eq}`eq:CTCS_Waves`) to yield:
 
-´´´{math}
+```{math}
 :label: eq:CTCS_Waves_n0
 \eta_m^1+\eta_m^{-1}=2(1-r^2)\eta_m^0+r^2(\eta_{m+1}^0+\eta_{m-1}^0)
 ```
