@@ -96,7 +96,7 @@ Equation {eq}`eq:ini_wave_Neumann`can be expressed through a second order center
 \end{aligned}
 ```
 
-We can rearrang the numerical shceme of our CTSC model and insert $n=0$ (Equation {eq}`eq:CTCS_Waves`) to yield:
+We can rearrange the numerical shceme of our CTSC model and insert $n=0$ (Equation {eq}`eq:CTCS_Waves`) to yield:
 
 ```{math}
 :label: eq:CTCS_Waves_n0
@@ -105,11 +105,17 @@ We can rearrang the numerical shceme of our CTSC model and insert $n=0$ (Equatio
 
 Now, we can add Equation {eq}`eq:ini_wave_Neumann`   and {eq}`eq:CTCS_Waves_n0` to obtain an equation for $\eta_m^1$. Together with the Dirichlet booundary condition, we now have:
 
+```{margin}
+```{note}
+Here we use $\eta_m^0$ with $f(x_m)$ from the first equation into the second.
+```
+
 ```{math}
 :label: eq:CTCS_Waves_ini
 \begin{aligned}
 \eta_m^0&=f(x_m)\\
-\eta_m^1=\frac{r^2(f(x_{m+1}-f(x_{m-1}^0)}{2}.  2(1-r^2)\eta_m^0+
+\eta_m^1&=\frac{r^2(\eta_{m+1}^0+\eta_{m-1}^0)}{2} +(1-r^2)\eta_m^0+\Delta t g(x_m)\\
+&=\frac{r^2(f(x_{m+1})+f(x_{m-1}^0))}{2} +(1-r^2)f(x_m)+\Delta t g(x_m)
 end{aligned}
 ```
 
