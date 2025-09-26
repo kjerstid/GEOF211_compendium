@@ -1,7 +1,5 @@
 (GFD:Waves)=
-# Wave equation
-
-## The classical wave equation
+# The classical wave equation and its solution
 
 The classical wave equation in 1D can be written:
 
@@ -22,6 +20,7 @@ The general solution to the wave equation {eq}`eq:Waves` can be expressed as:
 The solution represents one wave moving eastward ($f(x+ct)$) and one wave moving westward (g(x-ct)). If a surface is initially disturbed, such as from depressing the surface, waves will spread in all directions. If you throw a pebble in a puddle, you will see waves spreading like rings from the center of where you threw the pebble. For the 1D case, you can think of it as a transect cutting across the 2D case, or alternatively as 
 throwing a pebble in a very narrow and long puddle. Here, the waves spread in only 2 directions, as is indicated in the solution to the wave equation {eq}`eq:WavesSolution`. 
 
+## Proving the general solution 
 We can prove that this solution is correct, by differentiating the solution twice using the chain rule and inserting the expressions into the equation. To make the calculations tidier, we can introduce a variable transform set $\phi=x+ct$ and $\psi=x-ct$. Our general solution now becomes $\eta(x,t)=f(\phi)+g(\psi)$. 
 
 ```{margin}
@@ -53,3 +52,54 @@ Inserting these expressions into the wave equation yields:
 
 ```
 
+## Solving the wave equation numerically
+
+We can use the centered scheme for second deriatives (Equation {eq}`eq:Centered2derivative`) for both the time derivative and the space derivative, yielding a CTCS scheme:
+
+```{margin}
+```{note}
+$r=\frac{c^2\Delta t^2}{\Delta x^2}$
+```
+
+```{math}
+:label: eq:CTCS_Waves
+\begin{aligned}
+\frac{\eta_m^{n+1}-2\eta_m^n+\eta_m^{n-1}}{2\Delta t^2}=c^2\frac{\eta_{m+1}^n-2\eta_m^n+\eta_{-1}^n}{2\Delta x^2}
+\eta_m^{n+1}=2(1-r^2)\eta_m^n+r^2(\eta_{m+1}^n+\eta{m-1}^n)-\eta_m^{n-1}
+\end{aligned}
+```
+
+The CTCS scheme for the classical wave equation includes three time steps for $\eta$. To start a time marching algorithm, we need to now both $\eta_m^0$ and $\eta_m^1$. 
+
+A common workaround to make life easy, is to use the same initial condition for both time step $n=0$ and $n=1$.
+
+A more common method, is to assign both a Dirichlet initial condition for $\eta_m^0$ and a von Neumann initial condition for the derivative $\frac{\partial\eta_m^0}{\partial t}$:
+
+```{math}
+:label: eq:ini_wave_Dirichlet
+\eta_m^0=f(x_m)
+````
+
+```{math}
+:label: eq:ini_wave_Neumann
+\frac{\partial\eta_m^0}{\partial t}=g(x_m)
+```
+
+Equation {eq}`eq:ini_wave_Neumann`can be expressed through a second order centered difference scheme:
+
+```{math}
+:label: eq:ini_wave_Neumann_C
+\begin{aligned}
+\frac{\eta_m^1-\eta_m^{-1}}{2\Delta t}&=g(x_m)
+\eta_m^1-eta_m^{-1}&=2\Delta t(g(x_m))
+\end{aligned}
+```
+
+We can rearrang the numerical shceme of our CTSC model and insert $n=0$ (Equation {eq}`eq:CTCS_Waves`) to yield:
+
+´´´{math}
+:label: eq:CTCS_Waves_n0
+\eta_m^1+\eta_m^{-1}=2(1-r^2)\eta_m^0+r^2(\eta_{m+1}^0+\eta_{m-1}^0)
+```
+
+Now, we can Equation {eq}`eq:ini_wave_Neumann`  
