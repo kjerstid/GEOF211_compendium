@@ -91,7 +91,7 @@ Equation {eq}`eq:ini_wave_Neumann`can be expressed through a second order center
 ```{math}
 :label: eq:ini_wave_Neumann_C
 \begin{aligned}
-\frac{\eta_m^1-\eta_m^{-1}}{2\Delta t}&=g(x_m)
+\frac{\eta_m^1-\eta_m^{-1}}{2\Delta t}&=g(x_m)\\
 \eta_m^1-eta_m^{-1}&=2\Delta t\,g(x_m)
 \end{aligned}
 ```
