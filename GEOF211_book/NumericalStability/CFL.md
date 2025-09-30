@@ -37,29 +37,9 @@ definition:CFL)=
 $C=u\frac{\Delta t}{\Delta x}+v\frac{\Delta t}{\Delta y}\leq C_{max}$ is the CFL criterion for stability of the two-dimensional non-linear advection equation.
 :::
 
-## Characteristics of the linear advection equation
+## Characteristics of the linear advection equation vs Domain of dependence
 
-The analytical solution to the linear advection equation (eq {eq}`eq:Advection`) is given by $q(x,t)=q_0(x-at)$, or we can write it as $q(x-at,0)$. For this to be true, the solution must be constant along the charachteristics $x-at$. We can sketch this in the $x-t$ space:
-
-```{figure} ../Figures/Test1.png
----
-scale: 50%
-align: left
----
-The charactheristics for linear advection with different values of $a$ in different colors. The solution starting at any of these characteristics will stay at the charachteristics as they translate in time and space.
-```
-
-Alternatively, we can translate the charactheristics to find how they look while passing through the grid point $(m,n)$. The domain of dependence for the exact solution, will lie along the charachteristics.
-
-```{figure} ../Figures/Test2.png
----
-scale: 50%
-align: left
----
-The charactheristics for linear advection with different values of $a$ in different colors. The solution starting at any of these characteristics will stay at the charachteristics as they translate in time and space.
-```
-
-If we now combine the figures showing the numerical domain of dependence for the FTBS scheme and the exact domain of dependence from the charactheristics, we obtain:
+We can combine the figures showing the numerical domain of dependence for the FTBS scheme (Figure {ref}`fig:DoD`) and the exact domain of dependence from the charactheristics of the advection equation (Figure {ref}`fig:Char2`), we obtain:
 
 ```{figure} ../Figures/Lin_adv_charachteristic_3.png
 Domain of dependence for the exact (analytical) solution of the linear advection equation (colors) and for the FTBS scheme (shaded triangles).

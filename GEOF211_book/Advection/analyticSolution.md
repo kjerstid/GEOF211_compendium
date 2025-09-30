@@ -1,13 +1,5 @@
 (LinearAdvectionEquation:analyticSolution)=
-# The exact equation
-
-Euler's formula:
-
-```{math}
-e^{i\theta}=\cos \theta + i\sin \theta
-```
-
-is widely used to represent simple oscillatory behaviour. 
+# The exact equation 
 
 The linear advection equation (eq. {eq}`eq:Advection`) is given by:
 
@@ -24,6 +16,7 @@ We will assume an initial condition in the form of a simple wave:
 
 where $k = 2\pi/\lambda$ is the wave number ($\lambda$ is the wavelength). 
 
+## The analytical solution
 We can find the analytic (exact) solution of {eq}`eq:Advection` using the method *separation of variables*.
 Let the solution to {eq}`eq:Advection` with initial condition {eq}`eq:initialCond` be given by:
 
@@ -71,5 +64,29 @@ which is the solution of {eq}`eq:Advection` given the initial condition {eq}`eq:
 u(t,x)=u_0(x-at)
 ```
 :::
+
+## Characteristics of the linear advection equation
+
+The analytical solution to the linear advection equation (eq {eq}`eq:Advection`) is given by $u(x,t)=u_0(x-at)$, or we can write it as $u(x-at,0)$. For this to be true, the solution must be constant along the charachteristics $x-at$. We can sketch this in the $x-t$ space:
+
+```{figure} ../Figures/Test1.png
+---
+:name: `fig:Char1`
+scale: 50%
+align: left
+---
+The charactheristics for linear advection with different values of $a$ in different colors. The solution starting at any of these characteristics will stay at the charachteristics as they translate in time and space.
+```
+
+Alternatively, we can translate the charactheristics to find how they look while passing through the grid point $(m,n)$. The domain of dependence for the exact solution, will lie along the charachteristics.
+
+```{figure} ../Figures/Char2.png
+---
+:name: `fig:Char2`
+scale: 50%
+align: left
+---
+The charactheristics for linear advection with different values of $a$ in different colors. The solution starting at any of these characteristics will stay at the charachteristics as they translate in time and space.
+```
 
 
