@@ -49,9 +49,9 @@ We use the charachteristics of the advection equation $x-at$, since the solution
 
 ```{figure} ./Godunov_2.png
 ---
-:name: fig:Godunov-inflow-utflow
-:width: 50%
-:align: center
+name: fig:Godunov-inflow-utflow
+width: 50%
+align: center
 ---
 Illustration of a the characteristics of the linear advection equation $x-at$. For grid cell $k$m there is an infow from the $k-1$ cell at cell border location $k-1/2$ ($\color{teal}{\text{teal color}}$) and outflow from the $k$ grid cell at $k+1/2$ ($\color{salmon}{\text{salmon color}}$).  
 ```

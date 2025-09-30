@@ -42,6 +42,7 @@ $C=u\frac{\Delta t}{\Delta x}+v\frac{\Delta t}{\Delta y}\leq C_{max}$ is the CFL
 We can combine the figures showing the numerical domain of dependence for the FTBS scheme ({numref}`fig:DoD`) and the exact domain of dependence from the charactheristics of the advection equation ({numref}`fig:Char2`), we obtain:
 
 ```{figure} ../Figures/Lin_adv_charachteristic_3.png
+name: fig:Char3
 Domain of dependence for the exact (analytical) solution of the linear advection equation (colors) and for the FTBS scheme (shaded triangles).
 ```
 

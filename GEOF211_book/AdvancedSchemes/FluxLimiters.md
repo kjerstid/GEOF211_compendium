@@ -68,7 +68,7 @@ You can think of the flux limiter as some kind of switch, or an *if* statement i
 The Godunov fluxes from {eq}`eq:Godunov_fluxes` with limiters, will now look like:
 
 ```{math}
-:label: eq:Godunov_fluxes
+:label: eq:Godunov_fluxes_limit
 \begin{aligned}
 F_{k-1/2}^n&=aq_{k-1}^n+\left(\frac{\Delta x}{2}-a\frac{\Delta t}{2}\right)a\sigma_{k-1}^n\phi(\theta_{k-1/2}^n)\\
 F_{k+1/2}^n&=aq_{k+1}^n+\left(\frac{\Delta x}{2}-a\frac{\Delta t}{2}\right)a\sigma_{k+1}^n\phi(\theta_{k+1/2}^n)
@@ -112,9 +112,9 @@ Figure {numref}`fig:TVD_theta_phi` illustrates what this means. The figure is sh
 
 ```{figure} ./TVD1.png
 ---
-:name: fig:TVD_theta_phi
-:width: 40%
-:align: center
+name: fig:TVD_theta_phi
+width: 40%
+align: center
 ---
 $\theta$-$\phi$ space for visualizing flux limiters. Two simple flux limiters,$\phi\equiv0$ (blue) and $\phi\equiv1$ (red) are sketched. These corresond with the FTBS and the Lax-Wendroff scheme. You can confirm this by inserting the fluxes into the Godunov equation on flux form, and massage the mathematical expression.
 ```
