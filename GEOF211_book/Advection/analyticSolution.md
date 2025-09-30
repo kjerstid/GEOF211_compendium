@@ -71,7 +71,7 @@ The analytical solution to the linear advection equation (eq {eq}`eq:Advection`)
 
 ```{figure} ../Figures/Test1.png
 ---
-:name: `fig:Char1`
+:name: fig:Char1
 scale: 50%
 align: left
 ---
@@ -82,7 +82,7 @@ Alternatively, we can translate the charactheristics to find how they look while
 
 ```{figure} ../Figures/Char2.png
 ---
-:name: `fig:Char2`
+:name: fig:Char2
 scale: 50%
 align: left
 ---
