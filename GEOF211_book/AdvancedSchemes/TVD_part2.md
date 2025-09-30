@@ -144,7 +144,7 @@ From Equation {eq}`eq:A_right`, we must have: $\phi(\theta_{k-1/2}^n) \le \frac{
 $\theta$-$\phi$ space for visualizing flux limieters. Two simple flux limiters,$\phi\equiv0$ (blue) and $\phi\equiv1$ (red) are sketched. These corresond with the FTBS and the Lax-Wendroff scheme. The hatched area shows the area where the TVD criteria from Equation {eq}`eq:TVD_crit` holds.  
 ```
 
-Figure {ref}`fig:TVD_theta_phi_TVDcrit` shows the $\theta$-$\phi$ space, where the area that ensures TVD is hatched. The area is bounded by the lines $\phi(\theta)= 2$ and $\phi(\theta)= 2\theta$.  
+Figure {numref}`fig:TVD_theta_phi_TVDcrit` shows the $\theta$-$\phi$ space, where the area that ensures TVD is hatched. The area is bounded by the lines $\phi(\theta)= 2$ and $\phi(\theta)= 2\theta$.  
 
 We can now better understand where the oscillations in the Lax-Wendroff scheme comes from. As long as the slope $\theta \ge\frac{1}{2}$, the scheme is inside the TVD regime. However, for negative or small values of $\theta$ ($\theta\le \frac{1}{2}$), the red line, representing Lax Wendroff, is outside the hatched area that ensures TVD. It is for these small $\theta$ that the oscillations start to grow.
 
@@ -155,7 +155,7 @@ There exist many flux limiters that ensures $\phi(\theta)$ falls within the area
 
 ### Sveby restricted TVD and Sveby flux limiter
 
-To avoid large diffusion and risk of oscillations, Sveby restricted the TVD area by excluding the lower part and the upper left corner, as illustrated in figure {ref}`fig:TVD_Sveby`. The yellow area is the Sveby restricted TVD area. 
+To avoid large diffusion and risk of oscillations, Sveby restricted the TVD area by excluding the lower part and the upper left corner, as illustrated in figure {numref}`fig:TVD_Sveby`. The yellow area is the Sveby restricted TVD area. 
 
 ```{figure} ./TVD3.png
 ---

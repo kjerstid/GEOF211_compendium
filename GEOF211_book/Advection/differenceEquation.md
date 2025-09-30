@@ -9,12 +9,12 @@ We are going to solve equation {eq}`eq:Advection` numerically on discretized tim
 	t^n &= n\Delta t, n=0,1,2,...,N,
 ```
 
-where $\Delta t$ is the time step and $\Delta x$ is the grid resolution. The discrete time-space domain is commonly represented as the *t-x diagram* in {numref}`txDiagram`.
+where $\Delta t$ is the time step and $\Delta x$ is the grid resolution. The discrete time-space domain is commonly represented as the *t-x diagram* in {numref}`fig:txDiagram`.
 
 ```{figure} ./txDiagramCropped.png
 ---
 height: 600px
-name: txDiagram
+name: fig:txDiagram
 ---
 The discrete time-space domain represented as a t-x diagram. The numerical solution at time $t^n$ and position $x_m$ is $u_m^n$ and is represented in the diagram in the position ($x_m$,$t^n$).  
 ```
