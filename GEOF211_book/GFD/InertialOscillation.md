@@ -63,8 +63,3 @@ align: center
 ---
 Drifter tracks from an October storm in 1987, deployed during the Ocean Storms Experiment campaign in the northeast Pacific. Image from {cite:ts}`vanMeurs1998`.  
 ```
-
-## References:
-
-```{bibliography}
-```

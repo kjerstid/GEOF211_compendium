@@ -15,3 +15,6 @@ we have established:
 * Lax-Wendroff is stable, but we get oscillations in regions of strong gradients.
 
 There are many approaches to design more advanced schemes than those mentioned above. In this chapter, we will look into some of them.
+
+```{tableofcontents}
+```
