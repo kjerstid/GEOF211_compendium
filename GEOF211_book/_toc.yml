@@ -66,6 +66,7 @@ chapters:
   sections:
   - file: Waves/Waves.md
   - file: Waves/vonNeumannWaves.md
+- file: References.md
 
   
 #- file: markdown
