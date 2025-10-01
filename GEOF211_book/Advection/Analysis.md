@@ -15,7 +15,7 @@ First, let $\Delta x \to 0$. We will have:
 since $\lim_{\Delta x\to0}\frac{\sin (\mu \Delta x)}{\mu \Delta x}=1$. Then, consider that $\Delta t$ is small, so that $\alpha=\arcsin c\mu\Delta t \approx c\mu\Delta t$. Thus in the limit of small $\Delta t$ and $\Delta x$, we will have
 
 ```{math}
-:label: eq:anaSol2
+:label: eq:anaSol3
 \begin{aligned}
 	A \frac{1+\cos \alpha}{2\cos \alpha}e^{i\mu (m\Delta x - \alpha n/ \mu)}  &= A \frac{1+\cos \alpha}{2\cos \alpha}e^{i\mu (m\Delta x -  n c\mu\Delta t/ \mu)} \\ &= A \frac{1+\cos \alpha}{2\cos \alpha}e^{i\mu (m\Delta x -  cn \Delta t)},
 \end{aligned}

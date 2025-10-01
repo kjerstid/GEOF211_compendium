@@ -6,21 +6,18 @@
 From the Navier Stokes equation {eq}`eq:NavierStokes` we can look at a simplified case for advection of momentum, where changes in the local time derivative $\frac{\partial u}{\partial t}$ is only depending on the velocity field.
 
 ```{math}
-:label: eq:NonLinAdvection_u_3d
 \frac{\partial u}{\partial t}+u(t,x,y,z)\frac{\partial u}{\partial x}+v(t,x,y,z)\frac{\partial u}{\partial y}+w(t,x,y,z)\frac{\partial u}{\partial z}=0
 ```
 
 If we disregard motion in the y, and z-direction ($v=0$ and $w=0$), we obtain the one-dimensional non-linear advection equation for momentum:
 
 ```{math}
-:label: eq:NonLinAdvection_u_1d
 \frac{\partial u}{\partial t}+u(t,x)\frac{\partial u}{\partial x}=0
 ```
 
 For other parameters, like, e.g., temperature ($\theta$) the non-linear advection equation is written:
 
 ```{math}
-:label: eq:NonLinAdvection_t_1d
 \frac{\partial \theta}{\partial t}+u(t,x)\frac{\partial \theta}{\partial x}=0
 ```
 
@@ -29,7 +26,6 @@ The first term of {eq}`eq:NonLinAdvection_t_1d` is the local change with time. I
 To obtain the *linear advection equation*, you can simply replace the velocity $u(t)$, with a constant velocity $a$. The linear, 1D equation for temperature, $\theta$ then becomes:
 
 ```{math}
-:label: eq:LinAdvection_theta_1d
 \frac{\partial \theta}{\partial t}+a\frac{\partial \theta}{\partial x}=0
 ```
 

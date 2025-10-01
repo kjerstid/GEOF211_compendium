@@ -73,7 +73,7 @@ q_k^{n+1}=q_k^n-C {\color{violet}{(s_{k-1}^n-q_{k-1}^n)}} -\frac{C}{2}(1-C)\left
 
 Noting that the term $\frac{(q_{k+1}^n-q_k^n)}{{\color{violet}{(q_{k-1}^n-q_{k-1}^n)}}}$ is the same as ${1}/{\theta_{k+1/2}^n}$, we can replace this in equation {eq}`eq:Godunov_pregeneral`, and complete the factorizing of ${\color{violet}{(q_k^n-q_{k-1}^n)}}$ to get the scheme on the general form:
 
-(definition:Total Variation)=
+(definition:Total Variation 2)=
 :::{admonition} Godunov on the general form
 :class: important
 ```{math}
@@ -181,7 +181,7 @@ The associated Sveby flux limiter follows the lower boundary of the Sveby restri
 
 The superbee flux limiter follows the upper boundary of the Sveby restricted TVD area:
 
-(definition:stability)=
+(definition:stability 2)=
 :::{admonition} Superbe flux limiter
 :class: important
 ```{math}
@@ -197,7 +197,7 @@ The superbee flux limiter is commonly used in ocean and atmospheric models, prov
 
 The van Leer flux limiter is designed to be roughly in the center of the Sveby restricted TVD area:
 
-(definition:stability)=
+(definition:stability 3)=
 :::{admonition} van Leer flux limiter
 :class: important
 ```{math}

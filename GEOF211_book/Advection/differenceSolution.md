@@ -50,7 +50,7 @@ with $\mu = c\frac{\Delta t}{\Delta x} \sin (k \Delta x)$. Solving for $B^{\Delt
 
 The roots $B^{\Delta t}_\pm$ will have different behaviours, depending on the magnitude of $|\mu|$. 
 
-### Case 1: $|\mu| \leq 1$
+## Case 1: $|\mu| \leq 1$
 
 For $|\mu| \leq 1$ we obtain two complex roots that we can express in polar form.
 

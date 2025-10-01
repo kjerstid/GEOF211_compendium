@@ -35,7 +35,7 @@ We can expand {eq}`eq:schemeCrankNicolson` to obtain
 that is a linear system of equations 
 
 ```{math}
-:label: eq:schemeAB
+:label: eq:schemeAB_diff
   A\mathbf{u}^{n+1}=B\mathbf{u}^{n}.
 ```
 

@@ -6,7 +6,6 @@ The diffusion equation describes a molecular mixing process that, with time, dis
 The diffusion equation for momentum $u(x,t)$ is expressed:
 
 ```{math}
-:label: eq:Diffusion
 \frac{\partial u}{\partial t}=\gamma\frac{\partial^2u}{\partial x^2},
 ```
 

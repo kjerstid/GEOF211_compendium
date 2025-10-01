@@ -45,9 +45,9 @@ The inertial oscillations do not move in space like the advection or diffusion e
 
 ```{figure} ./InertialOscillationsArrows.png
 ---
-:name: `fig:InertialOscillationsArrows`
-:width: 40%
-:align: center
+name: fig:InertialOscillationsArrows
+width: 40%
+align: center
 ---
 Illustration of the velocity vectors for the inertial oscillation at various times steps. Herre, the initial condition is set to $U_0=iv$. The velocity vectors rotate clockwise with time. 
 ```
@@ -64,7 +64,7 @@ In real life, there is seldom/never a pure inertial balance, and the inertial os
 Drifter tracks from an October storm in 1987, deployed during the Ocean Storms Experiment campaign in the northeast Pacific. Image from {cite:ts}`vanMeurs1998`.  
 ```
 
-### References:
+## References:
 
 ```{bibliography}
 ```
