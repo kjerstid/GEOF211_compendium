@@ -1,14 +1,14 @@
 (Useful_calculus:Trigonometry)=
 # Trigonometry
 
-#### Pythagorean indentity:
+**Pythagorean indentity:**
 
 ```{math}
 :label: eq:Trig_pythagoras
 \sin^2 x+\cos^2 x=1
 ```
 
-#### Sine and cosine additive identities
+**Sine and cosine additive identities**
 ```{math}
 :label: eq:Trig_sine_add
 \sin(x+y)=\sin x\cos y+\cos x\sin y
@@ -19,7 +19,7 @@
 \cos(x+y)=\cos x\cos y-\sin x\sin y
 ```
 
-#### Double angle formulas:
+**Double angle formulas:**
 ```{math}
 :label: eq:Trig_psine_double
 \sin(2x)=2\sin x\cos x
@@ -30,7 +30,7 @@
 \cos(2x)=\cos^2 x-\sin^2 x=2cos^2 x-1=1-2\sin^2x
 ```
 
-#### Half angle formulas:
+**Half angle formulas:**
 ```{math}
 :label: eq:Trig_sine:half
 \sin(\frac{x}{2})=\pm \sqrt{\frac{1-\cos x}{2}}

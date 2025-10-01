@@ -1,6 +1,5 @@
-(NumericalStability:Total_variation)=
+(chap:TVD1)=
 # Total Variation (TV) and Total Variation Diminishing (TVD) schemes (part 1)
-:label: sec:TVD1
 
 ## Total variation (TV)
 The total variation is a measure of the amount of oscillation in the field:

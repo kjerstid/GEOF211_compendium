@@ -4,7 +4,7 @@
 The classical wave equation in 1D can be written:
 
 ```{math}
-:label: eq:Waves
+:label: eq:Waves_repeat
 \frac{\partial^2 \eta}{\partial t^2}=c^2\frac{\partial^2 \eta}{\partial x^2}
 ```
 
@@ -13,7 +13,7 @@ The classical wave equation in 1D can be written:
 The general solution to the wave equation {eq}`eq:Waves` can be expressed as:
 
 ```{math}
-:label: eq:WavesSolution
+:label: eq:WavesSolution_repeat
 \eta(x,t)=f(x+ct)+g(x-ct)
 ```
 

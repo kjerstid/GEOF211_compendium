@@ -2,7 +2,7 @@
 # Godunov schemes with TVD flux limiters 
 We know that FTBS has severe dnumerical diffusion, and that Lax-Wendroff can give solutions where oscillations grow near strong gradients. Making a flux limiter that just switch between these two schemes is not necessarily sufficient to provide a good numerical model for the advection equation.
 
-To improve our numerical scheme even further, we can try to ensure that the scheme does not introdue oscillations. Chapter {ref}`sec:TVD1` introduced the concept of Total Variation and Total Variation Diminishing (TVD) schemes. We will expand on this concept here, to design improved numerical schemes for advection based on the Godunov approach with flux limiters. This boils down to finding clever values of $\phi(\theta)$.
+To improve our numerical scheme even further, we can try to ensure that the scheme does not introdue oscillations. Chapter {ref}`chap:TVD1` introduced the concept of Total Variation and Total Variation Diminishing (TVD) schemes. We will expand on this concept here, to design improved numerical schemes for advection based on the Godunov approach with flux limiters. This boils down to finding clever values of $\phi(\theta)$.
 
 We will make a short recap of TVD part 1 from chapter {ref}`sec:TVD1`. The total variation is a measure of the amount of oscillation in the field:
 
@@ -10,7 +10,7 @@ We will make a short recap of TVD part 1 from chapter {ref}`sec:TVD1`. The total
 :::{admonition} Definition
 :class: important
 ```{math}
-:label: eq:TotalVariation
+:label: eq:TotalVariation_repeat
 TV(q^n)=\sum_{m=2}^J|(q_m^n-q_{m-1}^n)|
 ```
 :::
@@ -22,7 +22,7 @@ A numerical scheme is Total Variation Diminishing if:
 :class: important
 A numerical scheme is total variation diminishing if:
 ```{math}
-:label: eq:TotalVariation_b
+:label: eq:TotalVariation_b_repeat
 TV(q^{n+1})\leq TV(q^n)
 ```
 :::

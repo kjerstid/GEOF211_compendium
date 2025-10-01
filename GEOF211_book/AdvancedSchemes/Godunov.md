@@ -26,7 +26,7 @@ We can decide how we want to express this slope numerically. We could, for examp
 
 ```{figure} ./Godunov_1.png
 ---
-name: fig:Godunov-reconstruction
+name: fig:Godunov_reconstruction
 width: 50%
 align: center
 ---
@@ -49,7 +49,7 @@ We use the charachteristics of the advection equation $x-at$, since the solution
 
 ```{figure} ./Godunov_2.png
 ---
-name: fig:Godunov-inflow-utflow
+name: fig:Godunov-inflow-outflow
 width: 50%
 align: center
 ---
@@ -113,9 +113,8 @@ The Godunov method is not only applicable to the advection equation. However, yo
 ```{note}
 Although it may be tempting to insert the choice of $\sigma_k^n$ into Equation {eq}`eq:Godunov` the one-step solution before coding, it will be useful to calculate the slope $(\sigma_k^n-\sigma_{k-1}^n)$ separately. We will learn how to make wise choices based on slope characteristics, and keeping these calculations tidy will be essential!
 ```
-
+(chap:minmod)=
 ## Min-mod limiters
-:name :chap:minmod
 
 If we study the upwind and downwind slopes in an area close to grid cell $k$, we can make som intentional choices of which slope to use where. A steep slope indicates a strong gradient, while a mild slope indicates a weak gradient. It is often benefitial to choose the mildest of the two slopes.
 

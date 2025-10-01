@@ -52,7 +52,7 @@ align: center
 Illustration of the velocity vectors for the inertial oscillation at various times steps. Herre, the initial condition is set to $U_0=iv$. The velocity vectors rotate clockwise with time. 
 ```
 
-In real life, there is seldom/never a pure inertial balance, and the inertial oscillations will be advected by the background current as depicted in Figure {ref}`fig:InertialOscillation`. These inertial oscillations were observed during a drifter campaign in the northeast Pacific furing an October storm. 
+In real life, there is seldom/never a pure inertial balance, and the inertial oscillations will be advected by the background current as depicted in Figure {ref}`fig:InertialOscillations`. These inertial oscillations were observed during a drifter campaign in the northeast Pacific furing an October storm. 
 
 
 ```{figure} ./inertial_oscillations.jpg
