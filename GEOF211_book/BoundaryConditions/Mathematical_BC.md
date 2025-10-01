@@ -44,4 +44,4 @@ Robin boundary conditions is a mix of von Neuman and Dirichlet boundary conditio
 \end{aligned}
 ```
 
-You can read more about this in, e.g., {cite:ts}`Strauss1982`.
+You can read more about this in, e.g., {cite:ts}`Strauss1992`.
