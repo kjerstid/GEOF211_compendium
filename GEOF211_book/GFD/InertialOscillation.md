@@ -57,9 +57,9 @@ In real life, there is seldom/never a pure inertial balance, and the inertial os
 
 ```{figure} ./inertial_oscillations.jpg
 ---
-:name: `fig:InertialOscillations`
-:width: 40%
-:align: center
+name: fig:InertialOscillations
+width: 40%
+align: center
 ---
 Drifter tracks from an October storm in 1987, deployed during the Ocean Storms Experiment campaign in the northeast Pacific. Image from {cite:ts}`vanMeurs1998`.  
 ```

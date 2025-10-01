@@ -6,7 +6,7 @@ To improve our numerical scheme even further, we can try to ensure that the sche
 
 We will make a short recap of TVD part 1 from chapter {ref}`sec:TVD1`. The total variation is a measure of the amount of oscillation in the field:
 
-(definition:Total Variation)=
+(definition:Total Variation repeat)=
 :::{admonition} Definition
 :class: important
 ```{math}

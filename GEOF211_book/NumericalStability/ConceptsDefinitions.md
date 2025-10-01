@@ -20,7 +20,7 @@ A **uniformly bounded** family of functions is a family of bounded functions tha
 
 ## Monotonicity
 
-(definition:errorApproximation)=
+(definition:errorApproximation2)=
 :::{admonition} Definition
 :class: important
 A scheme is **monotonous** if
@@ -34,7 +34,7 @@ Could you think of any functions that fullfuill this criteria?
 
 First, let's clarify the expression "converge to the solution of the exact equation", by defining the error of the numerical approximation.
 
-(definition:errorApproximation)=
+(definition:errorApproximation3)=
 :::{admonition} Definition
 :class: important
 The **error of the numerical approximation** $q_m^n$, $\epsilon_m^n$, is

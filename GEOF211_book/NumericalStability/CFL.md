@@ -15,7 +15,7 @@ q_m^{n+1}=q_m^n-a\frac{\Delta t}{\Delta x}(q_m^n-q_{m-1}^n)
 The factor $C=a\frac{\Delta t}{\Delta x}$ is typically called the *Courant number* 
 :::
 
-(definition:CFL)=
+(definition:CFL2)=
 :::{admonition} CFL criterion
 :class: important
 $C=a\frac{\Delta t}{\Delta x}\leq C_{max}$ is the CFL criterion for stability of the one-dimensional linear advection equation.

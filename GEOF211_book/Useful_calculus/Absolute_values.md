@@ -43,7 +43,7 @@ Inequalities of sums and differences:
 Combining the equations above gives the following:
 
 ```{math}
-:label: eq:Absolute_fraction
+:label: eq:Absolute_fraction2
 \begin{aligned}
 \left|\frac{a+b}{a-b}\right|&=\frac{|a+b|}{|a-b|}\\
 &=\frac{\sqrt{a^2+b^2}}{\sqrt{a^2+(-b)^2}}\\

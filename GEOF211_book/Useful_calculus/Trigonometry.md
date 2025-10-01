@@ -41,87 +41,87 @@
 \cos(\frac{x}{2})=\pm \sqrt{\frac{1+\cos x}{2}}
 ```
 
-## Complex numbers
+<!-- ## Complex numbers
 The imaginary unit, $i$ is defined as:
 ```{math}
-:label: eq:Complex_i
+:label: eq:Complex_i_repeat
 i=\sqrt{-1}
 ```
 
 A complex number is and expression of the form: 
 
 ```{math}
-:label: eq:Complex_def
+:label: eq:Complex_def_repeat
 z=x+iy
 ```
 
 The distance from origo, the the point (x,y) in the complex plane is called the modulus and is defined as:
 ```{math}
-:label: eq:Complex_modulus
+:label: eq:Complex_modulus_repeat
 |z|=\sqrt{x^2+y^2}
 ```
 
 The norm of a complex  number (equivalent of the vector length in the complex plane) is:
 ```{math}
-:label: eq:Complex_norm_squared
+:label: eq:Complex_norm_squared_repeat
 |z|^2=x^2+y^2
 ```
 
 The modulus of a product of two complex numbers $z$ and $w$ is:
 ```{math}
-:label: eq:Complex_modulus_product
+:label: eq:Complex_modulus_product_repeat
 |zw|=|z||w|
 ```
 
 The modulus of the sum of two complex numbers, also called "The triangle inequality" is defined:
 ```{math}
-:label: eq:Complex_triangle_identity
+:label: eq:Complex_triangle_identity_repeat
 |z+w|<|z|+|w|
-```
+``` -->
 
 
-## The Euler formula and modifications
+<!-- ## The Euler formula and modifications
 
-#### Eulers identity
+**Eulers identity**
 ```{math}
-:label: eq:Euler_identity
+:label: eq:Euler_identity_repeat
 e^{i\pi}+1=0
 ```
 
-#### Eulers formula
+**Eulers formula**
 ```{math}
-:label: eq:Euler
+:label: eq:Euler_repeat
 e^{ix}=\cos x+i\sin x
 ```
 
-#### Cosine exponential form
+**Cosine exponential form**
 ```{math}
-:label: eq:Euler_cos
+:label: eq:Euler_cos_repeat
 \frac{e^{ix}+e^{-ix}}{2}=\cos x
 ```
 
-#### Sine exponential form
+**Sine exponential form**
 ```{math}
-:label: eq:Euler_sin
+:label: eq:Euler_sin_repeat
 \frac{e^{ix}-e^{-ix}}{2i}=\sin x
 ```
 
-#### Tangent exponential form
+**Tangent exponential form**
 ```{math}
-:label: eq:Euler_tan
+:label: eq:Euler_tan_repeat
 \frac{e^{ix}-e^{-ix}}{i(e^{ix}+e^{-1x})}=\tan x
 ```
 
-#### Complex exponential
+**Complex exponential**
 ```{math}
 :label: eq:Euler_complex_exp
 e^{x+iy}=e^x(\cos y+i\sin y)
 ```
 
-#### de Moivre's theorem
+**de Moivre's theorem**
 ```{math}
-:label: eq:Euler_sine_add
+:label: eq:Euler_sine_add_repeat
 (\cos x+i\sin x)^n=\cos nx+i\sin nx
-```
+``` -->
 
 You can read more about trigonometry in {cite:ts}`Adams2018calculus`, chapter P.6.

@@ -19,10 +19,10 @@ The value of $\alpha$ determines the nature of the scheme:
 
 ## Consistency, stability and convergence
 
-The formula of the amplification factor {eq}`eq:ampFactorCN` can be generalized following {eq}`eq:schemeGeneralImplicit`:
+The formula of the amplification factor {eq}`eq:ampFactorCN_general` can be generalized following {eq}`eq:schemeGeneralImplicit`:
 
 ```{math}
-:label: eq:ampFactorCN
+:label: eq:ampFactorCN_general
    G = \frac{u_{m}^{n+1}}{u_{m}^{n}} = \frac{1-(1-\alpha)(\sigma/2)i\sin\lambda \Delta x}{1+\alpha(\sigma/2)i\sin\lambda \Delta x},
 ```
 

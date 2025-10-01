@@ -89,7 +89,7 @@ and
 we arrive at the following amplification factor:
 
 ```{math}
-:label: eq:ampFactorCN
+:label: eq:ampFactorCN_diff
    G = \frac{u_{m}^{n+1}}{u_{m}^{n}} =\frac{B^{n+1}}{B^n}= \frac{1-2C\sin^2 (\frac{k\Delta x}{2})}{1+2C\sin^2(\frac{k \Delta x}{2})},
 ```
 
