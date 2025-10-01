@@ -6,7 +6,7 @@ Let us consider a function $u(t)$ that depends continuously on $t$.
 ```{figure} ./Differentiate.png
 ---
 name: fig:Differentiate
-width: 25%
+width: 50%
 align: center
 ---
 A continuous function $u(t)$. Two points $t$ and $t+\Delta t$ are indicated alont the horizontal axis, and their functional values are indicated on the vertical axis. The slope between the two points is an approximation for the derivative at the point $t$.
@@ -26,7 +26,7 @@ We can obtain an algebraic approximation to $du/dt$ simply by relaxing the requi
 \frac{du}{dt} \approx \frac{u(t+\Delta t)-u(t)}{\Delta t}.
 ```
 
-If instead of a continuous $t$, we use discrete values $t^n=n\Delta t$, we can write the algebraic approximation {eq}`eq:approxDerivative` as:
+If instead of a continuous $t$, we use discrete values $t^n=n\Delta t$, we can write the algebraic approximationin Eq. {eq}`eq:approxDerivative` as:
 
 ```{math}
 :label: eq:discreteDerivative

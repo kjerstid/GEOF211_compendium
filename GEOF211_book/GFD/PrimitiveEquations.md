@@ -42,10 +42,6 @@ If the right hand side of the density equation is zero, we have conservation of 
 
 You can read more about these equations in {cite:ts}`Cushman-RoisinBeckers2011`, chapter 3.1 and 4.4
 
-## References:
-
-```{bibliography}
-```
 
 
 
