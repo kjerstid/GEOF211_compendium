@@ -41,8 +41,14 @@ We can integrate the continuity equation over the water column depth:
 
 ```{margin}
 ```{note}
-$w(\eta)=\frac{\partial \eta}{\partial t}\\$
-$w(-h)=0\\$
+$$
+w(\eta)=\frac{\partial \eta}{\partial t}
+$$
+
+$$
+w(-h)=0
+$$
+
 For a continuous function, the integral and derivation order can be swapped.
 
 ```
