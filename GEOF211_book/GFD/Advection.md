@@ -1,5 +1,5 @@
 (GFD:Advection)=
-# Advection equation
+# The Advection equation
 
 *Advection* is a process where a parameter like, e.g., salt, temperature, moisture, momentum, oxygen... is transported by the velocity field in a given direction. 
 
