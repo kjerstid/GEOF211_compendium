@@ -33,7 +33,7 @@ The vertical boundary conditions can be expressed as:
 :label: eq:SW_vert_bound
 \begin{aligned}
 \frac{D\eta}{Dt}&=\frac{\partial \eta}{\partial t}+u\frac{\partial \eta}{\partial x}+v\frac{\partial \eta}{\partial y}=w(z=\eta)\qquad \text{Surface boundary conditions}\\
-\bar{u}\cdot\nabla(z+h(x,y))=0\qquad \text{at} z=-h(x,y)\qquad \text{Bottom boundary conditions}
+\bar{u}\cdot\nabla(z+h(x,y))&=0\qquad \text{at} z=-h(x,y)\qquad \text{Bottom boundary conditions}
 \end{aligned}
 ```
 
