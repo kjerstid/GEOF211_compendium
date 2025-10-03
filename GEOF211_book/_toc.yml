@@ -21,6 +21,7 @@ chapters:
   - file: GFD/Advection.md
   - file: GFD/DiffusionEq.md
   - file: GFD/InertialOscillation.md
+  - file: GFD/ShallowWaterEq.md
   - file: GFD/WaveEq.md
 - file: FiniteDifferences/Introduction.md
   sections:
