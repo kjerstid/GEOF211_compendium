@@ -3,7 +3,16 @@
 
 The shallow water equations describe waves that have long wave lengths compared to the water depth. The name suggests that these waves occur over shallow water. When surface gravity waves arise in the open ocean, they does not follow the shllow water equtions. However, when the waves reach a sloping beach, they will start to behave like shallow water waves when the water column thickness becomes small relative to the wave lengths.
 
-Shallow water waves an also occur in deep waters, when the wave lengths are sufficently long. 
+Shallow water waves an also occur in deep waters, when the wave lengths are sufficently long. See Figure {numref}`fig:SWwave`for a sketch of the shallow water wave.
+
+```{figure} ./SWwave.png
+---
+name: fig:SWwave
+width: 75%
+align: center
+---
+Sketch of a shallow water wave. The bottom depth is given by $h(x,y)$ and the surface elevation is given by $\eta(x,y,t)$.
+```
 
 To derive the shallow water equations, we start with the continuity equation for incompressible fluids ({eq}`eq:Continuity`), the Navier stokes equation ({eq}`eq:NavierStokes`), neglecting friction: 
 
@@ -23,8 +32,8 @@ The vertical boundary conditions can be expressed as:
 ```{math}
 :label: eq:SW_vert_bound
 \begin{aligned}
-\frac{D\eta}{Dt}&=\frac{\partial \eta}{\partial t}+u\frac{\partial \eta}{\partial x}+v\frac{\partial \eta}{\partial y}=w(z=\eta)&\qquad \text{Surface boundary conditions}\\
-\bar{u}\cdot\nabla(z+h(x,y))=&0\qquad \text{at} z=-h(x,y)\qquad \text{Bottom boundary conditions}
+\frac{D\eta}{Dt}&=\frac{\partial \eta}{\partial t}+u\frac{\partial \eta}{\partial x}+v\frac{\partial \eta}{\partial y}=w(z=\eta)\qquad \text{Surface boundary conditions}\\
+\bar{u}\cdot\nabla(z+h(x,y))=0\qquad \text{at} z=-h(x,y)\qquad \text{Bottom boundary conditions}
 \end{aligned}
 ```
 
@@ -39,6 +48,7 @@ For a continuous function, the integral and derivation order can be swapped.
 ```
 
 ```{math}
+:label: eq:continuity:integral
 \begin{aligned}
 \int_{-h}^\eta\frac{\partial u}{\partial x}+\frac{\partial v}{\partial y}+\frac{\partial w}{\partial z}dz\\
 w(\eta)-w(-h)+\int_{-h}^\eta\frac{\partial u}{\partial x}+\frac{\partial v}{\partial y}dz\\
