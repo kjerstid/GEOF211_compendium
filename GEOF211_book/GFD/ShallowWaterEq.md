@@ -16,14 +16,15 @@ To derive the shallow water equations, we start with the continuity equation for
 g\rho&=-\frac{\partial p}{\partial z}
 \end{aligned}
 ```
+
+
 The vertical boundary conditions can be expressed as:
 
 ```{math}
 :label: eq:SW_vert_bound
 \begin{aligned}
 \frac{D\eta}{Dt}&=\frac{\partial \eta}{\partial t}+u\frac{\partial \eta}{\partial x}+v\frac{\partial \eta}{\partial y}=w(z=\eta)&\qquad \text{Surface boundary conditions}\\
-\bar{u}\cdot\nabla(z+h(x,y))=0\qquad at z=-h(x,y)&\qquad \text{Bottom boundary conditions}
-
+\bar{u}\cdot\nabla(z+h(x,y))=&0\qquad \text{at} z=-h(x,y)\qquad \text{Bottom boundary conditions}
 \end{aligned}
 ```
 
