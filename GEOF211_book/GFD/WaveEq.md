@@ -4,10 +4,14 @@
 
 The classical wave equation in 1D can be written:
 
+definition:Wave)=
+:::{admonition} The wave equation
+:class: important
 ```{math}
 :label: eq:Waves
 \frac{\partial^2 \eta}{\partial t^2}=c^2\frac{\partial^2 \eta}{\partial x^2}
 ```
+:::
 
 , where $\eta$ represents the vertical displacement of the wave surface. In the ocean this would mean the deviation from the mean sea surface heigh.
 
@@ -25,6 +29,9 @@ throwing a pebble in a very narrow and long puddle. Here, the waves spread in on
 
 Inertia-gravity waves describes the relation between the surface elevation and velocity. We have a set of coupled equations where one equation describes the change in surface elevtion with time caused by a horizontal velocity shear. Additionally, we have one equation (or 2, if northward velocity $v\ne0$) describing the acceleration of water parcels associated with horizontal gradients in surface elevation and coriolis. 
 
+definition:InertiaGravity)=
+:::{admonition} Inertial Gravity waves
+:class: important
 ```{math}
 :label: eq:InertiaGravity
 \begin{aligned}
@@ -33,6 +40,7 @@ Inertia-gravity waves describes the relation between the surface elevation and v
 \frac{\partial v}{\partial t}+fu&=0
 \end{aligned}
 ```
+:::
 
 You may see the resemblance between the two latter equations in {eq}`eq:InertiaGravity`and the inertial oscillations from {eq}`eq:InertialOscillations`. The only term separating them is the right hand side of {eq}`eq:InertiaGravity`, which is nonzero, and contains a term linking the oscillatory motion to gravity and horizontal pressure differences caused by the surface elevation $\eta$. Here, the surface elevation is only varying in one dimension, representing a wave moving in the east/west dimension (i.e., $\frac{\partial \eta}{\partial y}=0$).
 

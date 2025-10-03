@@ -91,6 +91,10 @@ $
 
 If we further assume no vertical shear in the horizontal velocities ($\frac{\partial u}{\partial z}=\frac{\partial v}{\partial z}=0$), the shallow water equations become:
 
+definition:SW)=
+:::{admonition} The Shallow Water Equations
+:class: important
+
 ```{math}
 :label: eq:SWEq
 \begin{aligned}
@@ -103,5 +107,5 @@ If we further assume no vertical shear in the horizontal velocities ($\frac{\par
 
 \end{aligned}
 ```
-
+:::
 

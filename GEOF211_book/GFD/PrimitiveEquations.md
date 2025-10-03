@@ -3,21 +3,34 @@
 
 ## The continuity equation
 
+(definition:Continuity main)=
+:::{admonition} The continutiy equation
+:class: important
 ```{math}
 :label: eq:Continuity_main
 \frac{\partial \rho}{\partial t}+\frac{\partial}{\partial x}(\rho u)+\frac{\partial}{\partial y}(\rho v)+\frac{\partial}{\partial z}(\rho w)=0
 ```
+:::
+
 
 For incompressible fluids, we can eliminitate $\rho$ and get the following version:
 
+(definition:Continuity incompress)=
+:::{admonition} The continutiy equation for incompressible fluids
+:class: important
 ```{math}
 :label: eq:Continuity
 \frac{\partial u}{\partial x}+\frac{\partial v}{\partial y}+\frac{\partial w}{\partial z}=0
 ```
+:::
+
 
 ## The Navier-stokes equation
-The Navier-Stokes equation, also known as the equation of motion, describes how velocity change with time as a result of external forces such as gravity, pressure, friction, and Coriolis. Using the Boussinesq approximation, the equation can be expressed:
+The Navier-Stokes equation, also known as the **Equation of motion**, describes how velocity change with time as a result of external forces such as gravity, pressure, friction, and Coriolis. Using the Boussinesq approximation, the equation can be expressed:
 
+(definition:Navier-Stoke)=
+:::{admonition} The Navier-Stokes equation 
+:class: important
 ```{math}
 :label: eq:NavierStokes
 \begin{aligned}
@@ -27,22 +40,32 @@ y:&\quad\frac{\partial v}{\partial t}\quad+ u\frac{\partial v}{\partial x}+v\fra
 z:& &0\qquad&=\qquad-\frac{\partial p}{\partial z}\quad-\quad\rho g
 \end{aligned} 
 ```
+:::
 
 ,$\rho_0$ is a reference density, $g$ is the gravitational acceleration, $f=2\Omega sin\phi$ is the Coriolis parameter, $\phi$ is the latitude, and $\mathscr{A}_H$ and $\mathscr{A}_V$ are the horizontal viscosity and vertical eddy diffusivities, respectively. Here, we assume incompressibility, which yields a hydrostatic balance in the the vertical direction.
 
 ## The Hydrostatic equation
 When the water column is in hydrostatic equilibrium, the vertical component of the Navier-Stokes {eq}`eq:NavierStokes`becomes:
 
+(definition:Hydrostatic)=
+:::{admonition} The Hydrostatic equilibrium
+:class: important
 ```{math}
 :label: eq:Hydrostatic
 0=-\frac{\partial p}{\partial z}\rho g
 ```
+:::
 
 ## The density equation (energy equation)
+
+definition:densityEq)=
+:::{admonition} The density equation
+:class: important
 ```{math}
 :label: eq:Density
 \frac{\partial \rho}{\partial t}+u\frac{\partial \rho}{\partial x}+v\frac{\partial \rho}{\partial y}+w\frac{\partial \rho}{\partial z}=\frac{\partial}{\partial x}(\mathscr{A}_H\frac{\partial \rho}{\partial x})+\frac{\partial}{\partial y}(\mathscr{A}_H\frac{\partial \rho}{\partial y})+\frac{\partial}{\partial z}(\mathscr{A}_V\frac{\partial \rho}{\partial z})
 ```
+:::
 
 If the right hand side of the density equation is zero, we have conservation of mass.
 

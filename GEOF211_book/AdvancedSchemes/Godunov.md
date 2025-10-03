@@ -106,7 +106,7 @@ The final step, is to choose which scheme you want to use for the slope $\sigma_
 The three schemes are second-order accurate, offering improved precision compared to first-order methods such as FTBS and Lax-Friedrichs. As a result, Godunov's schemes are generally expected to yield better performance. 
 
 To improve the solution further, overshoots and undershoots need to be addressed. These typically arise when the upwind and downwind slopes have opposite signs. 
-<!-- A minmod limiter is used to prevent such non-physical oscillations. It does this by selecting the slope with the smallest variation at each time step. -->
+A minmod limiter is used to prevent such non-physical oscillations. It does this by selecting the slope with the smallest variation at each time step. 
 
 The Godunov method is not only applicable to the advection equation. However, you must adapt the charachteristics in **step 2** to the equation you are considering.
 
