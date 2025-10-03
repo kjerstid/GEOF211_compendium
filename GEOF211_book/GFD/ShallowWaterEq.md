@@ -14,7 +14,7 @@ align: center
 Sketch of a shallow water wave. The bottom depth is given by $h(x,y)$ and the surface elevation is given by $\eta(x,y,t)$.
 ```
 
-To derive the shallow water equations, we start with the continuity equation for incompressible fluids ({eq}`eq:Continuity`), the Navier stokes equation ({eq}`eq:NavierStokes`), neglecting friction, and the hydrostatic equation: 
+To derive the shallow water equations, we start with the continuity equation for incompressible fluids ({eq}`eq:Continuity`), the Navier stokes equation ({eq}`eq:NavierStokes`), neglecting friction, and the hydrostatic equation ({eq}`eq:Hydrostatic`): 
 
 ```{math}
 :label: eq:SW_start

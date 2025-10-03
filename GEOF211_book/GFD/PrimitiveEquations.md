@@ -38,7 +38,6 @@ When the water column is in hydrostatic equilibrium, the vertical component of t
 0=-\frac{\partial p}{\partial z}\rho g
 ```
 
-
 ## The density equation (energy equation)
 ```{math}
 :label: eq:Density
