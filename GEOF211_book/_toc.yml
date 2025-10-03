@@ -36,6 +36,10 @@ chapters:
   - file: NumericalStability/CFL.md
   - file: NumericalStability/Total_variation.md
   - file: NumericalStability/vonNeumannStability.md
+- file: Grids(Introduction.md)
+  sections: 
+  - file: Grids/StaggeredGrids.md
+  - file: Grids/Nesting.md
 - file: ImplicitSchemes/Introduction.md
   sections:
   - file: ImplicitSchemes/CrankNicolson.md
