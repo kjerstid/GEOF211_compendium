@@ -30,6 +30,13 @@ z:& &0\qquad&=\qquad-\frac{\partial p}{\partial z}\quad-\quad\rho g
 
 ,$\rho_0$ is a reference density, $g$ is the gravitational acceleration, $f=2\Omega sin\phi$ is the Coriolis parameter, $\phi$ is the latitude, and $\mathscr{A}_H$ and $\mathscr{A}_V$ are the horizontal viscosity and vertical eddy diffusivities, respectively. Here, we assume incompressibility, which yields a hydrostatic balance in the the vertical direction.
 
+## The Hydrostatic equation
+When the water column is in hydrostatic equilibrium, the vertical component of the Navier-Stokes {eq}`eq:NavierStokes`becomes:
+
+```{math}
+:label: eq:Hydrostatic
+0=-\frac{\partial p}{\partial z}\rho g
+```
 
 
 ## The density equation (energy equation)
