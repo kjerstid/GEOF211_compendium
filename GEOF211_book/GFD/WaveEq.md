@@ -36,12 +36,12 @@ definition:InertiaGravity)=
 :label: eq:InertiaGravity
 \begin{aligned}
 \frac{\partial \eta}{\partial t}+H\frac{\partial u}{\partial x}&=0\\
-\frac{\partial u}{\partial t}-fv&=-g\frac{\partial p}{\partial x}\\
+\frac{\partial u}{\partial t}-fv&=-g\frac{\partial \eta}{\partial x}\\
 \frac{\partial v}{\partial t}+fu&=0
 \end{aligned}
 ```
 :::
 
-You may see the resemblance between the two latter equations in {eq}`eq:InertiaGravity`and the inertial oscillations from {eq}`eq:InertialOscillations`. The only term separating them is the right hand side of {eq}`eq:InertiaGravity`, which is nonzero, and contains a term linking the oscillatory motion to gravity and horizontal pressure differences caused by the surface elevation $\eta$. Here, the surface elevation is only varying in one dimension, representing a wave moving in the east/west dimension (i.e., $\frac{\partial \eta}{\partial y}=0$).
+You may see the resemblance between the two latter equations in {eq}`eq:InertiaGravity`and the inertial oscillations from {eq}`eq:InertialOscillations`. The only term separating them is the right hand side of {eq}`eq:InertiaGravity`, which is nonzero, and contains a term linking the oscillatory motion to gravity and horizontal pressure differences caused by the surface elevation $\eta$. Here, the surface elevation is only varying in one dimension, representing a wave moving in the east/west dimension (i.e., $\frac{\partial \eta}{\partial y}=0$). To derive the right hand side term from the pressure to the surface elevation term, see section {ref}`(GFD:Shallow Water)`.
 
 {eq}`eq:InertiaGravity` are a set of coupled equations. The velocity and surface elevation terms are connected, and you have to solve the equations jointly.
