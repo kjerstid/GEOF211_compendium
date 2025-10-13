@@ -20,10 +20,10 @@ Placement of grid points for multiple variables in co-located/non-staggered grid
 
 ## Arakawa grids in 2D
 
-In 2D, there are more options for placement of grid points. If we make a 2D extension of the staggered grid above - and also an extension of the physics, we get a grid as illustrated in Figure {numref}`ArakawaC`. This is called an Arakawa C-grid. Arakawa and Lamb published a paper in 1977  ({cite:ts}`Arakawa1977`), describing 5 different grid point configurations. These are commonly referred to as Arakawa grids, and includes:
+In 2D, there are more options for placement of grid points. If we make a 2D extension of the staggered grid above - and also an extension of the physics, we get a grid as illustrated in Figure {numref}`fig:ArakawaC`. This is called an Arakawa C-grid. Arakawa and Lamb published a paper in 1977  ({cite:ts}`Arakawa1977`), describing 5 different grid point configurations. These are commonly referred to as Arakawa grids, and includes:
 * Arakawa-A: The non-staggered grid, where all variables are defined in the same points
 * Arakawa-B: The pressure and other scalars are defined in the box center, and velocity, *u* and *v*, are located in the box corners
-* Arakawa-C: The pressure and other scalars are defined in the box center, the eastward velocity, *u* is defined along east/west box walls, and the northward velocity, *v*, is defined along north/south box walls, as depicted in figure {numref}`ArakawaC`
+* Arakawa-C: The pressure and other scalars are defined in the box center, the eastward velocity, *u* is defined along east/west box walls, and the northward velocity, *v*, is defined along north/south box walls, as depicted in figure {numref}`fig:ArakawaC`
 * Arakawa-D: The same as Arakawa-D, but rotated 90 degrees, so that *u* and *v* swap places
 * Arakawa-E: The box is rotated 45 degrees, so that *u* and *v* can be co-located in the corners 
 
