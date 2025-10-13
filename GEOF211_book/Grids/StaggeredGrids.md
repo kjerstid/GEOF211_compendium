@@ -18,6 +18,8 @@ align: center
 Placement of grid points for multiple variables in co-located/non-staggered grids (top) and staggered grids (bottom). For the staggered grids, the grid points for velocity, *u* is located at the box walls, while the grid points for pressure, *p*, is located at the box center.
 ```
 
+## Arakawa grids in 2D
+
 In 2D, there are more options for placement of grid points. If we make a 2D extension of the staggered grid above - and also an extension of the physics, we get a grid as illustrated in Figure {numref}`ArakawaC`. This is called an Arakawa C-grid. Arakawa and Lamb published a paper in 1977  ({cite:ts}`Arakawa1977`), describing 5 different grid point configurations. These are commonly referred to as Arakawa grids, and includes:
 * Arakawa-A: The non-staggered grid, where all variables are defined in the same points
 * Arakawa-B: The pressure and other scalars are defined in the box center, and velocity, *u* and *v*, are located in the box corners
@@ -36,3 +38,15 @@ The Arakawa-C grid for 2 dimensions. Pressure and scalar variables are located i
 
 The Arakawa-C grid is one of the most common configurations in geophysical fluid modelling. However, som models use Arakawa-B grids or other configurations. Familiarize yourself with a model's grid, either you will design the model, run model experiences on a common model, or analyze data from model outputs.
 
+### Staggered grids in 3D
+
+Most 3D models using staggered grids consider extends the physical idea of the 2D grids to 3D. If you are using an Arakawa-C grid, you would, for example place the vertical velocity at the floor/roof of each grid box.
+
+```{figure} ./ArakawaC3D.png
+---
+name: fig:ArakawaC3D
+width: 75%
+align: center
+---
+The Arakawa-C grid for 3 dimensions. Pressure and scalar variables are located in the grid centers. The velocity grid points for the eastern direction, *u*, are located on the east/west box boundaries, while the velocity grid cells for the northern direction, *v*, are located along the north/south boundaries, and the grid cells for the vertical velocity, *w*, are located on the floor/roof of the box.
+```
