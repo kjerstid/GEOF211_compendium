@@ -38,7 +38,7 @@ The Arakawa-C grid for 2 dimensions. Pressure and scalar variables are located i
 
 The Arakawa-C grid is one of the most common configurations in geophysical fluid modelling. However, som models use Arakawa-B grids or other configurations. Familiarize yourself with a model's grid, either you will design the model, run model experiences on a common model, or analyze data from model outputs.
 
-### Staggered grids in 3D
+## Staggered grids in 3D
 
 Most 3D models using staggered grids consider extends the physical idea of the 2D grids to 3D. If you are using an Arakawa-C grid, you would, for example place the vertical velocity at the floor/roof of each grid box.
 
