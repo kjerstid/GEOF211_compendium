@@ -9,7 +9,7 @@ Think about the physics governing pressure and velocity. Imagine you have a box 
 
 Therefore, a more meaningful placing of the grid points, is to stagger the grids, i.e., to place the pressure grid points in the box centers, and the velocity grid points along the box walls/interfaces, as illustrated in Figure {numref}`fig:Grids`.
 
-```{figure} ./GridsStag.png
+```{figure} ./GridStag.png
 ---
 name: fig:GridStag
 width: 75%
