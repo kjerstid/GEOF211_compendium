@@ -64,7 +64,7 @@ w(\eta)-w(-h)+\int_{-h}^\eta\frac{\partial u}{\partial x}+\frac{\partial v}{\par
 \end{aligned}
 ```
 
-Now, we integrate the vertical Navier-Stokes equation from a chosen level $z$ to the free surface:
+Now, we integrate the Hydrostatic balance Eq. {eq}`eq:Hydrostatic` from a chosen level $z$ to the free surface:
 
 ```{math}
 :label: eq:hydrostatic_integral
