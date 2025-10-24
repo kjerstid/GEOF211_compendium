@@ -90,7 +90,7 @@ When the water column is in hydrostatic equilibrium, the vertical component of t
 :class: important
 ```{math}
 :label: eq:Hydrostatic
-0=-\frac{\partial p}{\partial z}\rho g
+\frac{\partial p}{\partial z}+\rho g=0
 ```
 :::
 
