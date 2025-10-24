@@ -38,7 +38,6 @@ The Lax-Wendroff method thus involves two steps:
 :label: eq:LW_Step1
 \begin{aligned}
 	u_{m-1/2}^{n+1/2}&=\frac{1}{2}(u_m^n+u_{m-1}^n)-a\frac{\Delta t}{2\Delta x}(u_m^n-u_{m-1}^n)\\
-
 	u_{m+1/2}^{n+1/2}&=\frac{1}{2}(u_{m+1}^n+u_{m}^n)-a\frac{\Delta t}{2\Delta x}(u_{m+1}^n-u_{m}^n)
 \end{aligned}
 ```

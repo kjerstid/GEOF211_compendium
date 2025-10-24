@@ -32,7 +32,7 @@ For second order partial differential equations with two dependant variables, we
 
 * Parabolic equatons are of the type $\frac{\partial^2 u}{\partial x^2}+\ldots=0$.
 
-Can you identify anyy equations on either of these categories?
+Can you identify any equations on either of these categories?
 
 
 
