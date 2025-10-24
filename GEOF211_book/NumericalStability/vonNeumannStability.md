@@ -7,6 +7,7 @@ It consists of replacing the spatial variation by a single Fourier component. Th
 
 We shall illustrate the Von Neumann stability method with the FTCS scheme.
 
+(NumericalStability:vonNeumannStabilityFTCS)=
 ## Stability of the FTCS scheme
 
 ### The linear advection equation

@@ -55,8 +55,10 @@ chapters:
   - file: Advection/differenceEquation.md
   - file: Advection/differenceSolution.md
   - file: Advection/Analysis.md
-  - file: Advection/schemeMacCormack.md
-  - file: Advection/schemeLaxWendroff-code.md
+  - file: Advection/StabilizingTerms.md
+  - file: Advection/PredictorCorrector.md
+  - file: Advection/Halfstep.md
+  - file: Advection/schemeLaxWendroff1step.md
 - file: AdvancedSchemes/Introduction.md
   sections:
   - file: AdvancedSchemes/Godunov.md

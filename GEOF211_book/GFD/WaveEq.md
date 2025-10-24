@@ -4,7 +4,7 @@
 
 The classical wave equation in 1D can be written:
 
-definition:Wave)=
+(definition:Wave)=
 :::{admonition} The wave equation
 :class: important
 ```{math}
@@ -29,7 +29,7 @@ throwing a pebble in a very narrow and long puddle. Here, the waves spread in on
 
 Inertia-gravity waves describes the relation between the surface elevation and velocity. We have a set of coupled equations where one equation describes the change in surface elevtion with time caused by a horizontal velocity shear. Additionally, we have one equation (or 2, if northward velocity $v\ne0$) describing the acceleration of water parcels associated with horizontal gradients in surface elevation and coriolis. 
 
-definition:InertiaGravity)=
+(definition:InertiaGravity)=
 :::{admonition} Inertial Gravity waves
 :class: important
 ```{math}
@@ -45,3 +45,21 @@ definition:InertiaGravity)=
 You may see the resemblance between the two latter equations in {eq}`eq:InertiaGravity`and the inertial oscillations from {eq}`eq:InertialOscillations`. The only term separating them is the right hand side of {eq}`eq:InertiaGravity`, which is nonzero, and contains a term linking the oscillatory motion to gravity and horizontal pressure differences caused by the surface elevation $\eta$. Here, the surface elevation is only varying in one dimension, representing a wave moving in the east/west dimension (i.e., $\frac{\partial \eta}{\partial y}=0$). To derive the right hand side term from the pressure to the surface elevation term, see section {ref}`(GFD:Shallow Water)`.
 
 {eq}`eq:InertiaGravity` are a set of coupled equations. The velocity and surface elevation terms are connected, and you have to solve the equations jointly.
+
+## Shallow-water gravity waves
+
+If we omit the effect of Earth rotation, the Inertia-gravity waves becomes the shallow-water gravity waves. Here, the advection terms are included for completeness, and the surface elevation $\eta$ is undulating in both the x and y-direction.
+
+(definition:SWGravity)=
+:::{admonition} Inertial Gravity waves
+:class: important
+```{math}
+:label: eq:SWGravity
+\begin{aligned}
+\frac{\partial \eta}{\partial t}+H\frac{\partial u}{\partial x}&=0\\
+\frac{\partial u}{\partial t}+u\frac{\partial u}{\partial x}+v\frac{\partial u}{\partial y}&=-g\frac{\partial \eta}{\partial x}\\
+\frac{\partial v}{\partial t}+u\frac{\partial v}{\partial x}+v\frac{\partial v}{\partial y}&=g\frac{\partial \eta}{\partial y}
+\end{aligned}
+```
+:::
+

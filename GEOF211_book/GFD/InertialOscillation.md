@@ -1,4 +1,4 @@
-(GFD:Inertial oscillation)=
+(GFD:InertialOscillation)=
 # Inertial oscillations
 
 Inertial oscillations is a special phenomenon occuring when Earth´s rotation (coriolis)  is the only force that cause local acceleration
