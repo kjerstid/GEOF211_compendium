@@ -40,7 +40,7 @@ Solving Equation {eq}`eq:Taylor_n_pm1_b` for the second derivative, we get:
 
 ```{math} 
 :label: eq:Centered2derivative
-\frac{\partial^2 u}{\partial t^2}|_{t^n}=\frac{u^{n+1}-2u^n+u^{n-1}}{\Delta t^2} + \frac{\Delta t^4}{12}\frac{\partial^4 u}{\partial t^4} + h.o.t
+\frac{\partial^2 u}{\partial t^2}|_{t^n}=\frac{u^{n+1}-2u^n+u^{n-1}}{\Delta t^2} + \frac{\Delta t^2}{12}\frac{\partial^4 u}{\partial t^4} + h.o.t
 ```
 
 This is a second order three-point centered formula for the second derivative.

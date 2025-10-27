@@ -10,7 +10,7 @@ The Lax-Wendroff 1-step approach start with the equation of interest (here, the 
 
 ```{math}
 :label: eq:TaylorExp
-u_m^{n+1}=u_m^n+\Delta t\frac{\partial u}{\partial t}\mid_m^n+\Delta t^2\frac{\partial^2 u}{\partial t^2}\mid_m^n+\Delta t^3\frac{\partial^3 u}{\partial t^3}\mid_m^n+h.o.t
+u_m^{n+1}=u_m^n+\Delta t\frac{\partial u}{\partial t}\mid_m^n+\frac{\Delta t^2}{2!}\frac{\partial^2 u}{\partial t^2}\mid_m^n+\frac{\Delta t^3}{3!}\frac{\partial^3 u}{\partial t^3}\mid_m^n+h.o.t
 ```
 
 To get a higher order scheme, we can replace both the first and second derivatives of $u$ by first expressing them in terms of spatial derivatives, which we can get from {eq} ´eq:LinAdv´. 
@@ -59,9 +59,24 @@ By further massaging an incorporating the $C=\frac{a\Delta t}{\Delta x}$, we get
 u_m^{n+1}=\frac{C}{2}(1+C)u_{m-1}^n+(1-C^2)u_m^n-\frac{C}{2}(1-C)u_{m+1}^n+h.o.t
 ```
 
+## Truncation error for the Lax-Wendroff scheme
+
+To find the order of the Lax-Wendroff scheme, we can look at the Taylor expansion and the order of the terms we have used. We can rewrite the Taylor expoansion to only show the terms we use and the truncation error:
+
+```{math}
+\frac{u_m^{n+1}-u_m^n}{\Delta t}=\frac{\partial u}{\partial t}\mid_m^n+\frac{\Delta t}{2!}\frac{\partial^2 u}{\partial t^2}\mid_m^n+\frac{\Delta t^2}{3!}\frac{\partial^3 u}{\partial t^3}\mid_m^n
+```
+
+The last term is not included in the Lax-Wendroff scheme, and we see that the error is of second order ($\Delta t^2$). However, we also have approximations in the numerical schemes we insert for $\frac{\partial u}{\partial t}\mid_m^n$ and $\frac{\partial^2 u}{\partial t^2}\mid_m^n$ which leads to additional truncation error terms. We must check the error of these schemes to know the error/order of the complete Lax-Wendroff scheme.
+
+* We used a CS scheme for the first derivative, which is second order. This gives us a second order spatial error, $\Delta x^2$
+* We used a CS scheme for the second derivatie, which is second order. This also gives us a second order spatial error, $\Delta x^2$
+
+The Lax-Wendroff scheme is, therefore, a second order scheme in both time ($\Delta t^2$) and space ($\Delta x^2$).
+
 ## Consistency, stability and convergence for the Lax-Wendroff scheme
 
-The scheme is 2nd order in time and space. To determine its stability we can express the scheme as:
+To determine its stability we can express the scheme as:
 
 $$
 	u_m^{n+1} = \alpha u_{m-1}^n + \beta u_m^n + \gamma u_{m+1}^n

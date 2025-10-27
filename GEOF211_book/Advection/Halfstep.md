@@ -56,7 +56,7 @@ For the linear advection equation, it is possible to merge step 1 and step 2, by
 	u_{m}^{n+1}=\frac{C}{2}(1+C)u_{m-1}^n+(1-C^2)u_m^n-\frac{C}{2}u_{m+1}^n
 ```
 
-### Application: propagation of top hat function using the Lax-Wendroww 2-step approach
+### Application: propagation of top hat function using the Lax-Wendroff 2-step approach
 
 We apply the Lax-Wendroff scheme to the top hat initial condition.
 
