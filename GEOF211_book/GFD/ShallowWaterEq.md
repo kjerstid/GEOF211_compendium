@@ -1,7 +1,7 @@
 (GFD:Shallow Water)=
 # The Shallow water equations
 
-The shallow water equations describe waves that have long wave lengths compared to the water depth. The name suggests that these waves occur over shallow water. When surface gravity waves arise in the open ocean, they does not follow the shllow water equtions. However, when the waves reach a sloping beach, they will start to behave like shallow water waves when the water column thickness becomes small relative to the wave lengths.
+The shallow water equations describe waves that have long wave lengths compared to the water depth. The name suggests that these waves occur over shallow water. When surface gravity waves arise in the open ocean, they does not follow the shallow water equations. However, when the waves reach a sloping beach, they will start to behave like shallow water waves when the water column thickness becomes small relative to the wave lengths.
 
 Shallow water waves an also occur in deep waters, when the wave lengths are sufficently long. See {numref}`fig:SWwave` for a sketch of the shallow water wave.
 
@@ -91,7 +91,7 @@ $
 
 If we further assume no vertical shear in the horizontal velocities ($\frac{\partial u}{\partial z}=\frac{\partial v}{\partial z}=0$), the shallow water equations become:
 
-definition:SW)=
+(definition:SW)=
 :::{admonition} The Shallow Water Equations
 :class: important
 
