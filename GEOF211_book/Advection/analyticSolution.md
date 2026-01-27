@@ -46,11 +46,11 @@ The equal sign can only hold for all $(x,t)$ if both side are equal to a constan
 
 We can now subsitute the expressions for $G(t)$ and $H(x)$ into {eq}`eq:sepVar` and find $u(x,t)=G(t)H(x)=A_1A_2e^{-\alpha t}e^{\alpha x/a}$. 
 
-Using the initial conditions {eq}`eq:Advection` at $t=0$ we have $u(x,0)=A_1A_2e^{\alpha x/c}$, so we know that $A=A_1A_2$ and $ik = \alpha/a$ and so $\alpha=ika$. Finally, we can write:
+Using the initial conditions {eq}`eq:Advection` at $t=0$ we have $u(x,0)=A_1A_2e^{\alpha x/a}$, so we know that $A=A_1A_2$ and $ik = \alpha/a$ and so $\alpha=ika$. Finally, we can write:
 
 ```{math}
 :label: eq:anaSolution
-	u(x,t)=Ae^{-ikct}e^{ikcx/c}=Ae^{ik(x-at)},
+	u(x,t)=Ae^{-ikat}e^{ikax/a}=Ae^{ik(x-at)},
 ```
 
 which is the solution of {eq}`eq:Advection` given the initial condition {eq}`eq:initialCond`. This solution represents the initial condition moving along the positive $x$-direction with translation velocity $a$.
