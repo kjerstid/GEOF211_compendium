@@ -16,7 +16,7 @@ The Crank-Nicolson scheme was originally made for diffusion. The scheme is a mod
 
 ```{math}
 :label: eq:schemeCrankNicolsonDiffusion
-  \frac{u_m^{n+1}-u_m^n}{\Delta t} = -\frac{\gamma}{\Delta x^2}\left(\frac{u_{m+1}^{n+1}-2u_{m}^{n+1}+u_{m-1}^{n+1}}{2} + \frac{u_{m+1}^{n}-2u_{m}^{n}+u_{m-1}^{n}}{2}\right) 
+  \frac{u_m^{n+1}-u_m^n}{\Delta t} = \frac{\gamma}{\Delta x^2}\left(\frac{u_{m+1}^{n+1}-2u_{m}^{n+1}+u_{m-1}^{n+1}}{2} + \frac{u_{m+1}^{n}-2u_{m}^{n}+u_{m-1}^{n}}{2}\right) 
 ```
 
 Another way of looking at {eq}`eq:schemeCrankNicolson` is that the left hand side (LHS) is a centred approximation of the time derivative at $t^{n+1/2}$ and the averaging of the spatial derivatives provides an estimate of the spatial derivative at $t^{n+1/2}$.
