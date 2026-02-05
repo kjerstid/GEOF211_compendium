@@ -86,6 +86,5 @@ we arrive at the following amplification factor:
 :label: eq:ampFactorCN
    |G| = \left|\frac{u_{m}^{n+1}}{u_{m}^{n}}\right| = \left|\frac{1-2Csin^2(\frac{k\Delta x}{2})}{1+2Csin^2(\frac{k\Delta x}{2})}\right|,
 ```
-, since the denominator will always be larger than the numerator
 
-The scheme is, therefore, *unconditionally stable* and doesn't suffer from CFL limitations, unlike the previous explicit schemes.
+Since the denominator will always be larger than the numerator in this expression, we arrive at $|G|= \left|\frac{u_{m}^{n+1}}{u_{m}^{n}}\right|\le 1$. The scheme is, therefore, *unconditionally stable* and doesn't suffer from CFL limitations, unlike the previous explicit schemes.
