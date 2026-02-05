@@ -26,6 +26,7 @@ The use of the terms at $t^{n+1}$ poses a complication because these are not kno
 We can expand {eq}`eq:schemeCrankNicolsonDiffusion` to obtain 
 
 ```{margin} 
+```{note}
 $C=\gamma\frac{\Delta t}{\Delta x^2}$ <br>
 $r=C/2$
 
