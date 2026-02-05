@@ -56,7 +56,7 @@ A =
   -r & 1+2r                         & -r       &         0                & \cdots & 0\\
                           0 & -r & 1+2r                              & -r & \cdots & 0\\
             \vdots       &          \vdots        &   \vdots                     & \ddots               & \vdots  & \vdots\\
-            0               &              \cdots           &            0             & -r{4} & 1+2r                         & -r \\
+            0               &              \cdots           &            0             & -r & 1+2r                         & -r \\
          0               &              \cdots           &        0                 & 0                 &-r & 1+2r                        \\
 \end{pmatrix}
 ```
@@ -65,7 +65,7 @@ A =
 B = 
 \begin{pmatrix}
   1-2r                        & r   & 0                             &         0                & \cdots & 0\\
-  \frac{\sigma}{4} & 1                         & -\frac{\sigma}{4}       &         0                & \cdots & 0\\
+  r & 1-2r                         & r       &         0                & \cdots & 0\\
                           0 & r & 1 -2r                             & r & \cdots & 0\\
             \vdots       &          \vdots        &   \vdots                     & \ddots               & \vdots  & \vdots\\
             0               &              \cdots           &            0             & r & 1-2r                         & r \\
@@ -84,7 +84,7 @@ we arrive at the following amplification factor:
 
 ```{math}
 :label: eq:ampFactorCN
-   |G| = \left|\frac{u_{m}^{n+1}}{u_{m}^{n}}\right| = \left|\frac{1-2Csin^2(\frac{k\Delta x}{2})}{1+2Csin^2\frac{k\Delta x}{2}}\right|,
+   |G| = \left|\frac{u_{m}^{n+1}}{u_{m}^{n}}\right| = \left|\frac{1-2Csin^2(\frac{k\Delta x}{2})}{1+2Csin^2(\frac{k\Delta x}{2})}\right|,
 ```
 , since the denominator will always be larger than the numerator
 
