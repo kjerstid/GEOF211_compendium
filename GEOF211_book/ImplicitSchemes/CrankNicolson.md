@@ -9,7 +9,7 @@ kernelspec:
   language: python
   name: python3
 ---
-(scheme:crank-nicholson)=
+(scheme:crank-nicolson)=
 # The Crank-Nicholson Scheme for linear advection
 
 Until now, all schemes have time step limitations in the form of the CFL condition $c\Delta t/\Delta x \leq 1$. One way to overcome that limitation is to use *implicit* schemes, where the spatial derivatives are evaluated at $t^{n+1}$. One such scheme is the Crank-Nicholson scheme, which was, originally designed to solve the diffusion equation (heat conduction). Here, we show the Crank-Nicolson scheme for linear advection:

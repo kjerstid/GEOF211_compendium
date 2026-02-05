@@ -46,6 +46,7 @@ chapters:
   sections:
   - file: ImplicitSchemes/CrankNicolson.md
   - file: ImplicitSchemes/Implicit_General.md
+  - file: ImplicitSchemes/CrankNicolson_diffusion.md
 - file: BoundaryConditions/Introduction.md
   sections:
   - file: BoundaryConditions/Mathematical_BC.md

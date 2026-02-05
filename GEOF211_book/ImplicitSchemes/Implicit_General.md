@@ -1,4 +1,4 @@
-# The Implicit Scheme
+# The General Implicit Scheme
 
 We can derive a general implict scheme by noting that the Crank-Nicholson scheme has the spatial derivatives at $t^n$ and $t^{n+1}$ multiplied by $1/2$. We can generalize the formula in the following fashion:
 
