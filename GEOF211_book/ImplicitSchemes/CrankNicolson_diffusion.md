@@ -80,7 +80,7 @@ In the case $A$ and $B$ are tridiagonal, as above, the solution of the linear sy
 The stability of the scheme can be determined by the von Neumann stability analysis assuming a solution of the form $B^n e^{ikm\Delta x}$.
 
 
-we arrive at the following amplification factor:
+Inserting $B^n e^{ikm\Delta x}$ into the scheme and trigonometric identities, we arrive at the following amplification factor:
 
 ```{math}
 :label: eq:ampFactorCN
