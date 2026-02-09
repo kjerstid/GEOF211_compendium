@@ -3,7 +3,7 @@
 
 To improve the stability of numerical schemes it is possible is to incorporate a scheme with more than one step of calculations. The predictor-corrector schemes typically uses two steps, a predictor-step, where we predict a solution, and a corrector-step where we refine the final solution/estimate. These schemes also typically includes ""fictional time steps in between the regular time steps, such as a solution at time step $n+1/2$. The method, therefore, also fit into the category of half-step schemes described in {numref}`LinearAdvectionEquation:schemeHalfstep`.
 
-The McCormack scheme for linear advection is a good example of how this works.
+The MacCormack scheme for linear advection is a good example of how this works.
 
 (LinearAdvectionEquation:schemeMacCormack)=
 ## The MacCormack Scheme

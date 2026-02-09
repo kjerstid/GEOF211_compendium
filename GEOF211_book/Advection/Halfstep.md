@@ -49,7 +49,7 @@ The Lax-Wendroff method thus involves two steps:
 :label: eq:LW_Step2
 	u_{m}^{n+1}=u_m^n-a\frac{\Delta t}{2\Delta x}(u_{m+1/2}^{n+1/2}-u_{m-1/2}^{n+1/2})
 ```
-For the linear advection equation, it is possible to merge step 1 and step 2, by inserting the expressions for $u_{m-1/2}^{n\pm 1/2}$ from {eq}`eq:LW_Step1` into step 2 ({eq}`eq:LW_Step2`). After some massaging of the expression, you will end up with the same Lax-Wendroff scheme as we find in other derivations:
+For the linear advection equation, it is possible to merge step 1 and step 2, by inserting the expressions for $u_{m\pm 1/2}^{n+1/2}$ from {eq}`eq:LW_Step1` into step 2 ({eq}`eq:LW_Step2`). After some massaging of the expression, you will end up with the same Lax-Wendroff scheme as we find in other derivations:
 
 ```{math}
 :label: eq:LW_2step_merged
