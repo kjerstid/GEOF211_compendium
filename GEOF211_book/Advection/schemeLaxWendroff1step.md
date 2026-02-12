@@ -92,7 +92,91 @@ with
 \end{aligned}
 ```
 
-Assuming a solution of the type $B^n e^{i\lambda m \Delta x}$, the amplification factor is 
+Assuming a solution of the type $B^n e^{ik_j m \Delta x}$, we can insert this into the Lax-Wendroff scheme:
+
+```{math}
+B^{n+1}e^{ik_jm\Delta x}=B^{n}e^{ik_jm\Delta x}=B^n(\alpha e^{ik_j(m-1)\Delta x}+\beta e^{ik_jm\Delta x}+\gamma e^{ik_j(m+1)\Delta x})
+```
+
+Multiplying by $\frac{e^{-ik_jm\Delta x}}{B^n}$ at either side gives:
+
+$$
+\frac{B^{n+1}}{B^n}=\alpha e^{-ik_j\Delta x} + \beta +\gamma e^{ik_j\Delta x}
+$$
+
+Using the Euler identity, we can convert the exponential factors into sines and cosines:
+
+$$
+\frac{B^{n+1}}{B^n}=\alpha \cos(k_j\Delta x)-\alpha i \sin(k_j\Delta x) + \beta + \gamma \cos(k_j\Delta x) + \gamma i \sin(k_j\Delta x)
+$$
+
+Factorizing sines and cosines gives:
+
+$$
+\frac{B^{n+1}}{B^n}=(\alpha+\gamma)\cos(k_j\Delta x) + \beta + i(\gamma-\alpha)\sin(k_j\Delta x)
+$$
+
+Noting that $\alpha+\gamma=c^2$ and $\gamma-\alpha=-c$ and also re-inserting $\beta=1-c^2$, we obtain
+
+$$
+\frac{B^{n+1}}{B^n}=c^2\cos(k_j\Delta x)+(1-c^2)-i c\sin(k_j\Delta x),
+$$
+
+which we can factorize into:
+
+$$
+\frac{B^{n+1}}{B^n}=\left[1+c^2(\cos(k_j\Delta x)-1)\right]-i c\sin(k_j\Delta x)
+$$
+
+The next step is to include the norm, and square the expression to get rid of the complex part:
+
+```{math}
+\left \lvert \frac{B^{n+1}}{B^n}\right \rvert^2=\left(1+c^2(\cos(k_j\Delta x)-1)\right)^2+c^2\sin^2(k_j\Delta x)
+```
+
+From here, you can open up the first term on the right hand side and use the trigonometric identity $\sin^2(x)=1-\cos^2(x)$ to obtain
+
+$$
+\left| \frac{B^{n+1}}{B^n}\right |^2=1+2c^2\cos(k_j\Delta x)-2c^2+c^4(\cos(k_j\Delta x)-1)^2+c^2-c^2\cos^2(k_j\Delta x)
+$$
+
+Factorizing the terms including $c^2$ gives
+
+$$
+\left| \frac{B^{n+1}}{B^n}\right |^2=1-c^2[1-2\cos(k_j\Delta x)+\cos^2(k_j\Delta x)]+c^4(\cos(k_j\Delta x)-1)^2
+$$
+
+Factorizing the term in the square bracket gives:
+
+$$
+\left| \frac{B^{n+1}}{B^n}\right |^2=1-c^2[1-\cos(k_j\Delta x)]^2+c^4(\cos(k_j\Delta x)-1)^2,
+$$
+
+which we can now factorize further into:
+```{math}
+\left| \frac{B^{n+1}}{B^n}\right |^2=1+c^2(c^2-1)[1-\cos(k_j\Delta x)]^2
+```
+
+To ensure stability, we must have $\left| \frac{B^{n+1}}{B^n}\right |\le 1$, which is equivalent to $\left| \frac{B^{n+1}}{B^n}\right |^2\le1$
+
+Our amplification factor is
+
+
+```{math}
+G=\left| \frac{B^{n+1}}{B^n}\right |^2=1+c^2(c^2-1)[1-\cos(k_j\Delta x)]^2\le 1
+```
+
+Subtracting the number $1$ on either side of the inequality gives:
+
+$$
+c^2(c^2-1)[1-\cos(k_j\Delta x)]^2\le 0
+$$
+
+Since the first and the last terms are squared, and therefore always positive, this expression can only hold if the term $(c^2-1)\le 0$, which leads us to the CFL criteria $c\le 1$
+
+After all this calculation, we end up with the same stability criteria as for the FTBS scheme! The Lax-Wendroff scheme is conditionally stable, with a stability criteria $c=\frac{a\Delta t}{\Delta x}\le 1$.
+
+<!-- the amplification factor is 
 
 ```{math}
 	G=(1+\sigma^2(\cos \lambda \Delta x - 1)) - i\sigma \sin \lambda \Delta x
@@ -111,4 +195,5 @@ For the method to be stable, the condition is $|G|^2 \leq 1$ which provides the 
 ```
 
 which is the well-known CFL condition.
+ -->
 
