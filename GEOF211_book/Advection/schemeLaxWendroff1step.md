@@ -85,6 +85,7 @@ $$
 with 
 
 ```{math}
+:label: eq:alphabetagamma
 \begin{aligned}
 	\alpha &= \frac{\sigma}{2}(\sigma + 1),\\
 	\beta &= 1- \sigma^2, \\
@@ -95,6 +96,7 @@ with
 Assuming a solution of the type $B^n e^{ik_j m \Delta x}$, we can insert this into the Lax-Wendroff scheme:
 
 ```{math}
+:label: eq:LW_VonNeumann_start
 B^{n+1}e^{ik_jm\Delta x}=B^{n}e^{ik_jm\Delta x}=B^n(\alpha e^{ik_j(m-1)\Delta x}+\beta e^{ik_jm\Delta x}+\gamma e^{ik_j(m+1)\Delta x})
 ```
 
@@ -116,7 +118,7 @@ $$
 \frac{B^{n+1}}{B^n}=(\alpha+\gamma)\cos(k_j\Delta x) + \beta + i(\gamma-\alpha)\sin(k_j\Delta x)
 $$
 
-Noting that $\alpha+\gamma=c^2$ and $\gamma-\alpha=-c$ and also re-inserting $\beta=1-c^2$, we obtain
+We can use {eq}`eq:alphabetagamma` to find that $\alpha+\gamma=c^2$ and $\gamma-\alpha=-c$ and also re-inserting $\beta=1-c^2$, we obtain
 
 $$
 \frac{B^{n+1}}{B^n}=c^2\cos(k_j\Delta x)+(1-c^2)-i c\sin(k_j\Delta x),
@@ -131,6 +133,7 @@ $$
 The next step is to include the norm, and square the expression to get rid of the complex part:
 
 ```{math}
+:label: eq:LW_VonNeumann_mid
 \left \lvert \frac{B^{n+1}}{B^n}\right \rvert^2=\left(1+c^2(\cos(k_j\Delta x)-1)\right)^2+c^2\sin^2(k_j\Delta x)
 ```
 
@@ -154,6 +157,7 @@ $$
 
 which we can now factorize further into:
 ```{math}
+:label: eq:LW_VonNeumann_start
 \left| \frac{B^{n+1}}{B^n}\right |^2=1+c^2(c^2-1)[1-\cos(k_j\Delta x)]^2
 ```
 
@@ -161,8 +165,8 @@ To ensure stability, we must have $\left| \frac{B^{n+1}}{B^n}\right |\le 1$, whi
 
 Our amplification factor is
 
-
 ```{math}
+:label: eq:LW_VonNeumann_ampl_criterion
 G=\left| \frac{B^{n+1}}{B^n}\right |^2=1+c^2(c^2-1)[1-\cos(k_j\Delta x)]^2\le 1
 ```
 
