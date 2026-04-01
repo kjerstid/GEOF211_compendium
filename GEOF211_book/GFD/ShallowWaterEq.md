@@ -56,7 +56,7 @@ We can now differentiate {eq}`eq:hydrostatic_integral`with respect to $x$ and $y
 \end{aligned}
 ```
 
-By replacing the pressure in Eq. {eq}`eq:NavierStokes` with the expressions in Eq. {eq}eq:`hydrostatic_integral2`, we are done with the Navier-Stokes derivations.
+By replacing the pressure in Eq. {eq}`eq:NavierStokes` with the expressions in Eq. {eq}`eq:hydrostatic_integral2`, we are done with the Navier-Stokes derivations.
 
 We can now integrate the continuity equation over the water column depth:
 
