@@ -77,11 +77,11 @@ For a continuous function, the integral and derivation order can be swapped.
 ```{math}
 :label: eq:continuity:integral
 \begin{aligned}
-\int_{-h}^\eta\frac{\partial u}{\partial x}+\frac{\partial v}{\partial y}+\frac{\partial w}{\partial z}dz\\
-w(\eta)-w(-h)+\int_{-h}^\eta\frac{\partial u}{\partial x}+\frac{\partial v}{\partial y}dz\\
-\frac{\partial\eta}{\partial t}+\int_{-h}^\eta\frac{\partial u}{\partial x}+\frac{\partial v}{\partial y}dz\\
-\frac{\partial\eta}{\partial t}+\frac{\partial}{\partial x}\int_{-h}^\eta u\, dz+\frac{\partial}{\partial y}\int_{-h}^\eta v\, dz\\
-\frac{\partial\eta}{\partial t}+\frac{\partial}{\partial x}u(\eta+h)+\frac{\partial}{\partial y}v(\eta+h)
+\int_{-h}^\eta\frac{\partial u}{\partial x}+\frac{\partial v}{\partial y}+\frac{\partial w}{\partial z}dz=0\\
+w(\eta)-w(-h)+\int_{-h}^\eta\frac{\partial u}{\partial x}+\frac{\partial v}{\partial y}dz=0\\
+\frac{\partial\eta}{\partial t}+\int_{-h}^\eta\frac{\partial u}{\partial x}+\frac{\partial v}{\partial y}dz=0\\
+\frac{\partial\eta}{\partial t}+\frac{\partial}{\partial x}\int_{-h}^\eta u\, dz+\frac{\partial}{\partial y}\int_{-h}^\eta v\, dz=0\\
+\frac{\partial\eta}{\partial t}+\frac{\partial}{\partial x}u(\eta+h)+\frac{\partial}{\partial y}v(\eta+h)=0
 \end{aligned}
 ```
 
@@ -99,7 +99,7 @@ We now arrive at the shallow-water equation:
 
 \frac{\partial v}{\partial t}+u\frac{\partial v}{\partial x}+v\frac{\partial v}{\partial y}+fu=-g\frac{\partial \eta}{\partial y}\\
 
-\frac{\partial\eta}{\partial t}+\frac{\partial}{\partial x}u(\eta+h)+\frac{\partial}{\partial y}v(\eta+h)
+\frac{\partial\eta}{\partial t}+\frac{\partial}{\partial x}u(\eta+h)+\frac{\partial}{\partial y}v(\eta+h)=0
 
 \end{aligned}
 ```
