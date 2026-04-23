@@ -103,5 +103,61 @@ We now arrive at the shallow-water equation:
 
 \end{aligned}
 ```
+
+If we assume that the wave height $\eta<<h$, we can neglect $\eta$ in the quadratic terms. We could also assume that the variations in $h$ is small, leaving us with a constant water depth H that can be moved outside the differentiation. The simplified shallow water waves now becomes:
+
+```{math}
+:label: eq:SWEq_simplified
+\begin{aligned}
+
+\frac{\partial u}{\partial t}+u\frac{\partial u}{\partial x}+v\frac{\partial u}{\partial y}-fv=-g\frac{\partial \eta}{\partial x}\\
+
+\frac{\partial v}{\partial t}+u\frac{\partial v}{\partial x}+v\frac{\partial v}{\partial y}+fu=-g\frac{\partial \eta}{\partial y}\\
+
+\frac{\partial\eta}{\partial t}+H(\frac{\partial}{\partial x}u+\frac{\partial}{\partial y}v)=0
+
+\end{aligned}
+```
+
+We can continue simplifying the equations by assuming some of the terms to be small/negligible. We could, e.g., assume geostropic balance and remove the advection terms. We could also remove the coriolis terms if we are looking at a smaller area where the effect of Earth rotation is small compared to the other terms.
+
+## Shallow water gravity waves
+
+Here we assume Earth rotation and advection terms are negligible:
+
+```{math}
+:label: eq:SWEq_gravity
+\begin{aligned}
+
+\frac{\partial u}{\partial t}=-g\frac{\partial \eta}{\partial x}\\
+
+\frac{\partial v}{\partial t}=-g\frac{\partial \eta}{\partial y}\\
+
+\frac{\partial\eta}{\partial t}+H(\frac{\partial}{\partial x}u+\frac{\partial}{\partial y}v)=0
+
+\end{aligned}
+```
+
+## Kelvin waves
+
+If we assume a shallow water wave travelling meridionally (north/south), and no advection terms, we can assume that the eastward velocity is zero and arrive at the Kelvin wave:
+
+```{math}
+:label: eq:SWEq_Kelvin
+\begin{aligned}
+
+-fv=-g\frac{\partial \eta}{\partial x}\\
+
+\frac{\partial v}{\partial t}=-g\frac{\partial \eta}{\partial y}\\
+
+\frac{\partial\eta}{\partial t}+H\frac{\partial}{\partial y}v=0
+
+\end{aligned}
+```
+
+
+
+
+
 :::
 
