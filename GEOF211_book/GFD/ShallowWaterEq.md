@@ -146,7 +146,7 @@ Here we assume Earth rotation and advection terms are negligible:
 :::{admonition} Kelvin waves
 :class: important
 
-If we assume a shallow water wave travelling meridionally (north/south), and no advection terms, we can assume that the eastward velocity is zero and arrive at the Kelvin wave:
+If we assume a shallow water wave travelling meridionally (north/south), and no advection terms, we can assume that the eastward velocity is zero and arrive at the Kelvin wave equations:
 
 ```{math}
 :label: eq:SWEq_Kelvin
