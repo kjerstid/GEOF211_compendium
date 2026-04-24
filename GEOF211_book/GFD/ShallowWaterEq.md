@@ -160,6 +160,7 @@ If we assume a shallow water wave travelling meridionally (north/south), and no 
 
 \end{aligned}
 ```
+A Kelvin wave always travel with a coast to "lean on". On the northen hemisphere, the coast is to the right of the kelvin wave propagation (looking in the direction the wave is moving). On the southern hemisphere, the coast is to the left of the propagation direction. A special case of Kelvin waves can also occur at the equator. Here, you can have one Kelvin wave on either side of the equator, leaning against each other. Whivh direction do you think these equator Kelvin waves will propagate? East or West?
 :::
 
 
