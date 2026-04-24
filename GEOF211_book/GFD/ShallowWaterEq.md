@@ -118,10 +118,13 @@ If we assume that the wave height $\eta<<h$, we can neglect $\eta$ in the quadra
 
 \end{aligned}
 ```
+:::
 
 We can continue simplifying the equations by assuming some of the terms to be small/negligible. We could, e.g., assume geostropic balance and remove the advection terms. We could also remove the coriolis terms if we are looking at a smaller area where the effect of Earth rotation is small compared to the other terms.
 
-## Shallow water gravity waves
+(definition:SW)=
+:::{admonition} Shallow Water gravity waves
+:class: important
 
 Here we assume Earth rotation and advection terms are negligible:
 
@@ -137,8 +140,11 @@ Here we assume Earth rotation and advection terms are negligible:
 
 \end{aligned}
 ```
+:::
 
-## Kelvin waves
+(definition:SW)=
+:::{admonition} Kelvin waves
+:class: important
 
 If we assume a shallow water wave travelling meridionally (north/south), and no advection terms, we can assume that the eastward velocity is zero and arrive at the Kelvin wave:
 
@@ -154,10 +160,11 @@ If we assume a shallow water wave travelling meridionally (north/south), and no 
 
 \end{aligned}
 ```
-
-
-
-
-
 :::
+
+
+
+
+
+
 
